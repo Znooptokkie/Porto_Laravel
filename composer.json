@@ -14,17 +14,20 @@
         "laravel/tinker": "^3.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^4.4",
+        "driftingly/rector-laravel": "^2.7",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^3.13",
         "laravel/boost": "^2.2",
         "laravel/pail": "^1.2.5",
-        "laravel/pao": "^1.0.6",
+        "laravel/pao": "^1.1",
         "laravel/pint": "^1.27",
         "laravel/vet": "^0.2.1",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "pestphp/pest": "^5.3",
-        "pestphp/pest-plugin-laravel": "^5.0"
+        "pestphp/pest-plugin-laravel": "^5.0",
+        "rector/rector": "^2.8"
     },
     "autoload": {
         "psr-4": {
@@ -43,6 +46,20 @@
             "@php vendor/bin/pint --test",
             "@php vendor/bin/phpstan analyse --memory-limit=1G",
             "@php vendor/bin/pest"
+        ],
+        "rector": "rector process",
+        "rector:check": "rector process --dry-run",
+        "test:quick": [
+            "@putenv XDEBUG_MODE=coverage",
+            "@php vendor/bin/pest --tia"
+        ],
+        "coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "@php vendor/bin/pest --coverage"
+        ],
+        "mutate": [
+            "@putenv XDEBUG_MODE=coverage",
+            "@php vendor/bin/pest --mutate --parallel --covered-only"
         ],
         "setup": [
             "composer install",

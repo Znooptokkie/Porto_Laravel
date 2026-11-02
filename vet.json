@@ -310,6 +310,10 @@
         }
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": {
+            "version": "v4.4.5",
+            "hash": "tree-v2:9dd19faf4fe27b43d8da6a108fc7f2cd4f0a55a77bcc1822d215bb92682085d4"
+        },
         "brianium/paratest": {
             "version": "v7.27.5",
             "hash": "tree-v2:d82343684b4658d12db00f856c6b973063382f98f7f1ee231d53247fa0bcd0a3"
@@ -321,6 +325,10 @@
         "doctrine/deprecations": {
             "version": "1.1.6",
             "hash": "tree-v2:8abdb22c79e82b9ea4884ab18dbaa595bb5315736231fa9e310b9d70a3ab0815"
+        },
+        "driftingly/rector-laravel": {
+            "version": "2.7.3",
+            "hash": "tree-v2:dd3b9b1fec1ced5b861dc86bd48ca6ef0339c0c74ba89f817b16beab505879fd"
         },
         "fakerphp/faker": {
             "version": "v1.24.1",
@@ -426,6 +434,14 @@
             "version": "3.2.1",
             "hash": "tree-v2:0409e2019377650177c2b10da803617abc85e49d5b02b8697d450c007eab42b4"
         },
+        "php-debugbar/php-debugbar": {
+            "version": "v3.8.1",
+            "hash": "tree-v2:7d6ac2c76c8047281147aeee29f0935f79d59c95daa154927310cc4f86ed9eec"
+        },
+        "php-debugbar/symfony-bridge": {
+            "version": "v1.1.0",
+            "hash": "tree-v2:8269aa5afe1f773f0f86add49534d4dc4554d4045242bd3255842ba64b4e8a72"
+        },
         "phpdocumentor/reflection-common": {
             "version": "2.2.1",
             "hash": "tree-v2:b5e96fe132bff07f74d641a9d92eed23f59de9bf11828c15afe4b0a79efede7f"
@@ -469,6 +485,10 @@
         "phpunit/phpunit": {
             "version": "13.4.5",
             "hash": "tree-v2:33e66ef6d97bbc736beec4e19c5a4d29e10a9bef6fd3a7856871012428be125d"
+        },
+        "rector/rector": {
+            "version": "2.8.3",
+            "hash": "tree-v2:f2f513aa45af67d124819e8995fb6ccf14791984aef805d3b8394c80ccb4e78d"
         },
         "sebastian/cli-parser": {
             "version": "5.0.1",
@@ -537,6 +557,10 @@
         "symfony/yaml": {
             "version": "v8.1.10",
             "hash": "tree-v2:0d0297f6f295f658f721eeabac502399626511f9120a3ef8e93928a96739b6fc"
+        },
+        "symplify/rule-doc-generator-contracts": {
+            "version": "11.2.0",
+            "hash": "tree-v2:143fc89ce64308c660e6f52de2df92429720106e1e43e1484dd93193772ed011"
         },
         "ta-tikoma/phpunit-architecture-test": {
             "version": "0.8.7",
