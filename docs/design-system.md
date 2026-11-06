@@ -40,6 +40,28 @@ Gebruik de bijbehorende Figma-ontwerpen als uitgangspunt.
 - Voorkom dat teksten, afbeeldingen, navigatie of andere elementen elkaar overlappen.
 - Behoud de maximale contentbreedte op alle schermformaten.
 
+### Breakpoints
+
+Breakpoints zijn gekozen op basis van de content (waar een layout niet meer past), en de ontwerpbreedtes 1810, 834 en 390 px blijven exact. Alle waarden staan in `resources/css/app.css`; de bovenste regel van het responsive-blok legt ze vast.
+
+| Breedte | Gedrag |
+|---|---|
+| vanaf 1280 px | Skills naast elkaar: quote (376 px) en 5-koloms grid. |
+| tot 1279 px | Skills gestapeld: quote boven het grid. Vanaf 835 px 5 kolommen; daaronder kolommen van minimaal 140 px (auto-fit). |
+| vanaf 900 px | Desktopnavigatie in de header. |
+| tot 899 px | Menuknop en paneel: tablet-paneel van 481 tot 899 px, mobiel paneel tot 480 px. |
+| vanaf 835 px | Desktop-hero met vloeiende maten (zie hieronder). |
+| tot 834 px | Tablet-ontwerp: hero-tekst 410 px, portret 312 px, footer 29 px. |
+| tot 720 px | Compact: hero en tijdlijn gestapeld, zoals het mobiele ontwerp. |
+| tot 480 px | Mobiel-ontwerp (390 px): kopmaten, header 84 px, skills in 2 kolommen. |
+
+### Vloeiende maten
+
+- De contentmarge (`--content-gutter`) loopt lineair van 40 px op 834 px naar 112 px op 1810 px en blijft daarboven 112 px.
+- De hero is een rij met vloeiende breedtes: tekst `clamp(410px, …, 720px)`, portret `clamp(312px, …, 400px)`, tussenruimte `clamp(32px, …, 300px)`. Op 1810 px zijn dat de Figma-maten.
+- Het portret (versiering en foto) is in `cqw` (procent van de portretbreedte) getekend, zodat de ring en de foto met het portret meeschalen.
+- Overflow wordt niet verborgen. Layouts gebruiken `min-width: 0` op flex- en grid-items, `minmax(0, 1fr)` in grids en `flex-wrap` waar knoppen of logo's anders zouden breken.
+
 ## 4. Thema's
 
 De website ondersteunt twee thema's:
@@ -49,7 +71,8 @@ De website ondersteunt twee thema's:
 
 Regels:
 
-- Light mode is het standaardthema.
+- Bij het eerste bezoek volgt de website de systeemvoorkeur (`prefers-color-scheme`).
+- Zodra de bezoeker zelf een thema kiest, wordt die keuze opgeslagen in `localStorage` en daarna gebruikt.
 - Gebruik centrale CSS-variabelen voor achtergrondkleuren, tekstkleuren, borders en andere themagevoelige elementen.
 - Componenten mogen geen onnodig hardcoded themakleuren bevatten.
 - De themakeuze moet op iedere pagina consistent worden toegepast.
@@ -116,7 +139,8 @@ Regels:
 
 ## 9. Herbruikbaarheid
 
-- Gebruik centrale design tokens voor kleuren, typografie, spacing, breedtes en andere gedeelde waarden.
+- Gebruik centrale design tokens voor kleuren, typografie, spacing, breedtes en andere gedeelde waarden. Deze staan in `resources/css/app.css` (light-tokens in `@theme`, dark-tokens onder `[data-theme="dark"]`).
+- Voorkeuren van de bezoeker (thema, taal, accentkleur, toegankelijkheidsinstellingen) worden in `localStorage` bewaard en via één JavaScript-module toegepast.
 - Vermijd dubbele definities.
 - Gedeelde componenten moeten op alle pagina's dezelfde visuele regels volgen.
 - Maak geen afzonderlijke oplossingen wanneer een bestaande centrale oplossing uitgebreid kan worden.
@@ -130,3 +154,22 @@ Regels:
 - Gebruik voldoende contrast.
 - Vertrouw niet uitsluitend op kleur om informatie over te brengen.
 - Houd rekening met prefers-reduced-motion.
+
+## Accentkleuren
+
+- **Bron:** `--accent` in `resources/css/app.css` (default `#2ECC71`). De bezoekerskeuze (5 presets uit `config/portfolio.php` `accent_presets` of een eigen HEX) wordt via `resources/js/preferences.js` op `--accent` gezet.
+- **Afgeleide tinten:** `--accent-strong` is `color-mix(in srgb, var(--accent) 64%, #000)`; `--accent-soft` is `color-mix(in srgb, var(--accent) 15%, var(--color-surface))`. Beide volgen het actieve thema via de surface-token.
+- **Iconen:** SVG-exports in `public/images/figma/**` en `resources/svg/skills/**` gebruiken `currentColor` voor hun groene delen; `<x-themed-image>` plaatst SVG's inline, zodat ze de accentkleur volgen. Monochrome PNG-iconen gebruiken `accent` (CSS-mask met de alfa van de PNG). De preset-voorbeelden `pop-swatch*.svg` blijven vast (zie uitzonderingen).
+- **Tekst op accent:** `--accent-ink` is de tekstkleur op volle accentvlakken (knop `.button--primary`, skip-link, footer). `--accent-ink-soft` is de tekstkleur op de accenttint `--accent-soft` (tags). Beide worden in `applyAccentInks()` (`resources/js/preferences.js`) gezet met `pickInk()` uit `resources/js/accent-contrast.js`: het hoogste WCAG-contrast van `#102334` of `#FFFFFF`. De tint wordt berekend op de surface van het actieve thema, zoals `--accent-soft`.
+- **Contrasteis:** tekst op accentvlakken en -tinten haalt minimaal 4,5:1 (WCAG AA tekst); alleen als het contrast van de beste ink onder 4,5:1 zakt, is 3:1 het minimum voor grote tekst en UI. Met de huidige keuze blijft de beste ink voor ~88% van de RGB-kleuren boven 4,5:1; de slechtste kleur (bijv. `#5784A5`) haalt ~4,0:1. Toets nieuwe presets met `tests/Feature/AccentColourTest.php`.
+- **Accent als tekst:** accentkleuren als tekst op de paginasurface (titels, `.hero__name-accent`, `.section-heading__title span`) halen de norm voor sommige kleuren niet (groen ~2,1:1 op wit; geel ~1,2:1). Dit is een ontwerpkeuze die nog open staat; de ink-regel dekt dit niet.
+
+**Uitzonderingen (behouden hun oorspronkelijke kleur, ongeacht accent):**
+
+1. De persoonlijke foto in sectie 1 van de homepage (`public/images/profile/me_HH.webp`).
+2. Het Webprepare-logo in de tijdlijn (`public/images/figma/light/webprepareLogo.png`, dark `WebprepareLogo.png`).
+3. Het Battlebot-logo in de tijdlijn (`public/images/figma/light/battlebotLogo.png`, dark `BattlebotLogo.png`).
+
+De logo's zijn 88×88-vensters uit de Figma-logo-sheet (`sourceImageCrop.png`) die de 48px-logocirkel toont; de sheet wordt niet meer gebruikt. De sheet bevat nog de volledige homepage in groen en is daarom een kandidaat om uit `public/` te verwijderen (niet verwijderd: vereist akkoord).
+
+De preset-voorbeelden in de kleurenkiezer (`pop-swatch*.svg`, ongebruikt) en de swatch-knoppen (`--swatch`) tonen hun eigen presetkleur en volgen het accent daarom niet. Dit is een interpretatie van de regel "alle groene onderdelen"; ter bevestiging.

@@ -22,7 +22,7 @@
   - Gebruik PHP om automatisch het huidige kalenderjaar op te halen.
   - Gebruik hiervoor `now()->year` of een gelijkwaardige Laravel-oplossing.
   - Het jaartal moet automatisch veranderen op 1 januari, zonder handmatige aanpassing of databasewijziging.
-- **Kleur:** gebruik de bestaande CSS-tokens voor de main color en de achtergrondkleur uit `theme.css`. Gebruik geen hardcoded hex-waarden in de component.
+- **Kleur:** gebruik de bestaande CSS-tokens voor de main color en de achtergrondkleur uit `resources/css/app.css`. Gebruik geen hardcoded hex-waarden in de component.
 - **Toegankelijkheid:**
   - De GitHub-link moet een duidelijke en herkenbare link zijn.
   - Zorg voor voldoende kleurcontrast tussen de tekst en de achtergrond.

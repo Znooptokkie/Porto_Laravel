@@ -1,0 +1,42 @@
+<svg preserveAspectRatio="none" overflow="visible" width="97" height="46" viewBox="0 0 97 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Progress indicator">
+<g id="Decorative surface / 01" filter="url(#filter0_i_0_39)">
+<path d="M20.5 8.99951H26.5L16 37.0005H10L20.5 8.99951Z" fill="currentColor"/>
+</g>
+<g id="Decorative surface / 02" filter="url(#filter1_i_0_39)">
+<path d="M37 8.99951H43L32.5 37.0005H26.5L37 8.99951Z" fill="currentColor"/>
+</g>
+<mask id="stroke0_0_39" fill="white">
+<path d="M53.5 8.99951H59.5L49 37.0005H43L53.5 8.99951Z"/>
+</mask>
+<path id="Decorative surface / 03" d="M53.5 8.99951H59.5L49 37.0005H43L53.5 8.99951Z" stroke-width="2" stroke="#CCCCCC" mask="url(#stroke0_0_39)"/>
+<mask id="stroke1_0_39" fill="white">
+<path d="M70 8.99951H76L65.5 37.0005H59.5L70 8.99951Z"/>
+</mask>
+<path id="Decorative surface / 04" d="M70 8.99951H76L65.5 37.0005H59.5L70 8.99951Z" stroke-width="2" stroke="#CCCCCC" mask="url(#stroke1_0_39)"/>
+<mask id="stroke2_0_39" fill="white">
+<path d="M86.5 8.99951H92.5L82 37.0005H76L86.5 8.99951Z"/>
+</mask>
+<path id="Decorative surface / 05" d="M86.5 8.99951H92.5L82 37.0005H76L86.5 8.99951Z" stroke-width="2" stroke="#CCCCCC" mask="url(#stroke2_0_39)"/>
+</g>
+<defs>
+<filter id="filter0_i_0_39" x="10" y="8.99951" width="16.5" height="28.001" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="1" dy="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_39"/>
+</filter>
+<filter id="filter1_i_0_39" x="26.5" y="8.99951" width="16.5" height="28.001" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="1" dy="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_39"/>
+</filter>
+</defs>
+</svg>
