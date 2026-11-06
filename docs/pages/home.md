@@ -1,0 +1,173 @@
+## Sectie: Introductie
+
+- **Doel:** bezoekers in één oogopslag laten zien wie ik ben en dat ik cum laude ben afgestudeerd, en ze doorsturen naar projecten, mijn profiel, mijn LinkedIn en mijn GitHub.
+- **Inhoud:** vast, in Blade. Geen database.
+  - Korte tekst over het diploma, letterlijk: "Aan mboRijnland in Leiden heb ik de opleiding Software Developer afgerond met de onderscheiding cum laude, als eerste student in de geschiedenis van de opleiding."
+  - Afbeelding van mezelf: `public/images/profile/me_HH.webp`. Alt-tekst: "Atilla als challengegever bij de Haagsche Hogeschool voor het project SmartGarden".
+  - Linkjes:
+    - LinkedIn: externe pagina (https://www.linkedin.com/in/atilla-oomen-3a4b78335), nieuw tabblad met `rel="noopener noreferrer"`.
+    - GitHub: externe pagina (https://github.com/znooptokkie/), nieuw tabblad met `rel="noopener noreferrer"`.
+    - Over mij: interne link naar de pagina "Over Mij".
+  - Twee knoppen:
+    - "Projecten": naar de pagina Projecten.
+    - "Over Mij": naar de pagina Over Mij.
+- **Data:** geen. De externe URL's (LinkedIn, GitHub) staan op één plek in `config/portfolio.php`, niet in de views.
+- **Beheer:** geen; ik wijzig tekst en links in de code.
+- **Interactie:** alleen de links en knoppen. Geen formulier of filter.
+- **Animatie:**
+  - De afbeelding van mij is stilstaand.
+  - De versiering rondom de afbeelding is decoratief (`aria-hidden="true"`) en draait langzaam en continu rond de afbeelding. Eén rondje duurt 30 seconden.
+  - Bij `prefers-reduced-motion` draait de versiering niet.
+- **Randgevallen:**
+  - Ontbreekt de afbeelding, toon dan alleen de tekst en de knoppen, zonder lege plek.
+  - Op mobiel volgt de layout het mobiele frame in Figma.
+  - De versiering mag niet buiten het scherm vallen of horizontaal scrollen veroorzaken.
+- **Acceptatie:**
+  - De pagina toont de tekst, de afbeelding, drie linkjes en twee knoppen.
+  - Externe links openen in een nieuw tabblad met `rel="noopener noreferrer"`.
+  - "Projecten" leidt naar de Projecten-pagina, de knop "Over Mij" naar de pagina Over Mij.
+  - De versiering draait; met reduced motion staat hij stil.
+  - De pagina werkt en is leesbaar zonder JavaScript.
+
+
+## Sectie: Programmeervaardigheden
+
+- **Doel:** bezoekers laten zien welke programmeertalen, tools en concepten ik beheers, met een korte toelichtende tekst.
+- **Inhoud:** links vaste tekst in Blade, rechts dynamische kaarten uit de database.
+  - **Grote container (links), vaste tekst:** "Ik beschik over een goede basis in meerdere programmeertalen, vooral in **Python**, **PHP** en **JavaScript**. En ik blijf mijn kennis verder uitbreiden." De woorden Python, PHP en JavaScript zijn vetgedrukt (`<strong>`).
+  - **Kleine containers (rechts):** twee rijen van vijf kaarten, dus maximaal 10. Elke kaart vertegenwoordigt één `Skill` uit de database, gesorteerd op oplopende primary key (`id`).
+- **Opbouw van één kaart:**
+  - Linksboven het icoon als SVG, bepaald door het veld `icon`.
+  - Daaronder de naam van de vaardigheid.
+  - Rechts van de naam een groene beheersingsbalk:
+    - De kleur komt uit de CSS-token `--accent` (#2ECC71 als standaardthema).
+    - De kleur verandert automatisch wanneer de gebruiker een ander thema kiest.
+    - De breedte wordt bepaald door het veld `proficiency` en geeft het beheersingsniveau aan.
+    - `proficiency` is een integer tussen 0 en 100, waarbij 100 overeenkomt met een volledig gevulde balk.
+    - Claude Code mag voorlopig zelf realistische voorbeeldwaarden voor `proficiency` bepalen. Ik pas deze later zelf aan naar de juiste waarden.
+    - De balk is decoratief en heeft een lichte transparantie volgens de waarde in Figma.
+  - Onderaan een regel met de subconcepten (frameworks, IDE's en andere gerelateerde technologieën), visueel gescheiden zoals in Figma.
+    - Alle eerste regels van de subconcepten beginnen op exact dezelfde verticale positie binnen hun kaarten.
+    - Als de subconcepten niet op één regel passen, loopt de tekst door op een tweede regel.
+    - Er worden maximaal twee regels getoond. Als de tekst niet binnen twee regels past, wordt het resterende gedeelte afgekapt met een ellipsis (`…`).
+    - De hoogte en positie van dit gedeelte staan vast, zodat kaarten onderling gelijk blijven en andere elementen niet verschuiven.
+    - Een skill zonder subconcepten behoudt dezelfde kaartindeling, maar toont geen subconcepttekst.
+- **Data (Skill):**
+  - `name`: verplicht, uniek (bijvoorbeeld "Python", "AI", "Docker", "Linux").
+  - `icon`: verplicht, bestandsnaam van de SVG zonder extensie. De SVG-bestanden staan in `resources/svg/skills/` en worden via een Blade-component ingeladen. Sla geen SVG-inhoud op in de database.
+  - `proficiency`: verplicht, integer tussen 0 en 100. Bepaalt de breedte van de beheersingsbalk.
+  - `subconcepts`: optioneel, lijst van teksten (JSON-array, in het model gecast naar een array).
+  - Het model heet `Skill`, niet `ProgrammingLanguage`, omdat niet alle vaardigheden programmeertalen zijn.
+- **Beheer:** geen beheerpagina; de data komt uit een seeder en wordt rechtstreeks in de code aangepast.
+- **Interactie:** geen.
+- **Animatie:** geen, tenzij Figma anders toont.
+- **Layout-regel:**
+  - De rechterkant (beide rijen samen) is exact even hoog als de grote container links.
+  - De twee rijen zijn exact even hoog en verdelen de beschikbare hoogte gelijkmatig.
+  - De rechterkant behoudt altijd een gridstructuur van twee rijen en vijf kolommen, ook wanneer er minder dan 10 skills aanwezig zijn.
+  - Ontbrekende skills laten lege plekken achter. Bestaande kaarten worden niet automatisch groter om deze plekken op te vullen.
+  - Alle kaarten binnen dezelfde rij hebben dezelfde hoogte.
+  - De kaarten mogen nooit groter worden door hun inhoud.
+  - De inhoud wordt binnen de beschikbare ruimte afgekapt wanneer deze niet past.
+  - De layout mag niet verschuiven door verschillen in tekstlengte.
+- **Randgevallen:**
+  - Er zijn minder dan 10 skills: toon alleen de bestaande kaarten. De overige plekken blijven leeg, zonder dat de hoogte of breedte van de bestaande kaarten verandert.
+  - Er zijn meer dan 10 skills: toon uitsluitend de eerste 10 op basis van oplopende `id`.
+  - Er zijn geen skills: toon de grote container met de tekst en geen foutmelding.
+  - Een skill zonder subconcepten: toon geen subconcepttekst, maar behoud de vaste indeling van de kaart.
+  - Een ontbrekend SVG-bestand: toon een neutrale, hardcoded SVG-placeholder. Dit mag geen foutmelding of kapotte layout veroorzaken.
+  - Op mobiel volgt de layout het mobiele frame in Figma. Behoud daarbij de onderlinge verhoudingen en voorkom horizontale overflow.
+- **Toegankelijkheid:**
+  - De iconen en de groene beheersingsbalk zijn decoratief (`aria-hidden="true"`).
+  - De naam van de vaardigheid staat al als tekst op de kaart.
+  - De inhoud blijft leesbaar zonder afhankelijkheid van kleur.
+  - De SVG-placeholder is eveneens decoratief.
+- **Kleur:** gebruik de CSS-token `--accent` uit `theme.css`. Gebruik geen hardcoded hex-waarden in componenten.
+- **Database:** haal alle skills op met één databasequery, gesorteerd op `id` en beperkt tot maximaal 10 resultaten.
+- **Acceptatie:**
+  - De tekst toont Python, PHP en JavaScript vetgedrukt.
+  - De kaarten staan in oplopende volgorde van `id`.
+  - Elke kaart toont het icoon, de naam, de beheersingsbalk en eventuele subconcepten.
+  - De breedte van de beheersingsbalk komt overeen met `proficiency`.
+  - De kleur van de beheersingsbalk volgt de actieve themakleur.
+  - Claude Code vult voorlopig zelf realistische `proficiency`-waarden in.
+  - Alle eerste regels van de subconcepten beginnen op dezelfde hoogte.
+  - Subconcepten worden maximaal over twee regels getoond en daarna afgekapt met een ellipsis.
+  - De rechterkant is exact even hoog als de grote container.
+  - De gridstructuur blijft twee rijen en vijf kolommen, ook bij minder dan 10 skills.
+  - Met 0, 3 of 12 skills in de database breekt de layout niet.
+  - Een ontbrekend SVG-bestand wordt vervangen door een neutrale SVG-placeholder.
+  - De sectie gebruikt één databasequery voor alle skills.
+
+
+## Sectie: Tijdlijn
+
+- **Doel:** bezoekers informeren over de keuzes die ik gedurende mijn leven heb gemaakt, met de nadruk op mijn schoolervaring, mijn opleiding en de redenen waarom ik bepaalde keuzes wel of niet heb gemaakt.
+- **Inhoud:** vijf vaste containers met ieder een eigen onderdeel van mijn persoonlijke verhaal. Alle inhoud is statisch en wordt rechtstreeks in Blade geplaatst. Er wordt geen database gebruikt.
+- **Structuur van de tijdlijn:**
+  - Links van de vijf containers staat een verticale, genummerde tijdlijn.
+  - Iedere container heeft een eigen bolletje op de tijdlijn.
+  - Vanuit ieder bolletje loopt een verticale verbindingslijn naar beneden, die aansluit op de volgende stap in de tijdlijn.
+  - Rechts van ieder bolletje staat het bijbehorende nummer, beginnend bij `01` en oplopend tot `05`.
+  - Onder het nummer staat in één woord het onderwerp van de betreffende container.
+  - De bolletjes, nummers, onderwerpen en verbindingslijnen moeten visueel correct uitgelijnd zijn met de bijbehorende containers.
+  - De verticale verbindingslijn sluit aan op de volgende stap. Bij de laatste container eindigt de lijn onderaan de container.
+- **Opbouw van één container:**
+  - **Bovenste regel:** bestaat uit een icoon, een titel en vijf decoratieve schuine strepen.
+    - Links staat een icoon dat past bij het onderwerp van de container.
+    - Naast het icoon staat de titel.
+    - Rechts van de titel staan vijf decoratieve schuine strepen die de positie van de container in de tijdlijn aangeven.
+    - Alle onderdelen staan op dezelfde horizontale regel.
+    - De vijf strepen hebben een vaste vorm en afmeting.
+    - Het aantal ingekleurde strepen komt overeen met de positie van de container:
+      - Container 1: één ingekleurde streep.
+      - Container 2: twee ingekleurde strepen.
+      - Container 3: drie ingekleurde strepen.
+      - Container 4: vier ingekleurde strepen.
+      - Container 5: vijf ingekleurde strepen.
+    - De ingekleurde strepen gebruiken de main color van het standaardthema.
+    - De overige strepen zijn zichtbaar, maar hebben een gedempte kleur.
+  - **Verhaal:** onder de bovenste regel staat de tekst die bij de betreffende container hoort.
+    - De tekst bestaat uit meerdere paragrafen.
+    - Bepaalde woorden of zinsdelen zijn vetgedrukt en krijgen de main color van het standaardthema.
+    - Gebruik hiervoor semantische HTML (`<strong>`).
+    - De paragrafen behouden de onderlinge witruimte en tekstindeling zoals weergegeven in Figma.
+- **Data:** geen. Alle vijf containers, titels, iconen, onderwerpen en teksten staan vast in Blade. Er worden geen databasequeries uitgevoerd.
+- **Beheer:** geen beheerpagina. Aanpassingen aan de inhoud gebeuren rechtstreeks in de Blade-code.
+- **Interactie:** geen. De tijdlijn is uitsluitend bedoeld om informatie te presenteren.
+- **Animatie:** geen, tenzij Figma anders toont.
+- **Layout-regel:**
+  - De tijdlijn links en de vijf containers rechts vormen samen één samenhangende layout.
+  - Iedere tijdlijnstap moet verticaal overeenkomen met de bijbehorende container.
+  - De verbindingslijnen sluiten visueel aan op de bolletjes en lopen langs de volledige hoogte van de bijbehorende tijdlijnstappen.
+  - De vijf containers behouden dezelfde vormgeving en onderlinge structuur.
+  - De bovenste regel van iedere container blijft horizontaal uitgelijnd.
+  - De vijf decoratieve strepen blijven rechts van de titel staan, zonder dat ze de titel of het icoon verdringen.
+  - Lange titels mogen de layout niet laten overlopen of horizontaal laten scrollen.
+  - De tekst mag de container niet buiten de beschikbare breedte laten groeien.
+- **Randgevallen:**
+  - Alle vijf containers worden altijd getoond, in de vaste volgorde van 01 tot en met 05.
+  - Een lege paragraaf of ontbrekende tekst mag geen onnodige lege ruimte veroorzaken.
+  - Lange teksten moeten netjes doorlopen naar volgende regels.
+  - Op mobiel volgt de layout het mobiele frame in Figma. De tijdlijn en containers moeten daarbij correct uitgelijnd blijven.
+  - Er mag geen horizontale overflow ontstaan.
+- **Toegankelijkheid:**
+  - De iconen, bolletjes, verbindingslijnen en decoratieve schuine strepen zijn decoratief (`aria-hidden="true"`).
+  - De nummers, onderwerpen, titels en verhalen blijven beschikbaar als normale tekst.
+  - De nadruk op woorden mag niet uitsluitend afhankelijk zijn van kleur; gebruik ook `<strong>`.
+  - De volledige inhoud moet leesbaar en bruikbaar blijven zonder JavaScript.
+- **Kleur:** gebruik de bestaande CSS-token voor de main color van het standaardthema. Controleer hiervoor `theme.css` en gebruik geen hardcoded hex-waarden in componenten.
+- **Acceptatie:**
+  - Er worden exact vijf containers getoond.
+  - De containers staan in de juiste volgorde van 01 tot en met 05.
+  - Iedere container heeft een eigen bolletje, nummer en onderwerp op de tijdlijn.
+  - De verticale verbindingslijnen sluiten correct aan op de tijdlijnstappen.
+  - Iedere container toont een icoon, titel, vijf decoratieve schuine strepen en het bijbehorende verhaal.
+  - Het aantal ingekleurde strepen loopt op van één bij de eerste container tot vijf bij de laatste container.
+  - De ingekleurde strepen gebruiken de main color van het standaardthema.
+  - Vetgedrukte woorden gebruiken `<strong>` en de main color van het standaardthema.
+  - De bovenste regel van iedere container blijft correct uitgelijnd.
+  - De tijdlijn en containers blijven correct uitgelijnd op mobiel.
+  - De layout veroorzaakt geen horizontale overflow.
+  - Alle inhoud is statisch en er worden geen databasequeries uitgevoerd.
+  - De volledige sectie werkt en is leesbaar zonder JavaScript.
