@@ -55,9 +55,9 @@ return [
                 'label' => 'Programme',
                 'title' => 'Moving on to Software Developer',
                 'paragraphs' => [
-                    'Back at school, I started this programme with a huge amount of motivation, which paid off repeatedly. I was often asked to take on <strong>extra projects</strong>, such as supervising an <strong>exchange programme</strong>, and I even had the chance to coach <strong>HBO students</strong> as challengers for their project.',
-                    'My motivation is also reflected in my grades. I <strong><u>graduated cum laude</u></strong> as the best student of the <strong class="fw-bold">Software Development programme at mboRijnland</strong>. I should mention that ROC Leiden merged into mboRijnland seven years earlier, but it is an achievement I am incredibly proud of!',
-                    'I also took part in an <strong>AI research project</strong> for which I received a certificate of excellence. The research focused on how schools can use AI responsibly. I carried out <strong class="fw-bold">various studies</strong> for this project and gave several presentations together with a team of students and a teacher.',
+                    'Back at school, I started this programme with a huge amount of motivation, which paid off repeatedly. I was often asked to take on <strong>extra projects</strong>, such as supervising an exchange programme, and I even had the chance to coach <strong><a href="https://civ-smarttechnology.nl/update-smart-garden/" target="_blank" class="timeline-link">HBO students</a></strong> as challengers for their project.',
+                    'My motivation is also reflected in my grades. I <strong>graduated cum laude</strong> as the best student of the <strong class="fw-bold">Software Development programme at mboRijnland</strong>. I should mention that ROC Leiden merged into mboRijnland seven years earlier, but it is an achievement I am incredibly proud of!',
+                    'I also took part in an <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI research project</a></strong> for which I received <strong><a href="#" class="timeline-link">a certificate of excellence.</a></strong> The research focused on how schools can use AI responsibly. I carried out <strong class="fw-bold">various studies</strong> for this project and gave several presentations together with a team of students and a teacher.',
                     'School gave me a solid foundation to build on. By paying close attention and carefully completing my assignments, I can now write code independently and solve problems reasonably well.',
                 ],
             ],
@@ -68,12 +68,12 @@ return [
                     [
                         'name' => 'Webprepare',
                         'tag' => 'First internship',
-                        'text' => 'I completed my first internship at <strong>Webprepare</strong> in Voorschoten, a company specialising in <strong class="fw-bold">WordPress and hosting</strong>.',
+                        'text' => 'I completed my first internship at <strong><a href="https://boutio.nl/" target="_blank" class="timeline-link">Webprepare</a></strong> in Voorschoten, a company specialising in <strong class="fw-bold">WordPress and hosting</strong>.',
                     ],
                     [
                         'name' => 'Battlebot',
                         'tag' => 'Latest internship',
-                        'text' => 'Battlebot was my last internship at mboRijnland, within the Technology department. My task, together with <strong>Matthijs</strong>, was to fully automate the existing robot.',
+                        'text' => 'Battlebot was my last internship at <strong><a href="https://mborijnland.nl" target="_blank" class="timeline-link">mboRijnland</a></strong>, within the Technology department. My task, together with <strong>Matthijs</strong>, was to fully automate the existing robot.',
                     ],
                 ],
             ],
@@ -81,7 +81,7 @@ return [
                 'label' => 'Outlook',
                 'title' => 'Future Plans',
                 'paragraphs' => [
-                    'After taking some time to reflect on what I want to pursue within <strong class="fw-bold">software development</strong>, and after discussing my options with a former teacher from my previous programme, I decided to enrol in the dual-study programme at <strong class="fw-bold">Utrecht University of Applied Sciences</strong>. Over the course of four years, I will combine working and studying.',
+                    'After taking some time to reflect on what I want to pursue within <strong class="fw-bold">software development</strong>, and after discussing my options with a former teacher from my previous programme, I decided to enrol in the dual-study programme at <strong class="fw-bold">Utrecht University of Applied Sciences</strong>, through <strong><a href="https://cita.academy/" target="_blank" class="timeline-link">Stichting CITA</a></strong>. Over the course of four years, I will combine working and studying.',
                     'I am, of course, looking forward to this programme with great enthusiasm. I want to further develop my <strong class="fw-bold">soft and hard skills</strong>, learn how to set up and manage projects, and strengthen my analytical and research skills. Above all, I want to keep learning and enjoy what I do!',
                     'The programme is scheduled to start in the <strong class="fw-bold">2027–2028 academic year</strong>. In preparation, I am doing everything I can to build a strong foundation and ensure I am well prepared when the programme begins.',
                 ],

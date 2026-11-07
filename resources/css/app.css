@@ -317,6 +317,10 @@ input,
     z-index: 60;
 }
 
+[data-theme='light'] .popover {
+    background: var(--color-surface);
+}
+
 .popover[hidden] {
     display: none;
 }
@@ -532,6 +536,23 @@ input,
     font-weight: 600;
     font-size: 0.9375rem;
     color: inherit;
+}
+
+.site-footer__name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Logo in de tekstkleur van de footer, in beide thema's. Overschrijft de vaste vulkleuren uit de Figma-export. */
+.site-footer .site-footer__logo {
+    color: inherit;
+    height: 1.25em;
+    width: auto;
+}
+
+.site-footer .site-footer__logo path {
+    fill: currentColor;
 }
 
 /* Homepage */
@@ -1056,6 +1077,16 @@ input,
     color: var(--color-text);
 }
 
+.timeline-link {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.3s ease;
+}
+
+.timeline-link:hover {
+    text-decoration-color: currentColor;
+}
+
 .story-card {
     display: flex;
     flex-direction: column;
@@ -1127,6 +1158,21 @@ input,
 .story-card__text strong.fw-bold,
 .internship-card__text strong.fw-bold {
     font-weight: 700;
+}
+
+/* Externe links in verhalen en stages: het linkicoon als inline mask, in de kleur van de link en gelijk aan de tekstgrootte. */
+/* .story-card__text a[target='_blank']::after, */
+.internship-card__text a[class="timeline-link"]::after,
+.story-card__text a[class="timeline-link"]::after
+ {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.25em;
+    vertical-align: -0.125em;
+    background-color: currentColor;
+    mask: var(--external-link-icon) center / contain no-repeat;
 }
 
 .internships {

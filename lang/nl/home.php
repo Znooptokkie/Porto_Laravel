@@ -55,9 +55,9 @@ return [
                 'label' => 'Opleiding',
                 'title' => 'Overstap naar Software Developer',
                 'paragraphs' => [
-                    'Weer terug naar school, nu begon ik deze opleiding wel met een enorme hoeveelheid motivatie, wat zich meerdere keren uitbetaalde. Ik werd herhaaldelijk gevraagd om <strong>extra projecten</strong> op te pakken, zoals het begeleiden van een <strong>uitwisselingsprogramma</strong>, en kreeg zelfs de kans om <strong>HBO-studenten te begeleiden</strong> als challengegever voor hun project.',
-                    'De resultaten van mijn motivatie zijn ook terug te zien in mijn cijfers. Ik ben <strong><u>cum laude afgestudeerd</u></strong> als de beste student van de opleiding <strong class="fw-bold">Software Development aan mboRijnland</strong>. Ik moet wel vermelden dat ROC Leiden zeven jaar geleden overging in mboRijnland, maar het blijft een prestatie waar ik ontzettend trots op ben!',
-                    'Bovendien nam ik deel aan een <strong>AI-onderzoek</strong> waarvoor ik een certificaat van excellentie ontving. Dit onderzoek richtte zich op hoe scholen verantwoord met het gebruik van AI kunnen omgaan. Ik voerde <strong class="fw-bold">diverse onderzoeken</strong> uit voor dit project en verzorgde meerdere presentaties samen met een team van studenten en een docent.',
+                    'Weer terug naar school, nu begon ik deze opleiding wel met een enorme hoeveelheid motivatie, wat zich meerdere keren uitbetaalde. Ik werd herhaaldelijk gevraagd om <strong>extra projecten</strong> op te pakken, zoals het begeleiden van een <strong>uitwisselingsprogramma</strong>, en kreeg zelfs de kans om <strong><a href="https://civ-smarttechnology.nl/update-smart-garden/" target="_blank" class="timeline-link">HBO-studenten te begeleiden</a></strong> als challengegever voor hun project.',
+                    'De resultaten van mijn motivatie zijn ook terug te zien in mijn cijfers. Ik ben <strong>cum laude afgestudeerd</strong> als de beste student van de opleiding <strong class="fw-bold">Software Development aan mboRijnland</strong>. Ik moet wel vermelden dat ROC Leiden zeven jaar geleden overging in mboRijnland, maar het blijft een prestatie waar ik ontzettend trots op ben!',
+                    'Bovendien nam ik deel aan een <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI-onderzoek</a></strong> waarvoor ik een <strong><a href="#" class="timeline-link">certificaat van excellentie</a></strong> ontving. Dit onderzoek richtte zich op hoe scholen verantwoord met het gebruik van AI kunnen omgaan. Ik voerde <strong class="fw-bold">diverse onderzoeken</strong> uit voor dit project en verzorgde meerdere presentaties samen met een team van studenten en een docent.',
                     'School heeft mij een solide basis gegeven om op voort te bouwen. Door er goed op te letten en mijn opdrachten zorgvuldig uit te voeren, kan ik nu zelfstandig code schrijven en problemen redelijk goed oplossen.',
                 ],
             ],
@@ -68,12 +68,12 @@ return [
                     [
                         'name' => 'Webprepare',
                         'tag' => 'Eerste stage',
-                        'text' => 'Ik heb mijn eerste stage voltooid bij <strong>Webprepare</strong> in Voorschoten, een bedrijf dat gespecialiseerd is in <strong class="fw-bold">WordPress en hosting</strong>.',
+                        'text' => 'Ik heb mijn eerste stage voltooid bij <strong><a href="https://boutio.nl/" target="_blank" class="timeline-link">Webprepare</a></strong> in Voorschoten, een bedrijf dat gespecialiseerd is in <strong class="fw-bold">WordPress en hosting</strong>.',
                     ],
                     [
                         'name' => 'Battlebot',
                         'tag' => 'Laatste stage',
-                        'text' => 'Battlebot was mijn laatste stage bij mboRijnland binnen de afdeling Techniek. Mijn taak, samen met <strong>Matthijs</strong>, was om de bestaande robot volledig te automatiseren.',
+                        'text' => 'Battlebot was mijn laatste stage bij <strong><a href="https://mborijnland.nl" target="_blank" class="timeline-link">mboRijnland</a></strong> binnen de afdeling Techniek. Mijn taak, samen met <strong>Matthijs</strong>, was om de bestaande robot volledig te automatiseren.',
                     ],
                 ],
             ],
@@ -81,7 +81,7 @@ return [
                 'label' => 'Vooruitblik',
                 'title' => 'Toekomstige Plannen',
                 'paragraphs' => [
-                    'Na enige tijd te hebben nagedacht over wat ik precies wil binnen de softwareontwikkeling, en na overleg met een oud-docent van mijn opleiding, heb ik besloten mij in te schrijven voor de duale opleiding aan <strong class="fw-bold">Hogeschool Utrecht</strong>. Hier zal ik gedurende vier jaar een werk- en leertraject volgen.',
+                    'Na enige tijd te hebben nagedacht over wat ik precies wil binnen de softwareontwikkeling, en na overleg met een oud-docent van mijn opleiding, heb ik besloten mij in te schrijven voor de duale opleiding aan <strong class="fw-bold">Hogeschool Utrecht</strong> via <strong><a href="https://cita.academy/" target="_blank" class="timeline-link">Stichting CITA</a></strong>. Hier zal ik gedurende vier jaar een werk- en leertraject volgen.',
                     'Ook deze opleiding ga ik uiteraard met veel motivatie tegemoet. Ik wil mijn <strong class="fw-bold">soft- en hardskills</strong> verder ontwikkelen, leren hoe ik projecten opzet en mijn onderzoekende houding versterken. Maar bovenal wil ik veel leren en plezier hebben in wat ik doe!',
                     'De start van de opleiding staat gepland voor het schooljaar <strong class="fw-bold">2027-2028</strong>. In de aanloop daarnaartoe bereid ik mij zo goed mogelijk voor, zodat ik goed voorbereid en met een sterke basis aan de opleiding kan beginnen.',
                 ],

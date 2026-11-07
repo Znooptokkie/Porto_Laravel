@@ -1,5 +1,5 @@
 @props(['number', 'chapter', 'milestone', 'progress', 'icon'])
-<li class="timeline-chapter">
+<li class="timeline-chapter" style="--external-link-icon: url('{{ asset('images/figma/light/externalLinkBoxIcon.svg') }}')">
     <div class="timeline-chapter__marker">
         <x-themed-image class="timeline-chapter__dot" :light="$milestone['light']" :dark="$milestone['dark']" />
         <p class="timeline-chapter__number">{{ $number }}</p>
