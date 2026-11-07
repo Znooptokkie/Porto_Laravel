@@ -49,7 +49,7 @@
 [data-theme='dark'] {
     color-scheme: dark;
 
-    --color-bg: #00010f;
+    --color-bg: #000219;
     --color-surface: #000b1d;
     --color-surface-alt: #000b1d;
     --color-text: #f3f6fa;
@@ -1831,4 +1831,70 @@ input,
     .site-nav__rule--4 {
         top: 263px;
     }
+}
+
+/* Mobile/tablet menu: slides down from the top when opened and up when closed.
+   Only the animation is added here; with animations off (data-motion="off") the menu opens and closes instantly. */
+@media (max-width: 899px) {
+    .site-header[data-menu-open='true'] .site-nav {
+        animation: menu-slide-down 0.3s ease-out both;
+    }
+
+    .site-header[data-menu-closing='true'] .site-nav {
+        animation: menu-slide-up 0.25s ease-in both;
+    }
+}
+
+[data-motion='off'] .site-header .site-nav {
+    animation: none !important;
+}
+
+@keyframes menu-slide-down {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes menu-slide-up {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+/* Mobile/tablet menu: dim the rest of the page while the menu is open, and a light shadow under the panel. */
+@media (max-width: 899px) {
+    body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        background: rgb(0 1 15 / 0.45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    body:has(.site-header[data-menu-open='true']:not([data-menu-closing='true']))::after {
+        opacity: 1;
+    }
+
+    .site-nav {
+        box-shadow: 0 4px 12px rgb(0 1 15 / 0.12);
+    }
+
+    [data-theme='dark'] .site-nav {
+        box-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
+    }
+}
+
+[data-motion='off'] body::after {
+    transition: none;
 }

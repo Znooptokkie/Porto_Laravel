@@ -101,16 +101,18 @@ function bindMobileMenu(header) {
  */
 function setMobileMenu(header, isOpen, options = {}) {
     const toggle = header.querySelector('[data-menu-toggle]');
+    const isCurrentlyOpen = header.dataset.menuOpen === 'true' && header.dataset.menuClosing !== 'true';
 
-    if (!toggle || (header.dataset.menuOpen === 'true') === isOpen) {
+    if (!toggle || isCurrentlyOpen === isOpen) {
         return;
     }
 
-    header.dataset.menuOpen = String(isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.setAttribute('aria-label', toggle.dataset[isOpen ? 'labelClose' : 'labelOpen']);
 
     if (isOpen) {
+        header.dataset.menuOpen = 'true';
+        delete header.dataset.menuClosing;
         header.querySelector('.site-nav__link')?.focus();
         return;
     }
@@ -120,6 +122,25 @@ function setMobileMenu(header, isOpen, options = {}) {
     if (options.returnFocus) {
         toggle.focus();
     }
+
+    // Keep the panel visible while the slide-up plays; finish immediately when animations are off.
+    if (document.documentElement.dataset.motion === 'off') {
+        finishMobileMenuClose(header);
+        return;
+    }
+
+    header.dataset.menuClosing = 'true';
+    const panel = header.querySelector('.site-nav');
+    panel?.addEventListener('animationend', () => finishMobileMenuClose(header), { once: true });
+    window.setTimeout(() => finishMobileMenuClose(header), 400);
+}
+
+/**
+ * @param {HTMLElement} header
+ */
+function finishMobileMenuClose(header) {
+    header.dataset.menuOpen = 'false';
+    delete header.dataset.menuClosing;
 }
 
 /**
