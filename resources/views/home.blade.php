@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container-max">
     <section class="hero" aria-labelledby="hero-title">
             <div class="hero__text">
                 <p class="greeting">{{ __('home.hero.greeting') }}</p>
@@ -62,6 +63,16 @@
                 </div>
             </div>
         </section>
+
+            <div class="hero__stats">
+                @foreach (__('home.hero.stats') as $statKey => $stat)
+                    <div class="hero-stat">
+                        <p class="hero-stat__value">{{ $stat['value'] }}</p>
+                        <p class="hero-stat__label {{ in_array($statKey, ['projects', 'leetcode'], true) ? 'hero-stat__label--compact' : '' }}">{!! $stat['label'] !!}</p>
+                    </div>
+                @endforeach
+            </div>
+    </div>
 
     <div class="container-max">
         <section class="section section--skills" aria-labelledby="skills-title">

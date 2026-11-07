@@ -11,13 +11,19 @@ return [
         'about' => 'About Me',
         'email_label' => 'Email',
         'portrait_alt' => 'Atilla as a challenger at the Haagsche Hogeschool for the SmartGarden project',
+        'stats' => [
+            'age' => ['value' => '31', 'label' => 'Years<br>Old'],
+            'experience' => ['value' => '5', 'label' => 'Years of<br>Experience'],
+            'projects' => ['value' => '6', 'label' => 'Projects<br>Completed'],
+            'leetcode' => ['value' => '90', 'label' => 'Leetcode<br>Solved'],
+        ],
     ],
 
     'skills' => [
         'eyebrow' => '01 / SKILLS',
         'heading' => 'My Programming',
         'heading_accent' => 'Skills',
-        'quote' => 'I have a solid foundation in several programming languages, mainly <strong>Python, PHP</strong> and <strong>JavaScript</strong>. And I keep expanding my knowledge.',
+        'quote' => 'I have a strong foundation in <strong>Python, PHP</strong> and <strong>JavaScript</strong>. I actively use AI tools, particularly <strong>Claude Code</strong> and <strong>Figma MCP</strong>, to enhance my development workflow.',
     ],
 
     'timeline' => [
@@ -75,8 +81,9 @@ return [
                 'label' => 'Outlook',
                 'title' => 'Future Plans',
                 'paragraphs' => [
-                    'After some thought about what I really want to do with <strong class="fw-bold">software development</strong>, I chose to enrol in the dual degree programme at <strong>Hogeschool Utrecht</strong>, where I will follow a four-year work-and-study path.',
-                    'Of course, I will approach this programme with the same motivation. Where needed, I will improve my <strong class="fw-bold">soft and hard skills</strong>, learn to set up projects, further develop my research mindset, and, above all, have a lot of fun!',
+                    'After taking some time to reflect on what I want to pursue within <strong class="fw-bold">software development</strong>, and after discussing my options with a former teacher from my previous programme, I decided to enrol in the dual-study programme at <strong class="fw-bold">Utrecht University of Applied Sciences</strong>. Over the course of four years, I will combine working and studying.',
+                    'I am, of course, looking forward to this programme with great enthusiasm. I want to further develop my <strong class="fw-bold">soft and hard skills</strong>, learn how to set up and manage projects, and strengthen my analytical and research skills. Above all, I want to keep learning and enjoy what I do!',
+                    'The programme is scheduled to start in the <strong class="fw-bold">2027–2028 academic year</strong>. In preparation, I am doing everything I can to build a strong foundation and ensure I am well prepared when the programme begins.',
                 ],
             ],
         ],

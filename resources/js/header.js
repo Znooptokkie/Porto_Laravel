@@ -113,6 +113,7 @@ function setMobileMenu(header, isOpen, options = {}) {
     if (isOpen) {
         header.dataset.menuOpen = 'true';
         delete header.dataset.menuClosing;
+        startMenuOpenAnimation(header);
         header.querySelector('.site-nav__link')?.focus();
         return;
     }
@@ -133,6 +134,20 @@ function setMobileMenu(header, isOpen, options = {}) {
     const panel = header.querySelector('.site-nav');
     panel?.addEventListener('animationend', () => finishMobileMenuClose(header), { once: true });
     window.setTimeout(() => finishMobileMenuClose(header), 400);
+}
+
+/**
+ * The slide-down runs once when the menu opens. Changing a visitor preference while the menu is
+ * open must not replay it, so the animation flag is removed as soon as the slide has finished.
+ *
+ * @param {HTMLElement} header
+ */
+function startMenuOpenAnimation(header) {
+    const panel = header.querySelector('.site-nav');
+    header.dataset.menuAnimate = 'true';
+    const finish = () => delete header.dataset.menuAnimate;
+    panel?.addEventListener('animationend', finish, { once: true });
+    window.setTimeout(finish, 400);
 }
 
 /**

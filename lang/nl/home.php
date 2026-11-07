@@ -11,13 +11,19 @@ return [
         'about' => 'Over Mij',
         'email_label' => 'E-mail',
         'portrait_alt' => 'Atilla als challengegever bij de Haagsche Hogeschool voor het project SmartGarden',
+        'stats' => [
+            'age' => ['value' => '31', 'label' => 'Jaar<br>Oud'],
+            'experience' => ['value' => '5', 'label' => 'Jaar<br>Ervaring'],
+            'projects' => ['value' => '6', 'label' => 'Projecten<br>Voltooid'],
+            'leetcode' => ['value' => '90', 'label' => 'Leetcode<br>Opgelost'],
+        ],
     ],
 
     'skills' => [
         'eyebrow' => '01 / KENNIS',
         'heading' => 'Mijn Programmeer',
         'heading_accent' => 'Kennis',
-        'quote' => 'Ik beschik over een goede basis in meerdere programmeertalen, vooral in <strong>Python, PHP</strong> en <strong>JavaScript</strong>. En ik blijf mijn kennis verder uitbreiden.',
+        'quote' => 'Ik heb een sterke basis in <strong>Python, PHP</strong> en <strong>JavaScript</strong>. Daarnaast zet ik actief AI-tools in, met name <strong>Claude Code</strong> en <strong>Figma MCP</strong>, om mijn ontwikkelproces te verbeteren.',
     ],
 
     'timeline' => [
@@ -75,8 +81,9 @@ return [
                 'label' => 'Vooruitblik',
                 'title' => 'Toekomstige Plannen',
                 'paragraphs' => [
-                    'Na enige tijd nadenken over wat ik precies wil met <strong class="fw-bold">softwareontwikkeling</strong>, heb ik gekozen mij in te schrijven voor de duale studie aan <strong>Hogeschool Utrecht</strong>, waar ik vier jaar lang een werk- en leertraject zal doorlopen.',
-                    'Ook deze opleiding zal ik uiteraard met veel motivatie tegemoet gaan. Waar nodig zal ik mijn <strong class="fw-bold">soft- en hardskills</strong> verbeteren, leren projecten op te zetten, mijn onderzoekende houding verder ontwikkelen, maar bovenal veel plezier maken!',
+                    'Na enige tijd te hebben nagedacht over wat ik precies wil binnen de softwareontwikkeling, en na overleg met een oud-docent van mijn opleiding, heb ik besloten mij in te schrijven voor de duale opleiding aan <strong class="fw-bold">Hogeschool Utrecht</strong>. Hier zal ik gedurende vier jaar een werk- en leertraject volgen.',
+                    'Ook deze opleiding ga ik uiteraard met veel motivatie tegemoet. Ik wil mijn <strong class="fw-bold">soft- en hardskills</strong> verder ontwikkelen, leren hoe ik projecten opzet en mijn onderzoekende houding versterken. Maar bovenal wil ik veel leren en plezier hebben in wat ik doe!',
+                    'De start van de opleiding staat gepland voor het schooljaar <strong class="fw-bold">2027-2028</strong>. In de aanloop daarnaartoe bereid ik mij zo goed mogelijk voor, zodat ik goed voorbereid en met een sterke basis aan de opleiding kan beginnen.',
                 ],
             ],
         ],

@@ -9,7 +9,7 @@ return [
         /*
          * E-mailadres voor de mailto-link in de hero. Zolang dit null is, wordt het icoon niet-interactief getoond.
          */
-        'email' => null,
+        'email' => "oomenatilla@gmail.com",
     ],
 
     /*
@@ -18,12 +18,12 @@ return [
      */
     'internship_logos' => [
         'Webprepare' => [
-            'light' => 'images/figma/light/webprepareLogo.png',
-            'dark' => 'images/figma/dark/WebprepareLogo.png',
+            'light' =>  'images/companies/webprepare.webp',
+            'dark' =>   'images/companies/webprepare.webp',
         ],
         'Battlebot' => [
-            'light' => 'images/figma/light/battlebotLogo.png',
-            'dark' => 'images/figma/dark/BattlebotLogo.png',
+            'light' =>  'images/companies/mborijnland.svg',
+            'dark' =>   'images/companies/mborijnland.svg',
         ],
     ],
 

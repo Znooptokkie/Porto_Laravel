@@ -24,8 +24,8 @@ class SkillSeeder extends Seeder
             ['name' => 'Docker', 'display_label' => null, 'icon' => 'docker', 'proficiency' => 55, 'subconcepts' => []],
             ['name' => 'SASS', 'display_label' => 'Sass', 'icon' => null, 'proficiency' => 60, 'subconcepts' => []],
             ['name' => 'Linux', 'display_label' => null, 'icon' => 'linux', 'proficiency' => 75, 'subconcepts' => ['Bash', 'Zsh', 'Omarchy', 'Debian']],
-            ['name' => 'SQL', 'display_label' => null, 'icon' => 'sql', 'proficiency' => 65, 'subconcepts' => ['MariaDB/MySQL', 'PostgreSQL']],
-            ['name' => 'SQL', 'display_label' => null, 'icon' => 'sql-2', 'proficiency' => 40, 'subconcepts' => []],
+            ['name' => 'SQL', 'display_label' => null, 'icon' => 'mysql', 'proficiency' => 65, 'subconcepts' => ['MariaDB/MySQL', 'PostgreSQL']],
+            ['name' => 'Raspberry', 'display_label' => null, 'icon' => 'raspberry', 'proficiency' => 40, 'subconcepts' => ['Raspberry Pi 4 & 5', 'Pico 2']],
         ];
 
         foreach ($skills as $skill) {

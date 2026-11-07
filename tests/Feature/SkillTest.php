@@ -17,11 +17,11 @@ it('casts subconcepts to an array and proficiency to an integer', function () {
         ->and($skill->subconcepts)->toBe(['Django', 'Flask']);
 });
 
-it('seeds ten skills, including the duplicate SQL card from figma', function () {
+it('seeds ten skills, including the Raspberry card', function () {
     $this->seed(SkillSeeder::class);
 
     expect(Skill::query()->count())->toBe(10)
-        ->and(Skill::query()->where('name', 'SQL')->count())->toBe(2);
+        ->and(Skill::query()->where('name', 'Raspberry')->count())->toBe(1);
 });
 
 it('updates existing skills instead of duplicating them when seeded twice', function () {
@@ -31,6 +31,6 @@ it('updates existing skills instead of duplicating them when seeded twice', func
     $this->seed(SkillSeeder::class);
 
     expect(Skill::query()->count())->toBe(10)
-        ->and(Skill::query()->where('name', 'SQL')->count())->toBe(2)
+        ->and(Skill::query()->where('name', 'Raspberry')->count())->toBe(1)
         ->and(Skill::query()->where('name', 'Python')->value('proficiency'))->toBe(85);
 });
