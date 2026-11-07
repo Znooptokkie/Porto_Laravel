@@ -1186,9 +1186,10 @@ input,
     }
 
     .portrait {
-        width: 312px;
+        width: min(250px, 95%);
+        max-width: 100%;
         aspect-ratio: 1;
-        margin-top: 112px;
+        flex-shrink: 1;
     }
 
     .portrait__orbit {
@@ -1462,7 +1463,7 @@ input,
     .site-nav__rule {
         position: absolute;
         left: 26px;
-        width: min(340px, calc(100% - 52px));
+        width: calc(100% - 52px);
         height: 22px;
         pointer-events: none;
     }
@@ -1647,8 +1648,9 @@ input,
     }
 
     .hero__name {
-        font-size: 4.125rem;
+        font-size: 3.5rem;
         letter-spacing: -3px;
+        text-align: center;
     }
 
     .hero__text {
@@ -1657,6 +1659,16 @@ input,
 
     .greeting {
         line-height: 16px;
+        align-self: center;
+    }
+
+    .role-row {
+        align-items: center;
+    }
+
+    .intro-text
+    {
+        text-align: center;
     }
 
     .section--timeline .section-heading,
@@ -1789,13 +1801,15 @@ input,
 
     .site-nav nav {
         top: 108px;
-        left: 124px;
+        /* left: 124px; */
+        /* left: 75px; */
         width: min(595px, calc(100% - 143px));
     }
 
     .site-nav__rule {
-        left: 124px;
-        width: min(595px, calc(100% - 143px));
+        /* left: 124px; */
+        left: 40px;
+        width: calc(100% - 80px);
     }
 
     .site-nav__link--menu-active {
