@@ -310,15 +310,15 @@ input,
     padding: 0.875rem 1rem;
     border: 1px solid var(--color-border);
     border-radius: 15px;
-    /* background: var(--color-surface-bg); */
-    background: #000219;
+    --popover-bg: #000219;
+    background: var(--popover-bg);
     color: var(--color-text);
     box-shadow: 0 12px 32px rgb(0 0 0 / 0.12);
     z-index: 60;
 }
 
 [data-theme='light'] .popover {
-    background: var(--color-surface);
+    --popover-bg: var(--color-surface);
 }
 
 .popover[hidden] {
@@ -332,7 +332,7 @@ input,
     right: 22px !important;
     width: 12px;
     height: 12px;
-    background: var(--color-surface);
+    background: var(--popover-bg);
     border-top: 1px solid var(--color-border);
     border-left: 1px solid var(--color-border);
     transform: rotate(45deg);
@@ -592,7 +592,7 @@ input,
     background: var(--accent);
 }
 
-.hero__name {
+/* .hero__name {
     margin: 0;
     font-family: var(--font-display);
     font-weight: 700;
@@ -600,6 +600,32 @@ input,
     line-height: 0.98;
     letter-spacing: 0;
     color: var(--color-text);
+} */
+.hero__name {
+    --hero-depth-near: color-mix(in srgb, var(--color-text) 70%, var(--color-bg));
+    --hero-depth-far: color-mix(in srgb, var(--color-text) 30%, #000);
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 6rem;
+    line-height: 0.98;
+    letter-spacing: 0;
+    color: var(--color-text);
+    /* 3D-extrusie: acht lagen die naar de achterkant van de letter donkerder worden. Schaalt mee met de letterhoogte. */
+    text-shadow:
+        0.012em 0.012em 0 color-mix(in srgb, var(--hero-depth-near) 100%, var(--hero-depth-far)),
+        0.024em 0.024em 0 color-mix(in srgb, var(--hero-depth-near) 86%, var(--hero-depth-far)),
+        0.036em 0.036em 0 color-mix(in srgb, var(--hero-depth-near) 71%, var(--hero-depth-far)),
+        0.048em 0.048em 0 color-mix(in srgb, var(--hero-depth-near) 57%, var(--hero-depth-far)),
+        0.060em 0.060em 0 color-mix(in srgb, var(--hero-depth-near) 43%, var(--hero-depth-far)),
+        0.072em 0.072em 0 color-mix(in srgb, var(--hero-depth-near) 29%, var(--hero-depth-far)),
+        0.084em 0.084em 0 color-mix(in srgb, var(--hero-depth-near) 14%, var(--hero-depth-far)),
+        0.096em 0.096em 0 color-mix(in srgb, var(--hero-depth-near) 0%, var(--hero-depth-far));
+}
+
+[data-theme='dark'] .hero__name {
+    --hero-depth-near: color-mix(in srgb, var(--color-text) 55%, var(--color-bg));
+    --hero-depth-far: color-mix(in srgb, var(--color-text) 18%, #0b0b0b);
 }
 
 .hero__name-accent {
