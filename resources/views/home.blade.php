@@ -79,8 +79,7 @@
             <x-section-heading
                 :eyebrow="__('home.skills.eyebrow')"
                 :title="__('home.skills.heading')"
-                :accent="__('home.skills.heading_accent')"
-                aside="{ }" />
+                :accent="__('home.skills.heading_accent')" />
 
             <div class="skills">
                 <blockquote class="skills__quote">
