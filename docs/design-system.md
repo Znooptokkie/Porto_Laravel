@@ -159,17 +159,16 @@ Regels:
 
 - **Bron:** `--accent` in `resources/css/app.css` (default `#2ECC71`). De bezoekerskeuze (5 presets uit `config/portfolio.php` `accent_presets` of een eigen HEX) wordt via `resources/js/preferences.js` op `--accent` gezet.
 - **Afgeleide tinten:** `--accent-strong` is `color-mix(in srgb, var(--accent) 64%, #000)`; `--accent-soft` is `color-mix(in srgb, var(--accent) 15%, var(--color-surface))`. Beide volgen het actieve thema via de surface-token.
-- **Iconen:** SVG-exports in `public/images/figma/**` en `resources/svg/skills/**` gebruiken `currentColor` voor hun groene delen; `<x-themed-image>` plaatst SVG's inline, zodat ze de accentkleur volgen. Monochrome PNG-iconen gebruiken `accent` (CSS-mask met de alfa van de PNG). De preset-voorbeelden `pop-swatch*.svg` blijven vast (zie uitzonderingen).
-- **Tekst op accent:** `--accent-ink` is de tekstkleur op volle accentvlakken (knop `.button--primary`, skip-link, footer). `--accent-ink-soft` is de tekstkleur op de accenttint `--accent-soft` (tags). Beide worden in `applyAccentInks()` (`resources/js/preferences.js`) gezet met `pickInk()` uit `resources/js/accent-contrast.js`: het hoogste WCAG-contrast van `#102334` of `#FFFFFF`. De tint wordt berekend op de surface van het actieve thema, zoals `--accent-soft`.
+- **Iconen:** SVG-exports in `public/images/figma/**` en `resources/svg/skills/**` gebruiken `currentColor` voor hun groene delen; `<x-themed-image>` plaatst SVG's inline, zodat ze de accentkleur volgen. Monochrome PNG-iconen gebruiken `accent` (CSS-mask met de alfa van de PNG).- **Tekst op accent:** `--accent-ink` is de tekstkleur op volle accentvlakken (knop `.button--primary`, skip-link, footer). `--accent-ink-soft` is de tekstkleur op de accenttint `--accent-soft` (tags). Beide worden in `applyAccentInks()` (`resources/js/preferences.js`) gezet met `pickInk()` uit `resources/js/accent-contrast.js`: het hoogste WCAG-contrast van `#102334` of `#FFFFFF`. De tint wordt berekend op de surface van het actieve thema, zoals `--accent-soft`.
 - **Contrasteis:** tekst op accentvlakken en -tinten haalt minimaal 4,5:1 (WCAG AA tekst); alleen als het contrast van de beste ink onder 4,5:1 zakt, is 3:1 het minimum voor grote tekst en UI. Met de huidige keuze blijft de beste ink voor ~88% van de RGB-kleuren boven 4,5:1; de slechtste kleur (bijv. `#5784A5`) haalt ~4,0:1. Toets nieuwe presets met `tests/Feature/AccentColourTest.php`.
 - **Accent als tekst:** accentkleuren als tekst op de paginasurface (titels, `.hero__name-accent`, `.section-heading__title span`) halen de norm voor sommige kleuren niet (groen ~2,1:1 op wit; geel ~1,2:1). Dit is een ontwerpkeuze die nog open staat; de ink-regel dekt dit niet.
 
 **Uitzonderingen (behouden hun oorspronkelijke kleur, ongeacht accent):**
 
 1. De persoonlijke foto in sectie 1 van de homepage (`public/images/profile/me_HH.webp`).
-2. Het Webprepare-logo in de tijdlijn (`public/images/figma/light/webprepareLogo.png`, dark `WebprepareLogo.png`).
-3. Het Battlebot-logo in de tijdlijn (`public/images/figma/light/battlebotLogo.png`, dark `BattlebotLogo.png`).
+2. Het Webprepare-logo in de tijdlijn (`public/images/companies/webprepare.webp`).
+3. Het Battlebot-logo in de tijdlijn (`public/images/companies/mborijnland.svg`).
 
-De logo's zijn 88×88-vensters uit de Figma-logo-sheet (`sourceImageCrop.png`) die de 48px-logocirkel toont; de sheet wordt niet meer gebruikt. De sheet bevat nog de volledige homepage in groen en is daarom een kandidaat om uit `public/` te verwijderen (niet verwijderd: vereist akkoord).
+De logo's worden via `config/portfolio.php` (`internship_logos`) geladen. De Figma-logo-sheet (`sourceImageCrop.png`) en de ongebruikte Figma-exports (preset-voorbeelden `pop-swatch*.svg`, navigatie-iconen `navEdit`/`navMoon`/`navLanguage`, losse logo-exports) zijn verwijderd omdat ze nergens meer werden gebruikt.
 
-De preset-voorbeelden in de kleurenkiezer (`pop-swatch*.svg`, ongebruikt) en de swatch-knoppen (`--swatch`) tonen hun eigen presetkleur en volgen het accent daarom niet. Dit is een interpretatie van de regel "alle groene onderdelen"; ter bevestiging.
+De swatch-knoppen (`--swatch`) in de kleurenkiezer tonen hun eigen presetkleur en volgen het accent daarom niet. Dit is een interpretatie van de regel "alle groene onderdelen"; ter bevestiging.

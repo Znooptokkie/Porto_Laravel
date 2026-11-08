@@ -24,6 +24,12 @@ it('renders the homepage without skills', function () {
         ->assertSee('Mijn Programmeer');
 });
 
+it('does not render placeholder text in the section headings', function () {
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertDontSee('{ }', false);
+});
+
 it('renders the stage cards in timeline step 04', function () {
     $this->get(route('home'))
         ->assertOk()
