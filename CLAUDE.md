@@ -1,3 +1,70 @@
+## Werkwijze en projectregels
+
+### Eerst onderzoeken, dan aanpassen
+- Bekijk eerst de bestaande projectstructuur en relevante bestanden voordat je wijzigingen uitvoert.
+- Controleer welke componenten, CSS-variabelen, routes en functionaliteiten al bestaan.
+- Hergebruik bestaande oplossingen waar dat logisch is.
+- Maak geen nieuwe bestanden of componenten aan wanneer bestaande code uitgebreid kan worden.
+- Voer geen wijzigingen uit die niet noodzakelijk zijn voor de opdracht.
+
+### Figma als bron van waarheid
+- Figma is leidend voor alle visuele implementaties.
+- Controleer altijd de relevante desktop-, tablet- en mobiele ontwerpen.
+- Controleer zowel de light-mode- als dark-mode-ontwerpen.
+- Verzin geen afmetingen, kleuren, marges, lettergroottes of andere ontwerpdetails wanneer deze uit Figma af te leiden zijn.
+- Bij onduidelijkheden of tegenstrijdigheden: onderzoek eerst Figma en rapporteer wat niet duidelijk is.
+
+### Codekwaliteit
+- Gebruik herbruikbare Laravel Blade-components voor gedeelde onderdelen.
+- Houd verantwoordelijkheden gescheiden en voorkom onnodig grote bestanden.
+- Gebruik bestaande CSS-variabelen en design tokens.
+- Vermijd dubbele CSS, dubbele JavaScript-logica en hardcoded waarden die centraal beheerd horen te worden.
+- Gebruik semantische HTML en toegankelijke interacties.
+- Voeg geen afhankelijkheden of packages toe zonder aantoonbare noodzaak.
+
+### Wijzigingen uitvoeren
+- Beperk wijzigingen tot de bestanden die voor de opdracht relevant zijn.
+- Verander geen bestaande methoden, interfaces of functionaliteit zonder dat dit nodig is.
+- Verwijder geen bestaande code of tests om een probleem te omzeilen.
+- Meld het wanneer een opdracht onduidelijk is of wanneer informatie ontbreekt. Verzin geen ontbrekende functionaliteit.
+
+### Controle na implementatie
+- Controleer de implementatie op desktop, tablet en mobiel.
+- Controleer zowel light mode als dark mode.
+- Vergelijk de implementatie met de bijbehorende Figma-ontwerpen.
+- Controleer op horizontale overflow, verspringende elementen en kapotte uitlijning.
+- Voer relevante tests, linting en typecontroles uit wanneer die beschikbaar zijn.
+- Meld welke controles daadwerkelijk zijn uitgevoerd en welke niet.
+- Start de applicatie en controleer de daadwerkelijke weergave in de browser.
+- Gebruik Playwright voor browserautomatisering en visuele controles.
+- Maak screenshots op basis van de exacte afmetingen van de bijbehorende Figma-frames.
+- Vergelijk de screenshots met de juiste Figma-ontwerpen.
+- Controleer desktop, tablet en mobiel afzonderlijk.
+- Controleer light mode en dark mode afzonderlijk.
+- Controleer interactieve elementen daadwerkelijk in de browser.
+- Los geconstateerde afwijkingen op en maak opnieuw screenshots.
+- Herhaal dit totdat de implementatie overeenkomt met Figma of totdat duidelijk is waarom een afwijking niet opgelost kan worden.
+- Rapporteer welke schermformaten, thema's en functionaliteiten daadwerkelijk gecontroleerd zijn.
+
+## Projectdocumentatie
+
+Raadpleeg de volgende documentatie wanneer deze relevant is voor je opdracht:
+
+- `docs/design-system.md`: algemene ontwerpregels, responsive gedrag, thema's, kleuren, typografie en toegankelijkheid.
+- `docs/pages/`: specificaties van afzonderlijke pagina's.
+- `docs/components/`: specificaties van gedeelde componenten.
+
+Lees altijd de relevante specificaties voordat je een pagina of component implementeert of aanpast.
+
+Raadpleeg de relevante Figma-ontwerpen naast de bijbehorende documentatie.
+
+## Claude Code Skills
+
+Gebruik de beschikbare skills wanneer de opdracht daarmee overeenkomt:
+
+- `figma-implementation`: voor het implementeren van Figma-ontwerpen.
+- `frontend-review`: voor visuele, responsive en functionele controles.
+
 <laravel-boost-guidelines>
 === .ai/project rules ===
 
