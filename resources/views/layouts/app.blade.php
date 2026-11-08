@@ -9,7 +9,7 @@
         @fonts
 
         {{-- Applies the stored theme and accent colour before first paint to avoid a flash of the defaults. --}}
-        <script>
+	<script nonce="{{ Vite::cspNonce() }}">
             (function () {
                 try {
                     var stored = JSON.parse(localStorage.getItem('porto.preferences') || '{}');
