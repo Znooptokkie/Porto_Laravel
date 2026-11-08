@@ -10,6 +10,7 @@ export const FEATURES = {
     meteorShowerEasterEgg: true,
     themeAdaptiveDensity: true,
     explosionCore: true,
+    starStream: true,
 };
 
 export const STARS = {
@@ -47,6 +48,22 @@ export const SHOOTING_STAR = {
     speed: 6,
     tail: 90,
     maxTilt: Math.PI / 4,
+};
+
+/**
+ * A dense streak of stars that enters from a random direction, crosses the screen and ends.
+ * length is a fraction of the screen diagonal, width is in px,
+ * speed is in px per frame and is chosen randomly for each streak.
+ */
+export const STAR_STREAM = {
+    minDelay: 18000,
+    maxDelay: 48000,
+    count: 70,
+    length: 0.2,
+    width: 20,
+    minSpeed: 0.5,
+    maxSpeed: 1,
+    maxRadius: 1.4,
 };
 
 export const FLASH = {

@@ -5,7 +5,7 @@
  * and no bursts, shooting stars or meteor showers appear.
  * The starfield is only shown in dark mode; light mode renders an empty canvas.
  */
-import { FEATURES, FLASH, METEOR, SHOOTING_STAR } from './config.js';
+import { FEATURES, FLASH, METEOR, SHOOTING_STAR, STAR_STREAM } from './config.js';
 import { createStarField } from './stars.js';
 import { createEffects } from './effects.js';
 
@@ -25,6 +25,7 @@ export function initStarfield(canvasId = 'starfield') {
     /** @type {{ x: number, y: number } | null} */
     let pointer = null;
     let nextShootingStarAt = 0;
+    let nextStreamAt = 0;
     let flashUntil = 0;
     /** @type {number[]} */
     const clickTimes = [];
@@ -42,6 +43,13 @@ export function initStarfield(canvasId = 'starfield') {
      */
     const scheduleShootingStar = (now) => {
         nextShootingStarAt = now + SHOOTING_STAR.minDelay + Math.random() * (SHOOTING_STAR.maxDelay - SHOOTING_STAR.minDelay);
+    };
+
+    /**
+     * @param {number} now
+     */
+    const scheduleStream = (now) => {
+        nextStreamAt = now + STAR_STREAM.minDelay + Math.random() * (STAR_STREAM.maxDelay - STAR_STREAM.minDelay);
     };
 
     /**
@@ -71,12 +79,19 @@ export function initStarfield(canvasId = 'starfield') {
                 effects.spawnShootingStar();
                 scheduleShootingStar(now);
             }
+
+            // Only one streak on screen at a time; a due streak waits until the current one has ended.
+            if (FEATURES.starStream && now >= nextStreamAt && !effects.hasStream()) {
+                effects.spawnStream();
+                scheduleStream(now);
+            }
         }
 
         starField.updatePositions(pointer, motion);
         starField.draw(ctx, { accent, motion, flashing: now < flashUntil });
         effects.drawBursts(ctx, accent, coreColor);
         effects.drawShootingStars(ctx, accent);
+        effects.drawStreams(ctx, accent);
 
         requestAnimationFrame(frame);
     };
@@ -144,6 +159,7 @@ export function initStarfield(canvasId = 'starfield') {
     resizeCanvas();
     starField.sync();
     scheduleShootingStar(performance.now());
+    scheduleStream(performance.now());
     bindTimelineFlash();
     bindMeteorEasterEgg();
     requestAnimationFrame(frame);

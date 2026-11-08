@@ -1,9 +1,11 @@
-import { BURST, FEATURES, METEOR, SHOOTING_STAR } from './config.js';
+import { BURST, FEATURES, METEOR, SHOOTING_STAR, STAR_STREAM } from './config.js';
 
 /**
  * @typedef {{ x: number, y: number, speedX: number, speedY: number, radius: number, life: number }} Particle
  * @typedef {{ x: number, y: number, life: number }} Core
  * @typedef {{ x: number, y: number, speedX: number, speedY: number, life: number }} ShootingStar
+ * @typedef {{ along: number, across: number, radius: number, alpha: number }} StreamStar
+ * @typedef {{ x: number, y: number, speedX: number, speedY: number, life: number, angle: number, stars: StreamStar[] }} Stream
  */
 
 /**
@@ -18,6 +20,8 @@ export function createEffects(canvas) {
     let cores = [];
     /** @type {ShootingStar[]} */
     let shootingStars = [];
+    /** @type {Stream[]} */
+    let streams = [];
 
     /**
      * @param {number} x
@@ -65,6 +69,42 @@ export function createEffects(canvas) {
         }
     };
 
+    /**
+     * A narrow streak of stars from a random direction. It starts just outside the screen,
+     * moves straight through it and ends just outside on the other side, at a random speed.
+     */
+    const spawnStream = () => {
+        const angle = Math.random() * Math.PI * 2;
+        const diagonal = Math.hypot(canvas.width, canvas.height);
+        const length = diagonal * STAR_STREAM.length;
+        const speed = STAR_STREAM.minSpeed + Math.random() * (STAR_STREAM.maxSpeed - STAR_STREAM.minSpeed);
+        // The streak has to clear the screen completely, so it travels the diagonal plus its own length.
+        const travel = diagonal + length;
+        const directionX = Math.cos(angle);
+        const directionY = Math.sin(angle);
+        /** @type {StreamStar[]} */
+        const stars = [];
+
+        for (let index = 0; index < STAR_STREAM.count; index++) {
+            stars.push({
+                along: (Math.random() - 0.5) * length,
+                across: (Math.random() - 0.5) * STAR_STREAM.width,
+                radius: 0.4 + Math.random() * (STAR_STREAM.maxRadius - 0.4),
+                alpha: 0.4 + Math.random() * 0.5,
+            });
+        }
+
+        streams.push({
+            x: canvas.width / 2 - (directionX * travel) / 2,
+            y: canvas.height / 2 - (directionY * travel) / 2,
+            speedX: directionX * speed,
+            speedY: directionY * speed,
+            life: Math.ceil(travel / speed),
+            angle,
+            stars,
+        });
+    };
+
     const update = () => {
         for (const particle of particles) {
             particle.x += particle.speedX;
@@ -89,6 +129,14 @@ export function createEffects(canvas) {
         }
 
         shootingStars = shootingStars.filter((shootingStar) => shootingStar.life > 0);
+
+        for (const stream of streams) {
+            stream.x += stream.speedX;
+            stream.y += stream.speedY;
+            stream.life -= 1;
+        }
+
+        streams = streams.filter((stream) => stream.life > 0);
     };
 
     /**
@@ -163,13 +211,47 @@ export function createEffects(canvas) {
         }
     };
 
+    /**
+     * @param {CanvasRenderingContext2D} ctx
+     * @param {string} accent
+     */
+    const drawStreams = (ctx, accent) => {
+        ctx.fillStyle = accent;
+        ctx.shadowColor = accent;
+        ctx.shadowBlur = 6;
+
+        for (const stream of streams) {
+            const cos = Math.cos(stream.angle);
+            const sin = Math.sin(stream.angle);
+
+            for (const star of stream.stars) {
+                ctx.globalAlpha = star.alpha;
+                ctx.beginPath();
+                ctx.arc(
+                    stream.x + cos * star.along - sin * star.across,
+                    stream.y + sin * star.along + cos * star.across,
+                    star.radius,
+                    0,
+                    Math.PI * 2,
+                );
+                ctx.fill();
+            }
+        }
+
+        ctx.globalAlpha = 1;
+        ctx.shadowBlur = 0;
+    };
+
     return {
         spawnBurst,
         spawnShootingStar,
         launchMeteorShower,
+        spawnStream,
+        hasStream: () => streams.length > 0,
         hasShootingStar: () => shootingStars.length > 0,
         update,
         drawBursts,
         drawShootingStars,
+        drawStreams,
     };
 }
