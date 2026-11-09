@@ -14,7 +14,7 @@ return [
         'stats' => [
             'age' => ['value' => '31', 'label' => 'Years<br>Old'],
             'experience' => ['value' => '5', 'label' => 'Years of<br>Experience'],
-            'projects' => ['value' => '6', 'label' => 'Projects<br>Completed'],
+            'projects' => ['value' => '9', 'label' => 'Projects<br>Completed'],
             'leetcode' => ['value' => '90', 'label' => 'Leetcode<br>Solved'],
         ],
     ],
@@ -55,7 +55,7 @@ return [
                 'label' => 'Programme',
                 'title' => 'Moving on to Software Developer',
                 'paragraphs' => [
-                    'Back at school, I started this programme with a huge amount of motivation, which paid off repeatedly. I was often asked to take on <strong>extra projects</strong>, such as supervising an exchange programme, and I even had the chance to coach <strong><a href="https://civ-smarttechnology.nl/update-smart-garden/" target="_blank" class="timeline-link">HBO students</a></strong> as challengers for their project.',
+                    'Back at school, I started this programme with a huge amount of motivation, which paid off repeatedly. I was often asked to take on <strong>extra projects</strong>, such as supervising an exchange programme, and I even had the chance to coach <strong><a href="https://www.linkedin.com/posts/vireen-jagram-833985224_smartgarden-ai-iot-share-7335244310193344514-BSF7/" target="_blank" class="timeline-link">HBO students</a></strong> as challengers for their project.',
                     'My motivation is also reflected in my grades. I <strong>graduated cum laude</strong> as the best student of the <strong class="fw-bold">Software Development programme at mboRijnland</strong>. I should mention that ROC Leiden merged into mboRijnland seven years earlier, but it is an achievement I am incredibly proud of!',
                     'I also took part in an <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI research project</a></strong> for which I received <strong><a href="#" class="timeline-link">a certificate of excellence.</a></strong> The research focused on how schools can use AI responsibly. I carried out <strong class="fw-bold">various studies</strong> for this project and gave several presentations together with a team of students and a teacher.',
                     'School gave me a solid foundation to build on. By paying close attention and carefully completing my assignments, I can now write code independently and solve problems reasonably well.',
