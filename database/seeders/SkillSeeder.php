@@ -17,7 +17,7 @@ class SkillSeeder extends Seeder
     {
         $skills = [
             ['name' => 'Python', 'display_label' => 'Py', 'icon' => null, 'proficiency' => 85, 'subconcepts' => ['Django', 'Flask', 'MicroPython']],
-            ['name' => 'TypeScript', 'display_label' => 'TS', 'icon' => null, 'proficiency' => 70, 'subconcepts' => ['React', 'Vue', 'React Native']],
+            ['name' => 'TypeScript', 'display_label' => 'TS', 'icon' => null, 'proficiency' => 70, 'subconcepts' => ['React', 'Vue', 'React Native', "Electron"]],
             ['name' => 'PHP', 'display_label' => 'php', 'icon' => null, 'proficiency' => 80, 'subconcepts' => ['Laravel', 'Wordpress']],
             ['name' => 'Java', 'display_label' => null, 'icon' => 'java', 'proficiency' => 50, 'subconcepts' => ['Android Studio']],
             ['name' => 'AI', 'display_label' => null, 'icon' => 'ai', 'proficiency' => 60, 'subconcepts' => ['Claude Code', 'Figma MCP']],
