@@ -15,15 +15,15 @@
         </button>
 
         <div class="site-nav" id="site-menu">
-            <span class="site-nav__brand" aria-hidden="true">
+            <a class="site-nav__brand" href="{{ route('home') }}">
                 <x-themed-image :light="'images/figma/mobile/light/navMenuBrand.svg'" :dark="'images/figma/mobile/dark/navMenuBrand.svg'" class="site-nav__brand-logo" />
                 <span class="site-nav__brand-name">{{ config('portfolio.name') }}</span>
-            </span>
+            </a>
 
             <nav aria-label="{{ __('site.nav.label') }}">
                 <ul class="site-nav__links">
-                    <li><a class="site-nav__link" href="#">{{ __('site.nav.courses') }}</a></li>
-                    <li><a class="site-nav__link site-nav__link--menu-active" href="#">{{ __('site.nav.projects') }}</a></li>
+                    <li><a class="site-nav__link{{ request()->routeIs('courses') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('courses') }}" @if (request()->routeIs('courses')) aria-current="page" @endif>{{ __('site.nav.courses') }}</a></li>
+                    <li><a class="site-nav__link" href="#">{{ __('site.nav.projects') }}</a></li>
                     <li><a class="site-nav__link" href="#">{{ __('site.nav.about') }}</a></li>
                     <li><a class="site-nav__link" href="#">{{ __('site.nav.leetcode') }}</a></li>
                 </ul>
@@ -106,16 +106,16 @@
                 </div>
             </div>
             <span class="site-nav__rule site-nav__rule--1" aria-hidden="true">
-                <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
+                <x-themed-image :light="'images/figma/mobile/light/navDivider'.(request()->routeIs('courses') ? '02' : '01').'.svg'" :dark="'images/figma/dark/pop-navDivider'.(request()->routeIs('courses') ? '02' : '01').'.svg'" />
             </span>
             <span class="site-nav__rule site-nav__rule--2" aria-hidden="true">
-                <x-themed-image :light="'images/figma/mobile/light/navDivider02.svg'" :dark="'images/figma/dark/pop-navDivider02.svg'" />
+                <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
             </span>
             <span class="site-nav__rule site-nav__rule--3" aria-hidden="true">
-                <x-themed-image :light="'images/figma/mobile/light/navDivider03.svg'" :dark="'images/figma/dark/pop-navDivider03.svg'" />
+                <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
             </span>
             <span class="site-nav__rule site-nav__rule--4" aria-hidden="true">
-                <x-themed-image :light="'images/figma/mobile/light/navDivider04.svg'" :dark="'images/figma/dark/pop-navDivider04.svg'" />
+                <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
             </span>
             <button type="button" class="site-nav__close" data-menu-close aria-label="{{ __('site.menu.close') }}">
                 <span class="site-nav__accent-bar" aria-hidden="true"></span>

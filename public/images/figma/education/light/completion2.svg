@@ -1,0 +1,26 @@
+<svg preserveAspectRatio="none" overflow="visible" width="331.5" height="16" viewBox="0 0 331.5 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Overall completion" clip-path="url(#clip0_0_11)">
+<path id="Completion segment / 01" d="M0 8C0 3.58172 3.58172 0 8 0H66L55.5 16H8C3.58172 16 0 12.4183 0 8Z" fill="url(#paint0_linear_0_11)"/>
+<path id="Completion segment / 02" d="M76 0H132L122 16H66L76 0Z" fill="url(#paint1_linear_0_11)"/>
+<path id="Completion segment / 03" d="M141 0H198L189 16H132L141 0Z" fill="url(#paint2_linear_0_11)"/>
+<path id="Completion segment / 04" d="M206.5 0H265.5L257.5 16H198L206.5 0Z" style="fill: var(--color-surface-alt); stroke: var(--color-border)" stroke-width="1"/>
+<path id="Completion segment / 05" d="M331.5 8C331.5 12.4183 327.918 16 323.5 16L265.5 16L273.5 0L323.5 0C327.918 0 331.5 3.58172 331.5 8Z" style="fill: var(--color-surface-alt); stroke: var(--color-border)" stroke-width="1"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_11" x1="33" y1="16" x2="33" y2="0" gradientUnits="userSpaceOnUse">
+<stop style="stop-color: var(--education-progress-start)"/>
+<stop offset="1" style="stop-color: var(--education-progress-end)"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_11" x1="99" y1="16" x2="99" y2="0" gradientUnits="userSpaceOnUse">
+<stop style="stop-color: var(--education-progress-start)"/>
+<stop offset="1" style="stop-color: var(--education-progress-end)"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_11" x1="165" y1="16" x2="165" y2="0" gradientUnits="userSpaceOnUse">
+<stop style="stop-color: var(--education-progress-start)"/>
+<stop offset="1" style="stop-color: var(--education-progress-end)"/>
+</linearGradient>
+<clipPath id="clip0_0_11">
+<rect width="331.5" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

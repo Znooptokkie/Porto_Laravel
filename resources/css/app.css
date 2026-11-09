@@ -36,6 +36,8 @@
     --color-portrait-frame: #101a2a;
 
     --content-max: 1550px;
+    --education-progress-start: #2ecc71;
+    --education-progress-end: #52f698;
     /* 112px vanaf 1810px (Figma); lineair kleiner tot 40px op 834px. */
     --content-gutter: clamp(40px, calc(7.38vw - 21.5px), 112px);
     --nav-height: 108px;
@@ -265,7 +267,7 @@ input,
     color: var(--color-text);
     cursor: pointer;
     padding: 0;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .icon-button[aria-expanded='true'] {
@@ -746,7 +748,7 @@ input,
     font-weight: 600;
     font-size: 0.875rem;
     text-decoration: none;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .button--primary {
@@ -922,7 +924,7 @@ input,
     background: var(--accent-soft);
     color: var(--color-text);
     overflow: hidden;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 [data-theme='dark'] .skills__quote {
@@ -969,7 +971,7 @@ input,
     border-radius: var(--radius-tile);
     background: var(--color-surface);
     overflow: hidden;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .skill-card__icon {
@@ -1124,7 +1126,7 @@ input,
     border-radius: var(--radius-card);
     background: var(--color-surface);
     /* background: rgba(0, 11, 29, 0.25); */
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .story-card__head {
@@ -1574,6 +1576,13 @@ input,
         display: flex;
         align-items: center;
         gap: 12px;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .site-nav__brand:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
     }
 
     .site-nav__brand-logo {
@@ -2098,4 +2107,534 @@ input,
 
 [data-motion='off'] .timeline-chapter {
     transition: none;
+}
+
+/* Opleidingen-pagina (Figma: Website / Education). Desktop uit het light-desktopframe, mobiel uit het mobiele frame.
+   Het tablet- en dark-frame zijn niet uitgelezen; tot 899 px geldt de mobiele opbouw. */
+
+/* Actieve menulink op de huidige pagina (desktop: groene balk onder de link, zoals het Figma-frame). */
+.site-nav__link--menu-active,
+[data-theme='dark'] .site-nav__link--menu-active {
+    color: var(--accent);
+}
+
+/* Desktop: the bar sits outside the line box, so the link keeps its place on the baseline. */
+@media (min-width: 900px) {
+    .site-nav__link {
+        position: relative;
+        transition: color var(--motion-duration) ease;
+    }
+
+    .site-nav__link:hover,
+    .site-nav__link:focus-visible,
+    [data-theme='dark'] .site-nav__link:hover,
+    [data-theme='dark'] .site-nav__link:focus-visible {
+        color: var(--accent);
+    }
+
+    .site-nav__link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: calc(100% + 6px);
+        width: 24px;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform var(--motion-duration) ease;
+    }
+
+    .site-nav__link:hover::after,
+    .site-nav__link:focus-visible::after,
+    .site-nav__link--menu-active::after {
+        transform: scaleX(1);
+    }
+}
+
+.education-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 1.4px;
+    color: var(--color-muted);
+}
+
+.education-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    flex-shrink: 0;
+    background: var(--accent);
+}
+
+.education-intro {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 72px 56px;
+}
+
+.education-intro__text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: min(770px, 100%);
+    min-width: 0;
+}
+
+.education-intro__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 1.05;
+    letter-spacing: -3px;
+    color: var(--color-text);
+}
+
+.education-intro__title span {
+    color: var(--accent);
+}
+
+.education-intro__lead {
+    margin: 0;
+    max-width: 660px;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+}
+
+.education-intro__summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.education-intro__summary-value {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.education-intro__summary-label {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+}
+
+.education-section {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin-top: 150px;
+    padding-block: 10px;
+}
+
+.education-section--certificates {
+    padding-bottom: 0;
+}
+
+.education-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.education-heading__main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: min(600px, 100%);
+    min-width: 0;
+}
+
+.education-heading__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2.75rem;
+    line-height: 1.12;
+    letter-spacing: -1.3px;
+    color: var(--color-text);
+}
+
+.education-heading__title span {
+    color: var(--accent);
+}
+
+.education-heading__aside {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    white-space: nowrap;
+}
+
+.education-card {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+    padding: 36px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    backdrop-filter: blur(4px);
+}
+
+.education-card--tall {
+    min-height: 547px;
+}
+
+.education-card--compact {
+    min-height: 420px;
+}
+
+.education-card__heading {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    grid-template-areas: 'badge title period marker';
+    align-items: center;
+    gap: 16px;
+    padding-block: 10px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.education-card__badge {
+    grid-area: badge;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: var(--radius-tile);
+    background: var(--accent-soft);
+}
+
+/* Same badge and icon size as the timeline (story-card__icon). */
+.education-card__badge .education-card__icon {
+    width: 22px;
+    height: 22px;
+}
+
+.education-card__icon,
+.education-card__icon svg {
+    color: var(--accent);
+}
+
+.education-card__title {
+    grid-area: title;
+    margin: 0;
+    min-width: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5625rem;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+    color: var(--color-text);
+}
+
+.education-card__period {
+    grid-area: period;
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4375rem;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+    color: var(--color-muted);
+    white-space: nowrap;
+}
+
+.education-card__marker {
+    grid-area: marker;
+    display: block;
+    height: 28px;
+}
+
+/* SVG exports keep their own root size; the wrapper sets the box and the SVG fills it. */
+.education-card__marker svg,
+.education-card__completion-bar svg {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+.education-card__marker svg {
+    color: var(--accent);
+}
+
+.education-card__body {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0;
+    padding: 10px;
+}
+
+.education-card__story {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 0 1 550px;
+    min-width: 0;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+}
+
+.education-card__story p {
+    margin: 0;
+}
+
+.education-card__story strong,
+.education-card__details strong {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.education-card__divider {
+    width: 1px;
+    flex-shrink: 0;
+    background: var(--color-border);
+}
+
+.education-card__details {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 0 1 550px;
+    min-width: 0;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    color: var(--color-muted);
+}
+
+.education-card__facts {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+}
+
+.education-card__facts dt,
+.education-card__label {
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-muted);
+}
+
+.education-card__facts dd {
+    margin: 0;
+    font-style: italic;
+}
+
+.education-card__completion {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.education-card__completion-bar {
+    display: block;
+    width: min(331.5px, 100%);
+    height: 16px;
+}
+
+.education-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.education-card__list li {
+    position: relative;
+    padding-left: 34px;
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+}
+
+.education-card__list li::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 9px;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+}
+
+.education-card--compact .education-card__list li,
+.education-section--certificates .education-card__list li {
+    font-size: 0.875rem;
+}
+
+@media (max-width: 834px) {
+    .education-card__badge {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 899px) {
+    .education-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        padding-block: 48px 64px;
+    }
+
+    .education-intro__title {
+        font-size: 46px;
+        letter-spacing: -1.8px;
+    }
+
+    .education-intro__lead {
+        font-size: 1rem;
+    }
+
+    .education-intro__summary {
+        align-items: flex-start;
+    }
+
+    .education-intro__summary-value {
+        font-size: 40px;
+    }
+
+    .education-intro__summary-label,
+    .education-eyebrow {
+        font-size: 0.625rem;
+    }
+
+    .education-eyebrow {
+        letter-spacing: 1px;
+    }
+
+    .education-section {
+        gap: 32px;
+        margin-top: 0;
+        padding-block: 10px 64px;
+    }
+
+    .education-section--certificates {
+        padding-bottom: 96px;
+    }
+
+    .education-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding-top: 20px;
+    }
+
+    .education-heading__title {
+        font-size: 34px;
+        letter-spacing: -1.3px;
+    }
+
+    .education-heading__aside {
+        font-size: 0.75rem;
+        white-space: normal;
+    }
+
+    .education-card {
+        gap: 22px;
+        padding: 20px;
+    }
+
+    .education-card--tall,
+    .education-card--compact {
+        min-height: 0;
+    }
+
+    .education-card__heading {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            'badge marker'
+            'title title'
+            'period period';
+        gap: 16px;
+        padding: 0 0 18px;
+    }
+
+    .education-card__title {
+        font-size: 1.4375rem;
+        line-height: 1.2;
+    }
+
+    .education-card__period {
+        font-size: 1.125rem;
+        line-height: 1.3;
+        white-space: normal;
+    }
+
+    .education-card__body {
+        flex-direction: column;
+        gap: 28px;
+        padding: 0;
+    }
+
+    .education-card__story,
+    .education-card__details {
+        flex: 0 0 auto;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .education-card__story {
+        gap: 14px;
+    }
+
+    .education-card__divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .education-card__details {
+        gap: 14px;
+    }
+
+    .education-card__completion-bar {
+        width: min(280px, 100%);
+    }
+
+    .education-card__list li {
+        padding-left: 22px;
+    }
+
+    .education-card__list li::before {
+        left: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .education-intro,
+    .education-section {
+        padding-inline: 24px;
+    }
 }

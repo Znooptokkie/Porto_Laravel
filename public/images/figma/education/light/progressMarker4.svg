@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" width="33" height="28" viewBox="0 0 33 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Progress marker" clip-path="url(#clip0_0_35)">
+<path id="Status marker / 01" d="M10.5 0H16.5L6 28H0L10.5 0Z" fill="currentColor"/>
+<mask id="stroke0_0_35" fill="white">
+<path d="M27 0H33L22.5 28H16.5L27 0Z"/>
+</mask>
+<path id="Status marker / 02" d="M27 0H33L22.5 28H16.5L27 0Z" stroke-width="2" stroke="#6D6D6D" mask="url(#stroke0_0_35)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_35">
+<rect width="33" height="28" fill="white"/>
+</clipPath>
+</defs>
+</svg>
