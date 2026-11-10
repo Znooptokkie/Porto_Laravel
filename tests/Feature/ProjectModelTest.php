@@ -1,0 +1,28 @@
+<?php
+
+use App\Enums\ProjectStatus;
+use App\Models\Project;
+
+it('casts the status, favourite flag and years on the model', function () {
+    $project = new Project([
+        'status' => 'in_constructie',
+        'is_favorite' => 1,
+        'started_year' => '2025',
+        'ended_year' => null,
+    ]);
+
+    expect($project->status)->toBe(ProjectStatus::InConstructie)
+        ->and($project->is_favorite)->toBeTrue()
+        ->and($project->started_year)->toBe(2025)
+        ->and($project->ended_year)->toBeNull();
+});
+
+it('builds the period label from the start and optional end year', function () {
+    expect((new Project(['started_year' => 2024, 'ended_year' => 2025]))->periodLabel())->toBe('2024 | 2025')
+        ->and((new Project(['started_year' => 2026, 'ended_year' => null]))->periodLabel())->toBe('2026');
+});
+
+it('keeps the title text before the accent for the detail heading', function () {
+    expect((new Project(['title' => 'Battlebot', 'title_accent' => 'bot']))->titleLead())->toBe('Battle')
+        ->and((new Project(['title' => 'Zinra', 'title_accent' => null]))->titleLead())->toBe('Zinra');
+});
