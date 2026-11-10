@@ -20,7 +20,9 @@ it('renders no hardcoded green fill or stroke on the homepage', function () {
 });
 
 it('keeps icon assets free of hardcoded green except the preset swatch previews', function () {
-    $svgFiles = collect([public_path('images/figma'), resource_path('svg')])
+    $svgFiles = collect(['brand', 'courses', 'home', 'icons', 'projects', 'ui'])
+        ->map(fn (string $folder) => public_path("images/{$folder}"))
+        ->push(resource_path('svg'))
         ->flatMap(fn (string $directory) => File::allFiles($directory))
         ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'svg')
         ->reject(fn (SplFileInfo $file) => str_starts_with($file->getFilename(), 'pop-swatch'));

@@ -19,6 +19,8 @@
     --accent-ink: #102334;
     --accent-soft: color-mix(in srgb, var(--accent) 15%, var(--color-surface));
     --accent-ink-soft: #102334;
+    /* Zachtere accentlijnen voor decoratieve achtergronden (minder fel dan accentelementen). */
+    --accent-decor-opacity: 0.35;
 
     --color-bg: #f6f8fa;
     --color-surface: #ffffff;
@@ -37,8 +39,8 @@
     --color-portrait-frame: #101a2a;
 
     --content-max: 1550px;
-    --education-progress-start: #2ecc71;
-    --education-progress-end: #52f698;
+    --education-progress-start: var(--accent);
+    --education-progress-end: color-mix(in srgb, var(--accent) 80%, #fff);
     /* 112px vanaf 1810px (Figma); lineair kleiner tot 40px op 834px. */
     --content-gutter: clamp(40px, calc(7.38vw - 21.5px), 112px);
     --nav-height: 108px;
@@ -659,14 +661,18 @@ input,
     gap: 12px;
 }
 
-.social-link {
+/* Accent icon tile, shared by the social links and the project specification headings. */
+.social-link,
+.icon-tile {
     display: inline-flex;
     padding: 9px;
     border-radius: var(--radius-tile);
     background: var(--accent-soft);
+    backdrop-filter: blur(4px);
 }
 
-.social-link .themed-image {
+.social-link .themed-image,
+.icon-tile .themed-image {
     width: 20px;
     height: 20px;
 }
@@ -1599,11 +1605,12 @@ input,
         white-space: nowrap;
     }
 
+    /* Elke menurij is één link: de tekst, de onderstreep en de pijl zijn samen aanklikbaar. */
     .site-nav nav {
         position: absolute;
-        left: 36px;
+        left: 0;
+        right: 0;
         top: 89px;
-        width: min(330px, calc(100% - 72px));
         text-align: left;
     }
 
@@ -1611,22 +1618,25 @@ input,
         display: flex;
         flex-direction: column;
         gap: 28.3px;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     .site-nav__link {
+        position: relative;
         display: block;
+        padding-left: 36px;
         font-size: 1.0625rem;
         line-height: 21px;
         color: var(--color-menu-link);
     }
 
+    /* Onderstreep en pijl: positioned in de link, zodat ze de klik van de hele rij doorgeven. */
     .site-nav__rule {
         position: absolute;
         left: 26px;
-        width: calc(100% - 52px);
+        right: 26px;
         height: 22px;
-        pointer-events: none;
+        color: var(--color-text);
     }
 
     .site-nav__rule .themed-image {
@@ -1634,20 +1644,25 @@ input,
         height: 100%;
     }
 
+    /* Actieve pagina: de onderstreep volgt altijd de accentkleur. */
+    .site-nav__link--menu-active .site-nav__rule line {
+        stroke: var(--accent);
+    }
+
     .site-nav__rule--1 {
-        top: 98px;
+        top: 9px;
     }
 
     .site-nav__rule--2 {
-        top: 146px;
+        top: 7.7px;
     }
 
     .site-nav__rule--3 {
-        top: 194px;
+        top: 6.4px;
     }
 
     .site-nav__rule--4 {
-        top: 243px;
+        top: 6.1px;
     }
 
     .site-nav__controls {
@@ -2000,13 +2015,12 @@ input,
         top: 108px;
         /* left: 124px; */
         /* left: 75px; */
-        width: min(595px, calc(100% - 143px));
     }
 
     .site-nav__rule {
         /* left: 124px; */
         left: 40px;
-        width: calc(100% - 80px);
+        right: 40px;
     }
 
     .site-nav__link--menu-active {
@@ -2014,19 +2028,19 @@ input,
     }
 
     .site-nav__rule--1 {
-        top: 118px;
+        top: 10px;
     }
 
     .site-nav__rule--2 {
-        top: 166px;
+        top: 8.7px;
     }
 
     .site-nav__rule--3 {
-        top: 214px;
+        top: 7.4px;
     }
 
     .site-nav__rule--4 {
-        top: 263px;
+        top: 7.1px;
     }
 }
 
@@ -2622,6 +2636,12 @@ input,
 
     .education-card__completion-bar {
         width: min(280px, 100%);
+    }
+
+    .education-card__completion-bar path {
+        transform: scaleY(0.8);
+        transform-box: fill-box;
+        transform-origin: center;
     }
 
     .education-card__list li {

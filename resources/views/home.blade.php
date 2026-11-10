@@ -13,19 +13,19 @@
                     <span class="role-row__divider" aria-hidden="true"></span>
                     <span class="social-links">
                         <a class="social-link" href="{{ config('portfolio.links.linkedin') }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <x-themed-image :light="'images/figma/light/linkedinIcon.svg'" :dark="'images/figma/dark/LinkedInIcon.svg'" />
+                            <x-themed-image :light="'images/home/light/linkedinIcon.svg'" :dark="'images/home/dark/LinkedInIcon.svg'" />
                         </a>
                         @if (config('portfolio.links.email'))
                             <a class="social-link" href="mailto:{{ config('portfolio.links.email') }}" aria-label="{{ __('home.hero.email_label') }}">
-                                <x-themed-image :light="'images/figma/light/emailIcon.svg'" :dark="'images/figma/dark/EmailIcon.svg'" />
+                                <x-themed-image :light="'images/home/light/emailIcon.svg'" :dark="'images/home/dark/EmailIcon.svg'" />
                             </a>
                         @else
                             <span class="social-link" aria-hidden="true">
-                                <x-themed-image :light="'images/figma/light/emailIcon.svg'" :dark="'images/figma/dark/EmailIcon.svg'" />
+                                <x-themed-image :light="'images/home/light/emailIcon.svg'" :dark="'images/home/dark/EmailIcon.svg'" />
                             </span>
                         @endif
                         <a class="social-link" href="{{ config('portfolio.links.github') }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <x-themed-image :light="'images/figma/light/githubIcon.svg'" :dark="'images/figma/dark/GitHubIcon.svg'" />
+                            <x-themed-image :light="'images/home/light/githubIcon.svg'" :dark="'images/home/dark/GitHubIcon.svg'" />
                         </a>
                     </span>
                 </div>
@@ -33,18 +33,18 @@
                 <div class="hero__actions">
                     <a class="button button--primary" href="#">
                         {{ __('home.hero.projects') }}
-                        <x-themed-image :light="'images/figma/light/externalLinkIcon.svg'" :dark="'images/figma/dark/ExternalLinkIcon.svg'" />
+                        <x-themed-image :light="'images/home/light/externalLinkIcon.svg'" :dark="'images/home/dark/ExternalLinkIcon.svg'" />
                     </a>
                     <a class="button" href="#">
                         {{ __('home.hero.about') }}
-                        <x-themed-image :light="'images/figma/light/downArrowIcon.svg'" :dark="'images/figma/dark/DownArrowIcon.svg'" />
+                        <x-themed-image :light="'images/home/light/downArrowIcon.svg'" :dark="'images/home/dark/DownArrowIcon.svg'" />
                     </a>
                 </div>
             </div>
 
             <div class="portrait">
                 <div class="portrait__orbit" aria-hidden="true">
-                    <x-themed-image :light="'images/figma/light/orbit.svg'" :dark="'images/figma/dark/Orbit.svg'" />
+                    <x-themed-image :light="'images/home/light/orbit.svg'" :dark="'images/home/dark/Orbit.svg'" />
                     <span class="portrait__tick-ring" style="--angle: 0deg"><span class="portrait__tick portrait__tick--accent"></span></span>
                     <span class="portrait__tick-ring" style="--angle: 30deg"><span class="portrait__tick"></span></span>
                     <span class="portrait__tick-ring" style="--angle: 60deg"><span class="portrait__tick"></span></span>
@@ -108,12 +108,12 @@
                         :number="str_pad($index + 1, 2, '0', STR_PAD_LEFT)"
                         :chapter="$chapter"
                         :milestone="$index === 0
-                            ? ['light' => 'images/figma/light/milestone.svg', 'dark' => 'images/figma/dark/Milestone.svg']
-                            : ['light' => 'images/figma/light/milestone1.svg', 'dark' => 'images/figma/dark/Milestone.svg']"
-                        :progress="['light' => 'images/figma/light/progressIndicator'.($index === 0 ? '' : $index).'.svg', 'dark' => 'images/figma/dark/ProgressIndicator'.($index === 0 ? '' : $index).'.svg']"
+                            ? ['light' => 'images/home/light/milestone.svg', 'dark' => 'images/home/dark/Milestone.svg']
+                            : ['light' => 'images/home/light/milestone1.svg', 'dark' => 'images/home/dark/Milestone.svg']"
+                        :progress="['light' => 'images/home/light/progressIndicator'.($index === 0 ? '' : $index).'.svg', 'dark' => 'images/home/dark/ProgressIndicator'.($index === 0 ? '' : $index).'.svg']"
                         :icon="[
-                            'light' => 'images/figma/light/'.['bookIcon', 'paintbrushIcon', 'codeIcon', 'workIcon', 'externalLinkIcon1'][$index].'.svg',
-                            'dark' => 'images/figma/dark/'.['BookIcon', 'PaintbrushIcon', 'CodeIcon', 'WorkIcon', 'ExternalLinkIcon1'][$index].'.svg',
+                            'light' => ['images/icons/categories/light/bookIcon.svg', 'images/icons/categories/light/paintbrushIcon.svg', 'images/icons/categories/light/codeIcon.svg', 'images/icons/categories/light/workIcon.svg', 'images/home/light/externalLinkIcon1.svg'][$index],
+                            'dark' => ['images/icons/categories/dark/BookIcon.svg', 'images/icons/categories/dark/PaintbrushIcon.svg', 'images/icons/categories/dark/CodeIcon.svg', 'images/icons/categories/dark/WorkIcon.svg', 'images/home/dark/ExternalLinkIcon1.svg'][$index],
                         ]" />
                 @endforeach
             </ol>

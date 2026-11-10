@@ -20,7 +20,7 @@ class ProjectImageFactory extends Factory
     {
         return [
             'project_id' => Project::factory(),
-            'path' => 'images/figma/projects/photo-1.webp',
+            'path' => 'images/projects/placeholders/photo-1.webp',
             'alt' => null,
             'sort_order' => fake()->numberBetween(1, 4),
         ];

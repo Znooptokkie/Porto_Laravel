@@ -8,13 +8,13 @@
 <form method="GET" action="{{ route('projects') }}" class="project-filters" data-project-filters>
     <button type="button" class="project-filters__mobile-trigger" data-project-sheet-open aria-haspopup="dialog">
         <span>{{ __('projects.filters.open') }}</span>
-        <x-themed-image class="project-filter__chevron" :light="'images/figma/projects/icons/imgDropdownChevron.svg'" :dark="'images/figma/projects/icons/imgFilterChevronDark.svg'" />
+        <x-themed-image class="project-filter__chevron" :light="'images/projects/icons/imgDropdownChevron.svg'" :dark="'images/projects/icons/imgFilterChevronDark.svg'" />
     </button>
 
     <dialog class="project-filters__sheet" data-project-sheet aria-label="{{ __('projects.filters.open') }}">
         <div class="project-filters__sheet-header">
             <button type="button" class="project-filters__sheet-handle-button" data-project-sheet-close>
-                <x-themed-image class="project-filters__sheet-handle" :light="'images/figma/projects/icons/imgFilterPanelHandle.svg'" :dark="'images/figma/projects/icons/imgFilterPanelHandle.svg'" />
+                <x-themed-image class="project-filters__sheet-handle" :light="'images/projects/icons/imgFilterPanelHandle.svg'" :dark="'images/projects/icons/imgFilterPanelHandle.svg'" />
                 <span class="visually-hidden">{{ __('projects.filters.close') }}</span>
             </button>
         </div>

@@ -17,21 +17,25 @@
     font-size: 0.6875rem;
     line-height: normal;
     white-space: nowrap;
+    backdrop-filter: blur(4px);
 }
 
 .project-status--klaar {
     background: rgba(46, 204, 113, 0.2);
     color: #2ecc71;
+    backdrop-filter: blur(4px);
 }
 
 .project-status--in_constructie {
     background: rgba(236, 142, 1, 0.2);
     color: #ec8e01;
+    backdrop-filter: blur(4px);
 }
 
 .project-status--onvoltooid {
     background: rgba(168, 0, 3, 0.2);
     color: #a80003;
+    backdrop-filter: blur(4px);
 }
 
 /* ---------- Overview intro ---------- */
@@ -372,7 +376,8 @@
     position: relative;
 }
 
-.project-card__image::after {
+.project-card__image::after,
+.project-media__slide::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -381,11 +386,15 @@
     pointer-events: none;
 }
 
-[data-theme='dark'] .project-card__image::after {
+[data-theme='dark'] .project-card__image::after,
+[data-theme='dark'] .project-media__slide::after {
     background: color-mix(in srgb, var(--color-bg) 45%, transparent);
 }
 
+/* Absolute so the photo's own size never stretches the tile: every tile keeps the grid's height and the photo is cropped with object-fit. */
 .project-card__image img {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
@@ -503,6 +512,7 @@
     font-size: 0.6875rem;
     color: var(--accent);
     white-space: nowrap;
+    backdrop-filter: blur(4px);
 }
 
 .project-card__action,
@@ -645,6 +655,11 @@
     color: var(--color-muted);
 }
 
+.project-card__text strong,
+.project-detail__lead strong {
+    color: var(--accent);
+}
+
 .project-detail__context {
     display: flex;
     flex-direction: column;
@@ -737,46 +752,115 @@
     color: var(--accent);
 }
 
+.project-media {
+    --project-media-duration: calc(var(--motion-duration) * 2);
+}
+
 .project-media__stage {
     position: relative;
     aspect-ratio: 1550 / 640;
+    overflow: hidden;
     background: var(--color-surface-alt);
 }
 
+/* Slides travel sideways: the outgoing slide leaves on the opposite side of the incoming one. */
 .project-media__slide {
     position: absolute;
     inset: 0;
     margin: 0;
-    opacity: 0;
     visibility: hidden;
-    transform: scale(1.06);
-    transition:
-        opacity 0.8s ease,
-        transform 1.2s ease,
-        visibility 0s linear 0.8s;
+    transform: translateX(100%);
+    transition: visibility 0s linear var(--project-media-duration);
 }
 
 .project-media__slide.is-active {
     z-index: 1;
-    opacity: 1;
     visibility: visible;
-    transform: scale(1);
-    transition:
-        opacity 0.8s ease,
-        transform 1.2s ease,
-        visibility 0s;
-}
-
-[data-motion='off'] .project-media__slide,
-[data-motion='off'] .project-media__slide.is-active {
-    transition: none;
     transform: none;
+    transition: none;
 }
 
+.project-media__slide.is-leaving-to-left,
+.project-media__slide.is-leaving-to-right {
+    z-index: 0;
+    visibility: visible;
+    transform: none;
+    transition: none;
+    animation-duration: var(--project-media-duration);
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+.project-media__slide.is-leaving-to-left {
+    animation-name: project-media-exit-to-left;
+}
+
+.project-media__slide.is-leaving-to-right {
+    animation-name: project-media-exit-to-right;
+}
+
+.project-media__slide.is-entering-from-left,
+.project-media__slide.is-entering-from-right {
+    animation-duration: var(--project-media-duration);
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+.project-media__slide.is-entering-from-left {
+    animation-name: project-media-enter-from-left;
+}
+
+.project-media__slide.is-entering-from-right {
+    animation-name: project-media-enter-from-right;
+}
+
+@keyframes project-media-enter-from-left {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes project-media-enter-from-right {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes project-media-exit-to-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+}
+
+@keyframes project-media-exit-to-right {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+        visibility: hidden;
+    }
+}
+
+/* Contain: the whole photo is visible; the stage's surface colour fills the space beside tall or wide photos. */
 .project-media__slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .project-media__nav {
@@ -965,6 +1049,10 @@
 }
 
 .project-specs__group {
+    --project-spec-arcs: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%20preserveAspectRatio='none'%3E%3Cpath%20d='M8%20100A150%20150%200%200%200%2075%200'%20fill='none'%20stroke='black'%20stroke-width='2'%20vector-effect='non-scaling-stroke'/%3E%3Cpath%20d='M50%200A50%2050%200%200%200%20100%2050'%20fill='none'%20stroke='black'%20stroke-width='2'%20vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+
+    position: relative;
+    isolation: isolate;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -975,12 +1063,38 @@
     backdrop-filter: blur(4px);
 }
 
+/* Twee gekruiste halve manen in de accentkleur, achter de inhoud van de kaart. */
+.project-specs__group::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--accent);
+    opacity: var(--accent-decor-opacity);
+    pointer-events: none;
+    -webkit-mask: var(--project-spec-arcs) center / 100% 100% no-repeat;
+    mask: var(--project-spec-arcs) center / 100% 100% no-repeat;
+}
+
 .project-specs__heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin: 0;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 1.2px;
     color: var(--accent);
+}
+
+/* Smaller than the social-link tiles: tile and icon scaled down together. */
+.project-specs__heading .icon-tile {
+    padding: 7px;
+}
+
+.project-specs__heading .icon-tile .themed-image {
+    width: 16px;
+    height: 16px;
 }
 
 .project-specs__list {
@@ -1017,7 +1131,6 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    backdrop-filter: blur(4px);
 }
 
 .project-contributor {
@@ -1028,6 +1141,7 @@
     border: 1px solid var(--color-border);
     border-radius: 24px;
     background: var(--color-surface);
+    backdrop-filter: blur(4px);
 }
 
 .project-contributor__name {

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Collection as SupportCollection;
+use Illuminate\Support\HtmlString;
 
 /**
  * @property int $id
@@ -64,6 +65,16 @@ class Project extends Model
     public function translated(string $attribute): string
     {
         return $this->translations[app()->getLocale()][$attribute] ?? (string) ($this->{$attribute} ?? '');
+    }
+
+    /**
+     * The translated text as escaped HTML, with every part between asterisks wrapped in a strong element that is bold and takes the accent colour ("sensoren en *N-Mosfets*").
+     */
+    public function accented(string $attribute): HtmlString
+    {
+        $escaped = e($this->translated($attribute));
+
+        return new HtmlString(preg_replace('/\*(.+?)\*/', '<strong>$1</strong>', $escaped) ?? $escaped);
     }
 
     /**

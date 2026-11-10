@@ -3,7 +3,7 @@
 <div class="project-filter" data-project-filter id="{{ $id }}">
     <button type="button" class="project-filter__trigger" data-project-filter-trigger aria-expanded="false" aria-controls="{{ $id }}-panel">
         <span>{{ $label }}</span>
-        <x-themed-image class="project-filter__chevron" :light="'images/figma/projects/icons/imgDropdownChevron.svg'" :dark="'images/figma/projects/icons/imgFilterChevronDark.svg'" />
+        <x-themed-image class="project-filter__chevron" :light="'images/projects/icons/imgDropdownChevron.svg'" :dark="'images/projects/icons/imgFilterChevronDark.svg'" />
     </button>
 
     <p class="project-filter__sheet-heading">{{ $label }}</p>

@@ -113,6 +113,19 @@ it('shows the chapters, specifications and contributors on the project page', fu
         ->assertSee('01 / BATTLEBOT', false);
 });
 
+it('shows the slide number and the total number of images in the media counter', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'title_accent' => 'bot', 'slug' => 'battlebot', 'sort_order' => 1]);
+    $project->images()->createMany([
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'sort_order' => 1],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'sort_order' => 2],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'sort_order' => 3],
+    ]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('<p class="project-media__counter" data-project-media-counter>01 / 03 - BATTLEBOT</p>', false);
+});
+
 it('shares one contributor between several projects', function () {
     $contributor = Contributor::factory()->create(['name' => 'M. de Graaf']);
     $first = Project::factory()->create(['slug' => 'eerste', 'sort_order' => 1]);
@@ -160,5 +173,20 @@ it('seeds the nine projects from the design with the battlebot story', function 
         ->and(Project::query()->where('is_favorite', true)->count())->toBe(1)
         ->and($battlebot->chapters)->toHaveCount(14)
         ->and($battlebot->contributors)->toHaveCount(2)
-        ->and(Contributor::query()->count())->toBe(2);
+        ->and(Contributor::query()->count())->toBe(7);
+});
+
+it('seeds the chapters, specifications and contributors from the legacy portfolio', function () {
+    $this->seed(ProjectSeeder::class);
+
+    $smartGarden = Project::query()->where('slug', 'smart-garden-desktop')->firstOrFail();
+    $zinra = Project::query()->where('slug', 'zinra')->firstOrFail();
+
+    expect($smartGarden->chapters)->toHaveCount(8)
+        ->and($smartGarden->components)->toHaveCount(10)
+        ->and($smartGarden->contributors)->toHaveCount(6)
+        ->and($smartGarden->repository_url)->toBe('https://github.com/Znooptokkie/GoodGarden')
+        ->and($zinra->repository_url)->toBe('https://github.com/placeholder')
+        ->and($zinra->contributors)->toHaveCount(4)
+        ->and(Project::query()->whereNull('subtitle')->orWhereNull('intro_label')->count())->toBe(0);
 });
