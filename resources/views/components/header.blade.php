@@ -23,7 +23,7 @@
             <nav aria-label="{{ __('site.nav.label') }}">
                 <ul class="site-nav__links">
                     <li><a class="site-nav__link{{ request()->routeIs('courses') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('courses') }}" @if (request()->routeIs('courses')) aria-current="page" @endif>{{ __('site.nav.courses') }}</a></li>
-                    <li><a class="site-nav__link" href="#">{{ __('site.nav.projects') }}</a></li>
+                    <li><a class="site-nav__link{{ request()->routeIs('projects*') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('projects') }}" @if (request()->routeIs('projects*')) aria-current="page" @endif>{{ __('site.nav.projects') }}</a></li>
                     <li><a class="site-nav__link" href="#">{{ __('site.nav.about') }}</a></li>
                     <li><a class="site-nav__link" href="#">{{ __('site.nav.leetcode') }}</a></li>
                 </ul>
