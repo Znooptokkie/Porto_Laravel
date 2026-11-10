@@ -29,7 +29,7 @@
             <x-project-status :status="$project->status" />
         </div>
 
-        <p class="project-card__text">{{ $project->translated('summary') }}</p>
+        <p class="project-card__text">{{ $project->accented('summary') }}</p>
 
         <div class="project-card__footer">
             <ul class="project-tags" aria-label="{{ __('projects.detail.technologies') }}">

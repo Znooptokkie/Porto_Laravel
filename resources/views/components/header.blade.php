@@ -22,10 +22,26 @@
 
             <nav aria-label="{{ __('site.nav.label') }}">
                 <ul class="site-nav__links">
-                    <li><a class="site-nav__link{{ request()->routeIs('courses') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('courses') }}" @if (request()->routeIs('courses')) aria-current="page" @endif>{{ __('site.nav.courses') }}</a></li>
-                    <li><a class="site-nav__link{{ request()->routeIs('projects*') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('projects') }}" @if (request()->routeIs('projects*')) aria-current="page" @endif>{{ __('site.nav.projects') }}</a></li>
-                    <li><a class="site-nav__link" href="#">{{ __('site.nav.about') }}</a></li>
-                    <li><a class="site-nav__link" href="#">{{ __('site.nav.leetcode') }}</a></li>
+                    <li><a class="site-nav__link{{ request()->routeIs('courses') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('courses') }}" @if (request()->routeIs('courses')) aria-current="page" @endif>{{ __('site.nav.courses') }}
+                        <span class="site-nav__rule site-nav__rule--1" aria-hidden="true">
+                            <x-themed-image :light="'images/figma/mobile/light/navDivider'.(request()->routeIs('courses') ? '02' : '01').'.svg'" :dark="'images/figma/dark/pop-navDivider'.(request()->routeIs('courses') ? '02' : '01').'.svg'" />
+                        </span>
+                    </a></li>
+                    <li><a class="site-nav__link{{ request()->routeIs('projects*') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('projects') }}" @if (request()->routeIs('projects*')) aria-current="page" @endif>{{ __('site.nav.projects') }}
+                        <span class="site-nav__rule site-nav__rule--2" aria-hidden="true">
+                            <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
+                        </span>
+                    </a></li>
+                    <li><a class="site-nav__link" href="#">{{ __('site.nav.about') }}
+                        <span class="site-nav__rule site-nav__rule--3" aria-hidden="true">
+                            <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
+                        </span>
+                    </a></li>
+                    <li><a class="site-nav__link" href="#">{{ __('site.nav.leetcode') }}
+                        <span class="site-nav__rule site-nav__rule--4" aria-hidden="true">
+                            <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
+                        </span>
+                    </a></li>
                 </ul>
             </nav>
 
@@ -105,18 +121,6 @@
                     </div>
                 </div>
             </div>
-            <span class="site-nav__rule site-nav__rule--1" aria-hidden="true">
-                <x-themed-image :light="'images/figma/mobile/light/navDivider'.(request()->routeIs('courses') ? '02' : '01').'.svg'" :dark="'images/figma/dark/pop-navDivider'.(request()->routeIs('courses') ? '02' : '01').'.svg'" />
-            </span>
-            <span class="site-nav__rule site-nav__rule--2" aria-hidden="true">
-                <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
-            </span>
-            <span class="site-nav__rule site-nav__rule--3" aria-hidden="true">
-                <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
-            </span>
-            <span class="site-nav__rule site-nav__rule--4" aria-hidden="true">
-                <x-themed-image :light="'images/figma/mobile/light/navDivider01.svg'" :dark="'images/figma/dark/pop-navDivider01.svg'" />
-            </span>
             <button type="button" class="site-nav__close" data-menu-close aria-label="{{ __('site.menu.close') }}">
                 <span class="site-nav__accent-bar" aria-hidden="true"></span>
                 <span class="site-nav__chevron" aria-hidden="true">

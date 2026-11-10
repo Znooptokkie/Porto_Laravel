@@ -22,6 +22,12 @@ it('builds the period label from the start and optional end year', function () {
         ->and((new Project(['started_year' => 2026, 'ended_year' => null]))->periodLabel())->toBe('2026');
 });
 
+it('wraps the text between asterisks in a strong element and escapes the rest', function () {
+    $project = new Project(['summary' => 'Sensoren en *N-Mosfets* & <b>', 'translations' => []]);
+
+    expect((string) $project->accented('summary'))->toBe('Sensoren en <strong>N-Mosfets</strong> &amp; &lt;b&gt;');
+});
+
 it('keeps the title text before the accent for the detail heading', function () {
     expect((new Project(['title' => 'Battlebot', 'title_accent' => 'bot']))->titleLead())->toBe('Battle')
         ->and((new Project(['title' => 'Zinra', 'title_accent' => null]))->titleLead())->toBe('Zinra');

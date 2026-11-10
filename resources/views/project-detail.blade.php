@@ -26,7 +26,7 @@
                         {{ $titleLead }}@if ($project->title_accent !== null && $titleLead !== $project->translated('title'))<span>{{ $project->title_accent }}</span>@endif
                     </h1>
                     <x-project-status :status="$project->status" />
-                    <p class="project-detail__lead">{{ $project->subtitle ? $project->translated('subtitle') : $project->translated('summary') }}</p>
+                    <p class="project-detail__lead">{{ $project->subtitle ? $project->translated('subtitle') : $project->accented('summary') }}</p>
                 </div>
 
                 <div class="project-detail__context">
@@ -94,7 +94,14 @@
                     @foreach (\App\Enums\ProjectComponentGroup::cases() as $group)
                         @continue(! $componentGroups->has($group->value))
                         <section class="project-specs__group" aria-labelledby="spec-{{ $group->value }}">
-                            <h3 class="project-specs__heading" id="spec-{{ $group->value }}">{{ $group->label() }}</h3>
+                            <h3 class="project-specs__heading" id="spec-{{ $group->value }}">
+                                @if ($icon = $group->icon())
+                                    <span class="icon-tile">
+                                        <x-themed-image :light="$icon['light']" :dark="$icon['dark']" />
+                                    </span>
+                                @endif
+                                {{ $group->label() }}
+                            </h3>
                             <ul class="project-specs__list">
                                 @foreach ($componentGroups[$group->value] as $component)
                                     <li>{{ $component->name }}</li>
