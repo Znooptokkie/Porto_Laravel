@@ -391,7 +391,10 @@
     background: color-mix(in srgb, var(--color-bg) 45%, transparent);
 }
 
+/* Absolute so the photo's own size never stretches the tile: every tile keeps the grid's height and the photo is cropped with object-fit. */
 .project-card__image img {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
@@ -853,10 +856,11 @@
     }
 }
 
+/* Contain: the whole photo is visible; the stage's surface colour fills the space beside tall or wide photos. */
 .project-media__slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .project-media__nav {

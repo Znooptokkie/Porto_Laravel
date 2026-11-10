@@ -11,7 +11,7 @@
             <nav aria-label="{{ __('projects.detail.breadcrumb') }}">
                 <p class="project-detail__breadcrumb">
                     <a href="{{ route('projects') }}">
-                        <x-themed-image class="project-icon project-detail__breadcrumb-icon" :light="'images/figma/projects/icons/imgIcon.svg'" :dark="'images/figma/projects/icons/imgIcon.svg'" />
+                        <x-themed-image class="project-icon project-detail__breadcrumb-icon" :light="'images/projects/icons/imgIcon.svg'" :dark="'images/projects/icons/imgIcon.svg'" />
                         {{ __('projects.detail.breadcrumb') }}
                     </a>
                     <span aria-hidden="true">|</span>
@@ -38,7 +38,7 @@
                     @endif
                     @if ($project->repository_url)
                         <a class="project-detail__repository" href="{{ $project->repository_url }}" target="_blank" rel="noopener noreferrer">
-                            <x-themed-image class="project-icon project-detail__repository-icon" :light="'images/figma/projects/icons/imgGitHubIcon.svg'" :dark="'images/figma/projects/icons/imgGitHubIcon.svg'" />
+                            <x-themed-image class="project-icon project-detail__repository-icon" :light="'images/projects/icons/imgGitHubIcon.svg'" :dark="'images/projects/icons/imgGitHubIcon.svg'" />
                             {{ $project->repository_url }}
                         </a>
                     @endif
@@ -134,7 +134,7 @@
                             </p>
                             <p class="project-contributor__role">{{ $project->translated('title') }} / {{ $contributor->pivot->role }}</p>
                             <a class="project-contributor__github" href="{{ $contributor->url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('projects.detail.github_profile', ['name' => $contributor->name]) }}">
-                                <x-themed-image class="project-icon project-contributor__github-icon" :light="'images/figma/projects/icons/imgGitHubIcon.svg'" :dark="'images/figma/projects/icons/imgGitHubIcon.svg'" />
+                                <x-themed-image class="project-icon project-contributor__github-icon" :light="'images/projects/icons/imgGitHubIcon.svg'" :dark="'images/projects/icons/imgGitHubIcon.svg'" />
                             </a>
                         </li>
                     @endforeach
@@ -146,7 +146,7 @@
             <p class="project-detail__cta-title">{{ __('projects.detail.cta') }}</p>
             <a class="project-detail__back" href="{{ route('projects') }}">
                 {{ __('projects.detail.all_projects') }}
-                <x-themed-image class="project-icon project-detail__back-icon" :light="'images/figma/projects/icons/imgOpenProjectButton1.svg'" :dark="'images/figma/projects/icons/imgOpenProjectButton1.svg'" />
+                <x-themed-image class="project-icon project-detail__back-icon" :light="'images/projects/icons/imgOpenProjectButton1.svg'" :dark="'images/projects/icons/imgOpenProjectButton1.svg'" />
             </a>
         </div>
     </article>

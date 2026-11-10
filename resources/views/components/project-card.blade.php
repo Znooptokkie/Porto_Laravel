@@ -40,7 +40,7 @@
 
             <a class="project-card__action{{ $project->is_favorite ? ' project-card__action--featured' : '' }}" href="{{ route('projects.show', $project) }}">
                 {{ __('projects.card.view') }}
-                <x-themed-image class="project-icon project-card__icon" :light="$project->is_favorite ? 'images/figma/projects/icons/imgOpenProjectButton.svg' : 'images/figma/projects/icons/imgOpenProjectButton1.svg'" :dark="$project->is_favorite ? 'images/figma/projects/icons/imgOpenProjectButton.svg' : 'images/figma/projects/icons/imgOpenProjectButton1.svg'" />
+                <x-themed-image class="project-icon project-card__icon" :light="$project->is_favorite ? 'images/projects/icons/imgOpenProjectButton.svg' : 'images/projects/icons/imgOpenProjectButton1.svg'" :dark="$project->is_favorite ? 'images/projects/icons/imgOpenProjectButton.svg' : 'images/projects/icons/imgOpenProjectButton1.svg'" />
             </a>
         </div>
     </div>

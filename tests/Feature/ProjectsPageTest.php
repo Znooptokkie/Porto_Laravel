@@ -160,5 +160,20 @@ it('seeds the nine projects from the design with the battlebot story', function 
         ->and(Project::query()->where('is_favorite', true)->count())->toBe(1)
         ->and($battlebot->chapters)->toHaveCount(14)
         ->and($battlebot->contributors)->toHaveCount(2)
-        ->and(Contributor::query()->count())->toBe(2);
+        ->and(Contributor::query()->count())->toBe(7);
+});
+
+it('seeds the chapters, specifications and contributors from the legacy portfolio', function () {
+    $this->seed(ProjectSeeder::class);
+
+    $smartGarden = Project::query()->where('slug', 'smart-garden-desktop')->firstOrFail();
+    $zinra = Project::query()->where('slug', 'zinra')->firstOrFail();
+
+    expect($smartGarden->chapters)->toHaveCount(8)
+        ->and($smartGarden->components)->toHaveCount(10)
+        ->and($smartGarden->contributors)->toHaveCount(6)
+        ->and($smartGarden->repository_url)->toBe('https://github.com/Znooptokkie/GoodGarden')
+        ->and($zinra->repository_url)->toBe('https://github.com/placeholder')
+        ->and($zinra->contributors)->toHaveCount(4)
+        ->and(Project::query()->whereNull('subtitle')->orWhereNull('intro_label')->count())->toBe(0);
 });

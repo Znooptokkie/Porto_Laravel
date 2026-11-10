@@ -3,13 +3,13 @@
 @section('content')
     @php
         $diplomaVisuals = [
-            ['icon' => 'images/figma/education/light/diplomaIcon1.svg', 'marker' => 'images/figma/education/light/progressMarker1.svg', 'completion' => 'images/figma/education/light/completion1.svg', 'modifier' => 'tall'],
-            ['icon' => 'images/figma/education/light/diplomaIcon2.svg', 'marker' => 'images/figma/education/light/progressMarker2.svg', 'completion' => 'images/figma/education/light/completion2.svg', 'modifier' => 'tall'],
-            ['icon' => 'images/figma/education/light/educationIcon1.png', 'marker' => 'images/figma/education/light/progressMarker3.svg', 'completion' => 'images/figma/education/light/completion2.svg', 'modifier' => 'tall'],
+            ['icon' => 'images/courses/diplomaIcon1.svg', 'marker' => 'images/courses/progressMarker1.svg', 'completion' => 'images/courses/completion1.svg', 'modifier' => 'tall'],
+            ['icon' => 'images/courses/diplomaIcon2.svg', 'marker' => 'images/courses/progressMarker2.svg', 'completion' => 'images/courses/completion2.svg', 'modifier' => 'tall'],
+            ['icon' => 'images/courses/educationIcon1.png', 'marker' => 'images/courses/progressMarker3.svg', 'completion' => 'images/courses/completion2.svg', 'modifier' => 'tall'],
         ];
         $certificateVisuals = [
-            ['icon' => 'images/figma/education/light/educationIcon2.png', 'marker' => 'images/figma/education/light/progressMarker4.svg', 'markerWidth' => 33, 'modifier' => 'tall'],
-            ['icon' => 'images/figma/education/light/educationIcon3.png', 'marker' => 'images/figma/education/light/progressMarker5.svg', 'markerWidth' => 33, 'modifier' => 'compact'],
+            ['icon' => 'images/courses/educationIcon2.png', 'marker' => 'images/courses/progressMarker4.svg', 'markerWidth' => 33, 'modifier' => 'tall'],
+            ['icon' => 'images/courses/educationIcon3.png', 'marker' => 'images/courses/progressMarker5.svg', 'markerWidth' => 33, 'modifier' => 'compact'],
         ];
     @endphp
 

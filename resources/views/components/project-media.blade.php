@@ -24,12 +24,12 @@
             @if ($slides->count() > 1)
                 <button type="button" class="project-media__nav project-media__nav--previous" data-project-media-prev aria-label="{{ __('projects.detail.previous_image') }}">
                     <span class="project-media__nav-face">
-                        <x-themed-image class="project-icon project-media__nav-icon" :light="'images/figma/projects/icons/imgPreviousImageArrow.svg'" :dark="'images/figma/projects/icons/imgPreviousImageArrow.svg'" />
+                        <x-themed-image class="project-icon project-media__nav-icon" :light="'images/projects/icons/imgPreviousImageArrow.svg'" :dark="'images/projects/icons/imgPreviousImageArrow.svg'" />
                     </span>
                 </button>
                 <button type="button" class="project-media__nav project-media__nav--next" data-project-media-next aria-label="{{ __('projects.detail.next_image') }}">
                     <span class="project-media__nav-face">
-                        <x-themed-image class="project-icon project-media__nav-icon" :light="'images/figma/projects/icons/imgNextImageArrow.svg'" :dark="'images/figma/projects/icons/imgNextImageArrow.svg'" />
+                        <x-themed-image class="project-icon project-media__nav-icon" :light="'images/projects/icons/imgNextImageArrow.svg'" :dark="'images/projects/icons/imgNextImageArrow.svg'" />
                     </span>
                 </button>
             @endif

@@ -26,20 +26,20 @@ enum ProjectComponentGroup: string
     {
         return match ($this) {
             self::Hardware => [
-                'light' => 'images/figma/light/hardware.svg',
-                'dark' => 'images/figma/light/hardware.svg',
+                'light' => 'images/icons/categories/light/hardware.svg',
+                'dark' => 'images/icons/categories/light/hardware.svg',
             ],
             self::Software => [
-                'light' => 'images/figma/light/codeIcon.svg',
-                'dark' => 'images/figma/dark/CodeIcon.svg',
+                'light' => 'images/icons/categories/light/codeIcon.svg',
+                'dark' => 'images/icons/categories/dark/CodeIcon.svg',
             ],
             self::Protocol => [
-                'light' => 'images/figma/light/protocol.svg',
-                'dark' => 'images/figma/light/protocol.svg',
+                'light' => 'images/icons/categories/light/protocol.svg',
+                'dark' => 'images/icons/categories/light/protocol.svg',
             ],
             self::Sensor => [
-                'light' => 'images/figma/light/sensor.svg',
-                'dark' => 'images/figma/light/sensor.svg',
+                'light' => 'images/icons/categories/light/sensor.svg',
+                'dark' => 'images/icons/categories/light/sensor.svg',
             ],
         };
     }
