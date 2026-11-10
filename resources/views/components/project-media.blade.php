@@ -3,7 +3,7 @@
 @php
     $slides = $project->images;
     $title = $project->translated('title');
-    $slideLabel = fn (int $index): string => str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT).' / '.str($title)->upper();
+    $slideLabel = fn (int $index): string => str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT).' / '.str_pad((string) $slides->count(), 2, '0', STR_PAD_LEFT).' - '.str($title)->upper();
 @endphp
 @if ($slides->isNotEmpty())
     <figure class="project-media" data-project-media>

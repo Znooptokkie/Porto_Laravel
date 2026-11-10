@@ -113,6 +113,19 @@ it('shows the chapters, specifications and contributors on the project page', fu
         ->assertSee('01 / BATTLEBOT', false);
 });
 
+it('shows the slide number and the total number of images in the media counter', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'title_accent' => 'bot', 'slug' => 'battlebot', 'sort_order' => 1]);
+    $project->images()->createMany([
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'sort_order' => 1],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'sort_order' => 2],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'sort_order' => 3],
+    ]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('<p class="project-media__counter" data-project-media-counter>01 / 03 - BATTLEBOT</p>', false);
+});
+
 it('shares one contributor between several projects', function () {
     $contributor = Contributor::factory()->create(['name' => 'M. de Graaf']);
     $first = Project::factory()->create(['slug' => 'eerste', 'sort_order' => 1]);
