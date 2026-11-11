@@ -36,6 +36,7 @@ class ProjectSeeder extends Seeder
     private const array FIRST_PHOTOS = [
         'smart-garden-desktop' => 'gg_ik_bij_hh.webp',
         'zinra' => 'zinra_ik_bij_BZK.webp',
+        'plymouth' => 'plymouth_groepsfoto.webp'
     ];
 
     /**
@@ -54,6 +55,14 @@ class ProjectSeeder extends Seeder
             'battlebot_selfmade_module.webp' => ['nl' => 'De zelfgebouwde elektronische module, netjes op zijn plek in de behuizing', 'en' => 'The custom-built electronic module, neatly fitted inside its enclosure'],
             'battlebot_sideview.webp' => ['nl' => 'Een kijkje vanaf de zijkant - de Battlebot in volle glorie', 'en' => 'A side view of the Battlebot in all its glory'],
             'battlebot_view_top.webp' => ['nl' => 'De Battlebot van bovenaf, gespot in zijn natuurlijke habitat', 'en' => 'The Battlebot from above, spotted in its natural habitat'],
+            'battlebot_controller.webp' => ['nl' => 'Tijd voor een kleine aanpassing - de controller opengemaakt om de joysticks helemaal naar eigen smaak af te stellen', 'en' => 'Time for a little modification - opening up the controller to customize the joysticks to my liking'],
+            'battlebot_custom_module.webp' => ['nl' => 'Passen, meten en experimenteren - stap voor stap krijgt de zelfontworpen module vorm', 'en' => 'Measuring, fitting and experimenting - the custom-designed module gradually taking shape'],
+            'battlebot_expensive_mistake.webp' => ['nl' => 'Een wijze, maar prijzige les - vertrouw er niet blindelings op dat een buck converter altijd doet wat hij moet doen', 'en' => 'A valuable but costly lesson - never blindly assume a buck converter will always do its job'],
+            'battlebot_HC-SR04_test.webp' => ['nl' => 'Eerst even testen - een proefopstelling om de HC-SR04-afstandssensoren aan de tand te voelen', 'en' => 'First, some testing - a test setup to put the HC-SR04 ultrasonic distance sensors through their paces'],
+            'battlebot_mcp2515-module.webp' => ['nl' => 'Een bovenaanzicht van de gekoppelde MCP2515-modules - klaar voor CAN-buscommunicatie', 'en' => 'A top-down view of the connected MCP2515 modules - ready for CAN bus communication'],
+            'battlebot_mcp2515.webp' => ['nl' => 'Een losse MCP2515-module - de schakel die CAN-buscommunicatie mogelijk maakt', 'en' => 'A standalone MCP2515 module - the component that makes CAN bus communication possible'],
+            'battlebot_pico.webp' => ['nl' => 'De Raspberry Pi Pico 2 W gekoppeld aan een MCP2515-module - twee componenten die de handen ineenslaan', 'en' => 'The Raspberry Pi Pico 2 W connected to an MCP2515 module - two components working hand in hand'],
+            'battlebot_under_the_hood.webp' => ['nl' => 'Een eerste blik onder de motorkap - kennismaken met de verschillende onderdelen waaruit de Battlebot is opgebouwd', 'en' => 'A first look under the hood - exploring the different components that make up the Battlebot'],
         ],
         'bram' => [
             'bram_contact.webp' => ['nl' => 'Een overzicht van alle contacten binnen BRAM', 'en' => 'An overview of all contacts in BRAM'],
@@ -71,6 +80,11 @@ class ProjectSeeder extends Seeder
             'gg_homepage.webp' => ['nl' => 'Het complete Smart Garden-dashboard met alle belangrijke onderdelen op één plek', 'en' => 'The complete Smart Garden dashboard, bringing all the key features together in one place'],
             'gg_plant_info.webp' => ['nl' => 'De informatiepagina van een plant - met alle bijbehorende gegevens overzichtelijk bij elkaar', 'en' => 'A plant’s information page - bringing all its details together in one clear overview'],
             'gg_settings.webp' => ['nl' => 'De instellingenpagina waar gebruikers hun persoonlijke gegevens kunnen aanpassen of verwijderen', 'en' => 'The settings page where users can update or delete their personal information'],
+            'gg_breadboards.webp' => ['nl' => 'Een kijkje bij The Field - de verschillende breadboards waarop de Smart Garden-elektronica is opgebouwd', 'en' => 'A look inside The Field - the various breadboards used to build the Smart Garden electronics'],
+            'gg_pomp.webp' => ['nl' => 'De waterpomp die ervoor zorgt dat de planten in de kas op tijd hun water krijgen', 'en' => 'The water pump responsible for keeping the plants in the greenhouse properly watered'],
+            'gg_relais.webp' => ['nl' => 'De relaismodule die de schakelingen van de pompen en kleppen voor zijn rekening neemt', 'en' => 'The relay module responsible for switching the pumps and valves'],
+            'gg_single_breadboard.webp' => ['nl' => 'Een close-up van een van de breadboards - waar de elektronische verbindingen tot leven komen', 'en' => 'A close-up of one of the breadboards - where the electronic connections come to life'],
+            'gg_the_field.webp' => ['nl' => 'Een blik op The Field - de kas waarvoor het Smart Garden-project is ontwikkeld', 'en' => 'A look at The Field - the greenhouse for which the Smart Garden project was developed'],
         ],
         'smart-garden-mobiel' => [
             'gg_mob_all_plants.webp' => ['nl' => 'Een compleet overzicht van alle planten die momenteel in de kas groeien', 'en' => 'A complete overview of all the plants currently growing in the greenhouse'],
@@ -89,6 +103,24 @@ class ProjectSeeder extends Seeder
             'zinra_mail.webp' => ['nl' => 'Het herkenbare Zinra-pictogram in Outlook - de toegangspoort tot de virtuele assistent', 'en' => 'The recognizable Zinra icon in Outlook - the gateway to the virtual assistant'],
             'zinra_unimportant.webp' => ['nl' => 'Zinra heeft zijn oordeel gevormd - deze e-mail is na analyse als onbelangrijk gemarkeerd', 'en' => 'Zinra has made its decision - after analysis, this email has been marked as unimportant'],
             'zinra_website_manual.webp' => ['nl' => 'Het handmatig doorzoeken van verschillende documenten - precies het tijdrovende werk dat Zinra helpt automatiseren', 'en' => 'Manually searching through various documents - exactly the time-consuming task Zinra helps automate'],
+        ],
+        'automatische-trapverlichting' => [
+            'trap_all_mosfets_test.webp' => ['nl' => 'Alle MOSFETs op een breadboard - tijd om te controleren of ze doen wat ze moeten doen', 'en' => 'All MOSFETs mounted on a breadboard - time to check if they do what they are supposed to do'],
+            'trap_both_sensors_test.webp' => ['nl' => 'Beide sensoren tegelijk aan het werk - een test om te ontdekken of ze elkaar niet in de weg zitten', 'en' => 'Both sensors working side by side - a test to see if they interfere with each other'],
+            'trap_pcb_soldered.webp' => ['nl' => 'Het eindresultaat - de volledig gesoldeerde PCB met alle componenten netjes op hun plek', 'en' => 'The finished result - the fully soldered PCB with all components neatly in place'],
+            'trap_pcb_soldering_pieces.webp' => ['nl' => 'Alle elektronische onderdelen klaargelegd - tijd om ze een voor een op de PCB te solderen', 'en' => 'All electronic components laid out and ready - time to solder them onto the PCB one by one'],
+            'trap_single_mosfet_test.webp' => ['nl' => 'Eerst klein beginnen - een enkele MOSFET testen voordat de rest erbij komt', 'en' => 'Starting small - testing a single MOSFET before adding the rest'],
+            'trap_single_sensor_test.webp' => ['nl' => 'Eerst één sensor aan het werk zetten en daarna de tweede toevoegen', 'en' => 'Getting one sensor up and running first, before bringing in the second'],
+            'trap_transformer_test.webp' => ['nl' => 'De voeding van het systeem - deze transformator levert de benodigde 24 volt', 'en' => 'The system’s power supply - this transformer provides the required 24 volts'],
+            'trap_whole_setup_test.webp' => ['nl' => 'Alles aangesloten en klaar voor de grote test - werkt het complete systeem zoals bedoeld?', 'en' => 'Everything connected and ready for the big test - does the complete system work as intended?'],
+        ],
+        'plymouth' => [
+            'plymouth_all_robots.webp' => ['nl' => 'Een vrolijk overzicht van alle robots - ieder voorzien van een afbeelding die door de studenten zelf is uitgekozen', 'en' => 'A cheerful overview of all the robots - each featuring an image chosen by the students themselves'],
+            'plymouth_doolhof.webp' => ['nl' => 'Een student in actie tijdens de doolhofuitdaging - op zoek naar de juiste route naar de finish', 'en' => 'A student taking on the maze challenge - searching for the right path to the finish'],
+            'plymouth_groepsfoto.webp' => ['nl' => 'Een groepsfoto met mij, Atilla, mijn medestudent Matthijs en de volledige groep studenten', 'en' => 'A group photo featuring me, Atilla, my fellow student Matthijs and the entire group of students'],
+            'plymouth_maze.webp' => ['nl' => 'Het doolhof was een van de uitdagingen waarmee studenten punten konden verdienen', 'en' => 'The maze was one of the challenges through which students could earn points'],
+            'plymouth_medestudent_matthijs.webp' => ['nl' => 'Mijn medestudent Matthijs houdt de scores nauwlettend bij tijdens de uitdagingen', 'en' => 'My fellow student Matthijs keeping a close eye on the scores during the challenges'],
+            'plymouth_rocket.webp' => ['nl' => 'De studenten kwamen zelf op het idee om Rocket League na te bouwen met hun robots', 'en' => 'The students came up with the idea of recreating Rocket League using their robots'],
         ],
     ];
 
@@ -123,10 +155,17 @@ class ProjectSeeder extends Seeder
     private const array FRAMEWORKS = ['Laravel', 'Django', 'Flask', 'Electron', 'React Native', 'Vue.js', 'Android Studio'];
 
     /**
+     * Slugs that were renamed; their old rows are removed so they don't show up twice.
+     */
+    private const array RENAMED_SLUGS = ['plymouth-uitwisseling-begeleiding'];
+
+    /**
      * Seeds the projects from the Figma design. Running the seeder again updates the existing projects.
      */
     public function run(): void
     {
+        Project::query()->whereIn('slug', self::RENAMED_SLUGS)->delete();
+
         foreach ($this->projects() as $index => $data) {
             $data += self::INTRO_PLACEHOLDERS;
 
@@ -552,7 +591,7 @@ class ProjectSeeder extends Seeder
                 'contributors' => [['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie']],
             ],
             [
-                'slug' => 'plymouth-uitwisseling-begeleiding',
+                'slug' => 'plymouth',
                 'translations' => ['en' => [
                     'media_tagline' => 'PLACEHOLDER MEDIA TAGLINE',
                     'story_lead' => 'PLACEHOLDER STORY LEAD',
