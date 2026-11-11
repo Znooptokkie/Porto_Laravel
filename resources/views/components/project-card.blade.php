@@ -10,7 +10,7 @@
     <div class="project-card__media">
         @foreach ($photos as $photo)
             <div class="project-card__image">
-                <img src="{{ asset($photo->path) }}" alt="{{ $photo->alt ?? $title }}" loading="lazy" decoding="async">
+                <img src="{{ asset($photo->path) }}" alt="{{ $photo->translated('alt') ?? $title }}" loading="lazy" decoding="async">
             </div>
         @endforeach
     </div>

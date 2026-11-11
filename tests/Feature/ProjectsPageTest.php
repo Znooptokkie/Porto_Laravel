@@ -126,6 +126,36 @@ it('shows the slide number and the total number of images in the media counter',
         ->assertSee('<p class="project-media__counter" data-project-media-counter>01 / 03 - BATTLEBOT</p>', false);
 });
 
+it('shows the project title with the alt text of the current slide as caption', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'slug' => 'battlebot', 'sort_order' => 1, 'story_lead' => 'Dit mag niet getoond worden']);
+    $project->images()->createMany([
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => 'De robot in de arena', 'sort_order' => 1],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => 'De sensoren op de voorkant', 'sort_order' => 2],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => null, 'sort_order' => 3],
+    ]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('<p class="project-media__caption-text" data-project-media-caption-text>Battlebot: De robot in de arena</p>', false)
+        ->assertSee('data-project-media-caption="Battlebot: De sensoren op de voorkant"', false)
+        ->assertSee('data-project-media-caption="Battlebot"', false)
+        ->assertDontSee('Dit mag niet getoond worden');
+});
+
+it('uses the english alt text in english and falls back to the dutch alt text when it is missing', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'slug' => 'battlebot', 'sort_order' => 1]);
+    $project->images()->createMany([
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => 'De robot in de arena', 'translations' => ['en' => ['alt' => 'The robot in the arena']], 'sort_order' => 1],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => 'De sensoren op de voorkant', 'translations' => ['en' => ['alt' => '']], 'sort_order' => 2],
+    ]);
+
+    $this->withUnencryptedCookie('locale', 'en')
+        ->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('<p class="project-media__caption-text" data-project-media-caption-text>Battlebot: The robot in the arena</p>', false)
+        ->assertSee('data-project-media-caption="Battlebot: De sensoren op de voorkant"', false);
+});
+
 it('shares one contributor between several projects', function () {
     $contributor = Contributor::factory()->create(['name' => 'M. de Graaf']);
     $first = Project::factory()->create(['slug' => 'eerste', 'sort_order' => 1]);
@@ -163,17 +193,26 @@ it('marks only the projects link as the current page on the projects overview', 
         ->and($html)->toContain('aria-current="page"');
 });
 
-it('seeds the nine projects from the design with the battlebot story', function () {
+it('seeds the ten projects from the design with the battlebot story', function () {
     $this->seed(ProjectSeeder::class);
     $this->seed(ProjectSeeder::class);
 
     $battlebot = Project::query()->where('slug', 'battlebot')->firstOrFail();
 
-    expect(Project::query()->count())->toBe(9)
+    expect(Project::query()->count())->toBe(10)
         ->and(Project::query()->where('is_favorite', true)->count())->toBe(1)
         ->and($battlebot->chapters)->toHaveCount(14)
         ->and($battlebot->contributors)->toHaveCount(2)
         ->and(Contributor::query()->count())->toBe(7);
+});
+
+it('puts the featured photo first for smart garden and zinra', function () {
+    $this->seed(ProjectSeeder::class);
+
+    expect(Project::query()->where('slug', 'smart-garden-desktop')->firstOrFail()->images->first()->path)
+        ->toBe('images/projects/smart-garden-desktop/gg_ik_bij_hh.webp')
+        ->and(Project::query()->where('slug', 'zinra')->firstOrFail()->images->first()->path)
+        ->toBe('images/projects/zinra/zinra_ik_bij_BZK.webp');
 });
 
 it('seeds the chapters, specifications and contributors from the legacy portfolio', function () {

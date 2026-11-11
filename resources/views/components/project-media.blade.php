@@ -4,6 +4,11 @@
     $slides = $project->images;
     $title = $project->translated('title');
     $slideLabel = fn (int $index): string => str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT).' / '.str_pad((string) $slides->count(), 2, '0', STR_PAD_LEFT).' - '.str($title)->upper();
+    $slideCaption = function (\App\Models\ProjectImage $image) use ($title): string {
+        $alt = $image->translated('alt');
+
+        return $alt ? $title.': '.$alt : $title;
+    };
 @endphp
 @if ($slides->isNotEmpty())
     <figure class="project-media" data-project-media>
@@ -16,8 +21,8 @@
 
         <div class="project-media__stage">
             @foreach ($slides as $index => $image)
-                <div class="project-media__slide{{ $index === 0 ? ' is-active' : '' }}" data-project-media-slide="{{ $slideLabel($index) }}" data-project-media-caption="{{ $image->caption }}" @if ($index > 0) aria-hidden="true" inert @endif>
-                    <img src="{{ asset($image->path) }}" alt="{{ $image->alt ?? $title }}" decoding="async">
+                <div class="project-media__slide{{ $index === 0 ? ' is-active' : '' }}" data-project-media-slide="{{ $slideLabel($index) }}" data-project-media-caption="{{ $slideCaption($image) }}" @if ($index > 0) aria-hidden="true" inert @endif>
+                    <img src="{{ asset($image->path) }}" alt="{{ $image->translated('alt') ?? $title }}" decoding="async">
                 </div>
             @endforeach
 
@@ -36,7 +41,7 @@
         </div>
 
         <figcaption class="project-media__caption">
-            <p class="project-media__caption-text" data-project-media-caption-text>{{ $slides->first()->caption }}</p>
+            <p class="project-media__caption-text" data-project-media-caption-text>{{ $slideCaption($slides->first()) }}</p>
             <p class="project-media__counter" data-project-media-counter>{{ $slideLabel(0) }}</p>
         </figcaption>
     </figure>

@@ -132,9 +132,9 @@
                                     {{ $contributor->name }}
                                 @endif
                             </p>
-                            <p class="project-contributor__role">{{ $project->translated('title') }} / {{ $contributor->pivot->role }}</p>
+                            <p class="project-contributor__role">{{ $contributor->pivot->role }}</p>
                             <a class="project-contributor__github" href="{{ $contributor->url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('projects.detail.github_profile', ['name' => $contributor->name]) }}">
-                                <x-themed-image class="project-icon project-contributor__github-icon" :light="'images/projects/icons/imgGitHubIcon.svg'" :dark="'images/projects/icons/imgGitHubIcon.svg'" />
+                                <span class="project-contributor__url">{{ $contributor->url }}</span>
                             </a>
                         </li>
                     @endforeach
