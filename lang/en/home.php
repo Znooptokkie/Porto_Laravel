@@ -14,7 +14,7 @@ return [
         'stats' => [
             'age' => ['value' => '31', 'label' => 'Years<br>Old'],
             'experience' => ['value' => '5', 'label' => 'Years of<br>Experience'],
-            'projects' => ['value' => '9', 'label' => 'Projects<br>Completed'],
+            'projects' => ['value' => '10', 'label' => 'Projects<br>Completed'],
             'leetcode' => ['value' => '90', 'label' => 'Leetcode<br>Solved'],
         ],
     ],

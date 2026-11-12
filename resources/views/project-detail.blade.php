@@ -4,6 +4,12 @@
     @php
         $titleLead = $project->titleLead();
         $componentGroups = $project->componentGroups();
+        $sectionNumbers = collect([
+            'story' => $project->chapters->isNotEmpty(),
+            'links' => $project->links->isNotEmpty(),
+            'specifications' => $componentGroups->isNotEmpty(),
+            'contributors' => $project->contributors->isNotEmpty(),
+        ])->filter()->keys()->values()->mapWithKeys(fn (string $section, int $index): array => [$section => sprintf('%02d', $index + 1)]);
     @endphp
 
     <article class="container-max project-detail" aria-labelledby="project-detail-title">
@@ -60,7 +66,7 @@
 
         @if ($project->chapters->isNotEmpty())
             <section class="project-section" aria-labelledby="project-story-title">
-                <p class="project-section__label">{{ __('projects.detail.story_label') }}</p>
+                <p class="project-section__label">{{ $sectionNumbers['story'] }} / {{ __('projects.detail.story_label') }}</p>
                 <div class="project-section__head">
                     <h2 class="project-section__title" id="project-story-title">
                         {{ $project->translated('story_heading') }}
@@ -81,9 +87,32 @@
             </section>
         @endif
 
+        @if ($project->links->isNotEmpty())
+            <section class="project-section" aria-labelledby="project-links-title">
+                <p class="project-section__label">{{ $sectionNumbers['links'] }} / {{ __('projects.detail.links_label') }}</p>
+                <div class="project-section__head">
+                    <h2 class="project-section__title" id="project-links-title">
+                        {{ __('projects.detail.links_title') }} <span>{{ __('projects.detail.links_accent') }}</span>
+                    </h2>
+                </div>
+
+                <ul class="project-links">
+                    @foreach ($project->links as $link)
+                        <li class="project-link">
+                            <p class="project-link__description">{{ $link->translatedDescription() }}</p>
+                            <a class="project-link__url" href="{{ $link->url }}" target="_blank" rel="noopener noreferrer">
+                                <x-themed-image class="project-link__icon" :light="'images/home/light/externalLinkIcon1.svg'" :dark="'images/home/dark/ExternalLinkIcon1.svg'" />
+                                <span>{{ $link->url }}</span>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+        @endif
+
         @if ($componentGroups->isNotEmpty())
             <section class="project-section" aria-labelledby="project-specifications-title">
-                <p class="project-section__label">{{ __('projects.detail.specifications_label') }}</p>
+                <p class="project-section__label">{{ $sectionNumbers['specifications'] }} / {{ __('projects.detail.specifications_label') }}</p>
                 <div class="project-section__head">
                     <h2 class="project-section__title" id="project-specifications-title">
                         {{ __('projects.detail.specifications_title') }} <span>{{ __('projects.detail.specifications_accent') }}</span>
@@ -115,7 +144,7 @@
 
         @if ($project->contributors->isNotEmpty())
             <section class="project-section" aria-labelledby="project-contributors-title">
-                <p class="project-section__label">{{ __('projects.detail.contributors_label') }}</p>
+                <p class="project-section__label">{{ $sectionNumbers['contributors'] }} / {{ __('projects.detail.contributors_label') }}</p>
                 <div class="project-section__head">
                     <h2 class="project-section__title" id="project-contributors-title">
                         {{ __('projects.detail.contributors_title') }} <span>{{ __('projects.detail.contributors_accent') }}</span>
@@ -132,9 +161,9 @@
                                     {{ $contributor->name }}
                                 @endif
                             </p>
-                            <p class="project-contributor__role">{{ $project->translated('title') }} / {{ $contributor->pivot->role }}</p>
+                            <p class="project-contributor__role">{{ $contributor->pivot->role }}</p>
                             <a class="project-contributor__github" href="{{ $contributor->url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('projects.detail.github_profile', ['name' => $contributor->name]) }}">
-                                <x-themed-image class="project-icon project-contributor__github-icon" :light="'images/projects/icons/imgGitHubIcon.svg'" :dark="'images/projects/icons/imgGitHubIcon.svg'" />
+                                <span class="project-contributor__url">{{ $contributor->url }}</span>
                             </a>
                         </li>
                     @endforeach

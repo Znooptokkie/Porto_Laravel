@@ -24,6 +24,7 @@
 
     --color-bg: #f6f8fa;
     --color-surface: #ffffff;
+    --color-panel: #ffffff;
     --color-surface-alt: #ecf1f7;
     --color-text: #142132;
     --color-text-strong: #000b1d;
@@ -57,6 +58,7 @@
     --color-bg: #000219;
     /* --color-surface: #000b1d; */
     --color-surface: rgba(0, 11, 29, 0.2);
+    --color-panel: #000219;
     --color-surface-alt: #000b1d;
     --color-text: #f3f6fa;
     --color-text-strong: #f3f6fa;

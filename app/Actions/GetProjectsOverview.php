@@ -47,7 +47,9 @@ class GetProjectsOverview
     }
 
     /**
-     * Favourite sorting comes first, then year, then title. Projects without a choice keep their design order.
+     * Ranked projects come first, in the rank order the editor set: "most" (also the default) lists rank 1 upwards,
+     * "least" lists the highest rank first. Projects without a rank always come last, in design order. An explicit
+     * year or title sort replaces the default rank order, but not an explicit favourite choice.
      *
      * @param  array{year_sort?: string|null, alpha?: string|null, favorite?: string|null}  $filters
      * @param  Builder<Project>  $query
@@ -55,9 +57,15 @@ class GetProjectsOverview
      */
     private function applySorting(Builder $query, array $filters): Builder
     {
+        $favorite = $filters['favorite'] ?? null;
+        $rankDirection = match (true) {
+            $favorite === 'least' => 'desc',
+            $favorite === 'most', $favorite === null && ! isset($filters['year_sort']) && ! isset($filters['alpha']) => 'asc',
+            default => null,
+        };
+
         return $query
-            ->when(($filters['favorite'] ?? null) === 'most', fn (Builder $sorted) => $sorted->orderByDesc('is_favorite'))
-            ->when(($filters['favorite'] ?? null) === 'least', fn (Builder $sorted) => $sorted->orderBy('is_favorite'))
+            ->when($rankDirection !== null, fn (Builder $sorted) => $sorted->orderByRaw('favorite_rank is null')->orderBy('favorite_rank', $rankDirection))
             ->when(isset($filters['year_sort']), fn (Builder $sorted) => $sorted->orderBy('started_year', $filters['year_sort'] ?? 'asc'))
             ->when(isset($filters['alpha']), fn (Builder $sorted) => $sorted->orderBy('title', $filters['alpha'] ?? 'asc'))
             ->orderBy('sort_order');

@@ -31,6 +31,109 @@ class ProjectSeeder extends Seeder
     private const array PHOTO_EXTENSIONS = ['webp', 'jpg', 'jpeg', 'png'];
 
     /**
+     * The photo that is shown first in the slideshow and on the overview card, keyed by project slug.
+     */
+    private const array FIRST_PHOTOS = [
+        'smart-garden-desktop' => 'gg_ik_bij_hh.webp',
+        'zinra' => 'zinra_ik_bij_BZK.webp',
+        'plymouth' => 'plymouth_groepsfoto.webp',
+        'battlebot' => 'battlebot_screen_picture.webp',
+    ];
+
+    /**
+     * Alt texts per photo, keyed by project slug and file name. Fill in 'nl' and 'en'; an empty value means no alt text.
+     */
+    private const array IMAGE_ALTS = [
+        'battlebot' => [
+            'battlebot_all_components_blueprint.webp' => ['nl' => 'Het complete communicatieschema - alle onderdelen van de Battlebot met elkaar verbonden', 'en' => 'The complete communication blueprint, connecting all components of the Battlebot'],
+            'battlebot_circuit_blueprint.webp' => ['nl' => 'Het elektronische schema waarin alle verbindingen en circuits samenkomen', 'en' => 'The electronic circuit blueprint, bringing all connections and circuits together'],
+            'battlebot_frontview.webp' => ['nl' => 'Een kijkje aan de voorkant van de Battlebot, met het brein buiten zijn behuizing', 'en' => 'A front view of the Battlebot, with its brain outside the enclosure'],
+            'battlebot_huge_mess_topview.webp' => ['nl' => 'Een indrukwekkende wirwar van kabels en componenten, van bovenaf bekeken', 'en' => 'An impressive tangle of wires and components, viewed from above'],
+            'battlebot_huge_mess.webp' => ['nl' => 'Waar alle kabels en componenten samenkomen - georganiseerde chaos in volle glorie', 'en' => 'Where all the wires and components come together: organized chaos in all its glory'],
+            'battlebot_mcp_connection.webp' => ['nl' => 'De MCP2515-modules die de CAN-buscommunicatie tussen de verschillende onderdelen mogelijk maken', 'en' => 'The MCP2515 modules enabling CAN bus communication between the different components'],
+            'battlebot_screen_picture.webp' => ['nl' => 'Een uniek perspectief - een selfie gemaakt door de camera van de Battlebot', 'en' => 'A unique perspective: a selfie captured by the Battlebot’s own camera'],
+            'battlebot_selfmade_module_topview.webp' => ['nl' => 'Een bovenaanzicht van de zelfontworpen en gebouwde elektronische module', 'en' => 'A top-down view of the custom-designed and built electronic module'],
+            'battlebot_selfmade_module.webp' => ['nl' => 'De zelfgebouwde elektronische module, netjes op zijn plek in de behuizing', 'en' => 'The custom-built electronic module, neatly fitted inside its enclosure'],
+            'battlebot_sideview.webp' => ['nl' => 'Een kijkje vanaf de zijkant - de Battlebot in volle glorie', 'en' => 'A side view of the Battlebot in all its glory'],
+            'battlebot_view_top.webp' => ['nl' => 'De Battlebot van bovenaf, gespot in zijn natuurlijke habitat', 'en' => 'The Battlebot from above, spotted in its natural habitat'],
+            'battlebot_controller.webp' => ['nl' => 'Tijd voor een kleine aanpassing - de controller opengemaakt om de joysticks helemaal naar eigen smaak af te stellen', 'en' => 'Time for a little modification - opening up the controller to customize the joysticks to my liking'],
+            'battlebot_custom_module.webp' => ['nl' => 'Passen, meten en experimenteren - stap voor stap krijgt de zelfontworpen module vorm', 'en' => 'Measuring, fitting and experimenting - the custom-designed module gradually taking shape'],
+            'battlebot_expensive_mistake.webp' => ['nl' => 'Een wijze, maar prijzige les - vertrouw er niet blindelings op dat een buck converter altijd doet wat hij moet doen', 'en' => 'A valuable but costly lesson - never blindly assume a buck converter will always do its job'],
+            'battlebot_HC-SR04_test.webp' => ['nl' => 'Eerst even testen - een proefopstelling om de HC-SR04-afstandssensoren aan de tand te voelen', 'en' => 'First, some testing - a test setup to put the HC-SR04 ultrasonic distance sensors through their paces'],
+            'battlebot_mcp2515-module.webp' => ['nl' => 'Een bovenaanzicht van de gekoppelde MCP2515-modules - klaar voor CAN-buscommunicatie', 'en' => 'A top-down view of the connected MCP2515 modules - ready for CAN bus communication'],
+            'battlebot_mcp2515.webp' => ['nl' => 'Een losse MCP2515-module - de schakel die CAN-buscommunicatie mogelijk maakt', 'en' => 'A standalone MCP2515 module - the component that makes CAN bus communication possible'],
+            'battlebot_pico.webp' => ['nl' => 'De Raspberry Pi Pico 2 W gekoppeld aan een MCP2515-module - twee componenten die de handen ineenslaan', 'en' => 'The Raspberry Pi Pico 2 W connected to an MCP2515 module - two components working hand in hand'],
+            'battlebot_under_the_hood.webp' => ['nl' => 'Een eerste blik onder de motorkap - kennismaken met de verschillende onderdelen waaruit de Battlebot is opgebouwd', 'en' => 'A first look under the hood - exploring the different components that make up the Battlebot'],
+        ],
+        'bram' => [
+            'bram_contact.webp' => ['nl' => 'Een overzicht van alle contacten binnen BRAM', 'en' => 'An overview of all contacts in BRAM'],
+            'bram_foto.webp' => ['nl' => 'Een kijkje in de fotogalerij, waar alle herinneringen samenkomen', 'en' => 'A look inside the photo gallery, where all the memories come together'],
+            'bram_home.webp' => ['nl' => 'Het startscherm van BRAM, het centrale punt voor de bediening van je slimme huis', 'en' => 'The BRAM home screen, the central hub for controlling your smart home'],
+            'bram_lichten.webp' => ['nl' => 'De lichtbediening van BRAM, waarmee je de verlichting in huis naar wens kunt regelen', 'en' => 'BRAM’s lighting controls, letting you adjust the lights throughout your home'],
+            'bram_loadingscreen.webp' => ['nl' => 'Een eerste kennismaking met BRAM - het laadscherm dat verschijnt bij het opstarten van de applicatie', 'en' => 'A first introduction to BRAM - the loading screen displayed when the application starts'],
+            'bram_verwarming.webp' => ['nl' => 'De verwarmingsbediening van BRAM, waarmee je de temperatuur in huis kunt regelen', 'en' => 'BRAM’s heating controls, allowing you to adjust the temperature throughout your home'],
+        ],
+        'smart-garden-desktop' => [
+            'gg_ik_bij_hh.webp' => ['nl' => 'Ik als challengegever tijdens het begeleiden van studenten aan De Haagse Hogeschool', 'en' => 'Me presenting a challenge while mentoring students at The Hague University of Applied Sciences'],
+            'gg_add_plant.webp' => ['nl' => 'Het formulier waarmee je een nieuwe plant aan je dashboard toevoegt', 'en' => 'The form used to add a new plant to your dashboard'],
+            'gg_api_request.webp' => ['nl' => 'Het moment waarop de applicatie plantgegevens opvraagt bij de Perenual API', 'en' => 'The moment the application requests plant information from the Perenual API'],
+            'gg_api_result.webp' => ['nl' => 'De ontvangen API-resultaten - de gevonden plantnaam kwam nog niet helemaal overeen met de oorspronkelijke zoekopdracht', 'en' => 'The returned API results - the identified plant name did not yet fully match the original search query'],
+            'gg_homepage.webp' => ['nl' => 'Het complete Smart Garden-dashboard met alle belangrijke onderdelen op één plek', 'en' => 'The complete Smart Garden dashboard, bringing all the key features together in one place'],
+            'gg_plant_info.webp' => ['nl' => 'De informatiepagina van een plant - met alle bijbehorende gegevens overzichtelijk bij elkaar', 'en' => 'A plant’s information page - bringing all its details together in one clear overview'],
+            'gg_settings.webp' => ['nl' => 'De instellingenpagina waar gebruikers hun persoonlijke gegevens kunnen aanpassen of verwijderen', 'en' => 'The settings page where users can update or delete their personal information'],
+            'gg_breadboards.webp' => ['nl' => 'Een kijkje bij The Field - de verschillende breadboards waarop de Smart Garden-elektronica is opgebouwd', 'en' => 'A look inside The Field - the various breadboards used to build the Smart Garden electronics'],
+            'gg_pomp.webp' => ['nl' => 'De waterpomp die ervoor zorgt dat de planten in de kas op tijd hun water krijgen', 'en' => 'The water pump responsible for keeping the plants in the greenhouse properly watered'],
+            'gg_relais.webp' => ['nl' => 'De relaismodule die de schakelingen van de pompen en kleppen voor zijn rekening neemt', 'en' => 'The relay module responsible for switching the pumps and valves'],
+            'gg_single_breadboard.webp' => ['nl' => 'Een close-up van een van de breadboards - waar de elektronische verbindingen tot leven komen', 'en' => 'A close-up of one of the breadboards - where the electronic connections come to life'],
+            'gg_the_field.webp' => ['nl' => 'Een blik op The Field - de kas waarvoor het Smart Garden-project is ontwikkeld', 'en' => 'A look at The Field - the greenhouse for which the Smart Garden project was developed'],
+        ],
+        'smart-garden-mobiel' => [
+            'gg_mob_all_plants.webp' => ['nl' => 'Een compleet overzicht van alle planten die momenteel in de kas groeien', 'en' => 'A complete overview of all the plants currently growing in the greenhouse'],
+            'gg_mob_homepage.webp' => ['nl' => 'Het startscherm van de Smart Garden-app - alle belangrijke onderdelen binnen handbereik', 'en' => 'The Smart Garden app home screen - all the essential features right at your fingertips'],
+            'gg_mob_login.webp' => ['nl' => 'Het inlogscherm waarmee gebruikers toegang krijgen tot de Smart Garden-app', 'en' => 'The login screen where users can access the Smart Garden app'],
+            'gg_mob_log.webp' => ['nl' => 'Het logboek waarin foutmeldingen en andere gebeurtenissen worden bijgehouden', 'en' => 'The logbook keeping track of errors and other application events'],
+            'gg_mob_plant_info.webp' => ['nl' => 'Een kijkje bij alle informatie over een specifieke plant', 'en' => 'A closer look at all the information about a specific plant'],
+            'gg_mob_pump.webp' => ['nl' => 'Een overzicht van alle pompen - met de mogelijkheid om ze afzonderlijk in of uit te schakelen', 'en' => 'An overview of all pumps - with the ability to switch each one on or off'],
+            'gg_mob_sensors.webp' => ['nl' => 'Een overzicht van alle sensoren die in de kas de omstandigheden in de gaten houden', 'en' => 'An overview of all sensors monitoring conditions inside the greenhouse'],
+            'gg_mob_settings.webp' => ['nl' => 'De instellingenpagina waar gebruikers hun persoonlijke voorkeuren en gegevens kunnen aanpassen', 'en' => 'The settings page where users can adjust their personal preferences and information'],
+        ],
+        'zinra' => [
+            'zinra_ik_bij_BZK.webp' => ['nl' => 'Mijn taak was om de gerealiseerde projecten kort toe te lichten aan de aanwezigen bij het ministerie van BZK', 'en' => 'My task was to briefly present the completed projects to attendees at the Ministry of the Interior and Kingdom Relations'],
+            'zinra_app.webp' => ['nl' => 'De virtuele assistent op de website - gebruikers worden stap voor stap door een reeks vragen geleid', 'en' => 'The virtual assistant on the website - guiding users step by step through a series of questions'],
+            'zinra_home.webp' => ['nl' => 'Zinra aan het werk in de Outlook-mailbox - de virtuele assistent helpt bij het verwerken van binnenkomende e-mails', 'en' => 'Zinra at work in the Outlook inbox - the virtual assistant helps process incoming emails'],
+            'zinra_mail.webp' => ['nl' => 'Het herkenbare Zinra-pictogram in Outlook - de toegangspoort tot de virtuele assistent', 'en' => 'The recognizable Zinra icon in Outlook - the gateway to the virtual assistant'],
+            'zinra_unimportant.webp' => ['nl' => 'Zinra heeft zijn oordeel gevormd - deze e-mail is na analyse als onbelangrijk gemarkeerd', 'en' => 'Zinra has made its decision - after analysis, this email has been marked as unimportant'],
+            'zinra_website_manual.webp' => ['nl' => 'Het handmatig doorzoeken van verschillende documenten - precies het tijdrovende werk dat Zinra helpt automatiseren', 'en' => 'Manually searching through various documents - exactly the time-consuming task Zinra helps automate'],
+        ],
+        'automatische-trapverlichting' => [
+            'trap_all_mosfets_test.webp' => ['nl' => 'Alle MOSFETs op een breadboard - tijd om te controleren of ze doen wat ze moeten doen', 'en' => 'All MOSFETs mounted on a breadboard - time to check if they do what they are supposed to do'],
+            'trap_both_sensors_test.webp' => ['nl' => 'Beide sensoren tegelijk aan het werk - een test om te ontdekken of ze elkaar niet in de weg zitten', 'en' => 'Both sensors working side by side - a test to see if they interfere with each other'],
+            'trap_pcb_soldered.webp' => ['nl' => 'Het eindresultaat - de volledig gesoldeerde PCB met alle componenten netjes op hun plek', 'en' => 'The finished result - the fully soldered PCB with all components neatly in place'],
+            'trap_pcb_soldering_pieces.webp' => ['nl' => 'Alle elektronische onderdelen klaargelegd - tijd om ze een voor een op de PCB te solderen', 'en' => 'All electronic components laid out and ready - time to solder them onto the PCB one by one'],
+            'trap_single_mosfet_test.webp' => ['nl' => 'Eerst klein beginnen - een enkele MOSFET testen voordat de rest erbij komt', 'en' => 'Starting small - testing a single MOSFET before adding the rest'],
+            'trap_single_sensor_test.webp' => ['nl' => 'Eerst één sensor aan het werk zetten en daarna de tweede toevoegen', 'en' => 'Getting one sensor up and running first, before bringing in the second'],
+            'trap_transformer_test.webp' => ['nl' => 'De voeding van het systeem - deze transformator levert de benodigde 24 volt', 'en' => 'The system’s power supply - this transformer provides the required 24 volts'],
+            'trap_whole_setup_test.webp' => ['nl' => 'Alles aangesloten en klaar voor de grote test - werkt het complete systeem zoals bedoeld?', 'en' => 'Everything connected and ready for the big test - does the complete system work as intended?'],
+        ],
+        'plymouth' => [
+            'plymouth_all_robots.webp' => ['nl' => 'Een vrolijk overzicht van alle robots - ieder voorzien van een afbeelding die door de studenten zelf is uitgekozen', 'en' => 'A cheerful overview of all the robots - each featuring an image chosen by the students themselves'],
+            'plymouth_doolhof.webp' => ['nl' => 'Een student in actie tijdens de doolhofuitdaging - op zoek naar de juiste route naar de finish', 'en' => 'A student taking on the maze challenge - searching for the right path to the finish'],
+            'plymouth_groepsfoto.webp' => ['nl' => 'Een groepsfoto met mij, Atilla, mijn medestudent Matthijs en de volledige groep studenten', 'en' => 'A group photo featuring me, Atilla, my fellow student Matthijs and the entire group of students'],
+            'plymouth_maze.webp' => ['nl' => 'Het doolhof was een van de uitdagingen waarmee studenten punten konden verdienen', 'en' => 'The maze was one of the challenges through which students could earn points'],
+            'plymouth_medestudent_matthijs.webp' => ['nl' => 'Mijn medestudent Matthijs houdt de scores nauwlettend bij tijdens de uitdagingen', 'en' => 'My fellow student Matthijs keeping a close eye on the scores during the challenges'],
+            'plymouth_rocket.webp' => ['nl' => 'De studenten kwamen zelf op het idee om Rocket League na te bouwen met hun robots', 'en' => 'The students came up with the idea of recreating Rocket League using their robots'],
+        ],
+        'dungeon-crawler' => [
+            'crawler_battleview.webp' => ['nl' => 'Het Figma-ontwerp van de gevechtsfase - zo ziet een confrontatie met vijanden er straks uit', 'en' => 'The Figma design of the battle phase - a preview of what encounters with enemies will look like'],
+            'crawler_dungeonview.webp' => ['nl' => 'Het Figma-ontwerp van de dungeon - een eerste indruk van de omgeving waarin spelers op avontuur gaan', 'en' => 'The Figma design of the dungeon - an early look at the environment where players embark on their adventure'],
+            'crawler_enemy.webp' => ['nl' => 'Het daadwerkelijke spel in actie - een vijand verschijnt in de kamer, voorlopig nog met een zelfgemaakte placeholder', 'en' => 'The actual game in action - an enemy appears in the room, currently using a quickly created placeholder'],
+            'crawler_homescreen.webp' => ['nl' => 'Het startscherm van de website - de eerste kennismaking met de wereld van Dungeon Crawler', 'en' => 'The website home screen - the first introduction to the world of Dungeon Crawler'],
+            'crawler_open_chest.webp' => ['nl' => 'Een geopende schatkist in de dungeon - tijd om te ontdekken welke buit erin verborgen zit', 'en' => 'An opened treasure chest in the dungeon - time to discover what loot is hidden inside'],
+            'crawler_roomview.webp' => ['nl' => 'De eerste kamer van Dungeon Level 1 - hier begint het avontuur voor iedere speler', 'en' => 'The first room of Dungeon Level 1 - where every player’s adventure begins'],
+        ],
+    ];
+
+    /**
      * Languages and frameworks; these kinds drive the "Programmeertaal" and "Framework" filters.
      */
     private const array LANGUAGES = ['PHP', 'Python', 'Java', 'TypeScript', 'JavaScript'];
@@ -61,16 +164,23 @@ class ProjectSeeder extends Seeder
     private const array FRAMEWORKS = ['Laravel', 'Django', 'Flask', 'Electron', 'React Native', 'Vue.js', 'Android Studio'];
 
     /**
+     * Slugs that were renamed; their old rows are removed so they don't show up twice.
+     */
+    private const array RENAMED_SLUGS = ['plymouth-uitwisseling-begeleiding'];
+
+    /**
      * Seeds the projects from the Figma design. Running the seeder again updates the existing projects.
      */
     public function run(): void
     {
+        Project::query()->whereIn('slug', self::RENAMED_SLUGS)->delete();
+
         foreach ($this->projects() as $index => $data) {
             $data += self::INTRO_PLACEHOLDERS;
 
             $project = Project::query()->updateOrCreate(
                 ['slug' => $data['slug']],
-                collect($data)->except(['slug', 'types', 'cardTechnologies', 'detailTechnologies', 'chapters', 'chapterTranslations', 'components', 'contributors'])
+                collect($data)->except(['slug', 'types', 'cardTechnologies', 'detailTechnologies', 'chapters', 'chapterTranslations', 'links', 'components', 'contributors'])
                     ->put('sort_order', $index + 1)
                     ->all(),
             );
@@ -80,6 +190,7 @@ class ProjectSeeder extends Seeder
             $this->syncTechnologies($project, $data['detailTechnologies'] ?? $data['cardTechnologies'], 'detail');
             $this->syncImages($project);
             $this->syncChapters($project, $data['chapters'] ?? [], $data['chapterTranslations'] ?? []);
+            $this->syncLinks($project, $data['links'] ?? []);
             $this->syncComponents($project, $data['components'] ?? []);
             $this->syncContributors($project, $data['contributors'] ?? []);
         }
@@ -93,24 +204,61 @@ class ProjectSeeder extends Seeder
         return [
             [
                 'slug' => 'automatische-trapverlichting',
-                'translations' => ['en' => ['title' => 'Automatic Stair Lighting',
+                'translations' => ['en' => [
+                    'media_tagline' => '{ sensors x lighting }',
+                    'story_lead' => 'The stair lighting: a deeper dive into sensors, MOSFETs and microcontrollers.',
+                    'title' => 'Automatic Stair Lighting',
                     'category' => 'EMBEDDED SYSTEMS',
+                    'intro_label' => 'EMBEDDED SYSTEMS',
                     'summary' => 'My mother is slowly losing her eyesight, so I decided to build an *automatic lighting system* on the stairs, with *sensors* and *N-MOSFETs*. Everything is controlled by a *Raspberry Pi Pico 2*. I also chose to design my own *PCB* for it, together with the *electrical schematic*.',
+                    'subtitle' => 'A fully automated light system',
+                    'story_heading' => 'More light in the',
+                    'story_heading_accent' => 'darkness',
+                    'story_aside' => '// step by step',
+                    'organization' => 'Mother\'s home',
+                    'department' => 'Stairs',
                 ]],
                 'title' => 'Automatische Trapverlichting',
-
+                'title_accent' => 'ligth',
                 'category' => 'EMBEDDED SYSTEMS',
+                'intro_label' => 'EMBEDDED SYSTEMS',
                 'started_year' => 2026,
                 'ended_year' => null,
                 'summary' => 'Mijn moeder kan helaas steeds slechter zien, vandaar dat ik besloot om op de trap een *automatisch lichtsysteem* te maken met *sensoren* en *N-Mosfets*. Dit alles wordt aangestuurd via een *Raspberry Pi Pico 2*. Ook heb ik besloten om een eigen *PCB* hiervoor te ontwerpen, samen met het *elecktrisch schema*.',
+                'subtitle' => 'Een nieuwe verdieping in Embedded Systems en elecktronica.',
+                'story_lead' => 'De Trapverlichting: de verdere verdieping van sensoren, mosfets en microcontrollers',
+                'media_tagline' => '{ hardware × software }',
+                'story_heading' => 'Een helpende hand',
+                'story_heading_accent' => 'bieden',
+                'story_aside' => '// stap voor stap',
+                'repository_url' => 'https://github.com/Znooptokkie/Trapverlichting_mosfets',
+                'favorite_rank' => 3,
                 'status' => ProjectStatus::InConstructie,
-                'is_favorite' => true,
+                'organization' => 'Moeder haar huis',
+                'department' => 'Trap',
                 'types' => ['Embedded Systems'],
                 'cardTechnologies' => ['MicroPython', 'HC-SR505', 'Pico 2', 'KiCad', 'N-Mosfet'],
+                'detailTechnologies' => ['Raspberry Pi Pico 2', 'N-Mosfet', 'MicroPython', 'KiCad', 'HC-SR505'],
+                'links' => [
+                    [
+                        'description' => ['nl' => 'Op Reddit vond ik een post die hetzelfde probleem met de spanning beschrijft.', 'en' => 'On Reddit I found a post describing the same voltage-related problem.'], 'url' => 'https://www.reddit.com/r/esp32/comments/w77tgm/esp32cam_connexion_to_a_pir_motion_sensor_loop/',
+                    ],
+                    [
+                        'description' => ['nl' => 'Deze tutorial heb ik gevolgd om de PCB te ontwerpen.', 'en' => 'This is the tutorial I followed for designing the PCB.'], 'url' => 'https://www.youtube.com/playlist?list=PLUOaI24LpvQPls1Ru_qECJrENwzD7XImd',
+                    ],
+                ],
+                'chapters' => $this->stairLightingChapters(),
+                'chapterTranslations' => $this->stairLightingChapterTranslations(),
+                'components' => $this->stairLightingComponents(),
+                'contributors' => [
+                    ['name' => 'A. Oomen', 'role' => 'Developer / Hardware Engineer', 'url' => 'https://github.com/Znooptokkie'],
+                ],
             ],
             [
                 'slug' => 'battlebot',
                 'translations' => ['en' => [
+                    'media_tagline' => '{ autonoom x robot }',
+                    'title' => 'Battlebot',
                     'category' => 'ROBOTICS / STAGE PROJECT',
                     'intro_label' => 'ROBOTICS / FINAL STAGE PROJECT',
                     'summary' => 'Battlebot was my *final internship project*, in which I turned an existing robot into an intelligent and largely autonomous system, with a *Raspberry Pi 5* and *Pico 2*, *CAN-bus communication* and *AI-driven object detection* via a *Hailo-8 accelerator*.',
@@ -119,6 +267,7 @@ class ProjectSeeder extends Seeder
                     'story_heading' => 'From idea to',
                     'story_heading_accent' => 'autonomy',
                     'story_aside' => '// step by step',
+                    'organization' => 'mboRijnland',
                     'department' => 'Department of Technology',
                 ]],
                 'title' => 'Battlebot',
@@ -135,164 +284,470 @@ class ProjectSeeder extends Seeder
                 'story_heading_accent' => 'autonomie',
                 'story_aside' => '// stap voor stap',
                 'repository_url' => 'https://github.com/BattlebotdeGripper/battlebot_pi',
+                'favorite_rank' => 4,
                 'status' => ProjectStatus::Klaar,
                 'organization' => 'mboRijnland',
                 'department' => 'Afdeling Techniek',
                 'types' => ['Robotica'],
                 'cardTechnologies' => ['Python', 'MicroPython', 'CAN-bus', 'AI'],
                 'detailTechnologies' => ['Raspberry Pi 5', 'Pico 2', 'MicroPython', 'CAN-bus', 'Hailo-8'],
+                'links' => [
+                    [
+                        'description' => [
+                            'nl' => 'De repository met de software voor de Raspberry Pi Pico 2 W.',
+                            'en' => 'The repository containing the software for the Raspberry Pi Pico 2 W.',
+                        ],
+                        'url' => 'https://github.com/BattlebotdeGripper/battlebot_pico',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'De repository met de implementatie en aansturing van de MCP2515-module.',
+                            'en' => 'The repository containing the implementation and control logic for the MCP2515 module.',
+                        ],
+                        'url' => 'https://github.com/Znooptokkie/mcp2515/',
+                    ],
+                ],
                 'chapters' => $this->battlebotChapters(),
                 'chapterTranslations' => $this->battlebotChapterTranslations(),
                 'components' => $this->battlebotComponents(),
                 'contributors' => [
-                    ['name' => 'A. Oomen', 'role' => 'Development', 'url' => 'https://github.com/Znooptokkie'],
-                    ['name' => 'M. de Graaf', 'role' => 'Development', 'url' => 'https://github.com/Matthijs-de-Graaf'],
+                    ['name' => 'A. Oomen', 'role' => 'Embedded Software Engineer', 'url' => 'https://github.com/Znooptokkie'],
+                    ['name' => 'M. de Graaf', 'role' => 'AI Software Engineer', 'url' => 'https://github.com/Matthijs-de-Graaf'],
                 ],
             ],
             [
                 'slug' => 'portfolio-v2',
                 'translations' => ['en' => [
+                    'media_tagline' => '{ software x portfolio }',
+                    'story_lead' => 'My Portfolio: a new design, a new way to introduce myself.',
+                    'title' => 'Portfolio V2',
                     'category' => 'WEB DEVELOPMENT',
+                    'intro_label' => 'WEB DEVELOPMENT / PORTFOLIO',
                     'summary' => 'The first version of my portfolio website was built in *Django (Python)*. I mainly saw it as a learning project. It started out well structured, but ended up as quite a mess. For that reason, and because I wanted to build a complete project with *Claude Code*, I decided to rebuild my portfolio in *Laravel (PHP)*. This time with support from *Figma-MCP* & *Claude Code*.',
+                    'subtitle' => 'A revamp from my first portfolio website, now with Claude Code and Figma MCP fully integrated.',
+                    'story_heading' => 'My progress in Software',
+                    'story_heading_accent' => 'Development',
+                    'story_aside' => '// step by step',
+                    'organization' => 'Home',
+                    'department' => 'Desk',
                 ]],
                 'title' => 'Portfolio V2',
+                'title_accent' => null,
                 'category' => 'WEBDEVELOPMENT',
+                'intro_label' => 'WEBDEVELOPMENT / PORTFOLIO',
                 'started_year' => 2026,
                 'ended_year' => null,
                 'summary' => 'De eerste versie van mijn portfolio website had ik gemaakt in *Django (Python)*. Die beschouwde ik vooral als een leer-project. Het begon gestructureerd, maar eindigde toch wel in een aardige bende. Mede om die reden, en omdat ik met *Claude Code* een volledige iets wilde bouwen, heb ik besloten om mijn portfolio opnieuw te bouwen *Laravel (PHP)*. Dit keer met ondersteuning van *Figma-MCP* & *Claude Code*.',
+                'subtitle' => 'Een website waar ik trots op kan zijn.',
+                'story_lead' => 'My Portfolio: Een nieuw design, een nieuwe manier om mijzelf te introduceren.',
+                'media_tagline' => '{ software }',
+                'story_heading' => 'Een nieuw',
+                'story_heading_accent' => 'begin',
+                'story_aside' => '// stap voor stap',
+                'repository_url' => 'https://github.com/Znooptokkie/Porto_Laravel',
+                'favorite_rank' => 6,
                 'status' => ProjectStatus::InConstructie,
+                'organization' => 'Thuis',
+                'department' => 'Bureau',
                 'types' => ['Webdevelopment'],
                 'cardTechnologies' => ['PHP', 'Laravel', 'TypeScript', 'Claude Code', 'Figma-MCP'],
+                'detailTechnologies' => ['PHP', 'Laravel', 'TypeScript', 'Claude Code', 'Figma-MCP'],
+                'links' => [], // invullen, zie syncLinks() voor het formaat
+                'chapters' => [], // invullen
+                'components' => [], // invullen
+                'contributors' => [
+                    ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie'],
+                ],
             ],
             [
                 'slug' => 'smart-garden-desktop',
                 'translations' => ['en' => [
+                    'media_tagline' => '{ sensors × dashboard }',
+                    'story_lead' => 'Smart Garden: live sensor data and an automatic water pump, in one dashboard.',
+                    'title' => 'Smart Garden (desktop)',
                     'category' => 'IOT / EMBEDDED SYSTEMS',
+                    'intro_label' => 'IOT / EMBEDDED SYSTEMS',
                     'summary' => 'Smart Garden is a collaboration between *CIV Smart Technology*, *The Field* in Leiden and *mboRijnland*, in which a dashboard was built in *Flask* to monitor and control a vertical garden, including live sensor data and an automatically controlled water pump via a *Raspberry Pi 4*.',
+                    'subtitle' => 'A dashboard to monitor and control a vertical garden.',
+                    'story_heading' => 'From assignment to',
+                    'story_heading_accent' => 'delivery',
+                    'story_aside' => '// from assignment to delivery',
+                    'organization' => 'CIV Smart Technology, The Field & mboRijnland',
+                    'department' => '',
                 ]],
                 'title' => 'Smart Garden (desktop)',
+                'title_accent' => null,
                 'category' => 'IOT / EMBEDDED SYSTEMS',
+                'intro_label' => 'IOT / SAMENWERKINGSPROJECT',
                 'started_year' => 2024,
                 'ended_year' => 2025,
                 'summary' => 'Smart Garden is een samenwerkingsproject tussen het *CIV Smart Technology*, *The Field* in Leiden en *mboRijnland*, waarbij een dashboard werd gebouwd in *Flask* om een verticale tuin te monitoren en aan te sturen, inclusief live sensordata en een automatisch aangestuurde waterpomp via een *Raspberry Pi 4*.',
+                'subtitle' => 'Een dashboard om een verticale tuin te monitoren en aan te sturen.',
+                'story_lead' => 'Smart Garden: live sensordata en een automatische waterpomp, in één dashboard.',
+                'media_tagline' => '{ sensoren × dashboard }',
+                'story_heading' => 'Van opdracht naar',
+                'story_heading_accent' => 'oplevering',
+                'story_aside' => '// van opdracht tot oplevering',
+                'repository_url' => 'https://github.com/Znooptokkie/GoodGarden',
+                'favorite_rank' => 1,
                 'status' => ProjectStatus::Klaar,
+                'organization' => 'CIV Smart Technology, The Field & mboRijnland',
+                'department' => '',
                 'types' => ['IOT', 'Embedded Systems'],
                 'cardTechnologies' => ['Python', 'JavaScript', 'Flask', 'Raspberry Pi', 'Electron'],
-                'repository_url' => 'https://github.com/Znooptokkie/GoodGarden',
+                'detailTechnologies' => ['Python', 'JavaScript', 'Flask', 'Raspberry Pi', 'Electron', 'IOT', 'Embedded Systems'],
+                'links' => [
+                    [
+                        'description' => [
+                            'nl' => 'Mijn eerste bijdrage over Smart Garden, gepubliceerd op de website van CIV Smart Technology.',
+                            'en' => 'My first contribution about Smart Garden, published on the CIV Smart Technology website.',
+                        ],
+                        'url' => 'https://civ-smarttechnology.nl/project-smrt-garden-bij-smrt-building/',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'Een voortgangsupdate over de ontwikkeling van het pompsysteem en de kleppen, geschreven vanuit het perspectief van de techniekstudenten.',
+                            'en' => 'A progress update on the development of the pumping system and valves, written from the perspective of the engineering students.',
+                        ],
+                        'url' => 'https://civ-smarttechnology.nl/update-voortgang-project-watersysteem/',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'Een update over de voortgang van Smart Garden, waaraan ik ook tijdens de vakantieperiode bleef werken.',
+                            'en' => 'An update on the progress of Smart Garden, a project I continued working on during the summer holiday.',
+                        ],
+                        'url' => 'https://civ-smarttechnology.nl/update-project-watersysteem/',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'Een mooi bericht van mijn voormalige docent over het moment waarop ik de leiding over het Smart Garden-project overnam.',
+                            'en' => 'A post by my former teacher about the moment I took over the leadership of the Smart Garden project.',
+                        ],
+                        'url' => 'https://',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'Samen met HBO-studenten presenteerde ik Smart Garden tijdens de CIV-jaarconferentie van 2025.',
+                            'en' => 'Together with higher education students, I presented Smart Garden at the 2025 CIV annual conference.',
+                        ],
+                        'url' => 'https://civ-smarttechnology.nl/jaarconferentie-civ-st-2025/',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'Een presentatie over het project voor een zaal vol docenten, op een gigantisch scherm. Een behoorlijk spannende ervaring!',
+                            'en' => 'A presentation about the project to an audience of teachers, displayed on a huge screen. Quite an exciting experience!',
+                        ],
+                        'url' => 'https://',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'Een mooie terugblik van een HBO-student die ik als challengegever tijdens het Smart Garden-project mocht begeleiden.',
+                            'en' => 'A great reflection from a higher education student whom I had the opportunity to mentor as a project challenge provider during Smart Garden.',
+                        ],
+                        'url' => 'https://www.linkedin.com/posts/vireen-jagram-833985224_smartgarden-ai-iot-share-7335244310193344514-BSF7/',
+                    ],
+                ],
                 'chapters' => $this->smartGardenDesktopChapters(),
                 'components' => $this->smartGardenDesktopComponents(),
                 'contributors' => [
-                    ['name' => 'A. Oomen', 'role' => 'Development', 'url' => 'https://github.com/Znooptokkie'],
-                    ['name' => 'R. van Putten', 'role' => 'Development', 'url' => 'https://github.com/SanzoVP'],
-                    ['name' => 'B. Diker', 'role' => 'Development', 'url' => 'https://github.com/bdiker61'],
-                    ['name' => 'M. Cifci', 'role' => 'Development', 'url' => 'https://github.com/mohammedcifci'],
-                    ['name' => 'J. Doekhi', 'role' => 'Development', 'url' => 'https://github.com/6027529'],
-                    ['name' => 'M. Heins', 'role' => 'Development', 'url' => 'https://github.com/martijnhe'],
+                    ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Projectleider / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
+                    ['name' => 'R. van Putten', 'role' => 'Front-end Developer / Product Owner', 'url' => 'https://github.com/SanzoVP'],
+                    ['name' => 'B. Diker', 'role' => 'Back-end Developer', 'url' => 'https://github.com/bdiker61'],
+                    ['name' => 'M. Cifci', 'role' => 'Back-end Developer', 'url' => 'https://github.com/mohammedcifci'],
+                    ['name' => 'J. Doekhi', 'role' => 'Front-end Developer', 'url' => 'https://github.com/6027529'],
+                    ['name' => 'M. Heins', 'role' => 'Embedded Systems Specialist', 'url' => 'https://github.com/martijnhe'],
                 ],
             ],
             [
                 'slug' => 'smart-garden-mobiel',
                 'translations' => ['en' => [
+                    'media_tagline' => '{ mobile × Raspberry Pi }',
+                    'story_lead' => 'Smart Garden on your phone, with its own API, user roles and a Raspberry Pi.',
+                    'title' => 'Smart Garden (mobile)',
                     'category' => 'MOBILE DEVELOPMENT',
+                    'intro_label' => 'MOBILE DEVELOPMENT / FINAL EXAM',
                     'summary' => 'For my *Mobile Development* final exam I turned the Smart Garden (desktop) project into a full mobile app in *React Native*, with its own *Flask API*, user roles and a connection to a *Raspberry Pi 4*.',
+                    'subtitle' => 'Smart Garden as a full mobile app.',
+                    'story_heading' => 'From desktop to',
+                    'story_heading_accent' => 'mobile',
+                    'story_aside' => '// from dashboard to app',
+                    'organization' => '',
+                    'department' => '',
                 ]],
                 'title' => 'Smart Garden (mobiel)',
+                'title_accent' => null,
                 'category' => 'MOBILE DEVELOPMENT',
+                'intro_label' => 'MOBILE DEVELOPMENT / EINDEXAMEN',
                 'started_year' => 2025,
                 'ended_year' => null,
                 'summary' => 'Voor mijn eindexamen *Mobile Development* heb ik het project Smart Garden (desktop) omgezet naar een volwaardige mobiele applicatie in *React Native*, met eigen *Flask-API*, gebruikersrollen en koppeling met een *Raspberry Pi 4*.',
+                'subtitle' => 'Smart Garden als volwaardige mobiele app gemaakt voor het Mobilde Development Examen.',
+                'story_lead' => 'Smart Garden op je telefoon, met een eigen API, gebruikersrollen en een Raspberry Pi.',
+                'media_tagline' => '{ mobiel × Raspberry Pi }',
+                'story_heading' => 'Van desktop naar',
+                'story_heading_accent' => 'mobiel',
+                'story_aside' => '// van dashboard naar app',
+                'repository_url' => 'https://github.com/6028968/GG_MAD',
+                'favorite_rank' => 9,
                 'status' => ProjectStatus::Klaar,
+                'organization' => 'mboRijnland',
+                'department' => 'Mobilde Development Examen',
                 'types' => ['Mobile Development'],
                 'cardTechnologies' => ['TypeScript', 'React Native', 'Flask API', 'Termux'],
-                'repository_url' => 'https://github.com/6028968/GG_MAD',
+                'detailTechnologies' => ['TypeScript', 'React Native', 'Flask API', 'Termux', 'SCP', 'Raspberry Pi 4'],
+                'links' => [], // invullen, zie syncLinks() voor het formaat
                 'chapters' => $this->smartGardenMobileChapters(),
                 'components' => $this->smartGardenMobileComponents(),
                 'contributors' => [
-                    ['name' => 'A. Oomen', 'role' => 'Development', 'url' => 'https://github.com/Znooptokkie'],
+                    ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie'],
                 ],
             ],
             [
                 'slug' => 'bram',
                 'translations' => ['en' => [
+                    'media_tagline' => '{ simplicity × accessibility }',
+                    'story_lead' => 'BRAM: a simpler phone, with an emergency button and family photos within reach.',
+                    'title' => 'BRAM',
                     'category' => 'MOBILE DEVELOPMENT',
+                    'intro_label' => 'MOBILE DEVELOPMENT / MUNICIPAL PROJECT',
                     'summary' => 'BRAM was my first mobile project, commissioned by the *municipality of Zoetermeer*. In *Android Studio* with *Java* we built an app to help older people use their phone more easily, with features such as an *emergency button* and simple access to *family photos*.',
+                    'subtitle' => 'An app that helps older people use their phone more easily.',
+                    'story_heading' => 'Simplicity for',
+                    'story_heading_accent' => 'older people',
+                    'story_aside' => '// from idea to delivery',
+                    'organization' => 'Municipality of Zoetermeer',
+                    'department' => 'Elderly',
                 ]],
                 'title' => 'BRAM',
+                'title_accent' => null,
                 'category' => 'MOBILE DEVELOPMENT',
+                'intro_label' => 'MOBILE DEVELOPMENT / GEMEENTEPROJECT',
                 'started_year' => 2024,
                 'ended_year' => null,
                 'summary' => 'BRAM was mijn eerste mobiele project, aangeboden door de *gemeente Zoetermeer*, waarbij we in *Android Studio* met *Java* een applicatie bouwden die ouderen moet helpen om gemakkelijker overweg te kunnen met hun mobiel, met functies zoals een *noodknop* en eenvoudige toegang tot *familiefoto’s*.',
-                'status' => ProjectStatus::Klaar,
-                'types' => ['Mobile Development'],
-                'cardTechnologies' => ['Java', 'Android Studio', 'XML'],
+                'subtitle' => 'Een app die ouderen helpt om makkelijker met hun telefoon om te gaan.',
+                'story_lead' => 'BRAM: een eenvoudiger telefoon, met een noodknop en familiefoto\'s binnen handbereik.',
+                'media_tagline' => '{ eenvoud × toegankelijkheid }',
+                'story_heading' => 'Eenvoud voor',
+                'story_heading_accent' => 'ouderen',
+                'story_aside' => '// van idee tot oplevering',
                 'repository_url' => 'https://github.com/bdiker61/BRAM',
+                'favorite_rank' => 6,
+                'status' => ProjectStatus::Klaar,
+                'organization' => 'Gemeente Zoetermeer',
+                'department' => 'Ouderen',
+                'types' => ['Mobile Development'],
+                'cardTechnologies' => ['Java', 'Android Studio', 'XML', 'API'],
+                'detailTechnologies' => ['Java', 'Android Studio', 'XML', 'API'],
+                'links' => [],
                 'chapters' => $this->bramChapters(),
                 'components' => $this->bramComponents(),
                 'contributors' => [
-                    ['name' => 'A. Oomen', 'role' => 'Development', 'url' => 'https://github.com/Znooptokkie'],
-                    ['name' => 'M. de Graaf', 'role' => 'Development', 'url' => 'https://github.com/Matthijs-de-Graaf'],
-                    ['name' => 'R. van Putten', 'role' => 'Development', 'url' => 'https://github.com/SanzoVP'],
-                    ['name' => 'B. Diker', 'role' => 'Development', 'url' => 'https://github.com/bdiker61'],
+                    ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
+                    ['name' => 'M. de Graaf', 'role' => 'Full-stack Developer / Product Owner', 'url' => 'https://github.com/Matthijs-de-Graaf'],
+                    ['name' => 'R. van Putten', 'role' => 'Full-stack Developer', 'url' => 'https://github.com/SanzoVP'],
+                    ['name' => 'B. Diker', 'role' => 'Full-stack Developer', 'url' => 'https://github.com/bdiker61'],
                 ],
             ],
             [
                 'slug' => 'zinra',
                 'translations' => ['en' => [
+                    'media_tagline' => '{ email × documents }',
+                    'story_lead' => 'Zinra: from a large volume of documents to a clear overview.',
+                    'title' => 'Zinra',
                     'category' => 'DOCUMENT AUTOMATION',
+                    'intro_label' => 'DOCUMENT AUTOMATION / MINISTRY ASSIGNMENT',
                     'summary' => 'For the *Dutch Ministry of the Interior and Kingdom Relations (BZK)* we developed two programmes to organise a large volume of documents: a *mailbox application* that automatically categorises emails using the *\'Bag of Words\'* concept, and a *website* for manually *sorting* and *de-duplicating* documents.',
+                    'subtitle' => 'A mailbox that categorises emails automatically, and a website for sorting documents.',
+                    'story_heading' => 'From sorting to',
+                    'story_heading_accent' => 'overview',
+                    'story_aside' => '// automatic and manual',
+                    'organization' => 'Government',
+                    'department' => 'Dutch Ministry of the Interior and Kingdom Relations (BZK)',
                 ]],
                 'title' => 'Zinra',
+                'title_accent' => null,
                 'category' => 'DOCUMENTAUTOMATISERING',
+                'intro_label' => 'DOCUMENTAUTOMATISERING / OPDRACHT BZK',
                 'started_year' => 2023,
                 'ended_year' => null,
                 'summary' => 'Voor het *Ministerie van Binnenlandse Zaken en Koninkrijksrelaties (BZK)* ontwikkelden wij twee programma’s om een grote hoeveelheid documenten te organiseren: een *mailbox-applicatie* die mails automatisch categoriseert via het *‘Bag of Words’-concept*, en een *website* voor het handmatig *sorteren* en *dedupliceren* van documenten.',
+                'subtitle' => 'Een mailbox die mails automatisch categoriseert, en een website om documenten te sorteren.',
+                'story_lead' => 'Zinra: van een grote hoeveelheid documenten naar een overzichtelijk geheel.',
+                'media_tagline' => '{ mail × documenten }',
+                'story_heading' => 'Van ordenen naar',
+                'story_heading_accent' => 'overzicht',
+                'story_aside' => '// automatisch en handmatig',
+                'repository_url' => 'https://github.com/Znooptokkie/Project_P3',
+                'favorite_rank' => 2,
                 'status' => ProjectStatus::Klaar,
+                'organization' => 'Overheid',
+                'department' => 'Ministerie van Binnenlandse Zaken en Koninkrijksrelaties (BZK)',
                 'types' => ['Automatisering'],
-                'cardTechnologies' => ['Python', 'HTML', 'CSS'],
+                'cardTechnologies' => ['PHP', 'AI', 'Decission Tree', 'Bag of Words', 'SMTP'],
+                'detailTechnologies' => ['PHP', 'AI', 'Decission Tree', 'Bag of Words', 'SMTP'],
+                'links' => [
+                    [
+                        'description' => [
+                            'nl' => 'Mijn eerste project waarbij ik in de schijnwerpers mocht staan om de verschillende projecten te presenteren en aan te kondigen.',
+                            'en' => 'My first project where I had the opportunity to step into the spotlight and present and announce the various projects.',
+                        ],
+                        'url' => 'https://www.rijksorganisatieodi.nl/actueel/nieuws/2023/04/20/mbo-studenten-ontwikkelen-virtuele-zoekassistent',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'Een publicatie over de kick-off van het NINJA-project, een samenwerking met het ministerie van Binnenlandse Zaken en Koninkrijksrelaties (BZK), op de website van CIV Smart Technology.',
+                            'en' => 'A publication about the kick-off of the NINJA project, a collaboration with the Ministry of the Interior and Kingdom Relations (BZK), on the CIV Smart Technology website.',
+                        ],
+                        'url' => 'https://civ-smarttechnology.nl/kick-off-the-ninja-project-met-ministerie-bzk/',
+                    ],
+                    [
+                        'description' => [
+                            'nl' => 'Een aanvullende vermelding van het NINJA-project op de website van Rijksorganisatie ODI, waarbij opnieuw een afbeelding van mijn presentatie is gebruikt.',
+                            'en' => 'Another mention of the NINJA project on the Rijksorganisatie ODI website, once again featuring an image from my presentation.',
+                        ],
+                        'url' => 'https://www.rijksorganisatieodi.nl/i-partnerschap/praktijkvoorbeelden',
+                    ],
+                ],
                 'chapters' => $this->zinraChapters(),
                 'components' => $this->zinraComponents(),
                 'contributors' => [
-                    ['name' => 'A. Oomen', 'role' => 'Development', 'url' => 'https://github.com/Znooptokkie'],
-                    ['name' => 'R. van Putten', 'role' => 'Development', 'url' => 'https://github.com/SanzoVP'],
-                    ['name' => 'B. Diker', 'role' => 'Development', 'url' => 'https://github.com/bdiker61'],
-                    ['name' => 'M. Cifci', 'role' => 'Development', 'url' => 'https://github.com/mohammedcifci'],
+                    ['name' => 'A. Oomen', 'role' => 'Back-end Developer / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
+                    ['name' => 'R. van Putten', 'role' => 'Front-end Developer / Product Owner', 'url' => 'https://github.com/SanzoVP'],
+                    ['name' => 'B. Diker', 'role' => 'Front-end Developer', 'url' => 'https://github.com/bdiker61'],
+                    ['name' => 'M. Cifci', 'role' => 'Back-end Developer', 'url' => 'https://github.com/mohammedcifci'],
                 ],
             ],
             [
                 'slug' => 'portfolio-v1',
                 'translations' => ['en' => [
+                    'media_tagline' => '{ learning × portfolio }',
+                    'story_lead' => 'Portfolio V1: the first version of my portfolio, built to learn as much as possible.',
+                    'title' => 'Portfolio V1',
                     'category' => 'WEB DEVELOPMENT',
+                    'intro_label' => 'WEB DEVELOPMENT / PORTFOLIO',
                     'summary' => 'My original portfolio website. Built in *Django* with *native TypeScript*. My aim for this project was to learn as much as possible from the different *concepts* that come with a website like this. That is also why it has turned into a bit of a mess. It started off structured, but eventually ended up with a rather messy *folder structure* and *codebase*.',
+                    'subtitle' => 'My first portfolio, built as a learning process with Django and TypeScript.',
+                    'story_heading' => 'Learning by',
+                    'story_heading_accent' => 'building',
+                    'story_aside' => '// step by step',
+                    'organization' => '',
+                    'department' => '',
                 ]],
                 'title' => 'Portfolio V1',
+                'title_accent' => null,
                 'category' => 'WEBDEVELOPMENT',
+                'intro_label' => 'WEBDEVELOPMENT / PORTFOLIO',
                 'started_year' => 2025,
                 'ended_year' => 2026,
                 'summary' => 'Mijn oorspronkelijke portfolio website. Gemaakt in *Django* met *native TypeScript*. Mijn insteek voor dit project was om zoveel mogelijk te leren van de verschillende *concepten* die aan bod komen bij zo een website. Dit is ook wel de reden dat het eigenlijk een gigantisch bende is geworden. Het begon gestructureerd, maar het eindige toch met een behoorlijk onoverzichtelijke *mappenstructuur* en *code*.',
+                'subtitle' => 'Mijn eerste portfolio, gebouwd als leerproces met Django en TypeScript.',
+                'story_lead' => 'Portfolio V1: de eerste versie van mijn portfolio, gebouwd om zoveel mogelijk te leren.',
+                'media_tagline' => '{ leren × bouwen }',
+                'story_heading' => 'Leren door',
+                'story_heading_accent' => 'bouwen',
+                'story_aside' => '// stap voor stap',
+                'repository_url' => 'https://github.com/Znooptokkie/CV',
+                'favorite_rank' => 9,
                 'status' => ProjectStatus::Klaar,
+                'organization' => '',
+                'department' => '',
                 'types' => ['Webdevelopment'],
                 'cardTechnologies' => ['Python', 'Django', 'TypeScript', 'SVG', 'CI/CD'],
-                'repository_url' => 'https://github.com/Znooptokkie/CV',
+                'detailTechnologies' => [],
+                'links' => [], // invullen, zie syncLinks() voor het formaat
                 'chapters' => $this->portfolioV1Chapters(),
                 'components' => $this->portfolioV1Components(),
                 'contributors' => [
-                    ['name' => 'A. Oomen', 'role' => 'Development', 'url' => 'https://github.com/Znooptokkie'],
+                    ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie'],
                 ],
             ],
             [
                 'slug' => 'dungeon-crawler',
                 'translations' => ['en' => [
+                    'media_tagline' => '{ hackaton × gaming }',
+                    'story_lead' => 'Dungeon Crawler: picking up Laravel again, with a game as the project.',
+                    'title' => 'Dungeon Crawler',
                     'category' => 'WEB DEVELOPMENT',
+                    'intro_label' => 'WEB DEVELOPMENT / HACKATHON',
                     'summary' => 'I took part in the *hackathon* of the *Dutch Laravel Foundation*. Because it had been a while since I last used *Laravel* as a *framework*, I decided to build a small dungeon crawler. The project is *unfinished*, but I don\'t rule out finishing it at some point.',
+                    'subtitle' => 'A small dungeon crawler, built during a hackathon.',
+                    'story_heading' => 'A game with',
+                    'story_heading_accent' => 'Laravel',
+                    'story_aside' => '// not finished yet',
+                    'organization' => 'Dutch Laravel Foundation',
+                    'department' => 'Hackaton',
                 ]],
                 'title' => 'Dungeon Crawler',
+                'title_accent' => null,
                 'category' => 'WEBDEVELOPMENT',
+                'intro_label' => 'WEBDEVELOPMENT / HACKATHON',
                 'started_year' => 2026,
                 'ended_year' => null,
                 'summary' => 'Ik deed mee aan de *hackaton* van de *Dutch Laravel Foundation*. Omdat het een tijdje geleden was dat ik *Laravel* had gebruikt als *framework*, besloot ik om een kleine dungeon crawler te maken. Het project staat op *onvoltooid*, maar ik sluit niet uit om hem alsnog af te maken.',
+                'subtitle' => 'Een kleine dungeon crawler, gebouwd tijdens een hackathon.',
+                'story_lead' => 'Dungeon Crawler: Laravel weer oppakken, met een spel als project.',
+                'media_tagline' => '{ Laravel × spel }',
+                'story_heading' => 'Een spel met',
+                'story_heading_accent' => 'Laravel',
+                'story_aside' => '// nog niet af',
+                'repository_url' => 'https://github.com/Znooptokkie/laravel_dungeon_crawler',
+                'favorite_rank' => 10,
                 'status' => ProjectStatus::Onvoltooid,
+                'organization' => 'Dutch Laravel Foundation',
+                'department' => 'Hackaton',
                 'types' => ['Webdevelopment'],
                 'cardTechnologies' => ['PHP', 'Laravel', 'Vue.js', 'SVG'],
+                'detailTechnologies' => ['PHP', 'Laravel', 'Vue.js', 'SVG'],
+                'links' => [], // invullen, zie syncLinks() voor het formaat
+                'chapters' => [],
+                'components' => [],
+                'contributors' => [['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie']],
+            ],
+            [
+                'slug' => 'plymouth',
+                'translations' => ['en' => [
+                    'media_tagline' => '{ exchange x micro:bits }',
+                    'story_lead' => 'An unforgettable experience for my fellow student (*Matthijs*) and me, as we took the lead in guiding an international exchange project.',
+                    'title' => 'Plymouth Exchange Guidance',
+                    'category' => 'ROBOTICS / EXCHANGE GUIDANCE',
+                    'intro_label' => 'ROBOTICS / EXCHANGE GUIDANCE.',
+                    'summary' => '*Matthijs* and I had the opportunity to guide students during this international *exchange project*. During the first week, their challenge was to build a fully functional *robot* capable of driving using *micro:bits*. The second week brought *three challenges* where teams could earn points. The team with the highest score won *four micro:bits* to take home.',
+                    'subtitle' => 'From almost no experience to building a fully functional robot.',
+                    'story_heading' => 'Drive like a',
+                    'story_heading_accent' => 'racing car',
+                    'story_aside' => '// learn, build & have fun',
+                    'organization' => 'mboRijnland',
+                    'department' => 'Software Development',
+                ]],
+                'title' => 'Plymouth Uitwisselingsbegeleiding',
+                'title_accent' => null,
+                'category' => 'ROBOTICA / UITWISSELINGSBEGELEIDING',
+                'intro_label' => 'ROBOTICA / UITWISSELINGSBEGELEIDING.',
+                'started_year' => 2025,
+                'ended_year' => null,
+                'summary' => 'Samen met mijn medestudent *Matthijs* kreeg ik de kans om een *internationale uitwisseling* vanuit *Plymouth* te begeleiden. Tijdens de eerste week gingen de studenten aan de slag met het bouwen van een volledig werkende *robot* op basis van *micro:bits*. In de tweede week namen ze het tegen elkaar op in drie verschillende uitdagingen, waarbij het team met de meeste punten *vier micro:bits* mee naar huis mocht nemen.',
+                'subtitle' => 'Van nauwelijks ervaring naar een volledig werkende robot.',
+                'story_lead' => 'Een bijzondere ervaring waarin Matthijs en ik niet alleen onze technische kennis konden delen, maar ook een groep internationale studenten mochten begeleiden bij hun eerste stappen in de robotica.',
+                'media_tagline' => '{ uitwisseling x micro:bits }',
+                'story_heading' => 'Racen als een',
+                'story_heading_accent' => 'pro',
+                'story_aside' => '// leren, bouwen & plezier',
+                'repository_url' => 'https://github.com/Matthijs-de-Graaf/bot',
+                'favorite_rank' => 5,
+                'status' => ProjectStatus::Klaar,
+                'organization' => 'mboRijnland',
+                'department' => 'Software Development',
+                'types' => [],
+                'cardTechnologies' => ['MicroBits', 'MicroPython'],
+                'detailTechnologies' => ['MicroBits', 'MicroPython'],
+                'links' => [],
+                'chapters' => [],
+                'components' => [],
+                'contributors' => [
+                    ['name' => 'A. Oomen', 'role' => 'Exchange Lead', 'url' => 'https://github.com/Znooptokkie'],
+                    ['name' => 'M. de Graaf', 'role' => 'Exchange Lead', 'url' => 'https://github.com/Matthijs-de-Graaf'],
+                ],
             ],
         ];
     }
@@ -341,8 +796,12 @@ class ProjectSeeder extends Seeder
         $project->images()->delete();
 
         foreach ($this->photosFor($project) as $index => $path) {
+            $alts = self::IMAGE_ALTS[$project->slug][basename($path)] ?? ['nl' => '', 'en' => ''];
+
             $project->images()->create([
                 'path' => $path,
+                'alt' => $alts['nl'] !== '' ? $alts['nl'] : null,
+                'translations' => ['en' => ['alt' => $alts['en']]],
                 'caption' => $index === 0 ? $project->story_lead : null,
                 'sort_order' => $index + 1,
             ]);
@@ -363,6 +822,7 @@ class ProjectSeeder extends Seeder
                 ->filter(fn (SplFileInfo $file): bool => in_array(strtolower($file->getExtension()), self::PHOTO_EXTENSIONS, true))
                 ->map(fn (SplFileInfo $file): string => "images/projects/{$project->slug}/{$file->getFilename()}")
                 ->sort()
+                ->sortBy(fn (string $path): string => basename($path) === (self::FIRST_PHOTOS[$project->slug] ?? null) ? '' : $path)
                 ->values()
                 ->all()
             : [];
@@ -386,6 +846,26 @@ class ProjectSeeder extends Seeder
                 'paragraphs' => $chapter['paragraphs'],
                 'sort_order' => $index + 1,
                 'translations' => $english === null ? null : ['en' => ['title' => $english[0], 'paragraphs' => array_values(array_slice($english, 1))]],
+            ]);
+        }
+    }
+
+    /**
+     * Links shown between the story and the specifications. Format per link:
+     * ['description' => ['nl' => 'Korte zin.', 'en' => 'Short sentence.'], 'url' => 'https://example.com'].
+     *
+     * @param  list<array{description: array{nl: string, en: string}, url: string}>  $links
+     */
+    private function syncLinks(Project $project, array $links): void
+    {
+        $project->links()->delete();
+
+        foreach ($links as $index => $link) {
+            $project->links()->create([
+                'description' => $link['description']['nl'],
+                'url' => $link['url'],
+                'translations' => ['en' => ['description' => $link['description']['en']]],
+                'sort_order' => $index + 1,
             ]);
         }
     }
@@ -598,7 +1078,8 @@ class ProjectSeeder extends Seeder
     private function smartGardenDesktopComponents(): array
     {
         return $this->groupedComponents([
-            ProjectComponentGroup::Hardware->value => ['Capacitive Soil Moisture Sensor', 'Raspberry Pi 4'],
+            ProjectComponentGroup::Hardware->value => ['Raspberry Pi 4'],
+            ProjectComponentGroup::Sensor->value => ['Capacitive Soil Moisture Sensor'],
             ProjectComponentGroup::Software->value => ['JSON', 'ChartJS', 'Flask'],
             ProjectComponentGroup::Protocol->value => ['SSH (Secure Shell)', 'MQTT (Message Queuing Telemetry Transport)', 'API', 'Perenual API', 'Weerlive API'],
         ]);
@@ -794,5 +1275,172 @@ class ProjectSeeder extends Seeder
             ProjectComponentGroup::Software->value => ['CI/CD', 'JSON', 'SVG'],
             ProjectComponentGroup::Protocol->value => ['API'],
         ]);
+    }
+
+    /**
+     * @return list<array{title: string, paragraphs: list<string>}>
+     */
+    private function stairLightingChapters(): array
+    {
+        return [
+            ['title' => 'Introductie', 'paragraphs' => [
+                'Dit project begon vanuit een persoonlijke motivatie. Door een ziekte van mijn moeder heeft zij het zicht in één oog verloren en heeft ze in het andere oog nog ongeveer 30% zicht. Ik wilde haar huis veiliger maken en makkelijker begaanbaar maken, vooral op de trap.',
+                'Het idee was om een automatisch verlichtingssysteem te ontwikkelen dat beweging detecteert en de trap verlicht zodra iemand naderbij komt. In plaats van een kant-en-klare oplossing te kopen, besloot ik het volledige systeem zelf te ontwerpen en te bouwen.',
+            ]],
+            ['title' => 'Onderzoek en Doelstelling', 'paragraphs' => [
+                'Eerdere projecten zoals Battlebot en Smart Garden hadden mij al ervaring gegeven met microcontrollers, sensoren en embedded elektronica. Deze kennis gebruikte ik als startpunt voor dit project.',
+                'Het doel was om een betrouwbaar automatisch trapverlichtingssysteem te ontwikkelen met bewegingssensoren, een microcontroller en individueel aangestuurde verlichting. Betrouwbaarheid was extra belangrijk, omdat het systeem de veiligheid in het dagelijks gebruik moest verbeteren.',
+            ]],
+            ['title' => 'Sensorkeuze', 'paragraphs' => [
+                'Voor bewegingsdetectie is de HC-SR505 PIR-sensor gekozen. Het compacte formaat en de relatief eenvoudige interface maakten de sensor geschikt om rondom de trap te installeren.',
+                'Eerste tests met de sensoren verliepen succesvol. Op basis van deze resultaten ben ik verdergegaan met de installatie en integratie van het volledige systeem.',
+            ]],
+            ['title' => 'Eerste Problemen', 'paragraphs' => [
+                'Na de installatie begon het systeem onvoorspelbaar te reageren. De verlichting ging af en toe aan zonder dat er iemand bij de trap was, en soms bleef ze enkele seconden aan.',
+                'In eerste instantie vermoedde ik een probleem met de software of de GPIO. Het vervangen van een PIR-sensor met een beschadigd onderdeel loste het probleem echter niet op. Ook met een nieuwe sensor bleven willekeurige triggers optreden.',
+            ]],
+            ['title' => 'Debugging van Software en GPIO', 'paragraphs' => [
+                'Om het probleem te isoleren heb ik verschillende GPIO-pinnen op de ESP32 getest en geëxperimenteerd met de interne PULL_DOWN-configuratie. Daarnaast heb ik softwarematige filtering en vertragingen toegepast, zodat korte of ongewenste signalen de verlichting niet konden activeren.',
+                'Ook een externe pull-downweerstand van 10 kΩ is getest. Geen van deze software- en GPIO-aanpassingen heeft het probleem echter volledig opgelost.',
+                'Om de ESP32-ingang onafhankelijk te controleren heb ik handmatig 3,3 V op de GPIO gezet. De pin registreerde consequent een HIGH-signaal, wat aangaf dat de GPIO zelf correct functioneerde.',
+            ]],
+            ['title' => 'Elektrische Probleemanalyse', 'paragraphs' => [
+                'Het onderzoek richtte zich vervolgens op de elektrische aansluitingen. Ik heb de doorgang gecontroleerd tussen VCC, GND en OUT, kortsluiting uitgesloten en verschillende kabelconfiguraties getest.',
+                'Om mogelijke storing te beperken zijn de signaalkabels ook uit de buurt van de 230 V- en 24 V-bedrading gelegd.',
+                'Tijdens een valse trigger bleek bij metingen dat het OUT-signaal van de PIR zelf opliep tot ongeveer 2,7 V. Dit bevestigde dat het probleem minstens gedeeltelijk binnen de sensor of de voeding daarvan zat, en niet alleen in de ESP32 of de software.',
+            ]],
+            ['title' => 'Onderzoek naar de Voeding', 'paragraphs' => [
+                'Verder onderzoek wees uit dat één van de oudere PIR-sensoren een beschadigd onderdeel bevatte, wat bijdroeg aan de instabiliteit. Het vervangen ervan loste het probleem echter niet volledig op.',
+                'Na onderzoek naar vergelijkbare gevallen ontdekte ik dat de HC-SR505 een interne 7133-1 low-dropout spanningsregelaar (LDO) bevat, die de interne voeding van de sensor op 3,3 V regelt.',
+                'De sensor werd rechtstreeks gevoed vanaf de 3,3 V-uitgang van de ESP32. Metingen aan de ingang van de regelaar lieten echter slechts ongeveer 2,8 V zien, wat onvoldoende was om een stabiele 3,3 V-uitgang te behouden.',
+                'Dit verklaarde waarom de sensor onvoorspelbaar kon reageren, ook al leek de nominale bedrijfsspanning een voeding van 3,3 V te ondersteunen.',
+            ]],
+            ['title' => 'Hardware-aanpassing', 'paragraphs' => [
+                'Om het voedingsprobleem op te lossen heb ik besloten de PIR-sensoren te voeden met ongeveer 5 V in plaats van rechtstreeks met 3,3 V.',
+                'Het systeem gebruikt een Mean Well LRS-100-24 voeding, die de primaire 24 V-voeding levert. Een DC-DC buckconverter verlaagt deze spanning naar 5 V, waarmee de Raspberry Pi Pico 2 en de aangesloten PIR-sensoren via de VBUS-voeding worden gevoed.',
+                'Na de aanpassing meette ik ongeveer 4,8 V aan de ingang van de interne LDO en een stabiele 3,3 V aan de uitgang. Het PIR-signaal meet ongeveer 0 V in rust en 3,3 V bij gedetecteerde beweging.',
+                'De sensoren zijn daarna gedurende langere tijd getest. De willekeurige triggers waren verdwenen, terwijl echte beweging nog steeds correct werd gedetecteerd.',
+            ]],
+            ['title' => 'PCB-ontwerp', 'paragraphs' => [
+                'Zodra de elektronica betrouwbaar werkte, ben ik begonnen met het ontwerpen van een eigen printplaat (PCB) in KiCad.',
+                'Dit was mijn eerste ervaring met het ontwerpen van een PCB en het maken van een volledig elektrisch schema. Door een uitgebreide YouTube-tutorial te volgen leerde ik de benodigde werkwijze en vertaalde ik het werkende prototype stap voor stap naar een goed circuitontwerp.',
+                'Na het afronden van het schema en de PCB-layout heb ik het eerste prototype besteld. Omdat ik de printplaat aanvankelijk had ontworpen rond de ESP32, kon de oorspronkelijke PCB na de overstap naar de Raspberry Pi Pico 2 niet meer worden gebruikt.',
+                'Ik moest de printplaat daarom opnieuw ontwerpen en een tweede versie bestellen. Dit kostte ongeveer €25 extra, wat ik een waardevolle investering vond in praktijkervaring.',
+            ]],
+            ['title' => 'Eindresultaat', 'paragraphs' => [
+                'Het uiteindelijke systeem detecteert beweging en verlicht de trap automatisch. Na het oplossen van de instabiliteit van de sensoren en het herontwerpen van de elektronica rond de Raspberry Pi Pico 2 werkte het systeem tijdens het testen betrouwbaar.',
+                'Het belangrijkste is dat de installatie mijn moeder beter zicht geeft en het gebruik van de trap aanzienlijk makkelijker maakt.',
+            ]],
+            ['title' => 'Geleerde Lessen', 'paragraphs' => [
+                'Dit project heeft mij het belang van systematisch probleemoplossen geleerd. Wat in eerste instantie een software- of GPIO-probleem leek, bleek vooral samen te hangen met de interne spanningsregelaar van de PIR-sensor en een te lage voedingsspanning, in combinatie met een defecte sensor.',
+                'Daarnaast heb ik praktische ervaring opgedaan met elektrische metingen, voedingsontwerp, pull-downweerstanden, microcontrollers en PCB-ontwikkeling met KiCad.',
+                'Een van de belangrijkste lessen was om de elektrische eisen van componenten zorgvuldiger te onderzoeken voordat ze in een systeem worden geïntegreerd. In toekomstige projecten let ik in de ontwerpfase beter op spanningsregeling, bedrijfsspanningen en signaalstabiliteit.',
+            ]],
+        ];
+    }
+
+    /**
+     * English chapter texts, aligned with stairLightingChapters().
+     *
+     * @return list<array{0: string, 1: string}>
+     */
+    private function stairLightingChapterTranslations(): array
+    {
+        return [
+            [
+                'Introduction',
+                'This project started with a personal motivation. Due to my mother’s illness, she lost sight in one eye and retained only approximately 30% vision in the other. I wanted to make her home safer and easier to navigate, especially on the stairs.',
+                'The idea was to develop an automatic lighting system that detects movement and illuminates the stairs whenever someone approaches. Rather than purchasing an off-the-shelf solution, I decided to design and build the entire system myself.',
+            ],
+            [
+                'Research and Objective',
+                'Previous projects such as Battlebot and Smart Garden had already given me experience with microcontrollers, sensors and embedded electronics. I used this knowledge as a starting point for the project.',
+                'The objective was to develop a reliable automatic stair lighting system using motion sensors, a microcontroller and individually controlled lighting. Reliability was particularly important because the system was intended to improve safety in everyday use.',
+            ],
+            [
+                'Sensor Selection',
+                'The HC-SR505 PIR sensor was selected for motion detection. Its compact size and relatively simple interface made it suitable for installation around the stairs.',
+                'Initial tests with the sensors were successful. Based on these results, I proceeded with the installation and integration of the complete system.',
+            ],
+            [
+                'Initial Problems',
+                'After installation, the system started behaving unpredictably. The lights occasionally switched on without anyone being near the stairs, sometimes remaining activated for several seconds.',
+                'Initially, I suspected a software or GPIO-related problem. However, replacing a PIR sensor with a damaged component did not resolve the issue. Even with a new sensor, random triggers continued to occur.',
+            ],
+            [
+                'Software and GPIO Debugging',
+                'To isolate the problem, I tested several GPIO pins on the ESP32 and experimented with its internal PULL_DOWN configuration. I also implemented software filtering and delays to prevent short or unwanted signals from activating the lights.',
+                'An external 10 kΩ pulldown resistor was tested as well. However, none of these software and GPIO-related adjustments eliminated the problem completely.',
+                'To verify the ESP32 input independently, I manually applied 3.3 V to the GPIO. The pin consistently registered a HIGH signal, indicating that the GPIO itself was functioning correctly.',
+            ],
+            [
+                'Electrical Troubleshooting',
+                'The investigation then moved to the electrical connections. I checked continuity across VCC, GND and OUT, ruled out short circuits and tested different cable configurations.',
+                'To minimise possible interference, signal cables were also routed away from the 230 V and 24 V wiring.',
+                'During a false trigger, measurements revealed that the PIR OUT signal itself was rising to approximately 2.7 V. This confirmed that the problem originated at least partly within the sensor or its electrical supply, rather than solely in the ESP32 or software.',
+            ],
+            [
+                'Power Supply Investigation',
+                'Further inspection revealed that one of the older PIR sensors contained a damaged component, which contributed to the instability. However, replacing it did not completely solve the problem.',
+                'After researching similar cases, I discovered that the HC-SR505 contains an internal 7133-1 low-dropout voltage regulator (LDO), which regulates its internal supply to 3.3 V.',
+                'The sensor had been powered directly from the ESP32 3.3 V output. Measurements at the regulator input showed only approximately 2.8 V, which was insufficient for the regulator to maintain a stable 3.3 V output.',
+                'This explained why the sensor could behave unpredictably even though its nominal operating voltage appeared to support a 3.3 V supply.',
+            ],
+            [
+                'Hardware Revision',
+                'To resolve the power supply issue, I decided to power the PIR sensors using approximately 5 V instead of directly supplying them with 3.3 V.',
+                'The system uses a Mean Well LRS-100-24 power supply, which provides the primary 24 V supply. A DC-DC buck converter reduces this voltage to 5 V, which is then used to power the Raspberry Pi Pico 2 and the connected PIR sensors through its VBUS supply.',
+                'After the modification, measurements showed approximately 4.8 V at the internal LDO input and a stable 3.3 V at its output. The PIR signal measured approximately 0 V at rest and 3.3 V when motion was detected.',
+                'The sensors were then tested over an extended period. Random triggers had disappeared, while actual movement continued to be detected correctly.',
+            ],
+            [
+                'PCB Design',
+                'Once the electronics were operating reliably, I moved on to designing a custom printed circuit board using KiCad.',
+                'This was my first experience designing a PCB and creating a complete electrical schematic. By following a detailed YouTube tutorial, I learned the necessary workflow and gradually translated the working prototype into a proper circuit design.',
+                'After completing the schematic and PCB layout, I ordered the first prototype. Since I had initially designed the board around the ESP32, switching to the Raspberry Pi Pico 2 meant that the original PCB could no longer be used.',
+                'I therefore had to redesign the board and order a second version. This cost approximately €25 extra, which I considered a worthwhile investment in practical experience.',
+            ],
+            [
+                'Final Result',
+                'The final system successfully detects movement and automatically illuminates the stairs. After resolving the sensor instability and redesigning the electronics around the Raspberry Pi Pico 2, the system operated reliably during testing.',
+                'Most importantly, the installation provides my mother with better visibility and makes navigating the stairs considerably easier.',
+            ],
+            [
+                'Lessons Learned',
+                'This project taught me the importance of systematic troubleshooting. What initially appeared to be a software or GPIO problem turned out to be primarily related to the PIR sensor’s internal voltage regulator and insufficient supply voltage, combined with a defective sensor.',
+                'I also gained practical experience with electronic measurements, power supply design, pull-down resistors, microcontrollers and PCB development using KiCad.',
+                'One of the most important lessons was to investigate the electrical requirements of components more carefully before integrating them into a system. In future projects, I will pay closer attention to voltage regulation, operating voltages and signal stability during the initial design phase.',
+            ],
+        ];
+    }
+
+    /**
+     * @return list<array{group: ProjectComponentGroup, name: string}>
+     */
+    private function stairLightingComponents(): array
+    {
+        $groups = [
+            ProjectComponentGroup::Hardware->value => [
+                'Raspberry Pi Pico 2',
+                'ESP32',
+                'Mean Well LRS-100-24',
+                '5 V DC-DC Buck Converter',
+                '10 kΩ PULL DOWN Resistor',
+                '220 Ω Resistor',
+                'PCB (Printed Circuit Board)',
+                'RFP30N06LE (N-Mosfet)',
+            ],
+            ProjectComponentGroup::Software->value => [
+                'KiCad',
+                'GPIO',
+                'Thonny',
+                'MicroPython',
+            ],
+            ProjectComponentGroup::Sensor->value => [
+                'HC-SR505 PIR Sensor',
+            ],
+        ];
+
+        return $this->groupedComponents($groups);
     }
 }

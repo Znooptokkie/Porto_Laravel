@@ -31,14 +31,14 @@ use Illuminate\Support\HtmlString;
  * @property string|null $story_heading_accent
  * @property string|null $story_aside
  * @property ProjectStatus $status
- * @property bool $is_favorite
+ * @property int|null $favorite_rank
  * @property string|null $organization
  * @property string|null $department
  * @property string|null $repository_url
  * @property int $sort_order
  * @property array<string, array<string, string>>|null $translations
  */
-#[Fillable(['slug', 'title', 'title_accent', 'category', 'intro_label', 'started_year', 'ended_year', 'summary', 'subtitle', 'story_lead', 'media_tagline', 'story_heading', 'story_heading_accent', 'story_aside', 'status', 'is_favorite', 'organization', 'department', 'repository_url', 'sort_order', 'translations'])]
+#[Fillable(['slug', 'title', 'title_accent', 'category', 'intro_label', 'started_year', 'ended_year', 'summary', 'subtitle', 'story_lead', 'media_tagline', 'story_heading', 'story_heading_accent', 'story_aside', 'status', 'favorite_rank', 'organization', 'department', 'repository_url', 'sort_order', 'translations'])]
 class Project extends Model
 {
     /** @use HasFactory<ProjectFactory> */
@@ -51,7 +51,7 @@ class Project extends Model
     {
         return [
             'status' => ProjectStatus::class,
-            'is_favorite' => 'boolean',
+            'favorite_rank' => 'integer',
             'started_year' => 'integer',
             'ended_year' => 'integer',
             'sort_order' => 'integer',
@@ -112,6 +112,14 @@ class Project extends Model
     }
 
     /**
+     * A project is a favourite when it has a rank; rank 1 is the most favourite.
+     */
+    public function isFavorite(): bool
+    {
+        return $this->favorite_rank !== null;
+    }
+
+    /**
      * @return HasMany<ProjectImage, $this>
      */
     public function images(): HasMany
@@ -125,6 +133,14 @@ class Project extends Model
     public function chapters(): HasMany
     {
         return $this->hasMany(ProjectChapter::class)->orderBy('sort_order');
+    }
+
+    /**
+     * @return HasMany<ProjectLink, $this>
+     */
+    public function links(): HasMany
+    {
+        return $this->hasMany(ProjectLink::class)->orderBy('sort_order');
     }
 
     /**

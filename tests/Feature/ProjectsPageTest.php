@@ -25,15 +25,39 @@ it('lists the projects from the database with their status badges', function () 
         ->assertSee('Bravo');
 });
 
-it('orders the overview by design position and puts the favourite first when asked', function () {
+it('puts the ranked favourite first by default and orders the rest by design position', function () {
     Project::factory()->create(['title' => 'Eerste', 'sort_order' => 1]);
     Project::factory()->favorite()->create(['title' => 'Tweede', 'sort_order' => 2]);
 
     $default = $this->get(route('projects'))->assertOk()->viewData('overview')['projects']->pluck('title')->all();
     $favourite = $this->get(route('projects', ['favorite' => 'most']))->assertOk()->viewData('overview')['projects']->pluck('title')->all();
 
-    expect($default)->toBe(['Eerste', 'Tweede'])
+    expect($default)->toBe(['Tweede', 'Eerste'])
         ->and($favourite)->toBe(['Tweede', 'Eerste']);
+});
+
+it('keeps the year sort working when no favourite choice is made', function () {
+    Project::factory()->create(['title' => 'Oud', 'started_year' => 2023, 'sort_order' => 1]);
+    Project::factory()->favorite()->create(['title' => 'Nieuw', 'started_year' => 2025, 'sort_order' => 2]);
+
+    $byYear = $this->get(route('projects', ['year_sort' => 'asc']))->viewData('overview')['projects']->pluck('title')->all();
+
+    expect($byYear)->toBe(['Oud', 'Nieuw']);
+});
+
+it('sorts the favourites by their rank, with unranked projects last', function () {
+    Project::factory()->create(['title' => 'Geen rang', 'sort_order' => 1]);
+    Project::factory()->favorite(2)->create(['title' => 'Rang twee', 'sort_order' => 2]);
+    Project::factory()->favorite(1)->create(['title' => 'Rang een', 'sort_order' => 3]);
+    Project::factory()->favorite(3)->create(['title' => 'Rang drie', 'sort_order' => 4]);
+
+    $default = $this->get(route('projects'))->viewData('overview')['projects']->pluck('title')->all();
+    $most = $this->get(route('projects', ['favorite' => 'most']))->viewData('overview')['projects']->pluck('title')->all();
+    $least = $this->get(route('projects', ['favorite' => 'least']))->viewData('overview')['projects']->pluck('title')->all();
+
+    expect($default)->toBe(['Rang een', 'Rang twee', 'Rang drie', 'Geen rang'])
+        ->and($most)->toBe(['Rang een', 'Rang twee', 'Rang drie', 'Geen rang'])
+        ->and($least)->toBe(['Rang drie', 'Rang twee', 'Rang een', 'Geen rang']);
 });
 
 it('filters on a programming language and on a framework separately', function () {
@@ -126,6 +150,36 @@ it('shows the slide number and the total number of images in the media counter',
         ->assertSee('<p class="project-media__counter" data-project-media-counter>01 / 03 - BATTLEBOT</p>', false);
 });
 
+it('shows the project title with the alt text of the current slide as caption', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'slug' => 'battlebot', 'sort_order' => 1, 'story_lead' => 'Dit mag niet getoond worden']);
+    $project->images()->createMany([
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => 'De robot in de arena', 'sort_order' => 1],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => 'De sensoren op de voorkant', 'sort_order' => 2],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => null, 'sort_order' => 3],
+    ]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('<p class="project-media__caption-text" data-project-media-caption-text>Battlebot: De robot in de arena</p>', false)
+        ->assertSee('data-project-media-caption="Battlebot: De sensoren op de voorkant"', false)
+        ->assertSee('data-project-media-caption="Battlebot"', false)
+        ->assertDontSee('Dit mag niet getoond worden');
+});
+
+it('uses the english alt text in english and falls back to the dutch alt text when it is missing', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'slug' => 'battlebot', 'sort_order' => 1]);
+    $project->images()->createMany([
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => 'De robot in de arena', 'translations' => ['en' => ['alt' => 'The robot in the arena']], 'sort_order' => 1],
+        ['path' => 'images/projects/placeholders/photo-1.webp', 'alt' => 'De sensoren op de voorkant', 'translations' => ['en' => ['alt' => '']], 'sort_order' => 2],
+    ]);
+
+    $this->withUnencryptedCookie('locale', 'en')
+        ->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('<p class="project-media__caption-text" data-project-media-caption-text>Battlebot: The robot in the arena</p>', false)
+        ->assertSee('data-project-media-caption="Battlebot: De sensoren op de voorkant"', false);
+});
+
 it('shares one contributor between several projects', function () {
     $contributor = Contributor::factory()->create(['name' => 'M. de Graaf']);
     $first = Project::factory()->create(['slug' => 'eerste', 'sort_order' => 1]);
@@ -163,17 +217,26 @@ it('marks only the projects link as the current page on the projects overview', 
         ->and($html)->toContain('aria-current="page"');
 });
 
-it('seeds the nine projects from the design with the battlebot story', function () {
+it('seeds the ten projects from the design with the battlebot story', function () {
     $this->seed(ProjectSeeder::class);
     $this->seed(ProjectSeeder::class);
 
     $battlebot = Project::query()->where('slug', 'battlebot')->firstOrFail();
 
-    expect(Project::query()->count())->toBe(9)
-        ->and(Project::query()->where('is_favorite', true)->count())->toBe(1)
+    expect(Project::query()->count())->toBe(10)
+        ->and(Project::query()->whereNotNull('favorite_rank')->count())->toBe(10)
         ->and($battlebot->chapters)->toHaveCount(14)
         ->and($battlebot->contributors)->toHaveCount(2)
         ->and(Contributor::query()->count())->toBe(7);
+});
+
+it('puts the featured photo first for smart garden and zinra', function () {
+    $this->seed(ProjectSeeder::class);
+
+    expect(Project::query()->where('slug', 'smart-garden-desktop')->firstOrFail()->images->first()->path)
+        ->toBe('images/projects/smart-garden-desktop/gg_ik_bij_hh.webp')
+        ->and(Project::query()->where('slug', 'zinra')->firstOrFail()->images->first()->path)
+        ->toBe('images/projects/zinra/zinra_ik_bij_BZK.webp');
 });
 
 it('seeds the chapters, specifications and contributors from the legacy portfolio', function () {
@@ -189,4 +252,83 @@ it('seeds the chapters, specifications and contributors from the legacy portfoli
         ->and($zinra->repository_url)->toBe('https://github.com/placeholder')
         ->and($zinra->contributors)->toHaveCount(4)
         ->and(Project::query()->whereNull('subtitle')->orWhereNull('intro_label')->count())->toBe(0);
+});
+
+it('seeds the stair lighting chapters and components with Dutch and English texts', function () {
+    $this->seed(ProjectSeeder::class);
+
+    $project = Project::query()->where('slug', 'automatische-trapverlichting')->firstOrFail();
+
+    expect($project->chapters)->toHaveCount(11)
+        ->and($project->chapters->first()->title)->toBe('Introductie')
+        ->and($project->chapters->pluck('translations.en.title')->filter()->count())->toBe(11)
+        ->and($project->chapters->pluck('translations.en.paragraphs')->filter()->count())->toBe(11)
+        ->and($project->components)->toHaveCount(13);
+
+    $this->withUnencryptedCookie('locale', 'nl')->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('Introductie')
+        ->assertSee('Debugging van Software en GPIO')
+        ->assertSee('HC-SR505 PIR Sensor');
+
+    $this->withUnencryptedCookie('locale', 'en')->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('Introduction')
+        ->assertSee('Software and GPIO Debugging')
+        ->assertSee('HC-SR505 PIR Sensor');
+});
+
+it('shows the links with their description above the url, in the active locale, above the components', function () {
+    $project = Project::factory()->create(['title' => 'Trap', 'slug' => 'links-test', 'sort_order' => 1]);
+    $project->links()->create([
+        'description' => 'De broncode staat op GitHub.',
+        'url' => 'https://example.com/code',
+        'translations' => ['en' => ['description' => 'The source code is on GitHub.']],
+        'sort_order' => 1,
+    ]);
+    $project->components()->create(['group' => ProjectComponentGroup::Hardware, 'name' => 'Raspberry Pi 5', 'sort_order' => 1]);
+
+    $this->withUnencryptedCookie('locale', 'nl')->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSeeInOrder(['De broncode staat op GitHub.', 'https://example.com/code', 'Raspberry Pi 5']);
+
+    $this->withUnencryptedCookie('locale', 'en')->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('The source code is on GitHub.')
+        ->assertDontSee('De broncode staat op GitHub.');
+});
+
+it('hides the links section when a project has no links', function () {
+    $project = Project::factory()->create(['title' => 'Zonder links', 'slug' => 'no-links', 'sort_order' => 1]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertDontSee('project-links__list', false);
+});
+
+it('numbers the visible sections in order, skipping sections without content', function () {
+    $project = Project::factory()->create(['title' => 'Nummers', 'slug' => 'numbering-test', 'sort_order' => 1]);
+    $project->chapters()->create(['title' => 'Intro', 'paragraphs' => ['Tekst.'], 'sort_order' => 1]);
+    $project->components()->create(['group' => ProjectComponentGroup::Hardware, 'name' => 'Raspberry Pi 5', 'sort_order' => 1]);
+    $project->contributors()->attach(Contributor::factory()->create(['name' => 'A. Oomen']), ['role' => 'Development', 'sort_order' => 1]);
+
+    $this->withUnencryptedCookie('locale', 'en')->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('01 / THE STORY')
+        ->assertSee('02 / UNDER THE HOOD')
+        ->assertSee('03 / MADE TOGETHER')
+        ->assertDontSee('MORE INFO');
+
+    $project->links()->create([
+        'description' => 'Een link.',
+        'url' => 'https://example.com',
+        'translations' => ['en' => ['description' => 'A link.']],
+        'sort_order' => 1,
+    ]);
+
+    $this->withUnencryptedCookie('locale', 'en')->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('02 / MORE INFO')
+        ->assertSee('03 / UNDER THE HOOD')
+        ->assertSee('04 / MADE TOGETHER');
 });

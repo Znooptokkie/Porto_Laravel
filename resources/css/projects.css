@@ -206,13 +206,14 @@
     align-items: center;
     gap: 10px;
     height: 33px;
-    padding: 0 20px;
+    padding: 10px 20px;
     border: 1px solid var(--color-border);
     border-radius: 25px;
     background: var(--color-surface);
     font-family: var(--font-sans);
     font-weight: 500;
-    font-size: 0.6875rem;
+    /* font-size: 0.6875rem; */
+    font-size: 1rem;
     color: var(--color-text);
     cursor: pointer;
     white-space: nowrap;
@@ -267,8 +268,7 @@
     padding: 40px 12px 12px;
     border: 1px solid var(--color-border);
     border-radius: 15px;
-    background: var(--color-surface);
-    backdrop-filter: blur(4px);
+    background: var(--color-panel);
 }
 
 .project-filter.is-open > .project-filter__panel {
@@ -295,7 +295,8 @@
     align-items: flex-start;
     gap: 8px;
     min-width: 0;
-    font-size: 0.5625rem;
+    /* font-size: 0.5625rem; */
+    font-size: .8rem;
     line-height: 1.6;
     color: var(--color-muted);
     cursor: pointer;
@@ -689,6 +690,48 @@
     text-decoration: underline;
     text-underline-offset: 3px;
     word-break: break-all;
+}
+
+/* ---------- Project detail: links ---------- */
+
+.project-link__description {
+    position: relative;
+    margin: 0;
+    padding-left: 16px;
+    font-size: 1.0625rem;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--color-muted);
+}
+
+/* .project-link__description::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+} */
+
+.project-link__url {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 8px;
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 6px;
+    margin-left: 0.75rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+}
+
+.project-link__icon {
+    width: 18px;
+    height: 18px;
 }
 
 /* ---------- Project detail: media viewer ---------- */
@@ -1126,14 +1169,15 @@
 
 .project-contributors {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.project-contributor {
+.project-contributor,
+.project-links {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1142,6 +1186,12 @@
     border-radius: 24px;
     background: var(--color-surface);
     backdrop-filter: blur(4px);
+}
+
+.project-links {
+    gap: 24px;
+    margin: 0;
+    list-style: none;
 }
 
 .project-contributor__name {
@@ -1539,6 +1589,9 @@
     display: inline-flex;
     align-items: center;
     align-self: flex-start;
+    gap: 8px;
+    max-width: 100%;
+    min-width: 0;
     margin-top: 6px;
     color: var(--accent);
 }
@@ -1546,4 +1599,11 @@
 .project-contributor__github-icon {
     width: 18px;
     height: 18px;
+}
+
+.project-contributor__url {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
 }
