@@ -31,7 +31,7 @@ class ProjectFactory extends Factory
             'subtitle' => null,
             'story_lead' => null,
             'status' => fake()->randomElement(ProjectStatus::cases()),
-            'is_favorite' => false,
+            'favorite_rank' => null,
             'organization' => null,
             'department' => null,
             'repository_url' => null,
@@ -40,11 +40,11 @@ class ProjectFactory extends Factory
     }
 
     /**
-     * Marks the project as the most favourite one.
+     * Marks the project as a favourite with the given rank; 1 is the most favourite.
      */
-    public function favorite(): static
+    public function favorite(int $rank = 1): static
     {
-        return $this->state(fn (): array => ['is_favorite' => true]);
+        return $this->state(fn (): array => ['favorite_rank' => $rank]);
     }
 
     /**

@@ -3,16 +3,18 @@
 use App\Enums\ProjectStatus;
 use App\Models\Project;
 
-it('casts the status, favourite flag and years on the model', function () {
+it('casts the status, favourite rank and years on the model', function () {
     $project = new Project([
         'status' => 'in_constructie',
-        'is_favorite' => 1,
+        'favorite_rank' => '2',
         'started_year' => '2025',
         'ended_year' => null,
     ]);
 
     expect($project->status)->toBe(ProjectStatus::InConstructie)
-        ->and($project->is_favorite)->toBeTrue()
+        ->and($project->favorite_rank)->toBe(2)
+        ->and($project->isFavorite())->toBeTrue()
+        ->and((new Project(['favorite_rank' => null]))->isFavorite())->toBeFalse()
         ->and($project->started_year)->toBe(2025)
         ->and($project->ended_year)->toBeNull();
 });

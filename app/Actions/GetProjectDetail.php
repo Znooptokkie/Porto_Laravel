@@ -14,6 +14,7 @@ class GetProjectDetail
         return $project->load([
             'images',
             'chapters',
+            'links',
             'components',
             'contributors',
             'detailTechnologies',
