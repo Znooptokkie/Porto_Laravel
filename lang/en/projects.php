@@ -12,7 +12,7 @@ return [
         'title' => 'My',
         'title_accent' => 'Projects',
         'lead' => 'From smart robots to mobile apps. A collection of projects in which I put my knowledge into practice.',
-        'count_label' => 'PROJECTS / ONE OVERVIEW',
+        'count_label' => 'PROJECTS / AT A GLANCE',
         'list_label' => 'ALL PROJECTS',
         'list_aside' => '// from idea to reality',
         'empty' => 'No projects match these filters.',

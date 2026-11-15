@@ -10,7 +10,7 @@ return [
         'projects' => 'Projects',
         'about' => 'About Me',
         'email_label' => 'Email',
-        'portrait_alt' => 'Atilla as a challenger at the Haagsche Hogeschool for the SmartGarden project',
+        'portrait_alt' => 'Atilla as a challenger at The Hague University of Applied Sciences for the Smart Garden project',
         'stats' => [
             'age' => ['value' => '31', 'label' => 'Years<br>Old'],
             'experience' => ['value' => '5', 'label' => 'Years of<br>Experience'],

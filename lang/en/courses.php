@@ -44,7 +44,7 @@ return [
                     'Battlebot stage',
                     'Smart Garden Project',
                     'City College Plymouth mentoring programme',
-                    'Higher Professional Education Challengegever',
+                    'Higher Professional Education Challenger',
                 ],
             ],
             [

@@ -51,14 +51,14 @@ class ProjectSeeder extends Seeder
             'battlebot_circuit_blueprint.webp' => ['nl' => 'Het elektronische schema waarin alle verbindingen en circuits samenkomen', 'en' => 'The electronic circuit blueprint, bringing all connections and circuits together'],
             'battlebot_frontview.webp' => ['nl' => 'Een kijkje aan de voorkant van de Battlebot, met het brein buiten zijn behuizing', 'en' => 'A front view of the Battlebot, with its brain outside the enclosure'],
             'battlebot_huge_mess_topview.webp' => ['nl' => 'Een indrukwekkende wirwar van kabels en componenten, van bovenaf bekeken', 'en' => 'An impressive tangle of wires and components, viewed from above'],
-            'battlebot_huge_mess.webp' => ['nl' => 'Waar alle kabels en componenten samenkomen - georganiseerde chaos in volle glorie', 'en' => 'Where all the wires and components come together: organized chaos in all its glory'],
+            'battlebot_huge_mess.webp' => ['nl' => 'Waar alle kabels en componenten samenkomen - georganiseerde chaos in volle glorie', 'en' => 'Where all the wires and components come together: organised chaos in all its glory'],
             'battlebot_mcp_connection.webp' => ['nl' => 'De MCP2515-modules die de CAN-buscommunicatie tussen de verschillende onderdelen mogelijk maken', 'en' => 'The MCP2515 modules enabling CAN bus communication between the different components'],
             'battlebot_screen_picture.webp' => ['nl' => 'Een uniek perspectief - een selfie gemaakt door de camera van de Battlebot', 'en' => 'A unique perspective: a selfie captured by the Battlebot’s own camera'],
             'battlebot_selfmade_module_topview.webp' => ['nl' => 'Een bovenaanzicht van de zelfontworpen en gebouwde elektronische module', 'en' => 'A top-down view of the custom-designed and built electronic module'],
             'battlebot_selfmade_module.webp' => ['nl' => 'De zelfgebouwde elektronische module, netjes op zijn plek in de behuizing', 'en' => 'The custom-built electronic module, neatly fitted inside its enclosure'],
             'battlebot_sideview.webp' => ['nl' => 'Een kijkje vanaf de zijkant - de Battlebot in volle glorie', 'en' => 'A side view of the Battlebot in all its glory'],
             'battlebot_view_top.webp' => ['nl' => 'De Battlebot van bovenaf, gespot in zijn natuurlijke habitat', 'en' => 'The Battlebot from above, spotted in its natural habitat'],
-            'battlebot_controller.webp' => ['nl' => 'Tijd voor een kleine aanpassing - de controller opengemaakt om de joysticks helemaal naar eigen smaak af te stellen', 'en' => 'Time for a little modification - opening up the controller to customize the joysticks to my liking'],
+            'battlebot_controller.webp' => ['nl' => 'Tijd voor een kleine aanpassing - de controller opengemaakt om de joysticks helemaal naar eigen smaak af te stellen', 'en' => 'Time for a little modification - opening up the controller to customise the joysticks to my liking'],
             'battlebot_custom_module.webp' => ['nl' => 'Passen, meten en experimenteren - stap voor stap krijgt de zelfontworpen module vorm', 'en' => 'Measuring, fitting and experimenting - the custom-designed module gradually taking shape'],
             'battlebot_expensive_mistake.webp' => ['nl' => 'Een wijze, maar prijzige les - vertrouw er niet blindelings op dat een buck converter altijd doet wat hij moet doen', 'en' => 'A valuable but costly lesson - never blindly assume a buck converter will always do its job'],
             'battlebot_HC-SR04_test.webp' => ['nl' => 'Eerst even testen - een proefopstelling om de HC-SR04-afstandssensoren aan de tand te voelen', 'en' => 'First, some testing - a test setup to put the HC-SR04 ultrasonic distance sensors through their paces'],
@@ -103,7 +103,7 @@ class ProjectSeeder extends Seeder
             'zinra_ik_bij_BZK.webp' => ['nl' => 'Mijn taak was om de gerealiseerde projecten kort toe te lichten aan de aanwezigen bij het ministerie van BZK', 'en' => 'My task was to briefly present the completed projects to attendees at the Ministry of the Interior and Kingdom Relations'],
             'zinra_app.webp' => ['nl' => 'De virtuele assistent op de website - gebruikers worden stap voor stap door een reeks vragen geleid', 'en' => 'The virtual assistant on the website - guiding users step by step through a series of questions'],
             'zinra_home.webp' => ['nl' => 'Zinra aan het werk in de Outlook-mailbox - de virtuele assistent helpt bij het verwerken van binnenkomende e-mails', 'en' => 'Zinra at work in the Outlook inbox - the virtual assistant helps process incoming emails'],
-            'zinra_mail.webp' => ['nl' => 'Het herkenbare Zinra-pictogram in Outlook - de toegangspoort tot de virtuele assistent', 'en' => 'The recognizable Zinra icon in Outlook - the gateway to the virtual assistant'],
+            'zinra_mail.webp' => ['nl' => 'Het herkenbare Zinra-pictogram in Outlook - de toegangspoort tot de virtuele assistent', 'en' => 'The recognisable Zinra icon in Outlook - the gateway to the virtual assistant'],
             'zinra_unimportant.webp' => ['nl' => 'Zinra heeft zijn oordeel gevormd - deze e-mail is na analyse als onbelangrijk gemarkeerd', 'en' => 'Zinra has made its decision - after analysis, this email has been marked as unimportant'],
             'zinra_website_manual.webp' => ['nl' => 'Het handmatig doorzoeken van verschillende documenten - precies het tijdrovende werk dat Zinra helpt automatiseren', 'en' => 'Manually searching through various documents - exactly the time-consuming task Zinra helps automate'],
         ],
@@ -436,8 +436,8 @@ class ProjectSeeder extends Seeder
                 'organization' => 'Thuis',
                 'department' => 'Bureau',
                 'types' => ['Webdevelopment'],
-                'cardTechnologies' => ['PHP', 'Laravel', 'TypeScript', 'Claude Code', 'Figma-MCP'],
-                'detailTechnologies' => ['PHP', 'Laravel', 'TypeScript', 'Claude Code', 'Figma-MCP'],
+                'cardTechnologies' => ['PHP', 'Laravel', 'JavaScript', 'Claude Code', 'Figma-MCP'],
+                'detailTechnologies' => ['PHP', 'Laravel', 'JavaScript', 'Claude Code', 'Figma-MCP'],
                 'links' => [],
                 'chapters' => $this->portfolioV2Chapters(),
                 'chapterTranslations' => $this->portfolioV2ChapterTranslations(),
@@ -459,8 +459,8 @@ class ProjectSeeder extends Seeder
                     'story_heading' => 'From assignment to',
                     'story_heading_accent' => 'delivery',
                     'story_aside' => '// from assignment to delivery',
-                    'organization' => 'CIV Smart Technology, The Field & mboRijnland',
-                    'department' => '',
+                    'organization' => 'mboRijnland',
+                    'department' => 'CIV Smart Technology, The Field & Haagsche Hogeschool',
                 ]],
                 'title' => 'Smart Garden - Desktop',
                 'title_accent' => null,
@@ -535,9 +535,10 @@ class ProjectSeeder extends Seeder
                     ],
                 ],
                 'chapters' => $this->smartGardenDesktopChapters(),
+                'chapterTranslations' => $this->smartGardenDesktopChapterTranslations(),
                 'components' => $this->smartGardenDesktopComponents(),
                 'contributors' => [
-                    ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Projectleider / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
+                    ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Project Leader / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
                     ['name' => 'R. van Putten', 'role' => 'Front-end Developer / Product Owner', 'url' => 'https://github.com/SanzoVP'],
                     ['name' => 'B. Diker', 'role' => 'Back-end Developer', 'url' => 'https://github.com/bdiker61'],
                     ['name' => 'M. Cifci', 'role' => 'Back-end Developer', 'url' => 'https://github.com/mohammedcifci'],
@@ -584,6 +585,7 @@ class ProjectSeeder extends Seeder
                 'detailTechnologies' => ['TypeScript', 'React Native', 'Flask API', 'Termux', 'SCP', 'Raspberry Pi 4'],
                 'links' => [], // invullen, zie syncLinks() voor het formaat
                 'chapters' => $this->smartGardenMobileChapters(),
+                'chapterTranslations' => $this->smartGardenMobileChapterTranslations(),
                 'components' => $this->smartGardenMobileComponents(),
                 'contributors' => [
                     ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie'],
@@ -628,6 +630,7 @@ class ProjectSeeder extends Seeder
                 'detailTechnologies' => ['Java', 'Android Studio', 'XML', 'API'],
                 'links' => [],
                 'chapters' => $this->bramChapters(),
+                'chapterTranslations' => $this->bramChapterTranslations(),
                 'components' => $this->bramComponents(),
                 'contributors' => [
                     ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
@@ -697,6 +700,7 @@ class ProjectSeeder extends Seeder
                     ],
                 ],
                 'chapters' => $this->zinraChapters(),
+                'chapterTranslations' => $this->zinraChapterTranslations(),
                 'components' => $this->zinraComponents(),
                 'contributors' => [
                     ['name' => 'A. Oomen', 'role' => 'Back-end Developer / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
@@ -752,6 +756,7 @@ class ProjectSeeder extends Seeder
                     ],
                 ],
                 'chapters' => $this->portfolioV1Chapters(),
+                'chapterTranslations' => $this->portfolioV1ChapterTranslations(),
                 'components' => $this->portfolioV1Components(),
                 'contributors' => [
                     ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie'],
@@ -771,7 +776,7 @@ class ProjectSeeder extends Seeder
                     'story_heading_accent' => 'Laravel',
                     'story_aside' => '// not finished yet',
                     'organization' => 'Dutch Laravel Foundation',
-                    'department' => 'Hackaton',
+                    'department' => 'Hackathon',
                 ]],
                 'title' => 'Dungeon Crawler',
                 'title_accent' => null,
@@ -1178,6 +1183,67 @@ class ProjectSeeder extends Seeder
     }
 
     /**
+     * English chapter texts, aligned with smartGardenDesktopChapters().
+     *
+     * @return list<list<string>>
+     */
+    private function smartGardenDesktopChapterTranslations(): array
+    {
+        return [
+            [
+                'Introduction',
+                'Smart Garden is a collaboration between CIV Smart Technology, The Field in Leiden and mboRijnland, with students from The Hague University of Applied Sciences as its newest addition.',
+                'The goal of this project is to actively involve students in current social issues, with a focus on sustainability and circular construction. The central question within Smart Garden is: "How can we keep a greenhouse full of plants alive as efficiently and autonomously as possible?"',
+                'What started as a relatively small project grew over several school years into a considerable undertaking, with multiple consecutive teams and increasingly complex technical challenges.',
+            ],
+            [
+                'The Assignment',
+                'Every second-year Software Developer student at mboRijnland received the same assignment during this period, after which groups were formed to carry it out. Our group consisted of five members.',
+                'By applying the Scrum methodology, we had a clear division of roles from the start: two front-end developers, two back-end developers (one of whom also acted as Product Owner), and myself as Scrum Master and project leader.',
+                'The assignment began in period three of the 2023–2024 school year. First, we were expected to retrieve sensor data from a Quantified API and make it visible on a dashboard.',
+                'In addition, we had to be able to add plants located in the greenhouse, so that each individual plant could be monitored. Since the ultimate goal was an autonomous greenhouse, it made sense to have data such as water requirements, sunlight and nutrients filled in automatically. For this we used a second API, which supplies the necessary data for each plant.',
+            ],
+            [
+                'Technical Choices',
+                'After some research, we thought it was a good idea to use Electron for the dashboard. However, we quickly discovered that Electron is mainly intended for desktop applications, which became a limitation as soon as we actually had to send and process data.',
+                'We initially considered adding a separate Flask application as a back end alongside Electron. After consulting a teacher, however, we decided to build the entire application in Flask, without Electron.',
+                'Using two frameworks side by side felt cumbersome, while Flask could in principle provide all the functionality we needed.',
+            ],
+            [
+                'Functionalities',
+                'Alongside our own code, we used two external APIs. The Perenual API provides data on specific plant species, which is automatically filled in on the corresponding page of each plant.',
+                'The Weerlive API ensures that current weather conditions are taken into account in the system, since plants depend heavily on the weather: at high temperatures, for example, extra water is needed.',
+            ],
+            [
+                'Follow-up Assignment',
+                'After the assignment was completed, our group was allowed to keep working on Smart Garden, while the rest of the class started a new project. We of course seized this opportunity with both hands.',
+                'The follow-up assignment involved controlling a pump located in the Smart Building at The Field. At this point an extra team member joined us, specialising in embedded systems and Linux.',
+                'The pump itself had been designed and built by students of the Technicus Engineering programme at mboRijnland. For the control, we came up with a solution in which a Raspberry Pi 4 acts as the central controller, bringing together all of the system’s logic.',
+                'Because this Raspberry Pi was physically located at The Field and we could not always be on site, we set up a reverse SSH tunnel. This allowed us to program the Raspberry Pi at any time, naturally without it being connected to the pump, to prevent problems such as flooding.',
+                'The existing dashboard was expanded at the same time, so that it could actually work together with this physical implementation.',
+            ],
+            [
+                'Delivery',
+                'From this point on, we worked closely with the students of Technicus Engineering who had built the pump. This collaboration went very well, thanks in part to the motivation on both sides.',
+                'The delivery did not go entirely smoothly: we encountered an unstable Wi-Fi connection, incorrectly calibrated sensors, and the fact that almost everything was new to us.',
+                'In the end, we succeeded in delivering a working system: since then, the pump has automatically watered the plants every two weeks. The sensors were not yet in use at delivery, due to problems that were largely beyond our control.',
+            ],
+            [
+                'Handover',
+                'Through a pitch to the DIF in Zoetermeer, students of The Hague University of Applied Sciences were enthusiastic about continuing Smart Garden.',
+                'They are building on the Raspberry Pi 4 as the central brain of the system, and are expanding it with sensors for soil moisture per planter, a sensor for air humidity in the greenhouse and a light sensor.',
+                'In addition, they are using the ChatGPT API to automatically fill in data for each individual plant, and the plan is to connect a camera to the greenhouse so that artificial intelligence can detect threats early on in the dashboard.',
+            ],
+            [
+                'Objective',
+                'The ultimate goal of Smart Garden is a fully working algorithm that waters each individual plant, based on data from the Perenual API and controlled via the MQTT protocol.',
+                'In addition, the dashboard must function fully, with correct data and working charts on all pages. Where possible, and with security in mind, the aim is to make the website available for actual use by The Field itself.',
+                'Throughout this project, I learned to work with SSH connections, the basics of the Linux operating system, retrieving and processing sensor data, sending and retrieving data via APIs, basic knowledge of algorithms, creating charts with ChartJS, working with Python and Flask, and using the MQTT protocol for sensor data.',
+            ],
+        ];
+    }
+
+    /**
      * @return list<array{group: ProjectComponentGroup, name: string}>
      */
     private function smartGardenDesktopComponents(): array
@@ -1246,6 +1312,73 @@ class ProjectSeeder extends Seeder
     }
 
     /**
+     * English chapter texts, aligned with smartGardenMobileChapters().
+     *
+     * @return list<list<string>>
+     */
+    private function smartGardenMobileChapterTranslations(): array
+    {
+        return [
+            [
+                'Introduction',
+                'After the desktop version of Smart Garden had been delivered, I got the chance to develop the project further for my own Mobile Development final exam. Rather than starting from scratch, I decided to turn the Smart Garden concept into a mobile application.',
+                'Having gained more experience and knowledge in the meantime, I could approach the project with a better overview and a clearer structure than the first time.',
+            ],
+            [
+                'Purpose and Target Audience',
+                'The purpose of the mobile application is to give owners of vertical gardens, mainly employees of The Field, a user-friendly way to monitor and control sensors and pumps remotely.',
+                'Through the app, users can view soil moisture and other data, set irrigation schedules, add plants and consult historical data. Deliberately, different user roles were chosen: regular users can only view data, while admins have full control over managing the garden.',
+            ],
+            [
+                'Technical Choices',
+                'For the app itself, I chose React Native with TypeScript, a framework I was already comfortable with and one that makes it possible to expand to iOS in the future.',
+                'For the back end, I initially built my own API in Node.js, but eventually switched to Flask, because Python worked more pleasantly than JavaScript for this part of the project.',
+                'Local data, such as user and plant information, is stored with AsyncStorage rather than a full database, after several attempts to implement a database did not go as hoped. Passwords are stored hashed, so the data remains at least somewhat protected.',
+            ],
+            [
+                'Raspberry Pi',
+                'For communication with the sensors and the pump at The Field, which are controlled by a Raspberry Pi 4, I chose an SSH connection in which JSON files were exchanged via the SCP protocol.',
+                'On my phone I used Termux to set up this connection and to run a small Node.js server that made the data available to the app via HTTP requests.',
+                'This setup initially worked well, but after a while the SSH connection repeatedly dropped unexpectedly and remained unavailable. To get the application fully working anyway, I chose to temporarily hardcode the sensor data in the Flask API, so the rest of the app could be fully tested and demonstrated.',
+            ],
+            [
+                'Functionalities',
+                'The application includes, among other things, a login and registration system, a home page with a five-day weather forecast and an overview of the plants on both sides of the greenhouse, and a page with all plants that have ever been added.',
+                'On the page of an individual plant, part of the data is filled in automatically via the Perenual API, and the plant’s presence, location and status can be managed.',
+                'There are also separate pages for sensors, pumps and a log of data and error messages. Only admin users can add, change or delete plants and have access to management functions such as deleting the database.',
+            ],
+            [
+                'Problems',
+                'Besides the dropped SSH connection, I ran into several other technical challenges. React Native does not support communication within the same domain by default, so I had to configure CORS properly to let the app and the Flask API communicate smoothly.',
+                'Storing sensitive data, such as API keys, in a separate .env file also proved problematic: after adding the required dependency, the application crashed completely, and I could not determine the cause. In the end, I was forced to hardcode this data into the application instead.',
+            ],
+            [
+                'Additions',
+                'During development, I added several features that were not in the original design. For example, an irrigation schedule can now be set for each plant, tracking how often a plant needs water and when the next irrigation is planned.',
+                'Admins can also edit all of a plant’s data afterwards, and I added a function to remove plants completely from the system, something that was initially missing.',
+            ],
+            [
+                'Unrealised',
+                'Not everything went as originally planned. Automatically filling in plant data turned out to be more complex than expected, because it actually required two APIs instead of one: a translation API to convert the entered text into English before it could be passed as a parameter to the Perenual API.',
+                'I also ultimately dropped an export function for sensor and plant data to CSV or PDF, because I spent more time finishing the core functionality than I had expected.',
+                'Live sensor data could not be realised because of the dropped SSH connection, and the sensors themselves had not yet been physically installed in the greenhouse at the time of delivery.',
+                'The functionality to control the pump remotely is technically present, but was deliberately not fully enabled: without a stable connection and without supervision, I was not willing to take the risk that the pump could no longer be switched off.',
+            ],
+            [
+                'Quality Assurance',
+                'To ensure the application’s reliability, I carried out extensive manual testing based on predefined test cases, focusing on both the regular user and the admin.',
+                'Almost all tested functionality, such as registering, logging in, adding plants, filtering and deleting, turned out to work successfully. One test revealed that no error message was shown when an invalid username was entered, which I then fixed by adding a validation function and a clear error message.',
+            ],
+            [
+                'Final Result',
+                'The end result is a fully functioning mobile application that makes managing a vertical garden clear and accessible, even though some of the data currently still runs on hardcoded values instead of live sensor data.',
+                'Should the SSH connection with the Raspberry Pi work reliably again in the future, switching to real live data should be relatively quick to achieve.',
+                'This project taught me a great deal about combining mobile development with hardware integration, and about dealing with components that, despite your best efforts, do not always work entirely as hoped.',
+            ],
+        ];
+    }
+
+    /**
      * @return list<array{group: ProjectComponentGroup, name: string}>
      */
     private function smartGardenMobileComponents(): array
@@ -1301,6 +1434,56 @@ class ProjectSeeder extends Seeder
     }
 
     /**
+     * English chapter texts, aligned with bramChapters().
+     *
+     * @return list<list<string>>
+     */
+    private function bramChapterTranslations(): array
+    {
+        return [
+            [
+                'Introduction',
+                'This project was offered to us by the municipality of Zoetermeer.',
+                'It was my first project for mobile. This application was meant to make it easier for older people to use a mobile phone.',
+                'Because older people often find it harder to keep up with technology, we were given the assignment to create an application that makes it somewhat easier for older people to get by.',
+            ],
+            [
+                'Vision and Objective',
+                'The main objective was that older people would not run into limitations when using this app.',
+                'We therefore interviewed several older people about what they felt was most important to have in this application.',
+                'Almost everyone agreed on one thing: safety. The app needed a clear "emergency button" through which external help could be called.',
+                'The older people also considered it very important to have easy access to photos, especially those of their own family.',
+            ],
+            [
+                'Decision-making',
+                'From school, there was the option to make this project with the knowledge we already had. That meant building the application with HTML, CSS and JavaScript.',
+                'For those seeking a bigger challenge, there was the option to make the project in Android Studio.',
+                'Naturally, my project group chose the second option: Android Studio. Within Android Studio, we then still had a choice between two programming languages: Java or Kotlin.',
+                'After doing some research, we decided to build it in Java, mainly because Java is more widely used than Kotlin. It seemed to us that learning Java would add more value.',
+            ],
+            [
+                'Task Division',
+                'Four main pages had to be realised. That worked out nicely, because we were also exactly four people.',
+                'The "Lamps" page was assigned to me, together with setting up the application in Android Studio.',
+                'As soon as I understood how everything worked within Android Studio, I explained it to the rest of my group. They of course also figured out a lot themselves, but I usually take the lead because I always want a clear overview of how everything works, so I can help if anything gets stuck. I was also a fair bit older than the others, which of course helped too.',
+            ],
+            [
+                'Realisation',
+                'Then came the actual programming of the application.',
+                'From a teacher we received a login code to retrieve a set of JSON data via his VPS, which we used to control a lamp. This required building a real API through which we could control things, starting with that lamp.',
+                'All of this happened over a local Wi-Fi network, as otherwise entirely different security aspects would have come into play.',
+                'The implementation actually went quite smoothly. I did have some problems loading photos via an emulator myself, but after many attempts it worked. I would have liked to make it a bit "better", but in the last week of the project I unfortunately was not at school (I was going to a festival that had already been planned).',
+                'I did stay in constant contact with my project group, though. They honestly did not really need me, as they were already managing quite well. I owe particular thanks to Matthijs de Graaf for this, because he committed himself one hundred percent every day, which made handing over leadership not very hard for me at all.',
+            ],
+            [
+                'Delivery',
+                'Everything turned out just as we had planned!',
+                'I look back on this project with a very satisfied feeling. It was graded 10/10, which of course was a huge boost to my confidence.',
+            ],
+        ];
+    }
+
+    /**
      * @return list<array{group: ProjectComponentGroup, name: string}>
      */
     private function bramComponents(): array
@@ -1338,6 +1521,43 @@ class ProjectSeeder extends Seeder
                 'Helaas ben ik in de loop der tijd het documentatiedossier van dit project kwijtgeraakt, waardoor niet alle details en onderbouwingen van destijds nog beschikbaar zijn.',
                 'Toch blijft Zinra een van de projecten waar ik met veel plezier op terugkijk, juist omdat het een van mijn eerste kennismakingen was met het werken voor een echte opdrachtgever, en omdat het liet zien hoe waardevol het kan zijn om ergens niet te snel de handdoek in de ring te gooien.',
             ]],
+        ];
+    }
+
+    /**
+     * English chapter texts, aligned with zinraChapters().
+     *
+     * @return list<list<string>>
+     */
+    private function zinraChapterTranslations(): array
+    {
+        return [
+            [
+                'Introduction',
+                'Zinra was one of my first projects at school and an especially educational experience right away, because for the first time we worked with a real, external client, and the result of our work was immediately visible.',
+                'From the Dutch Ministry of the Interior and Kingdom Relations (BZK), we were given the assignment to bring order to a huge volume of documents that had piled up at the ministry. That is exactly what made this project so enjoyable to work on: it did not feel like a made-up school assignment, but like a problem that really mattered to a real client.',
+            ],
+            [
+                'The Assignment',
+                'The core of the assignment was to organise and categorise documents more efficiently, so that relevant information could be found more quickly and redundant or duplicate files no longer caused unnecessary hassle.',
+                'From school, we also received a concrete technical requirement: a decision tree had to be built into the system, with which documents could be assessed and processed step by step, and communication had to take place via the SMTP protocol.',
+            ],
+            [
+                'Our Idea',
+                'To tackle this assignment, we decided to develop two separate programmes that complemented each other.',
+                'The first programme focused on the mailbox itself. Because emails are fundamentally built from HTML, we could read the contents of incoming emails with JavaScript. By using the "Bag of Words" concept, in which the words present are used to estimate the subject, the system could automatically determine which category an email belonged to. In this way, documents and emails could be pre-sorted by relevance at an early stage, even before anyone had actually read them.',
+                'The second programme consisted of a website for sorting documents manually. A user could upload an entire folder or a single document here, after which they could decide whether the document should be kept or deleted. All decisions were stored in a database, which kept precise track of which documents had to be retained and which could be discarded. An important advantage of this approach was that it also prevented duplicate documents from ending up in the system.',
+            ],
+            [
+                'Persevering',
+                'During the project, I assumed that the first programme, the mailbox application, would ultimately not work properly. I kept seeing various errors and warnings, which led me to conclude that something was fundamentally wrong. It was only towards the end of the project that I decided to take a closer look, to see whether the problem could still be solved.',
+                'To my own surprise, the application actually turned out to work. The problems I had seen were ultimately just a few minor bugs that were relatively easy to fix. This discovery was a good lesson in perseverance: sometimes something seems broken, while the problem turns out to be a lot smaller than expected.',
+            ],
+            [
+                'Reflection',
+                'Unfortunately, over time I lost the documentation file for this project, so not all details and justifications from back then are still available.',
+                'Even so, Zinra remains one of the projects I look back on with great pleasure, precisely because it was one of my first experiences working for a real client, and because it showed how valuable it can be not to throw in the towel too quickly.',
+            ],
         ];
     }
 
@@ -2021,7 +2241,7 @@ class ProjectSeeder extends Seeder
         return [
             [
                 'From Manual Coding to AI-Assisted Development',
-                'During The Dutch Laravel Foundation hackathon, I had the opportunity to talk and work with several developers. Almost all of them mentioned that writing code manually is becoming less common. A large part of the development process is now delegated to AI tools such as Claude Code and Codex. Of course, developers are still expected to have enough knowledge to recognize problems, fix errors and make adjustments when necessary.',
+                'During The Dutch Laravel Foundation hackathon, I had the opportunity to talk and work with several developers. Almost all of them mentioned that writing code manually is becoming less common. A large part of the development process is now delegated to AI tools such as Claude Code and Codex. Of course, developers are still expected to have enough knowledge to recognise problems, fix errors and make adjustments when necessary.',
                 'For that reason, and because I had already been planning to do so, I decided this would be a good opportunity to rebuild my portfolio website from scratch. This time, with full support from Figma AI, Figma MCP and Claude Code.',
                 'Choosing Claude Code was fairly straightforward. It works well with the Figma MCP, and in my opinion, it is one of the leading AI tools for software development at the moment.',
             ],

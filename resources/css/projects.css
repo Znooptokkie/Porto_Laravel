@@ -461,6 +461,7 @@
 
 .project-progress__segment--filled {
     background: var(--accent);
+    box-shadow: var(--progress-inner-shadow);
 }
 
 .project-card__heading {

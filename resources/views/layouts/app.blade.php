@@ -33,7 +33,7 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body class="@yield('body-class')">
         <canvas class="starfield" id="starfield" aria-hidden="true"></canvas>
         <a class="skip-link" href="#main">{{ __('site.common.skip_to_content') }}</a>
 

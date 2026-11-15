@@ -35,6 +35,7 @@
     --color-faint: #a5b1c5;
     --color-border: #dce3eb;
     --color-track: #dce3eb;
+    --progress-outline: #cccccc;
     --color-scrollbar-track: var(--color-bg);
     --color-menu-border: #202c3d;
     --color-menu-link: #546277;
@@ -43,6 +44,8 @@
     --content-max: 1550px;
     --education-progress-start: var(--accent);
     --education-progress-end: color-mix(in srgb, var(--accent) 80%, #fff);
+    /* Same inner shadow as the progress indicator SVGs (feOffset 1/2, black at 50%). */
+    --progress-inner-shadow: inset 1px 2px 0 rgb(0 0 0 / 0.5);
     /* 112px vanaf 1810px (Figma); lineair kleiner tot 40px op 834px. */
     --content-gutter: clamp(40px, calc(7.38vw - 21.5px), 112px);
     --nav-height: 108px;
@@ -70,6 +73,7 @@
     --color-faint: #a5b1c5;
     --color-border: #202c3d;
     --color-track: #202c3d;
+    --progress-outline: #6d6d6d;
     --color-scrollbar-track: rgba(6, 10, 18, 0.7);
     --color-menu-link: #f3f6fa;
     --color-portrait-frame: #101a2a;
@@ -2141,17 +2145,30 @@ input,
     transition: none;
 }
 
-/* Timeline reveal: steps 2–5 start hidden (set by resources/js/timeline.js) and fade in when scrolled into view. */
+/* Timeline reveal: steps 2–5 start hidden (set by resources/js/timeline.js) and fade in when scrolled into view.
+   The fade sits on the marker and the card, not on the <li>: an opacity below 1 on an ancestor turns off the
+   story-card's backdrop-filter, so the stars behind it would jump in one go when the step is fully visible. */
 .timeline-chapter {
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: transform 0.5s ease;
+}
+
+.timeline-chapter__marker,
+.timeline-chapter .story-card {
+    transition: opacity 0.5s ease;
 }
 
 .timeline-chapter--hidden {
-    opacity: 0;
     transform: translateY(24px);
 }
 
-[data-motion='off'] .timeline-chapter {
+.timeline-chapter--hidden .timeline-chapter__marker,
+.timeline-chapter--hidden .story-card {
+    opacity: 0;
+}
+
+[data-motion='off'] .timeline-chapter,
+[data-motion='off'] .timeline-chapter__marker,
+[data-motion='off'] .timeline-chapter .story-card {
     transition: none;
 }
 
@@ -2429,6 +2446,11 @@ input,
     color: var(--accent);
 }
 
+/* Outlined stripes take the theme's outline colour (light and dark Figma exports differ). */
+.education-card__marker [stroke] {
+    stroke: var(--progress-outline);
+}
+
 .education-card__body {
     display: flex;
     align-items: stretch;
@@ -2688,5 +2710,106 @@ input,
     .education-intro,
     .education-section {
         padding-inline: 24px;
+    }
+}
+
+/* ---------- 404 pagina (zelfde intro-opbouw als /projecten) ---------- */
+
+/* Hoogte-vullende pagina: de footer blijft onderaan en de inhoud staat in het midden. */
+.body--fill {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.body--fill > main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+.not-found {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-block: 48px;
+    text-align: center;
+}
+
+/* Eyebrow en titel delen één kolom: de eyebrow start op dezelfde linkerkant als de titel. */
+.not-found__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.not-found__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 1.4px;
+    color: var(--color-muted);
+}
+
+.not-found__eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    flex-shrink: 0;
+    background: var(--accent);
+}
+
+.not-found__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 4.75rem;
+    line-height: 1.05;
+    letter-spacing: -3px;
+    color: var(--color-text);
+}
+
+.not-found__title span {
+    color: var(--accent);
+}
+
+.not-found__lead {
+    max-width: 660px;
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+}
+
+.not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+@media (max-width: 1279px) {
+    .not-found__title {
+        font-size: 3.75rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .not-found {
+        padding-block: 32px;
+    }
+
+    .not-found__title {
+        font-size: 3rem;
+        letter-spacing: -2px;
     }
 }

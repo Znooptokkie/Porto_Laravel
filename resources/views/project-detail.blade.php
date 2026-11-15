@@ -36,10 +36,10 @@
                 </div>
 
                 <div class="project-detail__context">
-                    @if ($project->organization)
+                    @if ($project->translated('organization') !== '')
                         <p>{{ $project->translated('organization') }}</p>
                     @endif
-                    @if ($project->department)
+                    @if ($project->translated('department') !== '')
                         <p>{{ $project->translated('department') }}</p>
                     @endif
                     @if ($project->repository_url)

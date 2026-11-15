@@ -58,4 +58,13 @@ return [
         'skip_to_content' => 'Naar de inhoud',
         'placeholder_icon' => 'Vaardigheid',
     ],
+
+    'not_found' => [
+        'eyebrow' => '404',
+        'title' => 'Pagina',
+        'title_accent' => 'niet gevonden',
+        'lead' => 'De pagina die je zoekt bestaat niet of is verplaatst.',
+        'home' => 'Naar de homepage',
+        'projects' => 'Bekijk projecten',
+    ],
 ];
