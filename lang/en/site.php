@@ -58,4 +58,13 @@ return [
         'skip_to_content' => 'Skip to content',
         'placeholder_icon' => 'Skill',
     ],
+
+    'not_found' => [
+        'eyebrow' => '404',
+        'title' => 'Page',
+        'title_accent' => 'not found',
+        'lead' => 'The page you are looking for does not exist or has been moved.',
+        'home' => 'Go to homepage',
+        'projects' => 'View projects',
+    ],
 ];
