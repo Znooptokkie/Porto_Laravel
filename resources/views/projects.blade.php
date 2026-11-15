@@ -23,7 +23,7 @@
 
         <div class="projects-list__cards" data-project-results>
             @forelse ($overview['projects'] as $project)
-                <x-project-card :project="$project" :total="$overview['total']" :details-first="$loop->even" />
+                <x-project-card :project="$project" :position="$loop->iteration" :total="$overview['projects']->count()" :details-first="$loop->even" />
             @empty
                 <p class="projects-empty">{{ __('projects.overview.empty') }}</p>
             @endforelse

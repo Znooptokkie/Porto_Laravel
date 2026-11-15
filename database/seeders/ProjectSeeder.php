@@ -38,6 +38,8 @@ class ProjectSeeder extends Seeder
         'zinra' => 'zinra_ik_bij_BZK.webp',
         'plymouth' => 'plymouth_groepsfoto.webp',
         'battlebot' => 'battlebot_screen_picture.webp',
+        'portfolio-v1' => 'porto_1_homepage_head.webp',
+        'portfolio-v2' => 'porto_2_homepage_head.webp',
     ];
 
     /**
@@ -122,6 +124,18 @@ class ProjectSeeder extends Seeder
             'plymouth_maze.webp' => ['nl' => 'Het doolhof was een van de uitdagingen waarmee studenten punten konden verdienen', 'en' => 'The maze was one of the challenges through which students could earn points'],
             'plymouth_medestudent_matthijs.webp' => ['nl' => 'Mijn medestudent Matthijs houdt de scores nauwlettend bij tijdens de uitdagingen', 'en' => 'My fellow student Matthijs keeping a close eye on the scores during the challenges'],
             'plymouth_rocket.webp' => ['nl' => 'De studenten kwamen zelf op het idee om Rocket League na te bouwen met hun robots', 'en' => 'The students came up with the idea of recreating Rocket League using their robots'],
+            'plymouth_maze_explaining.webp' => [
+                'nl' => 'Een student staat klaar om aan het doolhof te beginnen. Aan mij de taak om de spelregels uit te leggen.',
+                'en' => 'A student is getting ready to start the maze challenge. My task is to explain the rules of the game.',
+            ],
+            'plymouth_topview_rocket.webp' => [
+                'nl' => 'Een bovenaanzicht van een potje Rocket League in volle gang.',
+                'en' => 'An overhead view of a Rocket League match in progress.',
+            ],
+            'plymouth_watching.webp' => [
+                'nl' => 'Ik houd het spel Rocket League nauwlettend in de gaten.',
+                'en' => 'I am keeping a close eye on the Rocket League match.',
+            ],
         ],
         'dungeon-crawler' => [
             'crawler_battleview.webp' => ['nl' => 'Het Figma-ontwerp van de gevechtsfase - zo ziet een confrontatie met vijanden er straks uit', 'en' => 'The Figma design of the battle phase - a preview of what encounters with enemies will look like'],
@@ -130,6 +144,78 @@ class ProjectSeeder extends Seeder
             'crawler_homescreen.webp' => ['nl' => 'Het startscherm van de website - de eerste kennismaking met de wereld van Dungeon Crawler', 'en' => 'The website home screen - the first introduction to the world of Dungeon Crawler'],
             'crawler_open_chest.webp' => ['nl' => 'Een geopende schatkist in de dungeon - tijd om te ontdekken welke buit erin verborgen zit', 'en' => 'An opened treasure chest in the dungeon - time to discover what loot is hidden inside'],
             'crawler_roomview.webp' => ['nl' => 'De eerste kamer van Dungeon Level 1 - hier begint het avontuur voor iedere speler', 'en' => 'The first room of Dungeon Level 1 - where every player’s adventure begins'],
+        ],
+        'portfolio-v1' => [
+            'porto_1_about_me.webp' => [
+                'nl' => 'De pagina Over Mij, waarop ik kort beschrijf wie ik ben en wat mij typeert.',
+                'en' => 'The About Me page, where I briefly describe who I am and what defines me.',
+            ],
+            'porto_1_education.webp' => [
+                'nl' => 'De pagina Mijn Opleidingen, waarop ik mijn afgeronde opleidingen en behaalde certificaten presenteer.',
+                'en' => 'The My Education page, where I present my completed studies and earned certificates.',
+            ],
+            'porto_1_homepage_head.webp' => [
+                'nl' => 'De introductiesectie van mijn homepage, met een op maat gemaakte SVG-illustratie en een korte introductietekst.',
+                'en' => 'The introductory section of my homepage, featuring a custom SVG illustration and a short introduction.',
+            ],
+            'porto_1_homepage_skills.webp' => [
+                'nl' => 'De sectie Vaardigheden, waarin ik mijn ervaring met verschillende technologieën, programmeertalen en andere onderdelen weergeef.',
+                'en' => 'The Skills section, where I showcase my experience with various technologies, programming languages and other areas.',
+            ],
+            'porto_1_homepage_timeline.webp' => [
+                'nl' => 'De tijdlijnsectie, waarin ik mijn opleidings- en loopbaanverloop kort toelicht en vertel over de keuzes die ik onderweg heb gemaakt.',
+                'en' => 'The timeline section, where I briefly outline my educational and career journey and explain some of the decisions I made along the way.',
+            ],
+            'porto_1_leetcode.webp' => [
+                'nl' => 'De LeetCode-pagina. Deze is voornamelijk bedoeld om mijn eigen voortgang en oplossingen bij te houden, maar is ook interessant om met anderen te delen.',
+                'en' => 'The LeetCode page. It is primarily intended to track my own progress and solutions, but is also interesting to share with others.',
+            ],
+            'porto_1_projects.webp' => [
+                'nl' => 'De pagina Mijn Projecten, waarop ik mijn verschillende projecten presenteer in een op maat gemaakte SVG-illustratie.',
+                'en' => 'The My Projects page, where I showcase my various projects through a custom SVG illustration.',
+            ],
+        ],
+        'portfolio-v2' => [
+            'porto_2_education.webp' => [
+                'nl' => 'De pagina De Opleidingen, met mijn MBO 4-opleiding Software Development en de bijbehorende gegevens.',
+                'en' => 'The Education page, showing my MBO 4 Software Development programme and its details.',
+            ],
+            'porto_2_homepage_accent_options.webp' => [
+                'nl' => 'De homepage met het paneel voor accentkleuren, waarmee bezoekers de kleur van de site kunnen aanpassen.',
+                'en' => 'The homepage with the accent colour panel, where visitors can change the colour of the site.',
+            ],
+            'porto_2_homepage_head.webp' => [
+                'nl' => 'De introductiesectie van de homepage, met mijn naam, functie en een korte introductietekst.',
+                'en' => 'The introduction section of the homepage, with my name, role and a short introduction.',
+            ],
+            'porto_2_homepage_language.webp' => [
+                'nl' => 'De homepage met het taalmenu, waarmee bezoekers kunnen kiezen tussen Nederlands en Engels.',
+                'en' => 'The homepage with the language menu, where visitors can choose between Dutch and English.',
+            ],
+            'porto_2_homepage_light_mode.webp' => [
+                'nl' => 'De homepage in de lichte modus, met oranje accenten op een lichte achtergrond.',
+                'en' => 'The homepage in light mode, with orange accents on a light background.',
+            ],
+            'porto_2_homepage_skills.webp' => [
+                'nl' => 'De sectie Mijn Programmeer Kennis, met mijn programmeertalen, frameworks en AI-tools.',
+                'en' => 'The Programming Skills section, showing my programming languages, frameworks and AI tools.',
+            ],
+            'porto_2_homepage_timeline.webp' => [
+                'nl' => 'De tijdlijnsectie, waarin ik mijn schooltijd en werk als schilder toelicht, voorafgaand aan mijn overstap naar softwareontwikkeling.',
+                'en' => 'The timeline section, outlining my school years and my work as a painter, leading up to my move into software development.',
+            ],
+            'porto_2_mobile_filters.webp' => [
+                'nl' => 'Het mobiele filtermenu van de projectenpagina, met filters voor onder andere jaartal en programmeertaal.',
+                'en' => 'The mobile filter menu on the projects page, with filters for year and programming language, among others.',
+            ],
+            'porto_2_mobile_menu.webp' => [
+                'nl' => 'Het mobiele menu met de navigatielinks en de instellingen voor thema, taal en accentkleur.',
+                'en' => 'The mobile menu with the navigation links and the settings for theme, language and accent colour.',
+            ],
+            'porto_2_projects.webp' => [
+                'nl' => 'De projectenpagina met een overzicht van alle projecten en de filters om ze te sorteren.',
+                'en' => 'The projects page with an overview of all projects and the filters to sort them.',
+            ],
         ],
     ];
 
@@ -337,10 +423,10 @@ class ProjectSeeder extends Seeder
                 'intro_label' => 'WEBDEVELOPMENT / PORTFOLIO',
                 'started_year' => 2026,
                 'ended_year' => null,
-                'summary' => 'De eerste versie van mijn portfolio website had ik gemaakt in *Django (Python)*. Die beschouwde ik vooral als een leer-project. Het begon gestructureerd, maar eindigde toch wel in een aardige bende. Mede om die reden, en omdat ik met *Claude Code* een volledige iets wilde bouwen, heb ik besloten om mijn portfolio opnieuw te bouwen *Laravel (PHP)*. Dit keer met ondersteuning van *Figma-MCP* & *Claude Code*.',
+                'summary' => 'De eerste versie van mijn portfolio website had ik gemaakt in *Django (Python)*. Die beschouwde ik vooral als een leer-project. Het begon gestructureerd, maar eindigde toch wel in een aardige bende. Mede om die reden, en omdat ik met *Claude Code* een volledige iets wilde bouwen, heb ik besloten om mijn portfolio opnieuw te bouwen in *Laravel (PHP)*. Dit keer met ondersteuning van *Figma-MCP* & *Claude Code*.',
                 'subtitle' => 'Een website waar ik trots op kan zijn.',
                 'story_lead' => 'My Portfolio: Een nieuw design, een nieuwe manier om mijzelf te introduceren.',
-                'media_tagline' => '{ software }',
+                'media_tagline' => '{ software x portfolio }',
                 'story_heading' => 'Een nieuw',
                 'story_heading_accent' => 'begin',
                 'story_aside' => '// stap voor stap',
@@ -352,9 +438,10 @@ class ProjectSeeder extends Seeder
                 'types' => ['Webdevelopment'],
                 'cardTechnologies' => ['PHP', 'Laravel', 'TypeScript', 'Claude Code', 'Figma-MCP'],
                 'detailTechnologies' => ['PHP', 'Laravel', 'TypeScript', 'Claude Code', 'Figma-MCP'],
-                'links' => [], // invullen, zie syncLinks() voor het formaat
-                'chapters' => [], // invullen
-                'components' => [], // invullen
+                'links' => [],
+                'chapters' => $this->portfolioV2Chapters(),
+                'chapterTranslations' => $this->portfolioV2ChapterTranslations(),
+                'components' => $this->portfolioV2Components(),
                 'contributors' => [
                     ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie'],
                 ],
@@ -364,7 +451,7 @@ class ProjectSeeder extends Seeder
                 'translations' => ['en' => [
                     'media_tagline' => '{ sensors × dashboard }',
                     'story_lead' => 'Smart Garden: live sensor data and an automatic water pump, in one dashboard.',
-                    'title' => 'Smart Garden (desktop)',
+                    'title' => 'Smart Garden - Desktop',
                     'category' => 'IOT / EMBEDDED SYSTEMS',
                     'intro_label' => 'IOT / EMBEDDED SYSTEMS',
                     'summary' => 'Smart Garden is a collaboration between *CIV Smart Technology*, *The Field* in Leiden and *mboRijnland*, in which a dashboard was built in *Flask* to monitor and control a vertical garden, including live sensor data and an automatically controlled water pump via a *Raspberry Pi 4*.',
@@ -375,7 +462,7 @@ class ProjectSeeder extends Seeder
                     'organization' => 'CIV Smart Technology, The Field & mboRijnland',
                     'department' => '',
                 ]],
-                'title' => 'Smart Garden (desktop)',
+                'title' => 'Smart Garden - Desktop',
                 'title_accent' => null,
                 'category' => 'IOT / EMBEDDED SYSTEMS',
                 'intro_label' => 'IOT / SAMENWERKINGSPROJECT',
@@ -388,7 +475,7 @@ class ProjectSeeder extends Seeder
                 'story_heading' => 'Van opdracht naar',
                 'story_heading_accent' => 'oplevering',
                 'story_aside' => '// van opdracht tot oplevering',
-                'repository_url' => 'https://github.com/Znooptokkie/GoodGarden',
+                'repository_url' => 'https://github.com/Znooptokkie/GG',
                 'favorite_rank' => 1,
                 'status' => ProjectStatus::Klaar,
                 'organization' => 'CIV Smart Technology, The Field & mboRijnland',
@@ -423,7 +510,7 @@ class ProjectSeeder extends Seeder
                             'nl' => 'Een mooi bericht van mijn voormalige docent over het moment waarop ik de leiding over het Smart Garden-project overnam.',
                             'en' => 'A post by my former teacher about the moment I took over the leadership of the Smart Garden project.',
                         ],
-                        'url' => 'https://',
+                        'url' => 'https://www.linkedin.com/posts/lindeverbaas_een-mooi-vervolg-op-het-project-smart-garden-ugcPost-7303711081913331712-SIfD/',
                     ],
                     [
                         'description' => [
@@ -437,7 +524,7 @@ class ProjectSeeder extends Seeder
                             'nl' => 'Een presentatie over het project voor een zaal vol docenten, op een gigantisch scherm. Een behoorlijk spannende ervaring!',
                             'en' => 'A presentation about the project to an audience of teachers, displayed on a huge screen. Quite an exciting experience!',
                         ],
-                        'url' => 'https://',
+                        'url' => 'https://www.linkedin.com/posts/naomi-hollander-531066335_ugcPost-7305653354574106624-Tzro/',
                     ],
                     [
                         'description' => [
@@ -463,10 +550,10 @@ class ProjectSeeder extends Seeder
                 'translations' => ['en' => [
                     'media_tagline' => '{ mobile × Raspberry Pi }',
                     'story_lead' => 'Smart Garden on your phone, with its own API, user roles and a Raspberry Pi.',
-                    'title' => 'Smart Garden (mobile)',
+                    'title' => 'Smart Garden - Mobile',
                     'category' => 'MOBILE DEVELOPMENT',
                     'intro_label' => 'MOBILE DEVELOPMENT / FINAL EXAM',
-                    'summary' => 'For my *Mobile Development* final exam I turned the Smart Garden (desktop) project into a full mobile app in *React Native*, with its own *Flask API*, user roles and a connection to a *Raspberry Pi 4*.',
+                    'summary' => 'For my *Mobile Development* final exam I turned the Smart Garden - Desktop project into a full mobile app in *React Native*, with its own *Flask API*, user roles and a connection to a *Raspberry Pi 4*.',
                     'subtitle' => 'Smart Garden as a full mobile app.',
                     'story_heading' => 'From desktop to',
                     'story_heading_accent' => 'mobile',
@@ -474,13 +561,13 @@ class ProjectSeeder extends Seeder
                     'organization' => '',
                     'department' => '',
                 ]],
-                'title' => 'Smart Garden (mobiel)',
+                'title' => 'Smart Garden - Mobiel',
                 'title_accent' => null,
                 'category' => 'MOBILE DEVELOPMENT',
                 'intro_label' => 'MOBILE DEVELOPMENT / EINDEXAMEN',
                 'started_year' => 2025,
                 'ended_year' => null,
-                'summary' => 'Voor mijn eindexamen *Mobile Development* heb ik het project Smart Garden (desktop) omgezet naar een volwaardige mobiele applicatie in *React Native*, met eigen *Flask-API*, gebruikersrollen en koppeling met een *Raspberry Pi 4*.',
+                'summary' => 'Voor mijn eindexamen *Mobile Development* heb ik het project Smart Garden - Desktop omgezet naar een volwaardige mobiele applicatie in *React Native*, met eigen *Flask-API*, gebruikersrollen en koppeling met een *Raspberry Pi 4*.',
                 'subtitle' => 'Smart Garden als volwaardige mobiele app gemaakt voor het Mobilde Development Examen.',
                 'story_lead' => 'Smart Garden op je telefoon, met een eigen API, gebruikersrollen en een Raspberry Pi.',
                 'media_tagline' => '{ mobiel × Raspberry Pi }',
@@ -655,7 +742,15 @@ class ProjectSeeder extends Seeder
                 'types' => ['Webdevelopment'],
                 'cardTechnologies' => ['Python', 'Django', 'TypeScript', 'SVG', 'CI/CD'],
                 'detailTechnologies' => [],
-                'links' => [], // invullen, zie syncLinks() voor het formaat
+                'links' => [
+                    [
+                        'description' => [
+                            'nl' => 'De repository die ik heb aangemaakt om met SVG\'s te experimenteren. Of dit de ideale aanpak was, weet ik niet helemaal, maar ik heb er veel van geleerd!',
+                            'en' => 'The repository I created to experiment with SVGs. I am not entirely sure whether this was the ideal approach, but I learned a lot from it!',
+                        ],
+                        'url' => 'https://github.com/Znooptokkie/SVG',
+                    ],
+                ],
                 'chapters' => $this->portfolioV1Chapters(),
                 'components' => $this->portfolioV1Components(),
                 'contributors' => [
@@ -685,7 +780,7 @@ class ProjectSeeder extends Seeder
                 'started_year' => 2026,
                 'ended_year' => null,
                 'summary' => 'Ik deed mee aan de *hackaton* van de *Dutch Laravel Foundation*. Omdat het een tijdje geleden was dat ik *Laravel* had gebruikt als *framework*, besloot ik om een kleine dungeon crawler te maken. Het project staat op *onvoltooid*, maar ik sluit niet uit om hem alsnog af te maken.',
-                'subtitle' => 'Een kleine dungeon crawler, gebouwd tijdens een hackathon.',
+                'subtitle' => 'Een kleine dungeon crawler, gebouwd voor de hackathon.',
                 'story_lead' => 'Dungeon Crawler: Laravel weer oppakken, met een spel als project.',
                 'media_tagline' => '{ Laravel × spel }',
                 'story_heading' => 'Een spel met',
@@ -699,9 +794,18 @@ class ProjectSeeder extends Seeder
                 'types' => ['Webdevelopment'],
                 'cardTechnologies' => ['PHP', 'Laravel', 'Vue.js', 'SVG'],
                 'detailTechnologies' => ['PHP', 'Laravel', 'Vue.js', 'SVG'],
-                'links' => [], // invullen, zie syncLinks() voor het formaat
-                'chapters' => [],
-                'components' => [],
+                'links' => [
+                    [
+                        'description' => [
+                            'nl' => 'Deze tutorial heb ik aan het begin van het project gevolgd om mijn kennis van Laravel op te frissen.',
+                            'en' => 'I followed this tutorial at the start of the project to refresh my knowledge of Laravel.',
+                        ],
+                        'url' => 'https://laravel.com/learn/getting-started-with-laravel',
+                    ],
+                ],
+                'chapters' => $this->dungeonCrawlerChapters(),
+                'chapterTranslations' => $this->dungeonCrawlerChapterTranslations(),
+                'components' => $this->dungeonCrawlerComponents(),
                 'contributors' => [['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Designer', 'url' => 'https://github.com/Znooptokkie']],
             ],
             [
@@ -720,7 +824,7 @@ class ProjectSeeder extends Seeder
                     'organization' => 'mboRijnland',
                     'department' => 'Software Development',
                 ]],
-                'title' => 'Plymouth Uitwisselingsbegeleiding',
+                'title' => 'City College Plymouth Studenten Begeleiding',
                 'title_accent' => null,
                 'category' => 'ROBOTICA / UITWISSELINGSBEGELEIDING',
                 'intro_label' => 'ROBOTICA / UITWISSELINGSBEGELEIDING.',
@@ -742,8 +846,9 @@ class ProjectSeeder extends Seeder
                 'cardTechnologies' => ['MicroBits', 'MicroPython'],
                 'detailTechnologies' => ['MicroBits', 'MicroPython'],
                 'links' => [],
-                'chapters' => [],
-                'components' => [],
+                'chapters' => $this->plymouthChapters(),
+                'chapterTranslations' => $this->plymouthChapterTranslations(),
+                'components' => $this->plymouthComponents(),
                 'contributors' => [
                     ['name' => 'A. Oomen', 'role' => 'Exchange Lead', 'url' => 'https://github.com/Znooptokkie'],
                     ['name' => 'M. de Graaf', 'role' => 'Exchange Lead', 'url' => 'https://github.com/Matthijs-de-Graaf'],
@@ -1250,36 +1355,6 @@ class ProjectSeeder extends Seeder
     /**
      * @return list<array{title: string, paragraphs: list<string>}>
      */
-    private function portfolioV1Chapters(): array
-    {
-        return [
-            ['title' => 'Introductie', 'paragraphs' => [
-                'Uiteraard kan een Portfolio website niet ontbreken bij een Software Ontwikkelaar. Het afgelopen half jaar ben ik dan ook bezig geweest om deze website te maken. Vooral met de intentie om er wat van te leren. Dat is ook een van de voornaamste redenen waarom ik \'plain\' TypeScript code gebruik en geen frontend framework. Een backend framework, tja, die acht ik wel nodig.',
-                'Initieel werkte ik met Flask en SQLAlchemy om de database verbinding en templates te tonen, dit omdat ik eerst van plan was om een non-relationail database te gebruiken zoals JSON.',
-                'Naarmate het project vorderde, kwam ik er toch achter dat het wel handig kan zijn om al mijn data in een database te hebben.',
-            ]],
-            ['title' => 'Visie en Doelstelling', 'paragraphs' => [
-                'Ik had al enigzins ervaring met Flask en Django. Omdat ik dus niet van plan was een relationele database te gebruiken, besloot ik voor het lichtgewicht framework te gaan Flask.',
-                'Als eerste ging ik wat onderzoek doen naar bestaande portfolio websites, kijken hoe anderen die van hun hebben gemaakt.',
-                'De meeste protfolio websites die ik tegenkwam waren wel volledig gemaakt met een frontend framework zoals React. Desondanks heb ik er wel de nodige inspiratie van opgedaan.',
-            ]],
-        ];
-    }
-
-    /**
-     * @return list<array{group: ProjectComponentGroup, name: string}>
-     */
-    private function portfolioV1Components(): array
-    {
-        return $this->groupedComponents([
-            ProjectComponentGroup::Software->value => ['CI/CD', 'JSON', 'SVG'],
-            ProjectComponentGroup::Protocol->value => ['API'],
-        ]);
-    }
-
-    /**
-     * @return list<array{title: string, paragraphs: list<string>}>
-     */
     private function stairLightingChapters(): array
     {
         return [
@@ -1438,6 +1513,579 @@ class ProjectSeeder extends Seeder
             ],
             ProjectComponentGroup::Sensor->value => [
                 'HC-SR505 PIR Sensor',
+            ],
+        ];
+
+        return $this->groupedComponents($groups);
+    }
+
+    /**
+     * @return list<array{title: string, paragraphs: list<string>}>
+     */
+    private function plymouthChapters(): array
+    {
+        return [
+            ['title' => 'Introductie', 'paragraphs' => [
+                'Tijdens mijn laatste stage, bij het Battlebot-project, kregen Matthijs en ik de vraag of het ons leuk leek om studenten van City College Plymouth te begeleiden tijdens een internationale uitwisseling. Zonder lang na te denken waren we het er allebei over eens: dat gaan we doen!',
+                'De voorbereiding bleek een behoorlijke uitdaging, want we hadden nog maar één week om een project te bedenken en het volledige programma voor te bereiden. Na overleg met verschillende docenten en onze stagebegeleider besloten we een project rondom de BBC micro:bit te organiseren.',
+                'Ons doel was om de studenten op een praktische en interactieve manier kennis te laten maken met programmeren, elektronica en draadloze communicatie. Geïnspireerd door Mario Kart bedachten we verschillende battles waarin de studenten hun eigen robotauto\'s konden programmeren en tegen elkaar konden inzetten.',
+            ]],
+            ['title' => 'Projectvoorbereiding', 'paragraphs' => [
+                'We verdeelden de studenten in drie teams van vier personen. Elk team kreeg de beschikking over een Maqueen V2-robotauto, een Gamepad en twee micro:bits. Eén micro:bit werd gebruikt voor de besturing van de auto en de andere voor de Gamepad.',
+                'De studenten kregen twee weken de tijd om hun hardware te programmeren voordat de verschillende battles zouden plaatsvinden. We boden zowel Code Blocks als Python aan, maar uiteindelijk kozen alle drie de teams ervoor om met Python te werken.',
+                'Naast de technische opdrachten ontwikkelden we een puntensysteem waarbij niet alleen de resultaten van de battles meetelden, maar ook teamwork, programmeervaardigheden, creativiteit en het behalen van specifieke doelstellingen. Zo wilden we voorkomen dat uitsluitend het snelste team zou winnen.',
+            ]],
+            ['title' => 'Kennismaking met de micro:bit', 'paragraphs' => [
+                'De eerste dagen stonden in het teken van kennismaken met de BBC micro:bit en de programmeermogelijkheden ervan. We begonnen met eenvoudige opdrachten, zoals het weergeven van afbeeldingen en tekst op het LED-display.',
+                'Vervolgens introduceerden we de ingebouwde radiofunctionaliteit met behulp van radio.on(). Hiermee konden de studenten draadloos berichten versturen tussen verschillende micro:bits en kennismaken met de basisprincipes van communicatie tussen embedded systemen.',
+                'Om deze opdracht uitdagender te maken, moesten de teams zelf een versleutelingsmethode bedenken voor de berichten die ze via de radio verstuurden. Eén team koos voor een Caesar cipher, een ander voor XOR-encryptie en het derde team voor een oplossing op basis van ASCII-codering.',
+                'De volgende dag moesten de teams uitleggen hoe hun gekozen versleuteling werkte. Hiermee stimuleerden we niet alleen het schrijven van code, maar ook het daadwerkelijk begrijpen en kunnen uitleggen van de onderliggende principes.',
+            ]],
+            ['title' => 'Maqueen en Gamepad', 'paragraphs' => [
+                'Na de introductie van de micro:bit maakten de studenten kennis met de Maqueen V2-robotauto en de bijbehorende Gamepad. Binnen ieder team werden de verantwoordelijkheden verdeeld: twee studenten hielden zich bezig met de Gamepad en de andere twee met de Maqueen.',
+                'Het belangrijkste doel was om betrouwbare communicatie tussen beide apparaten te realiseren en de benodigde functionaliteit te programmeren om de robotauto op afstand te besturen.',
+                'Naarmate het project vorderde, introduceerden we uitgebreidere functionaliteiten, waaronder geleidelijke acceleratie. We gaven de studenten hiervoor een formule waarmee ze de snelheid van de Maqueen geleidelijk konden laten opbouwen, in plaats van de motoren direct op volle snelheid te laten draaien.',
+                'Daarnaast organiseerden we een extra Python-les voor studenten die wat meer ondersteuning nodig hadden. Als creatieve opdracht mochten ze een eigen overwinningsdansje bedenken en programmeren met de micro:bit.',
+            ]],
+            ['title' => 'Battles en Puntentelling', 'paragraphs' => [
+                'De competitie bestond uit verschillende uitdagingen, geïnspireerd door Mario Kart. Elk team kreeg de mogelijkheid om punten te verdienen tijdens de afzonderlijke battles en door hun algemene prestaties.',
+                'We beoordeelden de teams op samenwerking, programmeervaardigheden, creativiteit en het behalen van specifieke doelstellingen. Voor teamwork konden maximaal 30 punten worden verdiend en voor programming maximaal 20 punten.',
+                'Ook creativiteit speelde een belangrijke rol. Teams werden beloond voor originele ideeën en effectieve oplossingen. Daarnaast waren er per battle specifieke doelstellingen waarmee extra punten verdiend konden worden.',
+                'Met deze aanpak wilden we de studenten stimuleren om zelfstandig na te denken, goed samen te werken en eigen oplossingen te ontwikkelen, in plaats van uitsluitend bezig te zijn met het winnen van de competitie.',
+            ]],
+            ['title' => 'Battle 1: Maze', 'paragraphs' => [
+                'De eerste battle was een doolhofuitdaging. We maakten een parcours met zwarte tape op een witte ondergrond. Onderweg waren verschillende kruispunten gemarkeerd met gekleurde tape, die de studenten konden verzamelen.',
+                'Het doel was om de Maqueen zo snel mogelijk door het doolhof te manoeuvreren. Iedere botsing met een muur leverde vijf seconden straftijd op, terwijl het verzamelen van de gemarkeerde kruispunten juist tijd van de eindtijd aftrok.',
+                'Om deze uitdaging technisch te ondersteunen, hadden we een basisimplementatie voorbereid voor de lijnsensoren van de Maqueen. De sensoren werden via I2C uitgelezen, waardoor het programma kon detecteren wanneer de auto een zwarte lijn raakte. Zodra dit gebeurde, kleurden de RGB-leds onder de Maqueen rood.',
+                'De studenten moesten deze functionaliteit integreren in hun eigen besturingsprogramma. Hiervoor moesten ze sensorinformatie, motorbesturing en visuele feedback combineren, terwijl ze de robot onder controle hielden.',
+                'De Maze-battle werd succesvol uitgevoerd en vormde de eerste praktische test van de programmeer- en rijvaardigheden van de teams.',
+            ]],
+            ['title' => 'Battle 2: Mario Kart Race', 'paragraphs' => [
+                'De tweede geplande battle was een race, geïnspireerd door Mario Kart. We wilden verschillende power-ups introduceren die de teams tijdens het parcours konden verzamelen en strategisch konden inzetten.',
+                'Het idee was om speciale markeringen op het parcours te plaatsen. Zodra een team over een markering reed, konden wij als begeleiders via een aparte micro:bit een draadloos bericht naar het betreffende team versturen. Hierdoor werd een Boolean-status in hun programma geactiveerd, waardoor de verzamelde power-up beschikbaar kwam.',
+                'We hadden drie verschillende power-ups bedacht: Stun, waarmee tegenstanders tijdelijk konden worden stilgezet; Speed, waarmee de Maqueen gedurende vijf seconden van 80% naar 100% snelheid kon gaan; en Invincible, waarmee een team dertig seconden onschendbaar zou zijn.',
+                'Hoewel we een deel van de functionaliteit hadden geïmplementeerd, bleef vooral de draadloze communicatie rondom de Stun-power-up instabiel. De Speed-functionaliteit werkte, maar we kregen niet alle onderdelen binnen de beschikbare tijd betrouwbaar genoeg werkend.',
+                'Uiteindelijk hebben we besloten deze race niet uit te voeren. Het ontwikkelen van deze functionaliteit leverde desondanks interessante ervaring op met draadloze communicatie, statusbeheer en het combineren van verschillende hardwarecomponenten.',
+            ]],
+            ['title' => 'Battle 3: Rocket League', 'paragraphs' => [
+                'Oorspronkelijk hadden we voor de derde battle een Balloonbattle bedacht. Hierbij zouden ballonnen achter op de Maqueen worden bevestigd en zou er aan de voorkant een prikker zitten waarmee de ballonnen van tegenstanders kapotgemaakt konden worden.',
+                'De studenten kwamen echter zelf met een ander voorstel: of we in plaats daarvan Rocket League konden spelen. Dat vonden we een leuk idee, waarna we besloten het programma aan hun voorstel aan te passen.',
+                'Voor deze battle kreeg ieder team twee Maqueen-robotauto\'s. We maakten een speelveld met aan beide kanten een doel en plaatsten een pingpongbal in het midden.',
+                'Het doel was om als eerste drie doelpunten te maken tegen het andere team. Deze uitdaging gaf de studenten de mogelijkheid om hun geprogrammeerde auto\'s op een compleet andere manier te gebruiken en vereiste bovendien goede samenwerking tussen de spelers.',
+                'De Rocket League-battle vormde de afsluiting van het competitieve gedeelte en liet zien hoe de studenten hun programmeerwerk op een creatieve en onverwachte manier konden toepassen.',
+            ]],
+            ['title' => 'Afsluiting', 'paragraphs' => [
+                'De laatste dag stond in het teken van presentaties, een Kahoot-quiz en het bekendmaken van het winnende team.',
+                'De studenten kregen de gelegenheid om te laten zien wat ze hadden ontwikkeld en om een aantal keuzes uit te leggen die ze tijdens het project hadden gemaakt. Ook keken we terug op hun samenwerking, programmeervaardigheden, creativiteit en prestaties tijdens de verschillende uitdagingen.',
+                'Hoewel niet alle geplande battles uiteindelijk uitgevoerd konden worden, was het project een geslaagde afsluiting van de uitwisseling. We hadden binnen een zeer beperkte voorbereidingstijd een compleet programma opgezet en de studenten begeleid vanaf hun eerste micro:bit-opdrachten tot het programmeren en besturen van hun eigen robotauto\'s.',
+            ]],
+            ['title' => 'Mijn Bijdrage en Ervaring', 'paragraphs' => [
+                'Dit project was voor mij een waardevolle ervaring, omdat mijn rol veranderde van voornamelijk zelf software ontwikkelen naar het begeleiden en onderwijzen van anderen. Samen met Matthijs heb ik het programma voorbereid, de technische opdrachten uitgewerkt en de studenten gedurende de uitwisseling begeleid.',
+                'Verschillende technische onderwerpen kwamen hierbij samen, waaronder Python, microcontrollers, draadloze communicatie, I2C en hardwarebesturing. Daarnaast moesten we technische concepten duidelijk kunnen uitleggen en onze begeleiding aanpassen aan studenten met verschillende niveaus van programmeerervaring.',
+                'Wat ik vooral interessant vond, was het begeleiden van studenten bij het ontwikkelen van hun eigen oplossingen. In plaats van simpelweg code aan te leveren, stimuleerden we ze om zelf problemen te onderzoeken, te begrijpen hoe hun programma\'s werkten en kritisch na te denken over hun implementaties.',
+                'De beperkte voorbereidingstijd en onverwachte technische uitdagingen leerden mij bovendien hoe belangrijk flexibiliteit is. Niet alles verliep volgens het oorspronkelijke plan, maar samen met de studenten hebben we steeds gekeken naar alternatieven en mogelijkheden.',
+                'Terugkijkend heeft dit project mij niet alleen technisch verder ontwikkeld, maar ook ervaring opgeleverd met begeleiden, organiseren, presenteren en het overbrengen van technische kennis. Het was bijzonder om te zien hoe de studenten steeds zelfstandiger werden en uiteindelijk met hun eigen geprogrammeerde robotauto\'s tegen elkaar konden strijden.',
+            ]],
+        ];
+    }
+
+    /**
+     * English chapter texts, aligned with plymouthChapters().
+     *
+     * @return list<array{0: string, 1: string}>
+     */
+    private function plymouthChapterTranslations(): array
+    {
+        return [
+            [
+                'Introduction',
+                'During my final internship at the Battlebot project, Matthijs and I were asked whether we would be interested in supervising students from City College Plymouth during an international exchange. We immediately agreed.',
+                'The preparation proved quite challenging, as we had only one week to come up with a project and prepare the entire programme. After consulting several teachers and discussing our ideas with our internship supervisor, we decided to organise a project centred around the BBC micro:bit.',
+                'Our goal was to introduce the students to programming, electronics and wireless communication through practical and interactive activities. Inspired by Mario Kart, we designed several battles in which the students would programme their own robot cars and compete against each other.',
+            ],
+            [
+                'Project Planning',
+                'We divided the students into three teams of four. Each team received a Maqueen V2 robot car, a Gamepad and two micro:bit boards. One micro:bit was used to control the car, while the other operated the Gamepad.',
+                'The students were given two weeks to programme their hardware before competing in several battles. We offered both Code Blocks and Python, but all three teams eventually chose to work with Python.',
+                'In addition to the technical challenges, we developed a scoring system that evaluated teamwork, programming skills, creativity and objectives achieved during each battle. This ensured that the competition rewarded more than just speed or the final result.',
+            ],
+            [
+                'Introduction to Micro:bit',
+                'The first days focused on introducing the students to the BBC micro:bit and its programming capabilities. We started with simple exercises, such as displaying images and text on the LED display.',
+                'Next, we introduced the built-in radio functionality using radio.on(). This allowed the students to send wireless messages between different micro:bits and explore the fundamentals of communication between embedded systems.',
+                'To make the exercise more challenging, each team had to develop its own encryption method for the messages transmitted over the radio. One team implemented a Caesar cipher, another used XOR encryption, while the third chose an approach based on ASCII encoding.',
+                'The following day, the teams had to explain how their chosen encryption methods worked. This encouraged them not only to write code, but also to understand and explain the underlying principles.',
+            ],
+            [
+                'Maqueen and Gamepad',
+                'After introducing the micro:bit, the students moved on to the Maqueen V2 robot car and its accompanying Gamepad. Each team divided its responsibilities, with two students working on the Gamepad and the other two focusing on the Maqueen.',
+                'The main objective was to establish reliable communication between both devices and programme the functionality required to control the robot car remotely.',
+                'As the project progressed, we introduced more advanced functionality, including gradual acceleration. We provided the students with a formula to implement acceleration correctly, allowing the Maqueen to increase its speed gradually instead of immediately running at full power.',
+                'We also organised an additional Python lesson for students who needed more support. As a creative exercise, they were challenged to design and programme their own victory dance using the micro:bit.',
+            ],
+            [
+                'Battles and Scoring System',
+                'The competition consisted of several challenges inspired by Mario Kart. Each team had opportunities to earn points during the individual battles and through their overall performance.',
+                'We evaluated the teams on teamwork, programming skills, creativity and the completion of specific objectives. Teamwork contributed a maximum of 30 points, while programming contributed 20 points.',
+                'Creativity was also an important part of the scoring system, rewarding original ideas and effective solutions. Each battle also included specific objectives that could earn additional points.',
+                'This approach encouraged the students to think independently, collaborate effectively and develop their own solutions instead of focusing exclusively on winning the competition.',
+            ],
+            [
+                'Battle 1: Maze',
+                'The first battle was a maze challenge. We created a course using black tape on a white surface, with several coloured intersections that the students could collect along the way.',
+                'The objective was to navigate the Maqueen through the maze as quickly as possible. Every collision with a wall resulted in a five-second penalty, while collecting the marked intersections reduced the final time.',
+                'To support this challenge, we prepared a basic implementation for the Maqueen\'s line sensors. The sensors were read through I2C, allowing the programme to detect when the car encountered a black line. Whenever this happened, the RGB LEDs underneath the Maqueen turned red.',
+                'The students had to integrate this functionality into their own control programmes. This required them to combine sensor input, motor control and visual feedback while maintaining control of the robot.',
+                'The Maze battle was successfully completed and became the first practical test of the teams\' programming and driving skills.',
+            ],
+            [
+                'Battle 2: Mario Kart Race',
+                'The second planned battle was a race inspired by Mario Kart. We wanted to introduce several power-ups that the teams could collect during the course and activate strategically.',
+                'The idea was to place special markers along the track. Whenever a team drove over one of these markers, we could send a wireless message from a separate micro:bit to the corresponding team. This would activate a Boolean state in their programme, making the collected power-up available.',
+                'We designed three different power-ups: Stun, which temporarily stopped opposing players; Speed, which increased the Maqueen from 80% to 100% speed for five seconds; and Invincible, which provided temporary protection for thirty seconds.',
+                'Although we managed to implement part of the functionality, the wireless communication surrounding the Stun power-up remained unstable. The Speed functionality worked, but we could not get all components operating reliably within the available time.',
+                'We eventually decided not to run the race. Nevertheless, developing this functionality provided valuable experience with wireless communication, state management and combining different hardware components.',
+            ],
+            [
+                'Battle 3: Rocket League',
+                'The original plan for the third battle was a Balloonbattle. Balloons would be attached to the back of each Maqueen, with a small skewer at the front to pop the balloons of opposing players.',
+                'However, the students suggested playing Rocket League instead. We liked the idea and decided to adapt the programme to their suggestion.',
+                'For this battle, each team received two Maqueen robot cars. We created a playing field with a goal at each end and placed a ping-pong ball in the centre.',
+                'The objective was to score three goals against the opposing team. This challenge allowed the students to use their programmed cars in a completely different way and required good coordination between the players.',
+                'The Rocket League battle became the conclusion of the competitive part of the project and demonstrated how the students could apply their programming work in a creative and unexpected way.',
+            ],
+            [
+                'Final Day',
+                'The final day was dedicated to presentations, a Kahoot quiz and announcing the winning team.',
+                'The students had the opportunity to demonstrate what they had developed and explain some of the decisions they had made during the project. We also reviewed their teamwork, programming skills, creativity and performance throughout the different challenges.',
+                'Although not every planned battle could be completed, the project provided a successful conclusion to the exchange. We had developed a complete programme within a very limited preparation period and guided the students from their first micro:bit exercises to programming and controlling their own robot cars.',
+            ],
+            [
+                'My Contribution and Experience',
+                'This project was a valuable experience because my role shifted from primarily developing software myself to guiding and teaching others. Together with Matthijs, I prepared the programme, developed the technical challenges and supervised the students throughout the exchange.',
+                'Several technical subjects came together, including Python, microcontrollers, wireless communication, I2C and hardware control. We also had to explain technical concepts clearly and adapt our guidance to students with different levels of programming experience.',
+                'One of the aspects I particularly enjoyed was helping students develop their own solutions. Rather than simply providing code, we encouraged them to investigate problems, understand how their programmes worked and think critically about their implementations.',
+                'The limited preparation time and unexpected technical challenges also taught me the importance of flexibility. Not everything went according to the original plan, but together with the students, we continuously looked for alternatives and solutions.',
+                'Looking back, this project helped me develop not only my technical skills, but also my experience in mentoring, organising, presenting and communicating technical knowledge. Seeing the students become increasingly independent and eventually compete using their own programmed robot cars made the experience especially rewarding.',
+            ],
+        ];
+    }
+
+    /**
+     * @return list<array{group: ProjectComponentGroup, name: string}>
+     */
+    private function plymouthComponents(): array
+    {
+        $groups = [
+            ProjectComponentGroup::Hardware->value => [
+                'BBC micro:bit V2',
+                'DFRobot Maqueen V2',
+                'DFRobot micro:bit Gamepad',
+            ],
+            ProjectComponentGroup::Software->value => [
+                'Python',
+                'MicroPython',
+                'I2C',
+            ],
+            ProjectComponentGroup::Sensor->value => [
+                'Maqueen Line Sensors',
+            ],
+        ];
+
+        return $this->groupedComponents($groups);
+    }
+
+    /**
+     * @return list<array{title: string, paragraphs: list<string>}>
+     */
+    private function dungeonCrawlerChapters(): array
+    {
+        return [
+            ['title' => 'De voorbereiding', 'paragraphs' => [
+                'Een oud-docent met wie ik nog regelmatig contact heb, vroeg me of ik interesse had om mee te doen aan de hackathon van The Dutch Laravel Foundation. Zonder aarzelen zei ik direct ja! Ik had eerder al meegedaan aan de ZeroDay Hackathon in Zoetermeer, dus ik had inmiddels een klein beetje ervaring met dit soort evenementen. Desondanks vond ik het opnieuw enorm spannend om hieraan deel te nemen.',
+                'Ongeveer twee jaar geleden was ik overgestapt van PHP naar Python, omdat ik me destijds meer in die programmeertaal wilde verdiepen. Dat betekende dat ik voor deze hackathon mijn kennis van PHP en Laravel weer even moest opfrissen. Gelukkig was Laravel me niet helemaal onbekend. Tijdens mijn opleiding aan mboRijnland had ik namelijk bewust voor Laravel als keuzedeel gekozen. Daardoor kon ik de basis vrij snel weer oppakken.',
+            ]],
+            ['title' => 'Een geschikt oefenproject', 'paragraphs' => [
+                'In eerste instantie vroeg ik ChatGPT om me te helpen bij de voorbereiding. Al snel merkte ik echter dat de ideeën die daaruit voortkwamen nogal standaard waren. Een veelvoorkomend voorbeeld was een bibliotheeksysteem waarin je boeken, auteurs, titels en beoordelingen kunt beheren. Hoewel ik dit idee kort als uitgangspunt gebruikte, kwam ik al snel tot de conclusie dat het te beperkt was. Ik wilde een project waarmee ik verschillende onderdelen van Laravel kon oefenen en tegelijkertijd voldoende ruimte had om nieuwe technieken te ontdekken.',
+                'Daarom besloot ik zelf op zoek te gaan naar een beter idee. Ik moest terugdenken aan een PHP-opdracht tijdens mijn mbo-opleiding, waarbij we een terminalgebaseerde dungeon crawler moesten ontwikkelen. Dat leek me een uitstekend uitgangspunt voor mijn voorbereiding.',
+                'Ik wilde het project alleen niet beperken tot een spel dat volledig uit tekst bestond. Juist omdat ik ook ervaring wilde opdoen met een frontendframework, besloot ik er een visueel spel van te maken. Zo kon ik niet alleen met Laravel aan de slag, maar ook de frontend en de communicatie tussen beide onderdelen meenemen in mijn project.',
+            ]],
+            ['title' => 'De keuze voor mijn tech stack', 'paragraphs' => [
+                'Voor de frontend was ik op zoek naar een framework waarmee ik nog niet veel ervaring had. React viel daarom af: daar had ik inmiddels al meerdere keren mee gewerkt. Ik wilde juist iets nieuws leren.',
+                'Ik had al regelmatig over Vue.js gehoord en besloot me daarin te verdiepen. Na wat brainstormen en het vergelijken van de mogelijkheden koos ik uiteindelijk voor Vue.js. Voor de database gebruikte ik MySQL. Daar had ik al behoorlijk wat ervaring mee en bovendien was het eenvoudig op te zetten en te testen op mijn Omarchy-besturingssysteem.',
+                'Daarmee was mijn tech stack compleet: PHP en Laravel voor de backend, Vue.js voor de frontend en MySQL als database.',
+            ]],
+            ['title' => 'Bewust zonder AI programmeren', 'paragraphs' => [
+                'Een belangrijk uitgangspunt van dit project was dat ik zo min mogelijk AI wilde gebruiken bij het schrijven van de code. Ik wilde vooral zelf ontdekken hoe Laravel in de praktijk werkt en mijn programmeervaardigheden verder ontwikkelen.',
+                'Dat betekende niet dat ik helemaal geen gebruikmaakte van ChatGPT. Ik gebruikte het bijvoorbeeld om advies te vragen over de structuur van mijn project en de manier waarop ik bepaalde onderdelen het beste kon implementeren. De daadwerkelijke uitwerking wilde ik echter zo veel mogelijk zelf doen.',
+                'Achteraf gezien is dat niet op alle punten even goed gelukt. Zo kwam uiteindelijk een groot gedeelte van de speltechniek terecht in één bestand: de DungeonController. Dat was niet de structuur waar ik naartoe wilde werken. Ik had het project liever opgesplitst in afzonderlijke Services, Middleware, Actions en andere classes, zodat de verantwoordelijkheden beter verdeeld zouden zijn.',
+            ]],
+            ['title' => 'Een zelfbedacht systeem voor de minimap', 'paragraphs' => [
+                'Een onderdeel waar ik zelf behoorlijk trots op ben, is het systeem achter de minimap. Niet zozeer vanwege de uiteindelijke code, maar vooral omdat het onderliggende idee volledig uit mijn eigen koker kwam.',
+                'In de minimap wordt een pijl weergegeven die aangeeft in welke richting de speler kijkt. Daarnaast moet het spel weten aan welke kant van een kamer de deuren zich bevinden. Ik wilde hiervoor een systeem ontwikkelen waarbij de richting van de speler en de positie van de deuren op een logische manier aan elkaar gekoppeld werden.',
+                'Mijn uitgangspunt was om iedere richting een numerieke waarde te geven en deze te koppelen aan een X- en Y-coördinaat. North kreeg waarde 0, West waarde 1, South waarde 2 en East waarde 3. De coördinaten bepaalden vervolgens de bijbehorende positie op de minimap. Hierbij hield ik rekening met het feit dat de Y-as op het scherm naar beneden loopt.',
+                'Het idee was om de speler bij het starten van een kamer standaard naar het noorden te laten kijken. Wanneer de speler vervolgens een andere richting op beweegt, verandert ook de oriëntatie. De numerieke waarde wordt daarbij aangepast aan de hand van de draairichting. Door de waarden met modulo 4 te laten doorlopen, kunnen de vier richtingen steeds opnieuw worden gebruikt.',
+                'Op die manier kan het spel bepalen waar de speler naartoe kijkt en aan welke kant de deuren zich bevinden. De minimap kan vervolgens de juiste positie en oriëntatie weergeven, ongeacht de richting waarin de speler kijkt.',
+                'Voor de berekening van dit systeem had ik uiteindelijk wel hulp van ChatGPT nodig. Ik had zelf ongeveer 75% van de bijbehorende code geschreven, maar liep vast bij het bepalen van de juiste berekeningen. Het concept en de manier waarop ik het probleem wilde oplossen, had ik zelf bedacht. De hulp van ChatGPT gebruikte ik vooral om de wiskundige uitwerking daarvan goed te krijgen.',
+            ]],
+            ['title' => 'Code refactoring', 'paragraphs' => [
+                'Voordat ik het project voortijdig beëindigde, was ik al begonnen met het refactoren van de code. Mijn bedoeling was om de verschillende verantwoordelijkheden onder te brengen in afzonderlijke Services, Middleware, Actions en andere classes.',
+                'Helaas heb ik niet genoeg tijd gehad om deze herstructurering volledig af te ronden. Zo bleef een groot gedeelte van de speltechniek in de DungeonController staan. Mocht ik het project in de toekomst weer oppakken, dan is het verder opsplitsen en structureren van de code een van de eerste zaken die ik zou aanpakken.',
+            ]],
+            ['title' => 'Het resultaat en mijn ervaring', 'paragraphs' => [
+                'Uiteindelijk is er een goede basis voor een dungeon crawler ontstaan. Het was een relatief kort project, maar tegelijkertijd een bijzonder leerzame ervaring.',
+                'Hoewel ik al redelijk bekend was met PHP en Laravel, heb ik tijdens het ontwikkelen toch veel nieuwe dingen geleerd en mijn bestaande kennis verder kunnen opfrissen. Daarnaast heb ik kennisgemaakt met Vue.js en ervaring opgedaan met het combineren van een backend, frontend en database binnen één applicatie.',
+                'Voor mij was dit project vooral een goede manier om weer vertrouwd te raken met Laravel, nieuwe technieken te ontdekken en zelfstandig een applicatie op te bouwen waarin verschillende onderdelen samenkomen.',
+            ]],
+        ];
+    }
+
+    /**
+     * English chapter texts, aligned with dungeonCrawlerChapters().
+     *
+     * @return list<list<string>>
+     */
+    private function dungeonCrawlerChapterTranslations(): array
+    {
+        return [
+            [
+                'The Preparation',
+                'A former teacher whom I still keep in regular contact with asked me whether I would be interested in participating in the hackathon organised by The Dutch Laravel Foundation. Without hesitation, I immediately said yes! I had previously participated in the ZeroDay Hackathon in Zoetermeer, so I already had some experience with these kinds of events. Nevertheless, I was still very excited and a little nervous about taking part.',
+                'Around two years earlier, I had moved away from PHP to focus more on Python. This meant I needed to refresh my knowledge of both PHP and Laravel before the hackathon. Fortunately, Laravel was not entirely new to me. During my studies at mboRijnland, I had deliberately chosen Laravel as an elective. This allowed me to pick up the fundamentals again fairly quickly.',
+            ],
+            [
+                'Finding the Right Practice Project',
+                'Initially, I asked ChatGPT to help me prepare for the hackathon. However, I quickly noticed that the ideas it suggested were rather conventional. A common example was a library management system where you could manage books, authors, titles and ratings. Although I briefly considered this idea, I soon realised that it was too limited. I wanted a project that would allow me to practise different aspects of Laravel while also giving me enough room to explore new technologies.',
+                'I therefore decided to come up with a better idea myself. I remembered a PHP assignment from my vocational studies in which we had to develop a terminal-based dungeon crawler. This seemed like an excellent starting point for my preparation.',
+                'However, I did not want to limit the project to a game consisting entirely of text. Since I also wanted to gain experience with a frontend framework, I decided to turn it into a visual game. This allowed me to work not only with Laravel, but also with the frontend and the communication between both parts of the application.',
+            ],
+            [
+                'Choosing My Tech Stack',
+                'For the frontend, I was looking for a framework I had little experience with. React was therefore not an option, as I had already worked with it several times. I specifically wanted to learn something new.',
+                'I had heard about Vue.js on several occasions and decided to explore it further. After some brainstorming and comparing the possibilities, I ultimately chose Vue.js. For the database, I used MySQL. I was already quite familiar with it, and it was also straightforward to set up and test on my Omarchy operating system.',
+                'With that, my tech stack was complete: PHP and Laravel for the backend, Vue.js for the frontend and MySQL as the database.',
+            ],
+            [
+                'Deliberately Programming Without AI',
+                'One of the main principles of this project was to use as little AI as possible when writing the code. I wanted to discover how Laravel works in practice and further develop my own programming skills.',
+                'That did not mean I avoided ChatGPT entirely. I occasionally used it for advice on project structure and how to approach certain implementations. However, I wanted to do as much of the actual development myself as possible.',
+                'In retrospect, I did not manage to achieve this perfectly in every respect. A large part of the game logic eventually ended up in a single file: the DungeonController. This was not the structure I had originally intended. I would have preferred to separate the code into individual Services, Middleware, Actions and other classes, allowing responsibilities to be distributed more effectively.',
+            ],
+            [
+                'A Custom-Built Minimap System',
+                'One part of the project I am particularly proud of is the system behind the minimap. Not necessarily because of the final implementation, but mainly because the underlying concept was entirely my own idea.',
+                'The minimap displays an arrow indicating which direction the player is facing. The game also needs to know which side of a room contains each door. I wanted to develop a system that logically connected the player’s orientation with the positions of the doors.',
+                'My approach was to assign a numerical value to each direction and connect it to an X and Y coordinate. North was assigned the value 0, West 1, South 2 and East 3. The coordinates then determined the corresponding position on the minimap. I also accounted for the fact that the Y-axis on a screen increases downwards.',
+                'The idea was to make the player face north by default when entering a room. When the player moves in another direction, their orientation changes accordingly. The numerical value is adjusted based on the direction of rotation. By using modulo 4, the four direction values can continuously cycle without exceeding their range.',
+                'This allows the game to determine which direction the player is facing and which side of the room contains the doors. The minimap can then display the correct positions and orientation, regardless of the direction the player is facing.',
+                'I eventually needed some help from ChatGPT with the calculations behind this system. I had written approximately 75% of the related code myself, but got stuck when working out the correct calculations. The concept and the approach to solving the problem were my own. I mainly used ChatGPT to help me work out the mathematical implementation.',
+            ],
+            [
+                'Code Refactoring',
+                'Before discontinuing the project, I had already started refactoring the code. My intention was to move the different responsibilities into separate Services, Middleware, Actions and other classes.',
+                'Unfortunately, I did not have enough time to complete this restructuring. As a result, a large part of the game logic remained in the DungeonController. If I ever return to this project, further separating and structuring the code will be one of the first things I address.',
+            ],
+            [
+                'The Result and What I Learned',
+                'Ultimately, I managed to build a solid foundation for a dungeon crawler. It was a relatively short project, but also a very valuable learning experience.',
+                'Although I was already reasonably familiar with PHP and Laravel, I still learned a great deal during development and was able to refresh my existing knowledge. I also gained experience with Vue.js and combining a backend, frontend and database within a single application.',
+                'For me, this project was primarily an opportunity to become familiar with Laravel again, explore new technologies and independently build an application in which several different components work together.',
+            ],
+        ];
+    }
+
+    /**
+     * @return list<array{group: ProjectComponentGroup, name: string}>
+     */
+    private function dungeonCrawlerComponents(): array
+    {
+        $groups = [
+            ProjectComponentGroup::Software->value => [
+                'PHP',
+                'Laravel',
+                'Vue.js',
+                'JavaScript',
+                'MySQL',
+            ],
+        ];
+
+        return $this->groupedComponents($groups);
+    }
+
+    /**
+     * @return list<array{title: string, paragraphs: list<string>}>
+     */
+    private function portfolioV1Chapters(): array
+    {
+        return [
+            ['title' => 'Het idee en de voorbereiding', 'paragraphs' => [
+                'Als softwareontwikkelaar is een eigen portfolio natuurlijk een mooie manier om je werk en vaardigheden te presenteren, zeker wanneer je aan het begin van je carrière staat. Daarom besloot ik na het afronden van mijn opleiding direct aan de slag te gaan met het ontwikkelen van mijn eigen portfolio website.',
+                'Mijn insteek was tweeledig: enerzijds wilde ik een mooie website neerzetten, maar anderzijds wilde ik er vooral veel van leren. Ik wilde gestructureerd leren werken, zo min mogelijk afhankelijk zijn van AI en mijn programmeervaardigheden verder ontwikkelen. Daarbij wilde ik me voornamelijk richten op Python, omdat ik daar op dat moment graag beter in wilde worden.',
+                'Aanvankelijk lukte dat behoorlijk goed. Ik probeerde zoveel mogelijk zelf uit te zoeken en oplossingen te bedenken voordat ik hulp inschakelde. Toch merkte ik al vrij snel dat sommige keuzes die ik vooraf had gemaakt niet helemaal aansloten bij wat het project uiteindelijk nodig had.',
+            ]],
+            ['title' => 'Van Flask naar Django', 'paragraphs' => [
+                'In eerste instantie wilde ik helemaal geen relationele database gebruiken. Mijn idee was om de gegevens eenvoudig op te slaan in JSON-bestanden. Naarmate het project groeide, merkte ik echter dat deze aanpak minder geschikt was voor de hoeveelheid en de structuur van de gegevens die ik wilde beheren.',
+                'Daarom besloot ik over te stappen van Flask naar Django. Een belangrijk voordeel van Django was de ingebouwde ORM (Object-Relational Mapping). Hiermee kon ik modellen definiëren en op een gestructureerde manier met mijn database communiceren, zonder daarvoor een externe ORM-dependency te hoeven installeren.',
+                'Als database koos ik uiteindelijk voor MySQL. Daar had ik tijdens mijn opleiding al de nodige ervaring mee opgedaan, waardoor ik me op dat onderdeel niet volledig opnieuw hoefde te verdiepen.',
+            ]],
+            ['title' => 'Ontwerpen en experimenteren met SVG', 'paragraphs' => [
+                'Ik vind het zelf erg leuk om te ontwerpen en vervolgens mijn ontwerpen om te zetten naar code. Dat is ook duidelijk terug te zien op mijn website, die behoorlijk wat zelfgemaakte SVG-illustraties bevat.',
+                'Deze SVG\'s heb ik met JavaScript opgebouwd en gemanipuleerd. Hierdoor kon ik veel meer doen dan alleen statische afbeeldingen tonen. Ik kon verschillende elementen afzonderlijk aansturen en mijn ontwerpen interactief en dynamisch maken.',
+                'Toch is het eindresultaat niet helemaal geworden zoals ik het oorspronkelijk in mijn hoofd had. Dat lag voornamelijk aan mijn eigen technische kennis. Ik had wel verschillende tutorials gevolgd om meer te leren over het werken met SVG\'s, maar het lukte me niet altijd om precies te realiseren wat ik voor ogen had.',
+                'In plaats van daar volledig op vast te lopen, besloot ik mijn ontwerpideeën enigszins aan te passen. Zo ben ik uiteindelijk meer gaan experimenteren met een glasachtige uitstraling. Dat leverde een andere stijl op dan ik aanvankelijk had bedacht, maar gaf de website wel een eigen karakter.',
+            ]],
+            ['title' => 'De uitdagingen tijdens het ontwikkelen', 'paragraphs' => [
+                'Het project begon eigenlijk behoorlijk goed. Ik had een duidelijk idee, de structuur stond en mijn motivatie was hoog. Naarmate het project vorderde, merkte ik echter dat zowel de structuur als mijn motivatie wat begonnen af te nemen.',
+                'De code werd op sommige plekken een beetje een rommeltje en mijn motivatie kwam steeds meer met vlagen. Vooral het feit dat ik bepaalde ontwerpen niet voor elkaar kreeg zoals ik ze in gedachten had, begon me tegen te werken.',
+                'Toch heb ik het project niet opgegeven. Ondanks de momenten waarop het wat minder soepel liep, bleef ik eraan werken. Uiteindelijk is het me gelukt om een volledig werkende portfolio website neer te zetten. Dat ging niet zonder de nodige frustraties, maar het resultaat stond er!',
+            ]],
+            ['title' => 'Mijn eerste eigen VPS-deployment', 'paragraphs' => [
+                'Dit project was voor mij ook de eerste keer dat ik een complete website daadwerkelijk online zette op mijn eigen VPS. Daarmee kwam er een nieuw onderdeel bij kijken: het configureren van een productieomgeving en het veilig beschikbaar maken van mijn applicatie.',
+                'Dit gedeelte heb ik grotendeels met behulp van AI opgezet. Ik wilde namelijk niet zomaar iets online zetten, maar ervoor zorgen dat de serverconfiguratie op een verantwoorde manier werd ingericht.',
+                'Achteraf waren er nog wel een aantal zaken die beter hadden gekund. Zo was de scheiding tussen de development- en productieconfiguratie niet helemaal ideaal ingericht. Dat soort dingen ontdek je soms pas wanneer je daadwerkelijk met een applicatie op een eigen server werkt. Ook dat was weer een waardevolle les.',
+                'De applicatie draait op mijn eigen VPS, waarbij Nginx als webserver en reverse proxy fungeert. Nginx ontvangt de binnenkomende HTTP-verzoeken en stuurt deze door naar Gunicorn. Gunicorn voert vervolgens mijn Django-applicatie uit via de WSGI-interface en geeft de gegenereerde responses weer terug.',
+            ]],
+            ['title' => 'Experimenteren met CI/CD', 'paragraphs' => [
+                'Ik wilde tijdens dit project ook graag kennismaken met CI/CD, omdat dit een belangrijk onderdeel is van moderne softwareontwikkeling en veel wordt toegepast binnen het werkveld.',
+                'Ik heb daarom geprobeerd om gedurende het project volgens deze werkwijze te werken. Dat leverde af en toe de nodige mergeconflicten op, maar ook daar heb ik mezelf doorheen moeten werken. Het was een goede manier om meer ervaring op te doen met Git en het werken met verschillende branches.',
+                'De implementatie van CI/CD hield ik bewust vrij eenvoudig. Ik wilde eerst begrijpen wat het concept precies inhield en welk probleem het oplost, voordat ik allerlei automatische processen zou toevoegen.',
+                'Als eerste stap heb ik Ruff geïmplementeerd in mijn CI-pipeline. Ruff is een Python-tool die zowel als linter als formatter gebruikt kan worden. De linter controleert mijn code op onder andere mogelijke fouten, ongebruikte imports en afwijkingen van de afgesproken programmeerstijl. De formatter kan daarnaast automatisch zorgen voor een consistente codeopmaak.',
+                'Hierdoor kon ik bij wijzigingen automatisch laten controleren of mijn Python-code aan de ingestelde regels voldeed. Het was nog geen uitgebreide CI/CD-pipeline met geautomatiseerde tests en deployment, maar wel een eerste stap om vertrouwd te raken met deze manier van werken.',
+            ]],
+            ['title' => 'Deployment en het eindresultaat', 'paragraphs' => [
+                'Het bijwerken van de website kon uiteindelijk via een vaste reeks terminalcommando\'s. Achteraf gezien had ik daar natuurlijk ook een shellscript voor kunnen schrijven, zodat ik het deploymentproces met één commando kon uitvoeren. Maar goed, zo bleef ik ondertussen ook nog wat extra Linux-commando\'s uit mijn hoofd leren!',
+                'Uiteindelijk heb ik een werkende portfolio website gerealiseerd die ik volledig zelf heb ontworpen, ontwikkeld en online heb gezet. Het project verliep niet altijd even soepel en de uiteindelijke code en structuur waren niet overal zoals ik ze oorspronkelijk voor ogen had.',
+                'Toch heb ik er ontzettend veel van geleerd. Ik heb niet alleen mijn kennis van Python, Flask en Django verder ontwikkeld, maar ook ervaring opgedaan met JavaScript, SVG, MySQL, Git, CI/CD en het beheren van een eigen VPS.',
+                'Misschien nog wel belangrijker: ik heb ervaren hoeveel er komt kijken bij het ontwikkelen van een complete applicatie. Van het eerste ontwerp tot de database, de code en uiteindelijk het online beschikbaar maken ervan. Het was een behoorlijk project met de nodige uitdagingen, maar wel eentje waar ik uiteindelijk met trots op terugkijk.',
+            ]],
+        ];
+    }
+
+    /**
+     * English chapter texts, aligned with portfolioV1Chapters().
+     *
+     * @return list<list<string>>
+     */
+    private function portfolioV1ChapterTranslations(): array
+    {
+        return [
+            [
+                'The Idea and Preparation',
+                'As a software developer, having your own portfolio is a great way to showcase your work and skills, especially when starting your career. That is why, after completing my studies, I decided to start building my own portfolio website right away.',
+                'I had two main goals: to create an attractive website, but also to learn as much as possible along the way. I wanted to develop a structured way of working, minimise my reliance on AI and improve my programming skills. I particularly wanted to focus on Python, as that was the language I wanted to become more proficient in at the time.',
+                'Initially, things went quite well. I tried to figure out as much as possible on my own and come up with solutions before asking for help. However, I soon realised that some of my initial choices were not entirely suited to what the project eventually required.',
+            ],
+            [
+                'From Flask to Django',
+                'Initially, I did not want to use a relational database at all. My idea was to store the data in JSON files instead. However, as the project grew, I realised that this approach was becoming less suitable for the amount and structure of the data I wanted to manage.',
+                'That is why I decided to switch from Flask to Django. One of Django\'s main advantages was its built-in ORM (Object-Relational Mapping). This allowed me to define models and interact with my database in a structured way without having to install an external ORM dependency.',
+                'I eventually chose MySQL as my database. I had already gained some experience with it during my studies, so I did not have to learn an entirely new database system at the same time.',
+            ],
+            [
+                'Designing and Experimenting with SVG',
+                'I really enjoy designing things and then turning those designs into code. This is clearly reflected in my website, which features quite a few custom-made SVG illustrations.',
+                'I built and manipulated these SVGs using JavaScript. This allowed me to do much more than simply display static images. I could control individual elements and make my designs interactive and dynamic.',
+                'However, the final result did not quite turn out the way I had originally imagined. This was mainly due to the limits of my own technical knowledge. I had followed several tutorials to learn more about working with SVGs, but I could not always achieve exactly what I had envisioned.',
+                'Rather than getting completely stuck, I decided to adapt my design ideas. I eventually started experimenting more with a glass-like appearance. This resulted in a different style than I had initially planned, but it also gave the website its own distinctive character.',
+            ],
+            [
+                'The Challenges During Development',
+                'The project actually started quite well. I had a clear idea, the structure was in place and my motivation was high. However, as the project progressed, I noticed that both the structure and my motivation began to decline.',
+                'Parts of the code became a bit messy, and my motivation started coming and going. In particular, not being able to achieve certain designs the way I had imagined became increasingly frustrating.',
+                'Still, I did not give up on the project. Despite the moments when things were not going as smoothly as I had hoped, I kept working on it. Eventually, I managed to build a fully functional portfolio website. It was not without its frustrations, but I got there in the end!',
+            ],
+            [
+                'My First Deployment on a VPS',
+                'This project was also the first time I had deployed a complete website to my own VPS. This introduced an entirely new aspect of development: configuring a production environment and making my application securely accessible online.',
+                'I set up most of this part with the help of AI. I did not simply want to put something online; I wanted to make sure the server configuration was set up responsibly.',
+                'Looking back, there were still a few things I could have done better. For example, the separation between the development and production configurations was not ideal. These are the kinds of things you sometimes only discover when you actually run an application on your own server. That was another valuable learning experience.',
+                'The application runs on my own VPS, with Nginx acting as the web server and reverse proxy. Nginx receives incoming HTTP requests and forwards them to Gunicorn. Gunicorn then runs my Django application through the WSGI interface and returns the generated responses.',
+            ],
+            [
+                'Experimenting with CI/CD',
+                'I also wanted to gain some experience with CI/CD during this project, as it is an important part of modern software development and widely used in the industry.',
+                'I therefore tried to follow this approach throughout the project. This occasionally resulted in merge conflicts, but I worked through those as well. It was a good opportunity to gain more experience with Git and working with different branches.',
+                'I deliberately kept the CI/CD implementation fairly simple. I first wanted to understand what the concept actually meant and what problems it solves before adding a range of automated processes.',
+                'As a first step, I integrated Ruff into my CI pipeline. Ruff is a Python tool that can be used as both a linter and a formatter. The linter checks my code for potential errors, unused imports and deviations from the configured coding style. The formatter can also automatically ensure consistent code formatting.',
+                'This allowed me to automatically check whether my Python code followed the configured rules whenever changes were made. It was not yet an extensive CI/CD pipeline with automated tests and deployment, but it was a first step towards becoming familiar with this way of working.',
+            ],
+            [
+                'Deployment and the Final Result',
+                'Updating the website eventually involved running a fixed sequence of terminal commands. Looking back, I could of course have written a shell script for this, allowing me to run the entire deployment process with a single command. But at least I got to memorise a few more Linux commands along the way!',
+                'Ultimately, I built a fully functional portfolio website that I designed, developed and deployed myself. The project did not always go smoothly, and the final code and structure were not entirely what I had originally envisioned.',
+                'Nevertheless, I learned an enormous amount. I further developed my knowledge of Python, Flask and Django, while also gaining experience with JavaScript, SVG, MySQL, Git, CI/CD and managing my own VPS.',
+                'Perhaps more importantly, I discovered just how much is involved in developing a complete application. From the initial design to the database, the code and finally making everything available online. It was a substantial project with its fair share of challenges, but one I can ultimately look back on with pride.',
+            ],
+        ];
+    }
+
+    /**
+     * @return list<array{group: ProjectComponentGroup, name: string}>
+     */
+    private function portfolioV1Components(): array
+    {
+        $groups = [
+            ProjectComponentGroup::Software->value => [
+                'Python',
+                'Flask',
+                'Django',
+                'TypeScript',
+                'SVG',
+                'MySQL',
+                'Ruff',
+                'Github Actions',
+                'CI/CD',
+                'Nginx',
+                'Gunicorn',
+                'WSGI',
+                'Linux',
+            ],
+            ProjectComponentGroup::Hardware->value => [
+                'VPS',
+            ],
+        ];
+
+        return $this->groupedComponents($groups);
+    }
+
+    /**
+     * @return list<array{title: string, paragraphs: list<string>}>
+     */
+    private function portfolioV2Chapters(): array
+    {
+        return [
+            [
+                'title' => 'Van handmatig programmeren naar AI-assisted development',
+                'paragraphs' => [
+                    'Tijdens de hackathon van The Dutch Laravel Foundation heb ik met verschillende developers gesproken en samengewerkt. Vrijwel allemaal gaven ze aan dat het schrijven van code met de hand steeds minder voorkomt. Een groot deel van het programmeerwerk wordt tegenwoordig uitbesteed aan AI-tools zoals Claude Code en Codex. Uiteraard wordt er nog steeds verwacht dat je zelf voldoende kennis bezit om problemen te herkennen, fouten op te lossen en waar nodig aanpassingen te maken.',
+                    'Om die reden, en omdat ik het toch al van plan was, besloot ik dat dit een mooi moment was om mijn portfolio website volledig opnieuw te bouwen. Dit keer met volledige ondersteuning van Figma AI, Figma MCP en Claude Code.',
+                    'De keuze voor Claude Code was vrij eenvoudig. De Figma MCP werkt hier goed mee samen en Claude Code behoort naar mijn mening tot de beste AI-tools van dit moment op het gebied van programmeren.',
+                ],
+            ],
+            [
+                'title' => 'Van bestaand ontwerp naar een nieuw design',
+                'paragraphs' => [
+                    'Als eerste liet ik de Figma AI Agent mijn voormalige website analyseren. Ik wilde namelijk in grote lijnen dezelfde layout en stijl behouden. Vervolgens heeft de AI daar zijn eigen draai aan gegeven.',
+                    'En hier komt meteen het menselijke aspect om de hoek kijken. Hoewel naar mijn schatting zo\'n 80% van het resultaat overeenkwam met wat ik had gevraagd, was het toch niet helemaal naar mijn smaak. Ik ben behoorlijk perfectionistisch, dus dat helpt daar ook niet echt bij. Ik moest zelf nog het een en ander aanpassen aan het ontwerp.',
+                    'Zo heb ik bijvoorbeeld de filteropties zelf bedacht, de groene vetgedrukte teksten toegevoegd en een extra keuzemenu ontworpen voor slechtzienden. Via dat menu kunnen bezoekers onder andere de accentkleur aanpassen. Daarnaast heb ik nog verschillende kleine aanpassingen gedaan om het ontwerp precies naar mijn smaak te krijgen.',
+                ],
+            ],
+            [
+                'title' => 'De Laravel-omgeving voorbereiden',
+                'paragraphs' => [
+                    'Toen het design helemaal naar wens was, ben ik begonnen met het goed opzetten van het Laravel-project. Een belangrijk onderdeel daarvan was het schrijven van guidelines en skills voor Claude Code. Daarmee kan ik duidelijk vastleggen hoe ik wil dat Claude Code binnen mijn project te werk gaat.',
+                    'Een voorbeeld hiervan is de manier waarop Claude Code met de Figma MCP omgaat. Omdat ik de gratis versie gebruik en het aantal beschikbare verzoeken wil beperken, moet Claude Code eerst aan mij vragen of het de Figma MCP mag raadplegen. Zo houd ik zelf de controle over wanneer er verzoeken naar Figma worden verstuurd.',
+                    'Daarnaast heb ik vanaf het begin verschillende dependencies geïnstalleerd die moeten helpen om de codekwaliteit en projectstructuur op peil te houden. Laravel Boost was daarbij al standaard aanwezig. Dit is een belangrijke toevoeging voor AI-assisted development, omdat het AI-agents toegang geeft tot Laravel-specifieke documentatie, context en hulpmiddelen.',
+                    'Maar ik wilde ook een aantal aanvullende tools gebruiken om zelf de regie in handen te houden. Zo heb ik ArchTest toegevoegd om architectuurregels vast te leggen en te controleren of de code zich daaraan houdt. Met Laravel Vet kan ik wijzigingen aan Composer-dependencies controleren voordat ze worden geaccepteerd.',
+                    'Ook heb ik Laravel PAO geïnstalleerd. Deze tool zet de uitvoer van verschillende PHP-tools om naar compacte JSON. Daardoor krijgt Claude Code minder overbodige terminaluitvoer te verwerken, wat het aantal benodigde tokens kan verminderen.',
+                    'Verder heb ik Laravel Debugbar toegevoegd. Deze heb ik nog niet uitgebreid gebruikt, maar het leek me handig om inzicht te krijgen in wat er tijdens het uitvoeren van de applicatie gebeurt. Zo kan ik bijvoorbeeld databasequeries bekijken en controleren of deze efficiënt worden uitgevoerd.',
+                    'Tot slot heb ik Rector en Larastan toegevoegd. Rector kan bepaalde code automatisch refactoren en moderniseren, terwijl Larastan mijn code analyseert om mogelijke programmeerfouten op te sporen.',
+                ],
+            ],
+            [
+                'title' => 'Samenwerken met Claude Code',
+                'paragraphs' => [
+                    'Tijdens het ontwikkelen laat ik Claude Code regelmatig de ingestelde controles uitvoeren om te kijken of er fouten zijn ontstaan. Wanneer er problemen worden gevonden, laat ik Claude Code deze waar mogelijk zelf oplossen.',
+                    'Na iedere grotere aanpassing lees ik de uitvoer van Claude Code door. Wanneer ik nieuwe afspraken of belangrijke inzichten tegenkom, laat ik deze toevoegen aan het bestand CLAUDE.md. Op die manier blijft de documentatie van het project meegroeien en kan Claude Code bij volgende opdrachten rekening houden met eerdere beslissingen.',
+                    'Op deze manier lukt het me inmiddels aardig om samen met Claude Code een website te bouwen die vrijwel één op één overeenkomt met het Figma-ontwerp.',
+                ],
+            ],
+            [
+                'title' => 'Waar AI tekortschiet',
+                'paragraphs' => [
+                    'Toch merk ik dat de beslissingen die Claude Code neemt niet altijd de beste zijn. Dat heeft misschien ook te maken met het model dat ik gebruik. Ik werk namelijk met Haiku 5.5, omdat dit een van de meest kostenefficiënte modellen is.',
+                    'Vooral bij het maken van het uitklapbare navigatiemenu had Claude Code behoorlijk wat moeite. Ik wilde dat de navigatielinks, zoals ze nu ook daadwerkelijk staan, gecentreerd in het menu zouden worden weergegeven.',
+                    'Ondanks meerdere prompts met een vrij duidelijke omschrijving lukte het Claude Code niet om te maken wat ik voor ogen had. Uiteindelijk moest ik dit gedeelte dus zelf gaan oplossen. En daar komt precies dat beetje programmeerkennis bij kijken dat je nodig blijft hebben om efficiënt met AI te kunnen werken. AI maakt nu eenmaal fouten.',
+                    'Toen ik de code van het uitklapbare menu ging bekijken, kwam ik iets opvallends tegen. In plaats van alle navigatielinks in één gezamenlijke container te plaatsen, had Claude Code iedere link afzonderlijk een absolute positionering gegeven.',
+                    'In mijn ogen was dat niet de juiste aanpak. Hierdoor moest ik namelijk iedere link afzonderlijk positioneren om ze netjes in het midden te krijgen. Omdat er inmiddels al behoorlijk wat code stond, heb ik ervoor gekozen om de bestaande structuur aan te passen in plaats van een grotere refactor uit te voeren.',
+                    'Uiteindelijk is het menu nu precies zoals ik het voor ogen had en werkt het op alle schermformaten correct.',
+                ],
+            ],
+            [
+                'title' => 'De rol van de developer blijft belangrijk',
+                'paragraphs' => [
+                    'Zo zie je maar dat, ondanks dat Claude Code ontzettend krachtig en efficiënt is, er altijd een developer aan te pas blijft komen. Zeker wanneer je iets wilt bouwen dat precies overeenkomt met wat je zelf in gedachten hebt.',
+                    'Dat vind ik misschien wel het moeilijkste aan werken met AI: het vertalen van je eigen gedachten naar een prompt. Hoe duidelijk je iets ook probeert te omschrijven, er blijft altijd een stukje passen en meten bij kijken. Soms begrijpt de AI je bedoeling niet helemaal, soms maakt het andere keuzes dan jij zou doen en soms moet je simpelweg zelf in de code duiken om het gewenste resultaat te bereiken.',
+                    'Mijn portfolio is inmiddels vrijwel helemaal geworden zoals ik het voor ogen had. Ik ben nog van plan om meer aandacht te besteden aan de styling, extra animaties toe te voegen en verschillende onderdelen verder uit te werken.',
+                    'Maar als eerste versie heeft Claude Code mij aangenaam verrast. Het is bijzonder om te zien hoeveel werk je met behulp van AI kunt verzetten, zonder dat je als developer de controle volledig uit handen hoeft te geven. Ik ben dan ook erg benieuwd hoe de toekomst van softwareontwikkeling eruit gaat zien en welke rol de samenwerking tussen developers en AI daarin gaat spelen.',
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @return list<array{title: string, paragraphs: list<string>}>
+     */
+    private function portfolioV2ChapterTranslations(): array
+    {
+        return [
+            [
+                'From Manual Coding to AI-Assisted Development',
+                'During The Dutch Laravel Foundation hackathon, I had the opportunity to talk and work with several developers. Almost all of them mentioned that writing code manually is becoming less common. A large part of the development process is now delegated to AI tools such as Claude Code and Codex. Of course, developers are still expected to have enough knowledge to recognize problems, fix errors and make adjustments when necessary.',
+                'For that reason, and because I had already been planning to do so, I decided this would be a good opportunity to rebuild my portfolio website from scratch. This time, with full support from Figma AI, Figma MCP and Claude Code.',
+                'Choosing Claude Code was fairly straightforward. It works well with the Figma MCP, and in my opinion, it is one of the leading AI tools for software development at the moment.',
+            ],
+            [
+                'From an Existing Design to a New Look',
+                'I started by having the Figma AI Agent analyse my previous website. I wanted to preserve the overall layout and style, at least in broad terms. The AI then added its own interpretation to the design.',
+                'This is where the human aspect immediately comes into play. Although I would estimate that around 80% of the result matched what I had requested, it still was not entirely to my liking. I am quite a perfectionist, which does not exactly make things easier. I still had to make several adjustments to the design myself.',
+                'For example, I came up with the filter options myself, added the green bold text and designed an additional menu for visually impaired visitors. This menu allows visitors to change the accent colour, among other things. I also made several smaller adjustments to get the design exactly how I wanted it.',
+            ],
+            [
+                'Preparing the Laravel Environment',
+                'Once the design was exactly how I wanted it, I started setting up the Laravel project properly. An important part of this process was writing guidelines and skills for Claude Code. These allow me to clearly define how I want Claude Code to work within my project.',
+                'One example is how Claude Code interacts with the Figma MCP. Since I use the free version and want to limit the number of available requests, Claude Code must ask me for permission before consulting the Figma MCP. This allows me to stay in control of when requests are sent to Figma.',
+                'I also installed several dependencies from the beginning to help maintain code quality and project structure. Laravel Boost was already included by default. It is an important addition to AI-assisted development because it provides AI agents with Laravel-specific documentation, context and tools.',
+                'However, I also wanted some additional tools to maintain control over the development process. I added ArchTest to define architectural rules and check whether the code follows them. Laravel Vet allows me to review changes to Composer dependencies before accepting them.',
+                'I also installed Laravel PAO. This tool converts the output of various PHP tools into compact JSON. This means Claude Code has less unnecessary terminal output to process, which can help reduce token usage.',
+                'I also added Laravel Debugbar. I have not used it extensively yet, but I thought it would be useful for gaining insight into what happens while the application is running. For example, I can inspect database queries and check whether they are being executed efficiently.',
+                'Finally, I added Rector and Larastan. Rector can automatically refactor and modernise certain parts of the code, while Larastan analyses my code to detect potential programming errors.',
+            ],
+            [
+                'Working Together with Claude Code',
+                'Throughout development, I regularly have Claude Code run the configured checks to see whether any errors have been introduced. Whenever problems are detected, I let Claude Code fix them itself whenever possible.',
+                'After every major change, I review Claude Code\'s output. Whenever I come across new guidelines or important insights, I have them added to the CLAUDE.md file. This allows the project documentation to evolve alongside the code, so Claude Code can take previous decisions into account when handling future tasks.',
+                'This approach has made it possible for me to work with Claude Code to build a website that closely matches the Figma design, almost pixel for pixel.',
+            ],
+            [
+                'Where AI Falls Short',
+                'However, I have noticed that the decisions Claude Code makes are not always the best ones. This may also have something to do with the model I use. I work with Haiku 5.5 because it is one of the most cost-effective models.',
+                'Claude Code had particular difficulty creating the collapsible navigation menu. I wanted the navigation links to be centred within the menu, just as they are now.',
+                'Despite providing several prompts with fairly clear descriptions, Claude Code could not produce what I had in mind. Eventually, I had to solve this part myself. This is exactly where the programming knowledge you still need to work effectively with AI comes into play. AI makes mistakes, after all.',
+                'When I inspected the code for the collapsible menu, I noticed something unusual. Instead of placing all the navigation links inside a single shared container, Claude Code had given each link its own absolute position.',
+                'In my opinion, that was not the right approach. It meant I had to position every link individually to get them properly centred. Since quite a lot of code had already been written, I decided to adjust the existing structure rather than carry out a larger refactor.',
+                'In the end, the menu now looks exactly as I intended and works correctly across all screen sizes.',
+            ],
+            [
+                'The Developer Still Plays an Important Role',
+                'This shows that, even though Claude Code is incredibly powerful and efficient, a developer is still needed. Especially when you want to build something that matches exactly what you have in mind.',
+                'Perhaps the most difficult part of working with AI is translating your own thoughts into a prompt. No matter how clearly you try to describe something, there is always some trial and error involved. Sometimes the AI does not fully understand what you mean, sometimes it makes different choices than you would, and sometimes you simply have to dive into the code yourself to achieve the desired result.',
+                'My portfolio is now almost exactly how I envisioned it. I still plan to spend more time refining the styling, adding extra animations and further developing various parts of the website.',
+                'However, Claude Code has pleasantly surprised me as a first version. It is remarkable how much work you can accomplish with the help of AI without having to give up control as a developer. I am very curious to see what the future of software development will look like and what role the collaboration between developers and AI will play in it.',
+            ],
+        ];
+    }
+
+    private function portfolioV2Components(): array
+    {
+        $groups = [
+            ProjectComponentGroup::Software->value => [
+                'PHP',
+                'Laravel',
+                'Figma AI',
+                'Figma MCP',
+                'Claude Code',
+                'Haiku 5.5',
+                'Laravel Boost',
+                'ArchTest',
+                'Laravel Vet',
+                'Laravel PAO',
+                'Laravel Debugbar',
+                'Rector',
+                'Larastan',
+                'JSON',
+                'MCP',
+                'Git',
             ],
         ];
 

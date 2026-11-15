@@ -102,7 +102,7 @@
                             <p class="project-link__description">{{ $link->translatedDescription() }}</p>
                             <a class="project-link__url" href="{{ $link->url }}" target="_blank" rel="noopener noreferrer">
                                 <x-themed-image class="project-link__icon" :light="'images/home/light/externalLinkIcon1.svg'" :dark="'images/home/dark/ExternalLinkIcon1.svg'" />
-                                <span>{{ $link->url }}</span>
+                                <span class="project-link__text">{{ $link->url }}</span>
                             </a>
                         </li>
                     @endforeach
