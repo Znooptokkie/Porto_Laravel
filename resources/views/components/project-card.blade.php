@@ -1,7 +1,7 @@
-{{-- One project on the overview. Cards alternate: with details-first the text sits left on desktop and tablet. --}}
-@props(['project', 'total', 'detailsFirst' => false])
+{{-- One project on the overview. Position is the place in the list as shown (after filters and sorting), not the design order. Cards alternate: with details-first the text sits left on desktop and tablet. --}}
+@props(['project', 'position', 'total', 'detailsFirst' => false])
 @php
-    $number = str_pad((string) $project->sort_order, 2, '0', STR_PAD_LEFT);
+    $number = str_pad((string) $position, 2, '0', STR_PAD_LEFT);
     $totalLabel = str_pad((string) $total, 2, '0', STR_PAD_LEFT);
     $title = $project->translated('title');
     $photos = $project->images->take(4)->values();
@@ -20,7 +20,7 @@
             <p class="project-card__category">{{ $project->translated('category') }} <span>| {{ $project->periodLabel() }}</span></p>
             <p class="project-card__number">
                 <span>{{ $number }} / {{ $totalLabel }}</span>
-                <x-project-progress :position="$project->sort_order" :total="$total" />
+                <x-project-progress :position="$position" :total="$total" />
             </p>
         </div>
 

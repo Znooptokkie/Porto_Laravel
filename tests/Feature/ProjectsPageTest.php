@@ -332,3 +332,14 @@ it('numbers the visible sections in order, skipping sections without content', f
         ->assertSee('03 / UNDER THE HOOD')
         ->assertSee('04 / MADE TOGETHER');
 });
+
+it('numbers the cards and fills the progress bars by the order they are shown in', function () {
+    Project::factory()->create(['title' => 'Eerste ontwerp', 'sort_order' => 1]);
+    Project::factory()->favorite(1)->create(['title' => 'Favoriet', 'sort_order' => 3]);
+
+    $response = $this->get(route('projects'))->assertOk();
+
+    $response->assertSeeInOrder(['01 / 02', 'Favoriet', '02 / 02', 'Eerste ontwerp']);
+    expect(substr_count($response->getContent(), 'project-progress__segment--filled'))->toBe(3)
+        ->and(substr_count($response->getContent(), 'project-progress__segment"'))->toBe(1);
+});

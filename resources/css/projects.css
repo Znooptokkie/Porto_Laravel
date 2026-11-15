@@ -729,6 +729,11 @@
     font-size: 1rem;
 }
 
+.project-link__text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
 .project-link__icon {
     width: 18px;
     height: 18px;
