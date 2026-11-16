@@ -21,7 +21,7 @@
             :accent="__('about.personality.title_accent')"
             :aside="__('about.personality.aside')" />
 
-        <div class="about-card about-story">
+        <div class="about-card about-story" style="--external-link-icon: url('{{ asset('images/ui/timeline/light/externalLinkBoxIcon.svg') }}')">
             @foreach (__('about.personality.paragraphs') as $paragraph)
                 <p>{!! $paragraph !!}</p>
             @endforeach
@@ -36,7 +36,7 @@
             :accent="__('about.work.title_accent')"
             :aside="__('about.work.aside')" />
 
-        <div class="about-card about-story">
+        <div class="about-card about-story" style="--external-link-icon: url('{{ asset('images/ui/timeline/light/externalLinkBoxIcon.svg') }}')">
             @foreach (__('about.work.paragraphs') as $paragraph)
                 <p>{!! $paragraph !!}</p>
             @endforeach
@@ -44,7 +44,7 @@
 
         <div class="about-accordions">
             @foreach (__('about.work.accordions') as $accordion)
-                <details class="about-accordion" open>
+                <details class="about-accordion" @if ($loop->first) open @endif>
                     <summary class="about-accordion__summary">
                         <span class="education-card__badge">
                             <x-themed-image :light="'images/courses/educationIcon2.png'" :dark="'images/courses/educationIcon2.png'" accent class="education-card__icon" />

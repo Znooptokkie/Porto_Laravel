@@ -547,6 +547,12 @@
     border-color: var(--accent);
     background: var(--accent);
     color: var(--accent-ink);
+    transition: background-color var(--motion-duration) ease, border-color var(--motion-duration) ease;
+}
+
+.project-card__action--featured:hover {
+    background: var(--accent-strong);
+    border-color: var(--accent-strong);
 }
 
 .project-icon {

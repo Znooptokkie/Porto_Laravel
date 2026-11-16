@@ -1,6 +1,7 @@
 import { applyPreferences, readPreferences } from './preferences.js';
 import { initHeader } from './header.js';
 import { initTimelineReveal } from './timeline.js';
+import { initAboutAccordions } from './about-accordions.js';
 import { initProjects } from './projects.js';
 import { initStarfield } from './starfield/index.js';
 
@@ -10,12 +11,14 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initHeader();
         initTimelineReveal();
+        initAboutAccordions();
         initProjects();
         initStarfield();
     });
 } else {
     initHeader();
     initTimelineReveal();
+    initAboutAccordions();
     initProjects();
     initStarfield();
 }
