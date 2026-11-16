@@ -1,4 +1,4 @@
-import { CURSOR, FEATURES, FLASH, PARALLAX, STARS } from './config.js';
+import { CURSOR, FEATURES, FLASH, STARS } from './config.js';
 
 /**
  * @typedef {{
@@ -14,7 +14,7 @@ const wrap = (value, size) => ((value % size) + size) % size;
 const clampSpeed = (value) => Math.max(-STARS.maxSpeed, Math.min(STARS.maxSpeed, value));
 
 /**
- * The drifting stars: movement, cursor push, collisions, parallax and drawing.
+ * The drifting stars: movement, cursor push, collisions and drawing.
  *
  * @param {HTMLCanvasElement} canvas
  */
@@ -23,10 +23,6 @@ export function createStarField(canvas) {
     const stars = [];
     /** Pairs of star indexes that are touching, so one contact only triggers one callback. */
     const touchingPairs = new Set();
-    // Smoothed parallax input: eases to zero when the cursor leaves, so the stars never snap back.
-    let parallaxX = 0;
-    let parallaxY = 0;
-
     const targetCount = () => {
         if (!FEATURES.themeAdaptiveDensity) {
             return STARS.count;
@@ -170,28 +166,13 @@ export function createStarField(canvas) {
     };
 
     /**
-     * Works out where each star is drawn. Parallax follows the cursor and scroll position,
-     * and deeper stars shift less. The offset eases toward its target, so it never jumps.
-     *
-     * @param {Pointer | null} pointer
-     * @param {boolean} motion
+     * Works out where each star is drawn. The background never moves with the cursor or the scroll
+     * position; only the stars themselves (drift, cursor push) change position.
      */
-    const updatePositions = (pointer, motion) => {
-        const parallaxOn = FEATURES.parallax && motion;
-        const targetX = pointer && parallaxOn ? pointer.x / canvas.width - 0.5 : 0;
-        const targetY = pointer && parallaxOn ? pointer.y / canvas.height - 0.5 : 0;
-
-        parallaxX += (targetX - parallaxX) * PARALLAX.easing;
-        parallaxY += (targetY - parallaxY) * PARALLAX.easing;
-
-        const scrollOffset = parallaxOn ? window.scrollY * PARALLAX.scroll : 0;
-
+    const updatePositions = () => {
         for (const star of stars) {
-            const offsetX = parallaxX * PARALLAX.mouse * star.depth;
-            const offsetY = parallaxY * PARALLAX.mouse * star.depth - scrollOffset * star.depth;
-
-            star.screenX = wrap(star.x + offsetX, canvas.width);
-            star.screenY = wrap(star.y + offsetY, canvas.height);
+            star.screenX = wrap(star.x, canvas.width);
+            star.screenY = wrap(star.y, canvas.height);
         }
     };
 

@@ -1,7 +1,7 @@
 /**
  * Star background on a fixed canvas behind the page.
  * Stars use the --accent token, so they follow the accent colour.
- * With animations off (data-motion="off") the stars stand still, no parallax or cursor push runs,
+ * With animations off (data-motion="off") the stars stand still, no cursor push runs,
  * and no bursts, shooting stars or meteor showers appear.
  * The starfield is only shown in dark mode; light mode renders an empty canvas.
  */
@@ -87,7 +87,7 @@ export function initStarfield(canvasId = 'starfield') {
             }
         }
 
-        starField.updatePositions(pointer, motion);
+        starField.updatePositions();
         starField.draw(ctx, { accent, motion, flashing: now < flashUntil });
         effects.drawBursts(ctx, accent, coreColor);
         effects.drawShootingStars(ctx, accent);

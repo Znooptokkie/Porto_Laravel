@@ -55,6 +55,7 @@
 
     --text-scale: 1;
     --motion-duration: 0.3s;
+    --motion-duration-slow: 0.6s;
 }
 
 [data-theme='dark'] {
@@ -92,6 +93,7 @@
 /* Visitor preference: animations off (also applied when reduced motion is requested) */
 [data-motion='off'] {
     --motion-duration: 0s;
+    --motion-duration-slow: 0s;
 }
 
 /* Hele scrollbar */
@@ -1236,7 +1238,8 @@ input,
 /* Externe links in verhalen en stages: het linkicoon als inline mask, in de kleur van de link en gelijk aan de tekstgrootte. */
 /* .story-card__text a[target='_blank']::after, */
 .internship-card__text a[class="timeline-link"]::after,
-.story-card__text a[class="timeline-link"]::after
+.story-card__text a[class="timeline-link"]::after,
+.about-card p a[class="about-link"]::after
  {
     content: '';
     display: inline-block;
@@ -2867,12 +2870,12 @@ input,
 .about-accordions {
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 50px;
 }
 
 .about-accordion {
     gap: 0;
-    padding-block: 16px;
+    padding-block: 6px;
 }
 
 .about-accordion__summary {
@@ -2898,7 +2901,7 @@ input,
     overflow-wrap: anywhere;
 }
 
-/* Figma toont de pijl altijd omlaag (wrapper 180°). De vorm en verhouding komen overeen met imgDropdownChevron.svg. */
+/* imgDropdownChevron.svg wijst omhoog: ingeklapt blijft de driehoek omhoog, uitgeklapt draait hij 180° naar beneden. */
 .about-accordion__chevron {
     display: inline-flex;
     flex-shrink: 0;
@@ -2907,7 +2910,16 @@ input,
     width: 18px;
     height: 18px;
     color: var(--accent);
+    transition: transform var(--motion-duration-slow) ease;
+}
+
+.about-accordion[open] .about-accordion__chevron {
     transform: rotate(180deg);
+}
+
+/* Tijdens het dichtklappen draait de pijl meteen terug, terwijl het paneel nog zichtbaar is. */
+.about-accordion.is-closing .about-accordion__chevron {
+    transform: none;
 }
 
 .about-accordion__chevron .themed-image {
@@ -2917,6 +2929,9 @@ input,
 
 .about-accordion__body {
     margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
 }
 
 .about-accordion__text {
@@ -2976,8 +2991,21 @@ input,
 }
 
 .about-contact__submit {
+    align-self: flex-start;
     height: 48px;
     padding-inline: 20px;
+    cursor: pointer;
+    transition: background-color var(--motion-duration) ease, border-color var(--motion-duration) ease;
+}
+
+.about-contact__submit:hover {
+    background: var(--accent-strong);
+    border-color: var(--accent-strong);
+}
+
+/* De SVG heeft een vaste stroke-kleur (#102334); de CSS-regel overschrijft die in light en dark mode. */
+.about-contact__submit .themed-image path {
+    stroke: #fff;
 }
 
 .about-contact__input[aria-invalid='true'] {

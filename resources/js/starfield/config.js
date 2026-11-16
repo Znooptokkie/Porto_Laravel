@@ -5,7 +5,6 @@
 export const FEATURES = {
     twinkle: true,
     cursorInteraction: true,
-    parallax: true,
     timelineFlash: true,
     meteorShowerEasterEgg: true,
     themeAdaptiveDensity: true,
@@ -17,7 +16,7 @@ export const STARS = {
     count: 150,
     countLight: 120,
     smallScreenWidth: 720,
-    smallScreenFactor: 0.6,
+    smallScreenFactor: 0.3,
     maxSpeed: 1.5,
     speedRecovery: 0.02,
     contactPadding: 1,
@@ -26,12 +25,6 @@ export const STARS = {
 export const CURSOR = {
     radius: 120,
     force: 0.05,
-};
-
-export const PARALLAX = {
-    mouse: 30,
-    scroll: 0.05,
-    easing: 0.08,
 };
 
 export const BURST = {
@@ -58,9 +51,9 @@ export const SHOOTING_STAR = {
 export const STAR_STREAM = {
     minDelay: 18000,
     maxDelay: 48000,
-    count: 70,
-    length: 0.2,
-    width: 20,
+    count: 140,
+    length: 0.5,
+    width: 140,
     minSpeed: 0.5,
     maxSpeed: 1,
     maxRadius: 1.4,
