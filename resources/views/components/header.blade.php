@@ -32,7 +32,7 @@
                             <x-themed-image :light="'images/ui/header/light/navDivider01.svg'" :dark="'images/ui/header/dark/pop-navDivider01.svg'" />
                         </span>
                     </a></li>
-                    <li><a class="site-nav__link" href="#">{{ __('site.nav.about') }}
+                    <li><a class="site-nav__link{{ request()->routeIs('about') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('about') }}" @if (request()->routeIs('about')) aria-current="page" @endif>{{ __('site.nav.about') }}
                         <span class="site-nav__rule site-nav__rule--3" aria-hidden="true">
                             <x-themed-image :light="'images/ui/header/light/navDivider01.svg'" :dark="'images/ui/header/dark/pop-navDivider01.svg'" />
                         </span>

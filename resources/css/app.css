@@ -40,6 +40,7 @@
     --color-menu-border: #202c3d;
     --color-menu-link: #546277;
     --color-portrait-frame: #101a2a;
+    --color-error: #c62828;
 
     --content-max: 1550px;
     --education-progress-start: var(--accent);
@@ -77,6 +78,7 @@
     --color-scrollbar-track: rgba(6, 10, 18, 0.7);
     --color-menu-link: #f3f6fa;
     --color-portrait-frame: #101a2a;
+    --color-error: #ff7070;
 }
 
 /* Visitor preference: higher contrast */
@@ -2811,5 +2813,203 @@ input,
     .not-found__title {
         font-size: 3rem;
         letter-spacing: -2px;
+    }
+}
+
+/* Over-mij-pagina (Figma: Website / About). De intro, koppen en badge komen uit de education-stijlen. */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding-block: 10px;
+}
+
+.about-section--spaced {
+    padding-top: 50px;
+}
+
+.about-card,
+.about-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+    padding: 36px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    backdrop-filter: blur(4px);
+}
+
+/* Lopende tekst: 20px met regelhoogte 1.7. De witruimte tussen alinea's is één regel (1.7em), zoals de lege regels in Figma. */
+.about-story,
+.about-accordion__body {
+    gap: 1.7em;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+    overflow-wrap: break-word;
+}
+
+.about-story p {
+    margin: 0;
+}
+
+.about-story strong {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.about-story u {
+    color: var(--accent);
+}
+
+.about-accordions {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.about-accordion {
+    gap: 0;
+    padding-block: 16px;
+}
+
+.about-accordion__summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-block: 10px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.about-accordion__summary::-webkit-details-marker {
+    display: none;
+}
+
+.about-accordion__title {
+    flex: 1 1 0;
+    min-width: 0;
+    font-family: var(--font-mono);
+    font-size: 1.5625rem;
+    line-height: 1.2;
+    color: var(--accent);
+    overflow-wrap: anywhere;
+}
+
+/* Figma toont de pijl altijd omlaag (wrapper 180°). De vorm en verhouding komen overeen met imgDropdownChevron.svg. */
+.about-accordion__chevron {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+    transform: rotate(180deg);
+}
+
+.about-accordion__chevron .themed-image {
+    width: 15.6px;
+    height: 13.5px;
+}
+
+.about-accordion__body {
+    margin-top: 22px;
+}
+
+.about-accordion__text {
+    margin: 0;
+    font-weight: 700;
+}
+
+.about-accordion__links {
+    margin: 0;
+    padding-left: 30px;
+    list-style: disc;
+}
+
+.about-accordion__link {
+    color: var(--accent);
+    font-style: italic;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+.about-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.about-contact__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.about-contact__label {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    line-height: normal;
+    color: var(--color-text);
+}
+
+.about-contact__input {
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 25px;
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+    font: inherit;
+}
+
+.about-contact__input--message {
+    height: 242px;
+    padding: 16px 20px;
+    resize: vertical;
+}
+
+.about-contact__submit {
+    height: 48px;
+    padding-inline: 20px;
+}
+
+.about-contact__input[aria-invalid='true'] {
+    border-color: var(--color-error);
+}
+
+.about-contact__error {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-error);
+}
+
+.about-contact__status {
+    margin: 0;
+    padding-left: 16px;
+    border-left: 2px solid var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text);
+}
+
+@media (max-width: 834px) {
+    .about-card,
+    .about-accordion {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-card,
+    .about-accordion {
+        padding: 20px;
     }
 }
