@@ -133,7 +133,7 @@ it('shows the chapters, specifications and contributors on the project page', fu
         ->assertSee('Eerste alinea.')
         ->assertSee('Raspberry Pi 5')
         ->assertSee('A. Oomen')
-        ->assertSee('Battle<span>bot</span>', false)
+        ->assertSee('Battleb<span>ot</span>', false)
         ->assertSee('01 / BATTLEBOT', false);
 });
 

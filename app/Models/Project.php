@@ -78,17 +78,25 @@ class Project extends Model
     }
 
     /**
-     * The part of the title before the accent, shown in the text colour on the detail page ("Battle" for "Battlebot").
+     * Splits the translated title into the lead, shown in the text colour, and the accent, shown in the accent colour on the detail page.
+     * The accent is the last word; a single-word title gets the last fifth of its letters ("Battleb" + "ot" for "Battlebot").
+     *
+     * @return array{lead: string, accent: string}
      */
-    public function titleLead(): string
+    public function titleParts(): array
     {
-        $title = $this->translated('title');
+        $title = rtrim($this->translated('title'));
 
-        if ($this->title_accent === null || ! str_ends_with($title, $this->title_accent)) {
-            return $title;
+        if (preg_match('/^(.*\s)(\S+)$/u', $title, $matches) === 1) {
+            return ['lead' => $matches[1], 'accent' => $matches[2]];
         }
 
-        return substr($title, 0, -strlen($this->title_accent));
+        $accentLength = (int) ceil(mb_strlen($title) * 0.2);
+
+        return [
+            'lead' => mb_substr($title, 0, mb_strlen($title) - $accentLength),
+            'accent' => mb_substr($title, -$accentLength),
+        ];
     }
 
     /**

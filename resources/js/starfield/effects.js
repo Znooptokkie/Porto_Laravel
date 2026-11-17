@@ -9,6 +9,16 @@ import { BURST, FEATURES, METEOR, SHOOTING_STAR, STAR_STREAM } from './config.js
  */
 
 /**
+ * Width factor (0 to 1) of a streak at a position along it: 0 at both tips, widening linearly
+ * over the taper zone, and full width in the middle.
+ *
+ * @param {number} progress position along the streak, from 0 (start) to 1 (end)
+ * @returns {number}
+ */
+const streamWidthFactor = (progress) =>
+    Math.min(1, progress / STAR_STREAM.taper, (1 - progress) / STAR_STREAM.taper);
+
+/**
  * Short-lived effects: collision bursts (particles and an optional core flash) and shooting stars.
  *
  * @param {HTMLCanvasElement} canvas
@@ -86,9 +96,18 @@ export function createEffects(canvas) {
         const stars = [];
 
         for (let index = 0; index < STAR_STREAM.count; index++) {
+            // Stars are accepted with the width factor as chance, so the density per area stays even toward the tips.
+            let along;
+            let widthFactor;
+
+            do {
+                along = (Math.random() - 0.5) * length;
+                widthFactor = streamWidthFactor(along / length + 0.5);
+            } while (Math.random() > widthFactor);
+
             stars.push({
-                along: (Math.random() - 0.5) * length,
-                across: (Math.random() - 0.5) * STAR_STREAM.width,
+                along,
+                across: (Math.random() - 0.5) * STAR_STREAM.width * widthFactor,
                 radius: 0.4 + Math.random() * (STAR_STREAM.maxRadius - 0.4),
                 alpha: 0.4 + Math.random() * 0.5,
             });

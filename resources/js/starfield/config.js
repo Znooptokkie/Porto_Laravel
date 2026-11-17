@@ -47,13 +47,18 @@ export const SHOOTING_STAR = {
  * A dense streak of stars that enters from a random direction, crosses the screen and ends.
  * length is a fraction of the screen diagonal, width is in px,
  * speed is in px per frame and is chosen randomly for each streak.
+ * taper is the fraction of the length over which each end narrows to a point (0 to 0.5).
  */
 export const STAR_STREAM = {
     minDelay: 18000,
     maxDelay: 48000,
-    count: 140,
-    length: 0.5,
-    width: 140,
+    // count: 280,
+    count: 560,
+    length: 1,
+    // width: 280,
+    // width: 140,
+    width: 70,
+    taper: 0.15,
     minSpeed: 0.5,
     maxSpeed: 1,
     maxRadius: 1.4,
@@ -68,5 +73,5 @@ export const METEOR = {
     clicks: 10,
     clickWindow: 4000,
     count: 12,
-    spread: 3000,
+    spread: 6000,
 };

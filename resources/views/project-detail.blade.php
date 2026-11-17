@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-        $titleLead = $project->titleLead();
+        $titleParts = $project->titleParts();
         $componentGroups = $project->componentGroups();
         $sectionNumbers = collect([
             'story' => $project->chapters->isNotEmpty(),
@@ -29,7 +29,7 @@
                 <div class="project-detail__heading">
                     <p class="project-detail__eyebrow">{{ $project->intro_label ? $project->translated('intro_label') : $project->translated('category') }}</p>
                     <h1 class="project-detail__title" id="project-detail-title">
-                        {{ $titleLead }}@if ($project->title_accent !== null && $titleLead !== $project->translated('title'))<span>{{ $project->title_accent }}</span>@endif
+                        {{ $titleParts['lead'] }}<span>{{ $titleParts['accent'] }}</span>
                     </h1>
                     <x-project-status :status="$project->status" />
                     <p class="project-detail__lead">{{ $project->subtitle ? $project->translated('subtitle') : $project->accented('summary') }}</p>
