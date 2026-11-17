@@ -47,7 +47,7 @@
                 <details class="about-accordion" @if ($loop->first) open @endif>
                     <summary class="about-accordion__summary">
                         <span class="education-card__badge">
-                            <x-themed-image :light="'images/courses/educationIcon2.png'" :dark="'images/courses/educationIcon2.png'" accent class="education-card__icon" />
+                            <x-themed-image :light="$accordion['icon']" :dark="$accordion['icon']" accent class="education-card__icon" />
                         </span>
                         <span class="about-accordion__title">{{ $accordion['title'] }}</span>
                         <span class="about-accordion__chevron" aria-hidden="true">
