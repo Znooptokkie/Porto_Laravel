@@ -30,7 +30,23 @@ it('wraps the text between asterisks in a strong element and escapes the rest', 
     expect((string) $project->accented('summary'))->toBe('Sensoren en <strong>N-Mosfets</strong> &amp; &lt;b&gt;');
 });
 
-it('keeps the title text before the accent for the detail heading', function () {
-    expect((new Project(['title' => 'Battlebot', 'title_accent' => 'bot']))->titleLead())->toBe('Battle')
-        ->and((new Project(['title' => 'Zinra', 'title_accent' => null]))->titleLead())->toBe('Zinra');
+it('accents the last word of a multi-word title', function () {
+    expect((new Project(['title' => 'Smart Garden - Desktop']))->titleParts())
+        ->toBe(['lead' => 'Smart Garden - ', 'accent' => 'Desktop']);
+});
+
+it('accents the last fifth of the letters of a single-word title', function () {
+    expect((new Project(['title' => 'Battlebot']))->titleParts())->toBe(['lead' => 'Battleb', 'accent' => 'ot'])
+        ->and((new Project(['title' => 'Zinra']))->titleParts())->toBe(['lead' => 'Zinr', 'accent' => 'a'])
+        ->and((new Project(['title' => 'BRAM']))->titleParts())->toBe(['lead' => 'BRA', 'accent' => 'M']);
+});
+
+it('splits the translated title for the current locale', function () {
+    $project = new Project(['title' => 'Automatische Trapverlichting', 'translations' => ['en' => ['title' => 'Automatic Stair Lighting']]]);
+
+    app()->setLocale('en');
+
+    expect($project->titleParts())->toBe(['lead' => 'Automatic Stair ', 'accent' => 'Lighting']);
+
+    app()->setLocale('nl');
 });

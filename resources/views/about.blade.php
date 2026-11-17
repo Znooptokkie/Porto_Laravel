@@ -61,7 +61,7 @@
                                 <p class="about-accordion__text">{{ $item['text'] }}</p>
                                 <ul class="about-accordion__links">
                                     <li>
-                                        <a class="about-accordion__link" href="{{ $item['url'] }}" target="_blank" rel="noopener noreferrer">{{ $item['url'] }}<span class="visually-hidden"> ({{ __('site.footer.open_new_tab') }})</span></a>
+                                        <a class="about-accordion__link" href="{{ $item['url'] }}" target="_blank" rel="noopener noreferrer"><x-themed-image class="project-link__icon" :light="'images/home/light/externalLinkIcon1.svg'" :dark="'images/home/dark/ExternalLinkIcon1.svg'" /><span class="about-accordion__link-text">{{ $item['url'] }}</span><span class="visually-hidden"> ({{ __('site.footer.open_new_tab') }})</span></a>
                                     </li>
                                 </ul>
                             </div>

@@ -2947,6 +2947,7 @@ input,
 
 .about-accordion__body {
     margin-top: 22px;
+    margin-bottom: 22px;
     display: flex;
     flex-direction: column;
     gap: 26px;
@@ -2959,15 +2960,23 @@ input,
 
 .about-accordion__links {
     margin: 0;
-    padding-left: 30px;
-    list-style: disc;
+    padding-left: 0;
+    list-style: none;
 }
 
 .about-accordion__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
     color: var(--accent);
     font-style: italic;
-    text-decoration: underline;
     overflow-wrap: anywhere;
+}
+
+.about-accordion__link-text {
+    min-width: 0;
+    text-decoration: underline;
 }
 
 .about-contact {
@@ -3049,7 +3058,10 @@ input,
 }
 
 @media (max-width: 480px) {
-    .about-card,
+    .about-card {
+        padding: 20px;
+    }
+
     .about-accordion {
         padding: 4px 20px;
     }

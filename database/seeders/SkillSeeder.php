@@ -19,13 +19,13 @@ class SkillSeeder extends Seeder
             ['name' => 'Python', 'display_label' => 'Py', 'icon' => null, 'proficiency' => 85, 'subconcepts' => ['Django', 'Flask', 'MicroPython']],
             ['name' => 'TypeScript', 'display_label' => 'TS', 'icon' => null, 'proficiency' => 70, 'subconcepts' => ['React', 'Vue', 'React Native', 'Electron']],
             ['name' => 'PHP', 'display_label' => 'php', 'icon' => null, 'proficiency' => 80, 'subconcepts' => ['Laravel', 'Wordpress']],
-            ['name' => 'Java', 'display_label' => null, 'icon' => 'java', 'proficiency' => 50, 'subconcepts' => ['Android Studio']],
+            ['name' => 'Java', 'display_label' => null, 'icon' => 'java', 'proficiency' => 40, 'subconcepts' => ['Android Studio']],
             ['name' => 'AI', 'display_label' => null, 'icon' => 'ai', 'proficiency' => 60, 'subconcepts' => ['Claude Code', 'Figma MCP']],
-            ['name' => 'Docker', 'display_label' => null, 'icon' => 'docker', 'proficiency' => 55, 'subconcepts' => []],
+            ['name' => 'Docker', 'display_label' => null, 'icon' => 'docker', 'proficiency' => 45, 'subconcepts' => []],
             ['name' => 'SASS', 'display_label' => 'Sass', 'icon' => null, 'proficiency' => 60, 'subconcepts' => []],
-            ['name' => 'Linux', 'display_label' => null, 'icon' => 'linux', 'proficiency' => 75, 'subconcepts' => ['Bash', 'Zsh', 'Omarchy', 'Debian']],
+            ['name' => 'Linux', 'display_label' => null, 'icon' => 'linux', 'proficiency' => 65, 'subconcepts' => ['Bash', 'Zsh', 'Omarchy', 'Debian']],
             ['name' => 'SQL', 'display_label' => null, 'icon' => 'mysql', 'proficiency' => 65, 'subconcepts' => ['MariaDB/MySQL', 'PostgreSQL', 'SQLite']],
-            ['name' => 'Raspberry', 'display_label' => null, 'icon' => 'raspberry', 'proficiency' => 40, 'subconcepts' => ['Raspberry Pi 4 & 5', 'Pico 2']],
+            ['name' => 'Raspberry', 'display_label' => null, 'icon' => 'raspberry', 'proficiency' => 80, 'subconcepts' => ['Raspberry Pi 4 & 5', 'Pico 2']],
         ];
 
         foreach ($skills as $skill) {
