@@ -25,6 +25,13 @@ Dit document beschrijft de algemene ontwerpregels en visuele richtlijnen van de 
 
 De exacte maximale breedte en responsive afmetingen moeten worden bepaald aan de hand van Figma. Leg deze waarden centraal vast.
 
+### Ruimte onder de pagina
+
+- De ruimte tussen de laatste sectie en de footer is op elke pagina en op elk breakpoint gelijk: token `--page-end-space` (6rem = 96 px) in `:root` van `resources/css/app.css`.
+- Die ruimte komt uit `main` (`padding-bottom`). De laatste sectie van een pagina heeft geen eigen onderpadding (`main > :last-child`), en de footer heeft geen `margin-top`.
+- Voeg geen losse onderpadding of marge onderaan een pagina toe. Sectiepadding tussen secties op dezelfde pagina volgt de Figma-ontwerpen.
+- Status: de waarde van 96 px is op tablet en mobiel gelijk aan de bestaande Projecten- en Opleidingen-pagina's. Op desktop (1810 px) is die waarde nog niet tegen het Figma-frame gecontroleerd.
+
 ## 3. Responsive design
 
 Iedere pagina en component moet correct werken op:
@@ -136,6 +143,24 @@ Regels:
 - Beheer lettertypes, gewichten, groottes en regelhoogtes centraal.
 - Zorg dat tekst op alle schermformaten goed leesbaar blijft.
 - Houd rekening met de instelbare lettergrootte.
+
+### Vaste maten voor sectietitels, kaarttitels en lopende tekst
+
+Deze drie rollen gebruiken op de hele website dezelfde maat. De waarden staan als tokens in `:root` in `resources/css/app.css`; de breakpoints overschrijven alleen die tokens.
+
+| Rol | Token | Vanaf 835 px | 481–834 px | Tot 480 px |
+|---|---|---|---|---|
+| Sectietitel (H2) | `--font-size-section-title` | 3.25rem (52 px) | 2.75rem (44 px) | 2rem (32 px) |
+| Kaarttitel (H3) | `--font-size-card-title` | 1.5625rem (25 px) | 1.5625rem (25 px) | 1.375rem (22 px) |
+| Lopende tekst (paragraphs) | `--font-size-body` | 1.125rem (18 px) | 1.0625rem (17 px) | 1rem (16 px) |
+
+Regels:
+- Gebruik deze tokens voor sectietitels, kaarttitels en lopende tekst. Gebruik geen losse `font-size`-waarden voor deze rollen.
+- Breakpoint-overrides van deze tokens horen in het `:root`-blok binnen de bestaande `@media`-regel, niet per selector.
+- Pull-quotes, labels, metadata en de hero-naam vallen niet onder deze tokens.
+- De waarden zijn rem-gebaseerd, zodat de instelbare lettergrootte werkt.
+
+Status: de homepage en de lopende tekst op Over Mij gebruiken de tokens. De pagina's Opleidingen en Projecten hebben nog eigen maten die afwijken (kaarttitels van 30/28 px op Projecten en 25/23 px op Opleidingen; de kop van de educatie-secties op Over Mij is 44/34 px). Die moeten eerst met Figma worden afgestemd voordat ze op de tokens worden aangesloten.
 
 ## 9. Herbruikbaarheid
 

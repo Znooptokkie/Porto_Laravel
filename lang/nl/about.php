@@ -20,15 +20,13 @@ return [
 
             'Met <strong>enthousiasme</strong> en een flinke dosis <strong>motivatie</strong> kijk ik naar de toekomst. Waar ik mij uiteindelijk in wil <strong>specialiseren</strong>, weet ik nog niet precies. Ik vind het juist interessant om verschillende richtingen te verkennen en te ontdekken waar mijn interesses en mogelijkheden samenkomen.',
 
-            'Mijn interesse gaat verder dan alleen het ontwikkelen van applicaties. Ik wil ook begrijpen wat er achter de schermen gebeurt. Zo wil ik mij verder verdiepen in <strong>low-level programmeertalen</strong>, <strong>computerarchitectuur</strong> en de werking van <strong>besturingssystemen</strong>. Het lijkt me fascinerend om niet alleen te begrijpen hoe software wordt gebouwd, maar ook wat er op het niveau van de hardware en het besturingssysteem gebeurt.',
+            'Daarnaast ben ik nieuwsgierig naar de mogelijkheden van <strong>AI</strong> binnen softwareontwikkeling. Ik experimenteer onder andere met <strong>Claude Code</strong> en de <strong>Figma MCP-integratie</strong> om AI op een effectieve manier in te zetten bij het ontwikkelen van applicaties en het vertalen van ontwerpen naar werkende software. Ik vind het interessant om te onderzoeken hoe deze technologieën <strong>ontwikkelprocessen</strong> kunnen verbeteren, repetitief werk kunnen verminderen en meer ruimte kunnen bieden voor complexe vraagstukken en creatieve oplossingen.',
 
             'Ook <strong>wiskunde</strong> heeft mijn interesse. Ik beschik over een goede basis in algebra, maar ben mij nog volop aan het ontwikkelen. Ik zie het als een vakgebied waarin ik de komende jaren veel meer wil leren. Vooral de verbinding tussen <strong>wiskundige principes</strong>, <strong>informatica</strong> en <strong>technologie</strong> spreekt mij aan.',
 
-            'Daarnaast ben ik nieuwsgierig naar de mogelijkheden van <strong>AI</strong> binnen softwareontwikkeling. Ik experimenteer onder andere met <strong>Claude Code</strong> en de <strong>Figma MCP-integratie</strong> om AI op een effectieve manier in te zetten bij het ontwikkelen van applicaties en het vertalen van ontwerpen naar werkende software. Ik vind het interessant om te onderzoeken hoe deze technologieën <strong>ontwikkelprocessen</strong> kunnen verbeteren, repetitief werk kunnen verminderen en meer ruimte kunnen bieden voor complexe vraagstukken en creatieve oplossingen.',
-
             'Naast mijn technische en analytische kant ben ik ook erg <strong>creatief</strong>. Dat uit zich zowel in fysieke als digitale projecten. Vroeger werd ik op school niet voor niets de <strong>knutselkampioen</strong> genoemd. Die creativiteit is nooit verdwenen: ik vind het nog steeds leuk om dingen te maken, vorm te geven en mooier of beter te maken. Daarbij speelt mijn <strong>perfectionisme</strong> een grote rol. Ik heb oog voor detail en wil graag dat alles tot in de puntjes klopt. Of het nu gaat om een fysiek ontwerp of een digitale interface, kleine onregelmatigheden in een vormgeving of afwerking vallen mij al snel op. Ik streef dan ook graag naar een <strong>pixel-perfect resultaat</strong>.',
 
-            'Ook de <strong>menselijke kant</strong> van softwareontwikkeling vind ik minstens zo belangrijk als mijn technische interesses. Ik ben van nature <strong>empathisch</strong>, <strong>vriendelijk</strong> en <strong>sociaal</strong> ingesteld. Ik werk graag samen met mensen uit verschillende <strong>disciplines</strong> en vind het waardevol om kennis en perspectieven met elkaar te delen. Juist door samen te werken met mensen die anders naar een probleem kijken, ontdek je vaak oplossingen waar je zelf niet op was gekomen.',
+            'Natuurlijk vind ik de <strong>menselijke kant</strong> van softwareontwikkeling minstens zo belangrijk als mijn technische interesses. Ik ben van nature <strong>empathisch</strong>, <strong>vriendelijk</strong> en <strong>sociaal</strong> ingesteld. Ik werk graag samen met mensen uit verschillende <strong>disciplines</strong> en vind het waardevol om kennis en perspectieven met elkaar te delen. Juist door samen te werken met mensen die anders naar een probleem kijken, ontdek je vaak oplossingen waar je zelf niet op was gekomen.',
 
             'Tijdens mijn opleiding heb ik verschillende kansen gekregen om buiten het reguliere lesprogramma aan <strong>projecten</strong> mee te werken. Daarbij heb ik niet alleen mijn <strong>technische vaardigheden</strong> kunnen ontwikkelen, maar ook ervaren hoe waardevol het is om <strong>verantwoordelijkheid</strong> te nemen, <strong>initiatief</strong> te tonen en samen met anderen iets neer te zetten.',
 
@@ -50,13 +48,14 @@ return [
         'paragraphs' => [
             'Tijdens mijn periode bij mboRijnland heb ik meerdere keren de kans gekregen om naast mijn reguliere opleiding aan bijzondere projecten mee te werken. Een groot deel daarvan draaide om het project <strong><a href="/projecten/smart-garden-desktop" class="about-link">Smart Garden</a></strong>. Ik heb deze mogelijkheden altijd met veel enthousiasme aangegrepen. Niet alleen omdat ik het ontzettend leuk vond om eraan te werken, maar vooral ook omdat ik er enorm veel van heb geleerd.',
             'De ervaringen hebben me bovendien op een positieve manier verrast. Op verschillende momenten ontdekte ik hoeveel ik eigenlijk in mijn mars heb en waartoe ik in staat ben wanneer ik de ruimte krijg om mezelf uit te dagen. Ik vind het best lastig om dat zo over mezelf te zeggen, want ik ben absoluut niet iemand die graag de loftrompet over zichzelf steekt. Toch is dat oprecht hoe ik deze periode heb ervaren.',
-            'Natuurlijk heb ik dit niet allemaal alleen gedaan. Mijn voormalige docent, <u>mevrouw Verbaas</u>, heeft mij hierin ontzettend goed begeleid en ondersteund. Haar vertrouwen, betrokkenheid en begeleiding hebben een belangrijke rol gespeeld in het verloop en succes van deze projecten. Zonder haar had ik deze ervaringen waarschijnlijk niet op dezelfde manier kunnen opdoen. Mijn dank daarvoor is dan ook bijzonder groot.',
-            'Ook wil ik <u>Matthijs de Graaf</u> graag bedanken. Hoewel hij niet rechtstreeks bij het merendeel van deze projecten betrokken was, is hij meerdere keren met mij meegegaan om mij te ondersteunen. Tegelijkertijd gebruikte hij die momenten om zelf nieuwe dingen te ontdekken en daarvan te leren. Die wederzijdse nieuwsgierigheid en betrokkenheid heb ik enorm gewaardeerd. Daarom vind ik dat ook hij een plek op deze pagina verdient.',
+            'Natuurlijk heb ik dit niet allemaal alleen gedaan. Mijn voormalige docent, <u><strong>mevrouw Verbaas</strong></u>, heeft mij hierin ontzettend goed begeleid en ondersteund. Haar vertrouwen, betrokkenheid en begeleiding hebben een belangrijke rol gespeeld in het verloop en succes van deze projecten. Zonder haar had ik deze ervaringen waarschijnlijk niet op dezelfde manier kunnen opdoen. Mijn dank daarvoor is dan ook bijzonder groot.',
+            'Ook wil ik <u><strong>Matthijs de Graaf</strong></u> graag bedanken. Hoewel hij niet rechtstreeks bij het merendeel van deze projecten betrokken was, is hij meerdere keren met mij meegegaan om mij te ondersteunen. Tegelijkertijd gebruikte hij die momenten om zelf nieuwe dingen te ontdekken en daarvan te leren. Die wederzijdse nieuwsgierigheid en betrokkenheid heb ik enorm gewaardeerd. Daarom vind ik dat ook hij een plek op deze pagina verdient.',
             'Hieronder heb ik een aantal links verzameld naar de projecten en activiteiten waaraan ik heb mogen bijdragen. Ze geven niet alleen een inkijkje in het werk dat ik naast mijn opleiding heb gedaan, maar ook in de kansen, ervaringen en mensen die een belangrijke rol hebben gespeeld in mijn ontwikkeling.',
             'De links zijn ook terug te vinden bij de bijbehorende <strong><a href="/projecten/" class="about-link">projecten</a></strong>, maar ik vond het leuk om ze hier nog eens bij elkaar te brengen. Een compleet overzicht van een periode waar ik met veel plezier op terugkijk. En vooruit, misschien ook een klein beetje om mezelf alsnog de hemel in te prijzen :)',
         ],
         'accordions' => [
             [
+                'icon' => 'images/courses/gardenIcon.svg',
                 'title' => 'Smart Garden',
                 'items' => [
                     ['text' => 'Mijn eerste bijdrage aan Smart Garden op de website van CIV Smart Technology', 'url' => 'https://civ-smarttechnology.nl/project-smrt-garden-bij-smrt-building/'],
@@ -69,6 +68,7 @@ return [
                 ],
             ],
             [
+                'icon' => 'images/courses/educationIcon2.png',
                 'title' => 'AI Onderzoek',
                 'items' => [
                     ['text' => 'De eerste voortgangsupdate van het onderzoek. In deze fase lag de nadruk vooral op het verzamelen van feedback, voordat de bevindingen daadwerkelijk werden verwerkt in de lessen van de opleiding Software Development', 'url' => 'https://civ-smarttechnology.nl/update-onderzoek-ai-richtlijnen-voor-studenten-software-development/'],
@@ -76,6 +76,7 @@ return [
                 ],
             ],
             [
+                'icon' => 'images/courses/senateIcon.svg',
                 'title' => 'BZK',
                 'items' => [
                     ['text' => 'Mijn eerste sprong in het diepe: ik kreeg de eer om de projecten van mijn medestudenten te presenteren en te introduceren aan het ministerie van Binnenlandse Zaken en Koninkrijksrelaties (BZK)', 'url' => 'https://www.rijksorganisatieodi.nl/actueel/nieuws/2023/04/20/mbo-studenten-ontwikkelen-virtuele-zoekassistent'],

@@ -139,7 +139,6 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding-bottom: 96px;
 }
 
 .projects-list__label {
@@ -567,8 +566,10 @@
     height: 9px;
 }
 
-.project-card__action--featured .project-icon {
-    color: var(--accent-ink);
+/* Pijlen in knoppen erven de tekstkleur, in zowel de featured als de standaard knop. */
+.project-card__action .project-icon,
+.project-detail__back .project-icon {
+    color: inherit;
 }
 
 .project-detail__breadcrumb-icon {

@@ -53,6 +53,14 @@
     --radius-card: 24px;
     --radius-tile: 12px;
 
+    /* Centrale typografie-schaal: sectietitels, kaarttitels en lopende tekst. Breakpoints overschrijven deze tokens. */
+    --font-size-section-title: 3.25rem;
+    --font-size-card-title: 1.5625rem;
+    --font-size-body: 1.125rem;
+
+    /* Vaste ruimte tussen de laatste sectie van een pagina en de footer. */
+    --page-end-space: 6rem;
+
     --text-scale: 1;
     --motion-duration: 0.3s;
     --motion-duration-slow: 0.6s;
@@ -136,6 +144,15 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+}
+
+/* Eén bron voor de ruimte onder elke pagina; de laatste sectie voegt er geen eigen onderpadding aan toe. */
+main {
+    padding-bottom: var(--page-end-space);
+}
+
+main > :last-child {
+    padding-bottom: 0;
 }
 
 /* Star background: fixed behind the page; html carries the background colour, so -1 keeps it above that. */
@@ -560,7 +577,6 @@ input,
 
 /* Footer */
 .site-footer {
-    margin-top: 50px;
     background: var(--accent);
     color: var(--accent-ink);
     font-size: 0.875rem;
@@ -719,7 +735,7 @@ input,
 .intro-text {
     margin: 0;
     max-width: 590px;
-    font-size: 1.0625rem;
+    font-size: var(--font-size-body);
     line-height: 1.7;
     color: var(--color-muted);
 }
@@ -803,9 +819,16 @@ input,
     color: var(--accent-ink);
 }
 
+/* De pijl erft de tekstkleur van de knop (accent-ink op primaire knoppen, tekstkleur op secundaire). */
 .button .themed-image {
     width: 18px;
     height: 18px;
+    color: inherit;
+}
+
+/* Uitzondering: de pijl van de secundaire hero-knop "Over Mij" houdt de accentkleur. */
+.hero__actions .button:not(.button--primary) .themed-image {
+    color: var(--accent);
 }
 
 /*
@@ -939,7 +962,7 @@ input,
     margin: 0;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 3.25rem;
+    font-size: var(--font-size-section-title);
     line-height: 1.2;
     color: var(--color-text);
 }
@@ -1203,7 +1226,7 @@ input,
     margin: 0;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.5625rem;
+    font-size: var(--font-size-card-title);
     color: var(--color-text);
 }
 
@@ -1216,7 +1239,7 @@ input,
     display: flex;
     flex-direction: column;
     gap: 14px;
-    font-size: 1.125rem;
+    font-size: var(--font-size-body);
     line-height: 1.7;
     color: var(--color-muted);
 }
@@ -1321,7 +1344,7 @@ input,
 
 .internship-card__text {
     margin: 0;
-    font-size: 1.125rem;
+    font-size: var(--font-size-body);
     line-height: 1.7;
     color: var(--color-muted);
 }
@@ -1363,6 +1386,11 @@ input,
 
 /* Tablet and mobile (Figma: 834px and 390px frames) */
 @media (max-width: 834px) {
+    :root {
+        --font-size-section-title: 2.75rem;
+        --font-size-body: 1.0625rem;
+    }
+
     .container-max {
         padding-inline: 40px;
     }
@@ -1448,10 +1476,6 @@ input,
         display: none;
     }
 
-    .intro-text {
-        font-size: 1rem;
-    }
-
     .section--skills,
     .section--timeline {
         margin-top: 0;
@@ -1471,16 +1495,11 @@ input,
     }
 
     .section-heading__title {
-        font-size: 2.75rem;
         line-height: 1;
     }
 
     .timeline {
         margin-top: 40px;
-    }
-
-    .site-footer {
-        margin-top: 0;
     }
 
     .skill-card {
@@ -1489,10 +1508,6 @@ input,
 
     .story-card {
         padding: 28px 27px;
-    }
-
-    .story-card__text {
-        font-size: 1.0625rem;
     }
 
     .story-card__head {
@@ -1509,7 +1524,6 @@ input,
 
     .story-card__title {
         flex: none;
-        font-size: 1.5625rem;
         line-height: 30px;
     }
 
@@ -1556,9 +1570,6 @@ input,
         gap: 20px;
     }
 
-    .internship-card__text {
-        font-size: 1.0625rem;
-    }
 }
 
 /* Header gestapeld (tot 899px): menuknop en paneel uit Figma. Hier past de desktopnavigatie niet meer. */
@@ -1846,6 +1857,12 @@ input,
 }
 
 @media (max-width: 480px) {
+    :root {
+        --font-size-section-title: 2rem;
+        --font-size-card-title: 1.375rem;
+        --font-size-body: 1rem;
+    }
+
     .container-max {
         padding-inline: 24px;
     }
@@ -1942,20 +1959,11 @@ input,
     }
 
     .story-card__title {
-        font-size: 1.375rem;
         line-height: 28px;
-    }
-
-    .story-card__text {
-        font-size: 1rem;
     }
 
     .internship-card {
         padding: 20px;
-    }
-
-    .internship-card__text {
-        font-size: 1rem;
     }
 
     .button {
@@ -1974,7 +1982,6 @@ input,
     }
 
     .section-heading__title {
-        font-size: 2rem;
         line-height: 1.2;
     }
 
@@ -2312,10 +2319,6 @@ input,
     padding-block: 10px;
 }
 
-.education-section--certificates {
-    padding-bottom: 0;
-}
-
 .education-heading {
     display: flex;
     align-items: flex-end;
@@ -2614,9 +2617,6 @@ input,
         padding-block: 10px 64px;
     }
 
-    .education-section--certificates {
-        padding-bottom: 96px;
-    }
 
     .education-heading {
         flex-direction: column;
@@ -2827,6 +2827,12 @@ input,
     padding-block: 10px;
 }
 
+@media (max-width: 600px) {
+    .about-section {
+        gap: 50px;
+    }
+}
+
 .about-section--spaced {
     padding-top: 50px;
 }
@@ -2844,11 +2850,11 @@ input,
     backdrop-filter: blur(4px);
 }
 
-/* Lopende tekst: 20px met regelhoogte 1.7. De witruimte tussen alinea's is één regel (1.7em), zoals de lege regels in Figma. */
+/* Lopende tekst: vaste paragraafmaat (--font-size-body) met regelhoogte 1.7. De witruimte tussen alinea's is één regel (1.7em), zoals de lege regels in Figma. */
 .about-story,
 .about-accordion__body {
     gap: 1.7em;
-    font-size: 1.25rem;
+    font-size: var(--font-size-body);
     line-height: 1.7;
     color: var(--color-muted);
     overflow-wrap: break-word;
@@ -2887,6 +2893,8 @@ input,
     list-style: none;
 }
 
+
+
 .about-accordion__summary::-webkit-details-marker {
     display: none;
 }
@@ -2899,6 +2907,16 @@ input,
     line-height: 1.2;
     color: var(--accent);
     overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+    /* .about-accordion {
+        padding: 18px 6px;
+    } */
+
+    .about-accordion__title {
+        font-size: 1.25rem
+    }
 }
 
 /* imgDropdownChevron.svg wijst omhoog: ingeklapt blijft de driehoek omhoog, uitgeklapt draait hij 180° naar beneden. */
@@ -3003,11 +3021,6 @@ input,
     border-color: var(--accent-strong);
 }
 
-/* De SVG heeft een vaste stroke-kleur (#102334); de CSS-regel overschrijft die in light en dark mode. */
-.about-contact__submit .themed-image path {
-    stroke: #fff;
-}
-
 .about-contact__input[aria-invalid='true'] {
     border-color: var(--color-error);
 }
@@ -3038,6 +3051,6 @@ input,
 @media (max-width: 480px) {
     .about-card,
     .about-accordion {
-        padding: 20px;
+        padding: 4px 20px;
     }
 }

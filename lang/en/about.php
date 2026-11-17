@@ -20,11 +20,9 @@ return [
 
             'I look to the future with <strong>enthusiasm</strong> and a healthy dose of <strong>motivation</strong>. I do not know exactly yet which area I want to <strong>specialise</strong> in. I find it interesting to explore different directions and discover where my interests and abilities come together.',
 
-            'My interest goes beyond just developing applications. I also want to understand what happens behind the scenes. That is why I want to deepen my knowledge of <strong>low-level programming languages</strong>, <strong>computer architecture</strong> and how <strong>operating systems</strong> work. It fascinates me to understand not only how software is built, but also what happens at the level of the hardware and the operating system.',
+            'I am also curious about the possibilities of <strong>AI</strong> within software development. Among other things, I experiment with <strong>Claude Code</strong> and the <strong>Figma MCP integration</strong> to use AI effectively when developing applications and translating designs into working software. I find it interesting to explore how these technologies can improve <strong>development processes</strong>, reduce repetitive work and leave more room for complex problems and creative solutions.',
 
             'I am also interested in <strong>mathematics</strong>. I have a good foundation in algebra, but I am still very much developing myself in it. I see it as a field in which I want to learn much more in the coming years. In particular, the connection between <strong>mathematical principles</strong>, <strong>computer science</strong> and <strong>technology</strong> appeals to me.',
-
-            'I am also curious about the possibilities of <strong>AI</strong> within software development. Among other things, I experiment with <strong>Claude Code</strong> and the <strong>Figma MCP integration</strong> to use AI effectively when developing applications and translating designs into working software. I find it interesting to explore how these technologies can improve <strong>development processes</strong>, reduce repetitive work and leave more room for complex problems and creative solutions.',
 
             'Beyond my technical and analytical side, I am also very <strong>creative</strong>. This comes through in both physical and digital projects. Back in school, there was a reason I was nicknamed the <strong>craft champion</strong>. That creativity has never disappeared: I still enjoy making things, designing them and finding ways to make them look or work better. My <strong>perfectionism</strong> plays a big part in this. I have an eye for detail and like everything to be just right. Whether it is a physical design or a digital interface, I quickly notice small inconsistencies in the design or finish. I therefore always strive for a <strong>pixel-perfect result</strong>.',
 
@@ -50,13 +48,14 @@ return [
         'paragraphs' => [
             'During my time at mboRijnland I was given the chance several times to work on special projects alongside my regular education. A large part of that revolved around the project <strong><a href="/projecten/smart-garden-desktop" class="about-link">Smart Garden</a></strong>. I always seized these opportunities with great enthusiasm. Not only because I really enjoyed working on them, but above all because I learned an enormous amount from them.',
             'The experiences also surprised me in a positive way. At various moments I discovered how much I actually have in me and what I am capable of when I am given the space to challenge myself. I find it quite difficult to say this about myself, because I am absolutely not someone who likes to blow their own trumpet. Still, that is honestly how I experienced this period.',
-            'Of course, I did not do all of this alone. My former teacher, <u>Ms Verbaas</u>, guided and supported me extremely well. Her trust, involvement and guidance played an important role in how these projects unfolded and succeeded. Without her I would probably not have been able to gain these experiences in the same way. My gratitude for that is therefore very great.',
-            'I also want to thank <u>Matthijs de Graaf</u>. Although he was not directly involved in most of these projects, he came along with me several times to support me. At the same time, he used those moments to discover new things himself and learn from them. I greatly valued that mutual curiosity and involvement. That is why I feel he deserves a place on this page too.',
+            'Of course, I did not do all of this alone. My former teacher, <u><strong>Ms Verbaas</strong></u>, guided and supported me extremely well. Her trust, involvement and guidance played an important role in how these projects unfolded and succeeded. Without her I would probably not have been able to gain these experiences in the same way. My gratitude for that is therefore very great.',
+            'I also want to thank <u><strong>Matthijs de Graaf</strong></u>. Although he was not directly involved in most of these projects, he came along with me several times to support me. At the same time, he used those moments to discover new things himself and learn from them. I greatly valued that mutual curiosity and involvement. That is why I feel he deserves a place on this page too.',
             'Below I have collected a number of links to the projects and activities I was able to contribute to. They not only give a glimpse of the work I did alongside my education, but also of the opportunities, experiences and people who played an important role in my development.',
             'The links can also be found with the relevant <strong><a href="/projecten/" class="about-link">projects</a></strong>, but I liked the idea of bringing them together here once more. A complete overview of a period I look back on with great pleasure. And, to be honest, maybe also a little bit to give myself a pat on the back after all :)',
         ],
         'accordions' => [
             [
+                'icon' => 'images/courses/gardenIcon.svg',
                 'title' => 'Smart Garden',
                 'items' => [
                     ['text' => 'My first contribution to Smart Garden on the CIV Smart Technology website', 'url' => 'https://civ-smarttechnology.nl/project-smrt-garden-bij-smrt-building/'],
@@ -69,6 +68,7 @@ return [
                 ],
             ],
             [
+                'icon' => 'images/courses/educationIcon2.png',
                 'title' => 'AI Research',
                 'items' => [
                     ['text' => 'The first progress update of the research. In this phase the focus was mainly on gathering feedback before the findings were actually incorporated into the lessons of the Software Development programme', 'url' => 'https://civ-smarttechnology.nl/update-onderzoek-ai-richtlijnen-voor-studenten-software-development/'],
@@ -76,6 +76,7 @@ return [
                 ],
             ],
             [
+                'icon' => 'images/courses/senateIcon.svg',
                 'title' => 'BZK',
                 'items' => [
                     ['text' => 'My first leap into the deep end: I had the honour of presenting my fellow students\' projects and introducing them to the Ministry of the Interior and Kingdom Relations (BZK)', 'url' => 'https://www.rijksorganisatieodi.nl/actueel/nieuws/2023/04/20/mbo-studenten-ontwikkelen-virtuele-zoekassistent'],
