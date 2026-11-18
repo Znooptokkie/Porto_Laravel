@@ -3,6 +3,7 @@ import { initHeader } from './header.js';
 import { initTimelineReveal } from './timeline.js';
 import { initAboutAccordions } from './about-accordions.js';
 import { initProjects } from './projects.js';
+import { initLeetcode } from './leetcode.js';
 import { initStarfield } from './starfield/index.js';
 
 applyPreferences(readPreferences());
@@ -13,6 +14,7 @@ if (document.readyState === 'loading') {
         initTimelineReveal();
         initAboutAccordions();
         initProjects();
+        initLeetcode();
         initStarfield();
     });
 } else {
@@ -20,5 +22,6 @@ if (document.readyState === 'loading') {
     initTimelineReveal();
     initAboutAccordions();
     initProjects();
+    initLeetcode();
     initStarfield();
 }

@@ -1,0 +1,3335 @@
+[
+  {
+    "model": "core.leetcode",
+    "pk": 1,
+    "fields": {
+      "problem_number": 3894,
+      "problem_name": "Count Digit Appearances",
+      "problem_url": "https://leetcode.com/problems/count-digit-appearances/description/",
+      "rating": 2,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "10.00",
+      "runtime_perc": "86.84",
+      "memory_mb": "19.40",
+      "memory_perc": "55.04",
+      "code": "class Solution:\r\n   def countDigitOccurrences(self, nums: list[int], digit: int) -> int:\r\n       numbers_strings = map(str, nums)\r\n       numbers_joined = \"\".join(numbers_strings)\r\n       digit_string = str(digit)\r\n       count = numbers_joined.count(digit_string)\r\n\r\n       return count",
+      "used_functions": [
+        3,
+        20
+      ],
+      "used_methods": [
+        1,
+        2
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 2,
+    "fields": {
+      "problem_number": 1342,
+      "problem_name": "Number of Steps to Reduce a Number to Zero",
+      "problem_url": "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.38",
+      "memory_perc": "25.95",
+      "code": "class Solution:\r\n    def numberOfSteps(self, num: int) -> int:\r\n        count = 0\r\n        while num != 0:\r\n            if num % 2 == 0:\r\n                num = num / 2\r\n            else:\r\n                num -= 1\r\n            count += 1\r\n\r\n        return count",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 3,
+    "fields": {
+      "problem_number": 2325,
+      "problem_name": "Decode the Message",
+      "problem_url": "https://leetcode.com/problems/decode-the-message/description/",
+      "rating": 4,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.24",
+      "memory_perc": "68.13",
+      "code": "class Solution:\r\n   def decodeMessage(self, key: str, message: str) -> str:\r\n       alpha = list(\"abcdefghijklmnopqrstuvwxyz\")\r\n       new_key = key.replace(\" \",\"\")\r\n       result = \"\"\r\n       key_set = {}\r\n       count = 0\r\n\r\n       for l in new_key:\r\n           if l not in key_set:\r\n               key_set[l] = count\r\n               count += 1\r\n\r\n       for i in range(len(message)):\r\n           if message[i] == \" \":\r\n               result += \" \"\r\n           else:\r\n               index = key_set.get(message[i])\r\n               letter = alpha[index]\r\n               result += letter\r\n      \r\n       return result",
+      "used_functions": [
+        5,
+        15
+      ],
+      "used_methods": [
+        3,
+        14
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 4,
+    "fields": {
+      "problem_number": 2520,
+      "problem_name": "Count the Digits That Divide a Number",
+      "problem_url": "https://leetcode.com/problems/count-the-digits-that-divide-a-number/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.14",
+      "memory_perc": "89.36",
+      "code": "class Solution:\r\n   def countDigits(self, num: int) -> int:\r\n       count = 0\r\n       new_num = num\r\n\r\n       while new_num != 0:\r\n           div = new_num % 10\r\n           if num % div == 0:\r\n               count += 1\r\n           new_num = new_num // 10\r\n\r\n       return count",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 5,
+    "fields": {
+      "problem_number": 1967,
+      "problem_name": "Number of Strings That Appear as Substrings in Word",
+      "problem_url": "https://leetcode.com/problems/number-of-strings-that-appear-as-substrings-in-word/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.33",
+      "memory_perc": "66.09",
+      "code": "class Solution:\r\n   def numOfStrings(self, patterns: List[str], word: str) -> int:\r\n       count = 0\r\n\r\n       for i in range(len(patterns)):\r\n           if patterns[i] in word:\r\n               count += 1\r\n\r\n       return count",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 6,
+    "fields": {
+      "problem_number": 1662,
+      "problem_name": "Check If Two String Arrays are Equivalent",
+      "problem_url": "https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.44",
+      "memory_perc": "19.45",
+      "code": "class Solution:\r\n   def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:\r\n       first_string = \"\".join(word1)\r\n       second_string = \"\".join(word2)\r\n\r\n       if first_string == second_string:\r\n           return True\r\n       else:\r\n           return False",
+      "used_functions": [],
+      "used_methods": [
+        2
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 7,
+    "fields": {
+      "problem_number": 2652,
+      "problem_name": "Sum Multiples",
+      "problem_url": "https://leetcode.com/problems/sum-multiples/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "22.00",
+      "runtime_perc": "88.09",
+      "memory_mb": "19.25",
+      "memory_perc": "48.93",
+      "code": "class Solution:\r\n    def sumOfMultiples(self, n: int) -> int:\r\n        total_sum = 0\r\n\r\n        for num in range(1, n + 1):\r\n            if num % 3 == 0 or num % 5 == 0 or num % 7 == 0:\r\n                total_sum += num\r\n               \r\n        return total_sum",
+      "used_functions": [
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 8,
+    "fields": {
+      "problem_number": 2000,
+      "problem_name": "Reverse Prefix of Word",
+      "problem_url": "https://leetcode.com/problems/reverse-prefix-of-word/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.17",
+      "memory_perc": "89.56",
+      "code": "class Solution:\r\n    def reversePrefix(self, word: str, ch: str) -> str:\r\n        word_list = list(word)\r\n\r\n        if ch not in word_list:\r\n            return word\r\n\r\n        ch_index = word_list.index(ch)\r\n\r\n        return word[ch_index::-1] + word[ch_index+1:]",
+      "used_functions": [
+        5
+      ],
+      "used_methods": [
+        5
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 9,
+    "fields": {
+      "problem_number": 3065,
+      "problem_name": "Minimum Operations to Exceed Threshold Value I",
+      "problem_url": "https://leetcode.com/problems/minimum-operations-to-exceed-threshold-value-i/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.18",
+      "memory_perc": "91.74",
+      "code": "class Solution:\r\n    def minOperations(self, nums: List[int], k: int) -> int:\r\n        count = 0\r\n\r\n        for i in range(len(nums)):\r\n            if nums[i] < k:\r\n                count += 1\r\n\r\n        return count",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 10,
+    "fields": {
+      "problem_number": 832,
+      "problem_name": "Flipping an Image",
+      "problem_url": "https://leetcode.com/problems/flipping-an-image/",
+      "rating": 6,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "3.00",
+      "runtime_perc": "10.70",
+      "memory_mb": "19.39",
+      "memory_perc": "24.91",
+      "code": "class Solution:\r\n    def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:\r\n\r\n        new_image = []\r\n       \r\n        for i in range(len(image)):\r\n            image[i].reverse()\r\n       \r\n        for i in range(len(image)):\r\n            reverse_image = [bit ^ 1 for bit in image[i]]\r\n            new_image.append(reverse_image)\r\n\r\n        return new_image",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        6,
+        9
+      ],
+      "used_operators": [
+        2
+      ],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 11,
+    "fields": {
+      "problem_number": 344,
+      "problem_name": "Reverse String",
+      "problem_url": "https://leetcode.com/problems/reverse-string/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "26.61",
+      "memory_perc": "47.27",
+      "code": "class Solution:\r\n    def reverseString(self, s: List[str]) -> None:\r\n        \"\"\"\r\n        Do not return anything, modify s in-place instead.\r\n        \"\"\"\r\n       \r\n        s.reverse()",
+      "used_functions": [],
+      "used_methods": [
+        6
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 12,
+    "fields": {
+      "problem_number": 557,
+      "problem_name": "Reverse Words in a String III",
+      "problem_url": "https://leetcode.com/problems/reverse-words-in-a-string-iii/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "1.00",
+      "runtime_perc": "66.12",
+      "memory_mb": "19.84",
+      "memory_perc": "26.90",
+      "code": "class Solution:\r\n    def reverseWords(self, s: str) -> str:\r\n        new_s = s.split()\r\n       \r\n        for i in range(len(new_s)):\r\n            new_s[i] = new_s[i][::-1]\r\n\r\n        new_string = \" \".join(new_s)\r\n           \r\n        return new_string",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        2,
+        4
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 13,
+    "fields": {
+      "problem_number": 2114,
+      "problem_name": "Maximum Number of Words Found in Sentences",
+      "problem_url": "https://leetcode.com/problems/maximum-number-of-words-found-in-sentences/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.33",
+      "memory_perc": "23.32",
+      "code": "class Solution:\r\n    def mostWordsFound(self, sentences: List[str]) -> int:\r\n        current_max = 0\r\n        max_words = current_max\r\n\r\n        for i in range(len(sentences)):\r\n            current_max = len(sentences[i].split())\r\n            max_words = max(max_words, current_max)\r\n       \r\n        return max_words",
+      "used_functions": [
+        14,
+        15
+      ],
+      "used_methods": [
+        4
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 14,
+    "fields": {
+      "problem_number": 1389,
+      "problem_name": "Create Target Array in the Given Order",
+      "problem_url": "https://leetcode.com/problems/create-target-array-in-the-given-order/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.20",
+      "memory_perc": "90.92",
+      "code": "class Solution:\r\n    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:\r\n        target = []\r\n\r\n        for i in range(len(nums)):\r\n            target.insert(index[i], nums[i])\r\n\r\n        return target",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        8
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 15,
+    "fields": {
+      "problem_number": 3264,
+      "problem_name": "Final Array State After K Multiplication Operations I",
+      "problem_url": "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.35",
+      "memory_perc": "54.78",
+      "code": "class Solution:\r\n    def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:\r\n        count = 0\r\n\r\n        while count < k:\r\n            min_value = min(nums)\r\n            index = nums.index(min_value)\r\n            nums[index] = nums[index] * multiplier            \r\n            count += 1\r\n       \r\n        return nums",
+      "used_functions": [
+        13
+      ],
+      "used_methods": [
+        5
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 16,
+    "fields": {
+      "problem_number": 771,
+      "problem_name": "Jewels and Stones",
+      "problem_url": "https://leetcode.com/problems/jewels-and-stones/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.19",
+      "memory_perc": "87.35",
+      "code": "class Solution:\r\n    def numJewelsInStones(self, jewels: str, stones: str) -> int:\r\n        count = 0\r\n        jewels_set = set(jewels)\r\n\r\n        for l in stones:\r\n            if l in jewels_set:\r\n                count += 1\r\n\r\n        return count",
+      "used_functions": [
+        7
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 17,
+    "fields": {
+      "problem_number": 1480,
+      "problem_name": "Running Sum of 1d Array",
+      "problem_url": "https://leetcode.com/problems/running-sum-of-1d-array/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.27",
+      "memory_perc": "79.68",
+      "code": "class Solution:\r\n    def runningSum(self, nums: List[int]) -> List[int]:\r\n        current_sum = 0\r\n        result = []\r\n\r\n        for i in range(len(nums)):\r\n            current_sum += nums[i]\r\n            result.append(current_sum)\r\n       \r\n        return result",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": [
+        11
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 18,
+    "fields": {
+      "problem_number": 1816,
+      "problem_name": "Truncate Sentence",
+      "problem_url": "https://leetcode.com/problems/truncate-sentence/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.37",
+      "memory_perc": "17.69",
+      "code": "class Solution:\r\n    def truncateSentence(self, s: str, k: int) -> str:\r\n        word_list = [w for w in s.split()]\r\n\r\n        return \" \".join(word_list[:k])",
+      "used_functions": [],
+      "used_methods": [
+        2,
+        4
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        4
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 19,
+    "fields": {
+      "problem_number": 2703,
+      "problem_name": "Return Length of Arguments Passed",
+      "problem_url": "https://leetcode.com/problems/return-length-of-arguments-passed/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "typescript",
+      "runtime_ms": "38.00",
+      "runtime_perc": "85.65",
+      "memory_mb": "55.08",
+      "memory_perc": "64.72",
+      "code": "type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };\r\n\r\nfunction argumentsLength(...args: JSONValue[]): number {\r\n    return args.length\r\n};",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 20,
+    "fields": {
+      "problem_number": 3512,
+      "problem_name": "Minimum Operations to Make Array Sum Divisible by K",
+      "problem_url": "https://leetcode.com/problems/minimum-operations-to-make-array-sum-divisible-by-k/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.22",
+      "memory_perc": "80.48",
+      "code": "class Solution:\r\n    def minOperations(self, nums: List[int], k: int) -> int:\r\n        return sum(nums) % k",
+      "used_functions": [
+        12
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 21,
+    "fields": {
+      "problem_number": 3300,
+      "problem_name": "Minimum Element After Replacement With Digit Sum",
+      "problem_url": "https://leetcode.com/problems/minimum-element-after-replacement-with-digit-sum/",
+      "rating": 4,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "7.00",
+      "runtime_perc": "27.31",
+      "memory_mb": "19.36",
+      "memory_perc": "27.73",
+      "code": "class Solution:\r\n    def minElement(self, nums: List[int]) -> int:\r\n        numbers = {}\r\n        index = 0\r\n        new_numbers = []\r\n        max_value = 0\r\n\r\n        for n in nums:\r\n            while n > 0:\r\n                cijfer = n % 10\r\n                numbers[index] = cijfer\r\n                n //= 10\r\n                index += 1\r\n\r\n            for value in numbers.values():\r\n                max_value += value\r\n\r\n            new_numbers.append(max_value)\r\n            max_value = 0\r\n            index = 0\r\n            numbers = {}\r\n\r\n        return min(new_numbers)",
+      "used_functions": [
+        13
+      ],
+      "used_methods": [
+        9,
+        12
+      ],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1,
+        2,
+        3
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 22,
+    "fields": {
+      "problem_number": 3925,
+      "problem_name": "Concatenate Array With Reverse",
+      "problem_url": "https://leetcode.com/problems/concatenate-array-with-reverse/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.24",
+      "memory_perc": "56.95",
+      "code": "class Solution:\r\n    def concatWithReverse(self, nums: list[int]) -> list[int]:\r\n        reversed_nums = nums[::-1]\r\n        nums.extend(reversed_nums)\r\n\r\n        return nums",
+      "used_functions": [],
+      "used_methods": [
+        10
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 23,
+    "fields": {
+      "problem_number": 1,
+      "problem_name": "Two Sum",
+      "problem_url": "https://leetcode.com/problems/two-sum/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "999.99",
+      "runtime_perc": "5.00",
+      "memory_mb": "19.56",
+      "memory_perc": "99.42",
+      "code": "class Solution:\r\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\r\n        slow, fast = 0, 1\r\n       \r\n        while True:\r\n            if fast == len(nums):\r\n                slow += 1\r\n                fast = slow + 1\r\n\r\n            if nums[slow] + nums[fast] == target:\r\n                return [slow, fast]\r\n            else:\r\n                fast += 1",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 24,
+    "fields": {
+      "problem_number": 1282,
+      "problem_name": "Group the People Given the Group Size They Belong To",
+      "problem_url": "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "3.00",
+      "runtime_perc": "69.66",
+      "memory_mb": "19.24",
+      "memory_perc": "87.36",
+      "code": "class Solution:\r\n    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:\r\n        g_dic = {}\r\n        result = []\r\n\r\n        for i in range(len(groupSizes)):\r\n            if groupSizes[i] not in g_dic:\r\n                g_dic[groupSizes[i]] = [i]\r\n            else:\r\n                g_dic[groupSizes[i]].append(i)\r\n       \r\n        for item in g_dic.items():\r\n            pointer = 0\r\n\r\n            while pointer != len(item[1]):\r\n                result.append(item[1][pointer:(pointer + item[0])])\r\n                pointer += item[0]\r\n\r\n        return result",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        9,
+        11
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1,
+        2,
+        3
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 25,
+    "fields": {
+      "problem_number": 1281,
+      "problem_name": "Subtract the Product and Sum of Digits of an Integer",
+      "problem_url": "https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.24",
+      "memory_perc": "62.18",
+      "code": "class Solution:\r\n    def subtractProductAndSum(self, n: int) -> int:\r\n        multi_value = 1\r\n        sum_value = 0\r\n\r\n        while n > 0:\r\n            result = n % 10\r\n            n //= 10\r\n            multi_value = result * multi_value\r\n            sum_value = result + sum_value\r\n\r\n        return multi_value - sum_value",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 26,
+    "fields": {
+      "problem_number": 3285,
+      "problem_name": "Find Indices of Stable Mountains",
+      "problem_url": "https://leetcode.com/problems/find-indices-of-stable-mountains/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.37",
+      "memory_perc": "17.89",
+      "code": "class Solution:\r\n    def stableMountains(self, height: List[int], threshold: int) -> List[int]:\r\n        slow,fast = 0,1\r\n        result = []\r\n\r\n        while fast != len(height):\r\n            if height[slow] > threshold:\r\n                result.append(fast)\r\n            slow += 1\r\n            fast += 1\r\n\r\n        return result",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 27,
+    "fields": {
+      "problem_number": 1431,
+      "problem_name": "Kids With the Greatest Number of Candies",
+      "problem_url": "https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.28",
+      "memory_perc": "63.05",
+      "code": "class Solution:\r\n    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:\r\n        max_candy = max(candies)\r\n        ans = []\r\n\r\n        for i in range(len(candies)):\r\n            if candies[i] + extraCandies >= max_candy:\r\n                ans.append(True)\r\n            else:\r\n                ans.append(False)\r\n\r\n        return ans",
+      "used_functions": [
+        14,
+        15
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 28,
+    "fields": {
+      "problem_number": 1021,
+      "problem_name": "Remove Outermost Parentheses",
+      "problem_url": "https://leetcode.com/problems/remove-outermost-parentheses/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "3.00",
+      "runtime_perc": "64.19",
+      "memory_mb": "19.37",
+      "memory_perc": "30.03",
+      "code": "class Solution:\r\n    def removeOuterParentheses(self, s: str) -> str:\r\n        count = 0\r\n        ans = \"\"\r\n\r\n        for i in range(len(s)):\r\n            if s[i] == \"(\":\r\n                if count != 0:\r\n                    ans += s[i]\r\n                count += 1\r\n            else:\r\n                count -= 1\r\n                if count != 0:\r\n                    ans += s[i]\r\n\r\n        return ans",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 29,
+    "fields": {
+      "problem_number": 1678,
+      "problem_name": "Goal Parser Interpretation",
+      "problem_url": "https://leetcode.com/problems/goal-parser-interpretation/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "44.00",
+      "runtime_perc": "59.85",
+      "memory_mb": "19.14",
+      "memory_perc": "81.30",
+      "code": "class Solution:\r\n    def interpret(self, command: str) -> str:\r\n        string = \"\"\r\n       \r\n        for i in range(len(command)):\r\n            if command[i] == \"G\":\r\n                string += command[i]\r\n            elif command[i] == \"(\" and command[i + 1] == \")\":\r\n                string += \"o\"\r\n            elif command[i:i+4] == \"(al)\":\r\n                string += \"al\"\r\n       \r\n        return string",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 30,
+    "fields": {
+      "problem_number": 2235,
+      "problem_name": "Add Two Integers",
+      "problem_url": "https://leetcode.com/problems/add-two-integers/submissions/2057337920/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.06",
+      "memory_perc": "97.24",
+      "code": "class Solution:\r\n    def sum(self, num1: int, num2: int) -> int:\r\n        return num1 + num2",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 31,
+    "fields": {
+      "problem_number": 2824,
+      "problem_name": "Count Pairs Whose Sum is Less than Target",
+      "problem_url": "https://leetcode.com/problems/count-pairs-whose-sum-is-less-than-target/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "3.00",
+      "runtime_perc": "64.81",
+      "memory_mb": "19.30",
+      "memory_perc": "58.37",
+      "code": "class Solution:\r\n    def countPairs(self, nums: List[int], target: int) -> int:\r\n        count = 0\r\n\r\n        for slow in range(len(nums)):\r\n            for fast in range(slow + 1, len(nums)):\r\n                if (nums[slow] + nums[fast]) < target:\r\n                    count += 1\r\n       \r\n        return count",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1,
+        3
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 32,
+    "fields": {
+      "problem_number": 2413,
+      "problem_name": "Smallest Even Multiple",
+      "problem_url": "https://leetcode.com/problems/smallest-even-multiple/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.20",
+      "memory_perc": "83.40",
+      "code": "class Solution:\r\n    def smallestEvenMultiple(self, n: int) -> int:\r\n        count = 0\r\n        multi = int(n)\r\n\r\n        while True:\r\n            if multi % 2 == 0 and multi % n == 0:\r\n                return multi\r\n            else:\r\n                multi += n",
+      "used_functions": [
+        1
+      ],
+      "used_methods": [],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 33,
+    "fields": {
+      "problem_number": 3146,
+      "problem_name": "Permutation Difference between Two Strings",
+      "problem_url": "https://leetcode.com/problems/permutation-difference-between-two-strings/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.15",
+      "memory_perc": "86.27",
+      "code": "class Solution:\r\n    def findPermutationDifference(self, s: str, t: str) -> int:\r\n        s_dic = {}\r\n        count = 0\r\n\r\n        for i, s in enumerate(s):\r\n            s_dic[s] = i\r\n       \r\n        for i, t in enumerate(t):\r\n            if t in s_dic:\r\n                count += abs(s_dic[t] - i)\r\n\r\n        return count",
+      "used_functions": [
+        10,
+        18
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 34,
+    "fields": {
+      "problem_number": 1221,
+      "problem_name": "Split a String in Balanced Strings",
+      "problem_url": "https://leetcode.com/problems/split-a-string-in-balanced-strings/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.13",
+      "memory_perc": "16.19",
+      "code": "class Solution:\r\n    def balancedStringSplit(self, s: str) -> int:\r\n        count = 0\r\n        ans = 0\r\n\r\n        for i in range(len(s)):\r\n            if s[i] == \"L\":\r\n                count += 1\r\n            else:\r\n                count -= 1\r\n            if count == 0:\r\n                ans += 1\r\n\r\n        return ans",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 35,
+    "fields": {
+      "problem_number": 3760,
+      "problem_name": "Maximum Substrings With Distinct Start",
+      "problem_url": "https://leetcode.com/problems/maximum-substrings-with-distinct-start/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "15.00",
+      "runtime_perc": "60.23",
+      "memory_mb": "19.91",
+      "memory_perc": "67.89",
+      "code": "class Solution:\r\n    def maxDistinct(self, s: str) -> int:\r\n        return len(set(s))",
+      "used_functions": [
+        7,
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 36,
+    "fields": {
+      "problem_number": 3751,
+      "problem_name": "Total Waviness of Numbers in Range I",
+      "problem_url": "https://leetcode.com/problems/total-waviness-of-numbers-in-range-i/",
+      "rating": 4,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "352.00",
+      "runtime_perc": "36.75",
+      "memory_mb": "19.32",
+      "memory_perc": "36.75",
+      "code": "class Solution:\r\n    def totalWaviness(self, num1: int, num2: int) -> int:\r\n        nums = []\r\n        count = 0\r\n       \r\n        for n in range(num1, num2 + 1):\r\n            while n != 0:\r\n                current_num = n % 10\r\n                n = floor(n / 10)\r\n                nums.append(current_num)\r\n            left = 0\r\n            right = 2\r\n\r\n            while right < len(nums):\r\n                if nums[left + 1] < nums[left] and nums[left + 1] < nums[right]:\r\n                    count += 1\r\n                elif nums[left + 1] > nums[left] and nums[left + 1] > nums[right]:\r\n                    count += 1\r\n                left += 1\r\n                right += 1\r\n            nums = []\r\n\r\n        return count",
+      "used_functions": [
+        15,
+        22,
+        24
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1,
+        2,
+        3
+      ],
+      "used_algorithms": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 37,
+    "fields": {
+      "problem_number": 2798,
+      "problem_name": "Number of Employees Who Met the Target",
+      "problem_url": "https://leetcode.com/problems/number-of-employees-who-met-the-target/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.31",
+      "memory_perc": "14.88",
+      "code": "class Solution:\r\n    def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:\r\n        count = 0\r\n\r\n        for h in hours:\r\n            if h >= target:\r\n                count += 1\r\n\r\n        return count",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 39,
+    "fields": {
+      "problem_number": 2769,
+      "problem_name": "Find the Maximum Achievable Number",
+      "problem_url": "https://leetcode.com/problems/find-the-maximum-achievable-number/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "2.00",
+      "runtime_perc": "20.16",
+      "memory_mb": "19.22",
+      "memory_perc": "46.77",
+      "code": "class Solution:\r\n    def theMaximumAchievableX(self, num: int, t: int) -> int:\r\n        x = num + t\r\n\r\n        for _ in range(t):\r\n            x += 1\r\n        return x",
+      "used_functions": [
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 40,
+    "fields": {
+      "problem_number": 2894,
+      "problem_name": "Divisible and Non-divisible Sums Difference",
+      "problem_url": "https://leetcode.com/problems/divisible-and-non-divisible-sums-difference/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.19",
+      "memory_perc": "81.01",
+      "code": "class Solution:\r\n    def differenceOfSums(self, n: int, m: int) -> int:\r\n        count = 0\r\n       \r\n        for number in range(1, (n + 1)):\r\n            if number % m != 0:\r\n                count += number\r\n            else:\r\n                count -= number\r\n\r\n        return count",
+      "used_functions": [
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 41,
+    "fields": {
+      "problem_number": 3668,
+      "problem_name": "Restore Finishing Order",
+      "problem_url": "https://leetcode.com/problems/restore-finishing-order/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "2.00",
+      "runtime_perc": "41.34",
+      "memory_mb": "19.25",
+      "memory_perc": "58.09",
+      "code": "class Solution:\r\n    def recoverOrder(self, order: List[int], friends: List[int]) -> List[int]:\r\n        current = {}\r\n\r\n        for i in range(len(friends)):\r\n            place = order.index(friends[i])\r\n            current[place] = friends[i]\r\n\r\n        sorted_dict = dict(sorted(current.items()))\r\n       \r\n        return [f for f in sorted_dict.values()]",
+      "used_functions": [
+        8,
+        15,
+        16,
+        22
+      ],
+      "used_methods": [
+        5,
+        11,
+        12
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1,
+        4
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 42,
+    "fields": {
+      "problem_number": 3794,
+      "problem_name": "Reverse String Prefix",
+      "problem_url": "https://leetcode.com/problems/reverse-string-prefix/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.26",
+      "memory_perc": "52.78",
+      "code": "class Solution:\r\n    def reversePrefix(self, s: str, k: int) -> str:\r\n        first_s = s[:k]\r\n        rev_s = first_s[::-1]\r\n\r\n        return rev_s + s[k:]",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 43,
+    "fields": {
+      "problem_number": 3190,
+      "problem_name": "Find Minimum Operations to Make All Elements Divisible by Three",
+      "problem_url": "https://leetcode.com/problems/find-minimum-operations-to-make-all-elements-divisible-by-three/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.16",
+      "memory_perc": "86.08",
+      "code": "class Solution:\r\n    def minimumOperations(self, nums: List[int]) -> int:\r\n        count = 0\r\n\r\n        for i in range(len(nums)):\r\n            difference = nums[i] % 3\r\n            if difference == 1:\r\n                count += 1\r\n            elif difference == 2:\r\n                count += 1\r\n       \r\n        return count",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 44,
+    "fields": {
+      "problem_number": 3731,
+      "problem_name": "Find Missing Elements",
+      "problem_url": "https://leetcode.com/problems/find-missing-elements/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "3.00",
+      "runtime_perc": "60.87",
+      "memory_mb": "19.22",
+      "memory_perc": "61.60",
+      "code": "class Solution:\r\n    def findMissingElements(self, nums: List[int]) -> List[int]:\r\n        sort_nums = sorted(nums)\r\n        ans = []\r\n\r\n\r\n        for n in range(sort_nums[0], sort_nums[-1]):\r\n            if n not in sort_nums:\r\n                ans.append(n)\r\n\r\n        return ans",
+      "used_functions": [
+        16,
+        22
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 45,
+    "fields": {
+      "problem_number": 1470,
+      "problem_name": "Shuffle the Array",
+      "problem_url": "https://leetcode.com/problems/shuffle-the-array/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "66.00",
+      "runtime_perc": "42.72",
+      "memory_mb": "19.30",
+      "memory_perc": "87.37",
+      "code": "class Solution:\r\n    def shuffle(self, nums: List[int], n: int) -> List[int]:\r\n        halfway = len(nums) // 2\r\n        ans = []\r\n       \r\n        first_part = nums[:halfway]\r\n        sec_part = nums[halfway:]\r\n\r\n        for i in range(halfway):\r\n            ans.append(first_part[i])\r\n            ans.append(sec_part[i])\r\n\r\n        return ans",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 46,
+    "fields": {
+      "problem_number": 3541,
+      "problem_name": "Find Most Frequent Vowel and Consonant",
+      "problem_url": "https://leetcode.com/problems/find-most-frequent-vowel-and-consonant/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "1.00",
+      "runtime_perc": "66.35",
+      "memory_mb": "19.34",
+      "memory_perc": "23.74",
+      "code": "from collections import Counter\r\n\r\nclass Solution:\r\n    def maxFreqSum(self, s: str) -> int:\r\n        vowels = \"aeuio\"\r\n        counterObject = collections.Counter(s)\r\n       \r\n        vowels_dic = {}\r\n        consonants_dic = {}\r\n\r\n        for item in counterObject.items():\r\n            if item[0] in vowels:\r\n                vowels_dic[item[0]] = item[1]\r\n            else:\r\n                consonants_dic[item[0]] = item[1]\r\n       \r\n        max_vowels = max(vowels_dic.values()) if len(vowels_dic) > 0 else 0\r\n        max_consonants = max(consonants_dic.values()) if len(consonants_dic) > 0 else 0\r\n\r\n        return max_vowels + max_consonants",
+      "used_functions": [
+        14,
+        15,
+        26
+      ],
+      "used_methods": [
+        11,
+        12
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 47,
+    "fields": {
+      "problem_number": 485,
+      "problem_name": "Max Consecutive Ones",
+      "problem_url": "https://leetcode.com/problems/max-consecutive-ones/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "17.00",
+      "runtime_perc": "48.73",
+      "memory_mb": "21.82",
+      "memory_perc": "43.61",
+      "code": "class Solution:\r\n    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:\r\n        count = 0\r\n        max_count = count\r\n\r\n        for i in range(len(nums)):\r\n            if nums[i] == 1:\r\n                count += 1\r\n            else:\r\n                count = 0\r\n            max_count = max(count, max_count)\r\n       \r\n        return max_count",
+      "used_functions": [
+        14,
+        15,
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": [
+        12
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 48,
+    "fields": {
+      "problem_number": 2011,
+      "problem_name": "Final Value of Variable After Performing Operations",
+      "problem_url": "https://leetcode.com/problems/final-value-of-variable-after-performing-operations/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.24",
+      "memory_perc": "55.69",
+      "code": "class Solution:\r\n    def finalValueAfterOperations(self, operations: List[str]) -> int:\r\n        x = 0\r\n\r\n        for o in operations:\r\n            if o == \"++X\" or o == \"X++\":\r\n                x += 1\r\n            else:\r\n                x -= 1\r\n       \r\n        return x",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 49,
+    "fields": {
+      "problem_number": 2942,
+      "problem_name": "Find Words Containing Character",
+      "problem_url": "https://leetcode.com/problems/find-words-containing-character/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.00",
+      "memory_perc": "99.85",
+      "code": "class Solution:\r\n    def findWordsContaining(self, words: List[str], x: str) -> List[int]:\r\n        ans = []\r\n       \r\n        for i, w in enumerate(words):\r\n            if x in w:\r\n                ans.append(i)\r\n       \r\n        return ans",
+      "used_functions": [
+        18
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 50,
+    "fields": {
+      "problem_number": 2469,
+      "problem_name": "Convert the Temperature",
+      "problem_url": "https://leetcode.com/problems/convert-the-temperature/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.44",
+      "memory_perc": "14.33",
+      "code": "class Solution:\r\n    def convertTemperature(self, celsius: float) -> List[float]:\r\n        ans = []\r\n       \r\n        kelvin = celsius + 273.15\r\n        ans.append(kelvin)\r\n\r\n        fahrenheit = celsius * 1.80 + 32.00\r\n        ans.append(fahrenheit)\r\n\r\n        return ans",
+      "used_functions": [],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 52,
+    "fields": {
+      "problem_number": 1512,
+      "problem_name": "Number of Good Pairs",
+      "problem_url": "https://leetcode.com/problems/number-of-good-pairs/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.12",
+      "memory_perc": "87.87",
+      "code": "class Solution:\r\n    def numIdenticalPairs(self, nums: List[int]) -> int:\r\n        freq = {}\r\n        pair_count = 0\r\n\r\n        for i in range(len(nums)):\r\n            if nums[i] in freq:\r\n                freq[nums[i]] += 1\r\n            else:\r\n                freq[nums[i]] = 1\r\n\r\n        for item in freq.items():\r\n            pair_count += item[1] * (item[1] - 1) // 2\r\n           \r\n        return pair_count",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [
+        11
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 53,
+    "fields": {
+      "problem_number": 1929,
+      "problem_name": "Concatenation of Array",
+      "problem_url": "https://leetcode.com/problems/concatenation-of-array/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.37",
+      "memory_perc": "40.78",
+      "code": "class Solution:\r\n    def getConcatenation(self, nums: List[int]) -> List[int]:\r\n        nums.extend(nums)\r\n\r\n        return nums",
+      "used_functions": [],
+      "used_methods": [
+        10
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 54,
+    "fields": {
+      "problem_number": 1684,
+      "problem_name": "Count the Number of Consistent Strings",
+      "problem_url": "https://leetcode.com/problems/count-the-number-of-consistent-strings/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "196.00",
+      "runtime_perc": "95.02",
+      "memory_mb": "20.83",
+      "memory_perc": "78.75",
+      "code": "class Solution:\r\n   def countConsistentStrings(self, allowed: str, words: List[str]) -> int:\r\n       count = 0\r\n      \r\n       for w in words:\r\n           is_allowed_word = False\r\n\r\n           for l in w:\r\n               if l in allowed:\r\n                   is_allowed_word = True\r\n               else:\r\n                   is_allowed_word = False\r\n                   break\r\n          \r\n           if is_allowed_word == True:\r\n               count += 1\r\n      \r\n       return count",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1,
+        3
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 55,
+    "fields": {
+      "problem_number": 3289,
+      "problem_name": "The Two Sneaky Numbers of Digitville",
+      "problem_url": "https://leetcode.com/problems/the-two-sneaky-numbers-of-digitville/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.36",
+      "memory_perc": "21.16",
+      "code": "class Solution:\r\n    def getSneakyNumbers(self, nums: List[int]) -> List[int]:\r\n        freq = {}\r\n        ans = []\r\n\r\n        for i in range(len(nums)):\r\n            if nums[i] in freq:\r\n                freq[nums[i]] += 1\r\n            else:\r\n                freq[nums[i]] = 1\r\n\r\n        for item in freq.items():\r\n            if item[1] == 1:\r\n                continue\r\n            elif item[1] == 2:\r\n                ans.append(item[0])\r\n            elif item[1] == 3:\r\n                ans.append(item[0])\r\n                ans.append(item[0])\r\n       \r\n        ans.sort()\r\n        return ans",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [
+        7,
+        9,
+        11
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 56,
+    "fields": {
+      "problem_number": 3467,
+      "problem_name": "Transform Array by Parity",
+      "problem_url": "https://leetcode.com/problems/transform-array-by-parity/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.32",
+      "memory_perc": "15.06",
+      "code": "class Solution:\r\n    def transformArray(self, nums: List[int]) -> List[int]:\r\n       \r\n        for i in range(len(nums)):\r\n            if nums[i] % 2 == 0:\r\n                nums[i] = 0\r\n            else:\r\n                nums[i] = 1\r\n        nums.sort()\r\n\r\n        return nums",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [
+        7
+      ],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 57,
+    "fields": {
+      "problem_number": 1920,
+      "problem_name": "Build Array from Permutation",
+      "problem_url": "https://leetcode.com/problems/build-array-from-permutation/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "2.00",
+      "runtime_perc": "58.99",
+      "memory_mb": "19.45",
+      "memory_perc": "25.28",
+      "code": "class Solution:\r\n    def buildArray(self, nums: List[int]) -> List[int]:\r\n        value = 0\r\n        new_a = []\r\n\r\n        for i in range(len(nums)):\r\n            value = nums[i]\r\n            new_a.append(nums[value])\r\n       \r\n        return new_a",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 58,
+    "fields": {
+      "problem_number": 3498,
+      "problem_name": "Reverse Degree of a String",
+      "problem_url": "https://leetcode.com/problems/reverse-degree-of-a-string/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "7.00",
+      "runtime_perc": "71.23",
+      "memory_mb": "19.21",
+      "memory_perc": "55.94",
+      "code": "class Solution:\r\n    def reverseDegree(self, s: str) -> int:\r\n        ans = 0\r\n       \r\n        for i, l in enumerate(s):\r\n            # ASCII waarde (97) = (a)\r\n            new_l = 26 - (ord(l) - 97)\r\n            ans += (new_l * (i + 1))\r\n\r\n        return ans",
+      "used_functions": [
+        18,
+        27
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 59,
+    "fields": {
+      "problem_number": 2859,
+      "problem_name": "Sum of Values at Indices With K Set Bits",
+      "problem_url": "https://leetcode.com/problems/sum-of-values-at-indices-with-k-set-bits/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.39",
+      "memory_perc": "73.07",
+      "code": "class Solution:\r\n    def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:\r\n        result = 0\r\n       \r\n        for i in range(len(nums)):\r\n            if i.bit_count() == k:\r\n                result += nums[i]\r\n       \r\n        return result",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        16
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 60,
+    "fields": {
+      "problem_number": 876,
+      "problem_name": "Middle of the Linked List",
+      "problem_url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "19.11",
+      "memory_perc": "88.77",
+      "code": "import math\r\n\r\n\r\nclass Solution:\r\n    def middleNode(self, head: Optional[ListNode]) -> Optional:\r\n        count = 0\r\n        current = head\r\n\r\n        while current is not None:\r\n            count += 1\r\n            current = current.next\r\n       \r\n        mid_count = math.ceil(count / 2) if count % 2 == 1 else (count / 2) + 1\r\n        count = 1\r\n\r\n        while head is not None:\r\n            if count == mid_count:\r\n                return head\r\n            count += 1\r\n            head = head.next",
+      "used_functions": [
+        25
+      ],
+      "used_methods": [],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [
+        8
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 61,
+    "fields": {
+      "problem_number": 2181,
+      "problem_name": "Merge Nodes in Between Zeros",
+      "problem_url": "https://leetcode.com/problems/merge-nodes-in-between-zeros/",
+      "rating": 2,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "171.00",
+      "runtime_perc": "32.67",
+      "memory_mb": "108.82",
+      "memory_perc": "13.27",
+      "code": "class Solution:\r\n    def mergeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:\r\n        count = 0\r\n        result = None\r\n        current = None\r\n\r\n        while head:\r\n            if head.val == 0:\r\n                if count != 0:\r\n                    new_node = ListNode(count)\r\n\r\n                    if result is None:\r\n                        result = new_node\r\n                        current = new_node\r\n                    else:\r\n                        current.next = new_node\r\n                        current = new_node\r\n                    count = 0\r\n            else:\r\n                count += head.val\r\n            head = head.next\r\n\r\n        return result",
+      "used_functions": [],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        8
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 63,
+    "fields": {
+      "problem_number": 1637,
+      "problem_name": "Widest Vertical Area Between Two Points Containing No Points",
+      "problem_url": "https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "43.00",
+      "runtime_perc": "75.33",
+      "memory_mb": "51.96",
+      "memory_perc": "67.76",
+      "code": "class Solution:\r\n    def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:\r\n        x_points = [x for x, y in points]\r\n        x_points.sort()\r\n        current_width = x_points[1] - x_points[0]\r\n        max_width = current_width\r\n\r\n        for i in range(2, len(x_points) - 1):\r\n            current_width = x_points[i + 1] - x_points[i]\r\n            max_width = max(current_width, max_width)\r\n       \r\n        return max_width",
+      "used_functions": [
+        14,
+        15
+      ],
+      "used_methods": [
+        7
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1,
+        4
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 64,
+    "fields": {
+      "problem_number": 2461,
+      "problem_name": "Maximum Sum of Distinct Subarrays With Length K",
+      "problem_url": "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/",
+      "rating": 4,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "75.00",
+      "runtime_perc": "99.62",
+      "memory_mb": "38.06",
+      "memory_perc": "5.07",
+      "code": "class Solution:\r\n    def maximumSubarraySum(self, nums: List[int], k: int) -> int:\r\n        freq = {}\r\n        current_sum = sum(nums[:k])\r\n        max_sum = 0\r\n\r\n        for n in nums[:k]:\r\n            if n in freq:\r\n                freq[n] += 1\r\n            else:\r\n                freq[n] = 1\r\n\r\n        if len(freq) == k:\r\n            max_sum = current_sum\r\n\r\n        for i in range(k, len(nums)):\r\n            left = nums[i - k]\r\n            right = nums[i]\r\n            freq[left] -= 1\r\n            current_sum -= left\r\n           \r\n            if freq[left] == 0:\r\n                freq.pop(left)\r\n            if right not in freq:\r\n                freq[right] = 1\r\n            else:\r\n                freq[right] += 1\r\n            current_sum += right\r\n\r\n            if len(freq) == k:\r\n                max_sum = max(current_sum, max_sum)\r\n\r\n        return max_sum",
+      "used_functions": [
+        12,
+        14,
+        15
+      ],
+      "used_methods": [
+        15
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 65,
+    "fields": {
+      "problem_number": 167,
+      "problem_name": "Two Sum II - Input Array Is Sorted",
+      "problem_url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/",
+      "rating": 4,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "7.00",
+      "runtime_perc": "47.31",
+      "memory_mb": "20.57",
+      "memory_perc": "70.78",
+      "code": "class Solution:\r\n    def twoSum(self, numbers: List[int], target: int) -> List[int]:\r\n        left = 0\r\n        right = len(numbers) - 1\r\n        current_sum = numbers[left] + numbers[right]\r\n\r\n        if current_sum == target:\r\n            return [(left + 1), (right + 1)]\r\n\r\n        while left < right:\r\n            if current_sum > target:\r\n                right -= 1\r\n                current_sum = numbers[left] + numbers[right]\r\n            if current_sum < target:\r\n                left += 1\r\n                current_sum = numbers[left] + numbers[right]\r\n            if current_sum == target:\r\n                return [(left + 1), (right + 1)]",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 66,
+    "fields": {
+      "problem_number": 125,
+      "problem_name": "Valid Palindrome",
+      "problem_url": "https://leetcode.com/problems/valid-palindrome/description/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "9.00",
+      "runtime_perc": "41.95",
+      "memory_mb": "20.21",
+      "memory_perc": "26.65",
+      "code": "class Solution:\r\n    def isPalindrome(self, s: str) -> bool:\r\n        chars = \"abcdefghijklmnopqrstuvwxyz0123456789\"\r\n\r\n        if len(s) == 1:\r\n            return True\r\n\r\n        new_s = list(filter(lambda x: x in chars, s.lower()))\r\n        left = 0\r\n        right = len(new_s) - 1\r\n\r\n        while left < right:\r\n            if new_s[left] != new_s[right]:\r\n                return False\r\n            else:\r\n                left += 1\r\n                right -= 1\r\n\r\n        return True",
+      "used_functions": [
+        5,
+        15,
+        21,
+        30
+      ],
+      "used_methods": [
+        17
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 67,
+    "fields": {
+      "problem_number": 26,
+      "problem_name": "Remove Duplicates from Sorted Array",
+      "problem_url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/",
+      "rating": 3,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "20.53",
+      "memory_perc": "43.84",
+      "code": "class Solution:\r\n    def removeDuplicates(self, nums: List[int]) -> int:\r\n        slow = 0\r\n        counter = 1\r\n\r\n        if len(nums) == 0:\r\n            return []\r\n\r\n\r\n        for fast in range(1, len(nums)):\r\n            if nums[fast] != nums[slow]:\r\n                counter += 1\r\n                slow += 1\r\n                nums[slow] = nums[fast]\r\n\r\n        return counter",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 68,
+    "fields": {
+      "problem_number": 11,
+      "problem_name": "Container With Most Water",
+      "problem_url": "https://leetcode.com/problems/container-with-most-water/description/",
+      "rating": 5,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "58.00",
+      "runtime_perc": "56.18",
+      "memory_mb": "29.70",
+      "memory_perc": "15.18",
+      "code": "class Solution:\r\n    def maxArea(self, height: List[int]) -> int:\r\n        left = 0\r\n        right = len(height) - 1\r\n        current_vol = float(\"-inf\")\r\n        max_vol = current_vol\r\n\r\n        while left < right:\r\n            if height[left] < height[right]:\r\n                current_vol = height[left] * abs(right - left)\r\n                left += 1\r\n            else:\r\n                current_vol = height[right] * abs(left - right)\r\n                right -= 1\r\n           \r\n            max_vol = max(current_vol, max_vol)\r\n\r\n        return max_vol",
+      "used_functions": [
+        2,
+        10,
+        14,
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 69,
+    "fields": {
+      "problem_number": 15,
+      "problem_name": "3Sum",
+      "problem_url": "https://leetcode.com/problems/3sum/description/",
+      "rating": 5,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "723.00",
+      "runtime_perc": "28.11",
+      "memory_mb": "22.17",
+      "memory_perc": "80.93",
+      "code": "class Solution:\r\n    def threeSum(self, nums: list[int]) -> list[list[int]]:\r\n        if len(nums) <= 2:\r\n            return []\r\n\r\n        left = 1\r\n        right = len(nums) - 1\r\n        valid_sums = []\r\n        current_sum = 0\r\n        nums.sort()\r\n\r\n        for i in range(len(nums)):\r\n            if i > 0 and nums[i] == nums[i - 1]:\r\n                continue      \r\n\r\n            left = i + 1\r\n            right = len(nums) - 1\r\n\r\n            while left < right:\r\n                current_sum = nums[i] + nums[left] + nums[right]\r\n\r\n                if current_sum < 0:\r\n                    left += 1\r\n                if current_sum > 0:\r\n                    right -= 1\r\n                if current_sum == 0:\r\n                    new_sum = [nums[i], nums[left], nums[right]]\r\n                    valid_sums.append(new_sum)\r\n                    left += 1\r\n                    right -= 1\r\n\r\n                    while left < right and nums[left] == nums[left - 1]:\r\n                        left += 1\r\n                    while left < right and nums[right] == nums[right + 1]:\r\n                        right -= 1\r\n               \r\n        return valid_sums",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        7,
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1,
+        2,
+        3
+      ],
+      "used_algorithms": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 70,
+    "fields": {
+      "problem_number": 349,
+      "problem_name": "Intersection of Two Arrays",
+      "problem_url": "https://leetcode.com/problems/intersection-of-two-arrays/",
+      "rating": 4,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "3.00",
+      "runtime_perc": "33.82",
+      "memory_mb": "19.28",
+      "memory_perc": "81.11",
+      "code": "class Solution:\r\n    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:\r\n        new_num = []\r\n        nums1.sort()\r\n        nums2.sort()\r\n        i = 0\r\n        j = 0\r\n\r\n        while i < len(nums1) and j < len(nums2):\r\n            if nums1[i] == nums2[j] and nums1[i] not in new_num:\r\n                new_num.append(nums1[i])\r\n                i += 1\r\n                j += 1\r\n            elif nums1[i] < nums2[j]:\r\n                i += 1\r\n            else:\r\n                j += 1\r\n\r\n        new_num.reverse()\r\n\r\n        return new_num",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        6,
+        7,
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 71,
+    "fields": {
+      "problem_number": 3,
+      "problem_name": "Longest Substring Without Repeating Characters",
+      "problem_url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/description/",
+      "rating": 2,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "27.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "13.27",
+      "memory_perc": "98.89",
+      "code": "class Solution(object):\r\n    def lengthOfLongestSubstring(self, s):\r\n        left = 0\r\n        longest = 0\r\n        sett = set()\r\n\r\n        for right in range(len(s)):\r\n            while s[right] in sett:\r\n                sett.remove(s[left])\r\n                left += 1\r\n\r\n            width = (right - left) + 1\r\n            longest = max(longest, width)\r\n            sett.add(s[right])\r\n\r\n        return longest",
+      "used_functions": [
+        7,
+        14,
+        15,
+        22
+      ],
+      "used_methods": [
+        18,
+        19
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1,
+        2
+      ],
+      "used_algorithms": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 72,
+    "fields": {
+      "problem_number": 9,
+      "problem_name": "Palindrome Number",
+      "problem_url": "https://leetcode.com/problems/palindrome-number/submissions/1861027147/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "40.00",
+      "runtime_perc": "5.38",
+      "memory_mb": "12.33",
+      "memory_perc": "56.27",
+      "code": "class Solution(object):\r\n    def isPalindrome(self, x):\r\n        if str(x)[0] == \"-\":\r\n            return False\r\n\r\n        reversed_num = int(str(x)[::-1])\r\n\r\n        if x == reversed_num:\r\n            return True\r\n        else:\r\n            return False",
+      "used_functions": [
+        1,
+        3
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 73,
+    "fields": {
+      "problem_number": 13,
+      "problem_name": "Roman to Integer",
+      "problem_url": "https://leetcode.com/problems/roman-to-integer/description/",
+      "rating": 4,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "18.00",
+      "runtime_perc": "12.40",
+      "memory_mb": "12.31",
+      "memory_perc": "58.85",
+      "code": "class Solution(object):\r\n    def romanToInt(self, s):\r\n        roman = {\r\n            \"I\": 1,\r\n            \"V\": 5,\r\n            \"X\": 10,\r\n            \"L\": 50,\r\n            \"C\": 100,\r\n            \"D\": 500,\r\n            \"M\": 1000\r\n            }\r\n\r\n        number_list = []\r\n        total_number = 0\r\n\r\n        for roman_num in s:\r\n            roman_decimal = roman.get(roman_num)\r\n            number_list.append(roman_decimal)\r\n                \r\n        for index, number in enumerate(number_list):\r\n            if (index + 1) != len(number_list):\r\n                if number_list[index] < number_list[index + 1]:\r\n                    total_number -= number\r\n                total_number += number\r\n            else:\r\n                total_number += number\r\n            \r\n        return total_number",
+      "used_functions": [
+        15,
+        18
+      ],
+      "used_methods": [
+        9,
+        14
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 74,
+    "fields": {
+      "problem_number": 27,
+      "problem_name": "Remove Element",
+      "problem_url": "https://leetcode.com/problems/remove-element/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "4.00",
+      "runtime_perc": "3.15",
+      "memory_mb": "12.36",
+      "memory_perc": "55.00",
+      "code": "class Solution(object):\r\n    def removeElement(self, nums, val):\r\n        nums[:] = [num for num in nums if num != val]\r\n\r\n        return len(nums)",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        4
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 75,
+    "fields": {
+      "problem_number": 35,
+      "problem_name": "Search Insert Position",
+      "problem_url": "https://leetcode.com/problems/search-insert-position/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "13.08",
+      "memory_perc": "31.49",
+      "code": "class Solution(object):\r\n    def searchInsert(self, nums, target):\r\n        counter = 0\r\n\r\n        for i, n in enumerate(nums):\r\n            if target == n:\r\n                return i\r\n            else:\r\n                if target < n:\r\n                    new_index = counter\r\n                else:\r\n                    counter += 1\r\n\r\n        return counter",
+      "used_functions": [
+        18
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 76,
+    "fields": {
+      "problem_number": 58,
+      "problem_name": "Length of Last Word",
+      "problem_url": "https://leetcode.com/problems/length-of-last-word/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "1.00",
+      "runtime_perc": "9.32",
+      "memory_mb": "12.53",
+      "memory_perc": "17.16",
+      "code": "class Solution(object):\r\n    def lengthOfLastWord(self, s):\r\n        words = s.split()\r\n        return len(words[-1])",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        4
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 77,
+    "fields": {
+      "problem_number": 217,
+      "problem_name": "Contains Duplicate",
+      "problem_url": "https://leetcode.com/problems/contains-duplicate/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "21.00",
+      "runtime_perc": "73.08",
+      "memory_mb": "26.02",
+      "memory_perc": "23.95",
+      "code": "class Solution(object):\r\n    def containsDuplicate(self, nums):\r\n        numbers = set()\r\n    \r\n        for n in nums:\r\n            if n in numbers:\r\n                return True\r\n            numbers.add(n)\r\n    \r\n        return False",
+      "used_functions": [
+        7
+      ],
+      "used_methods": [
+        19
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 78,
+    "fields": {
+      "problem_number": 412,
+      "problem_name": "Fizz Buzz",
+      "problem_url": "https://leetcode.com/problems/fizz-buzz/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "1.00",
+      "runtime_perc": "34.54",
+      "memory_mb": "19.55",
+      "memory_perc": "54.00",
+      "code": "class Solution(object):\r\n    def fizzBuzz(self, n):\r\n        nums = []\r\n\r\n        for index, num in enumerate(range(1, n + 1)):\r\n            if num % 3 == 0 and num % 5 == 0:\r\n                num = \"FizzBuzz\"\r\n                nums.append(str(num))\r\n            elif num % 3 == 0:\r\n                num = \"Fizz\"\r\n                nums.append(str(num))\r\n            elif num % 5 == 0:\r\n                num = \"Buzz\"\r\n                nums.append(str(num))\r\n            else:\r\n                nums.append(str(num))\r\n\r\n        return nums",
+      "used_functions": [
+        3,
+        18,
+        22
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [
+        1
+      ],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 79,
+    "fields": {
+      "problem_number": 448,
+      "problem_name": "Find All Numbers Disappeared in an Array",
+      "problem_url": "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "23.00",
+      "runtime_perc": "77.32",
+      "memory_mb": "30.26",
+      "memory_perc": "94.18",
+      "code": "class Solution:\r\n    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:\r\n        new_s = set(nums)\r\n        ans = []\r\n\r\n        for i in range(1, len(nums)+1):\r\n            if i not in new_s:\r\n                ans.append(i)\r\n\r\n        return ans",
+      "used_functions": [
+        7,
+        15,
+        22
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 81,
+    "fields": {
+      "problem_number": 520,
+      "problem_name": "Detect Capital",
+      "problem_url": "https://leetcode.com/problems/detect-capital/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "12.50",
+      "memory_perc": "15.66",
+      "code": "class Solution(object):\r\n    def detectCapitalUse(self, word):\r\n        if word[:].islower():\r\n            return True\r\n        if word[0].isupper() and word[1:].islower():\r\n            return True\r\n        if word[:].isupper():\r\n            return True\r\n    \r\n        return False",
+      "used_functions": [],
+      "used_methods": [
+        20,
+        21
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 82,
+    "fields": {
+      "problem_number": 599,
+      "problem_name": "Minimum Index Sum of Two Lists",
+      "problem_url": "https://leetcode.com/problems/minimum-index-sum-of-two-lists/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "545.00",
+      "runtime_perc": "17.41",
+      "memory_mb": "12.64",
+      "memory_perc": "44.59",
+      "code": "class Solution(object): \r\n    def findRestaurant(self, list1, list2): \r\n        same = {} \r\n        all_values = []\r\n\r\n        for i1, l1 in enumerate(list1):\r\n            for i2, l2 in enumerate(list2):\r\n                if l1 == l2: \r\n                    same.update({l1:(i1 + i2)}) \r\n        keys = list(same.keys()) \r\n\r\n        if len(same.keys()) > 1:\r\n            lowest_value = min(same.values())\r\n\r\n            for key, value in same.items():\r\n                if value == lowest_value:\r\n                    all_values.append(key)\r\n            return all_values\r\n        else: \r\n            return keys",
+      "used_functions": [
+        5,
+        13,
+        15,
+        18
+      ],
+      "used_methods": [
+        9,
+        11,
+        12,
+        13,
+        22
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1,
+        3
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 83,
+    "fields": {
+      "problem_number": 643,
+      "problem_name": "Maximum Average Subarray I",
+      "problem_url": "https://leetcode.com/problems/maximum-average-subarray-i/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "60.00",
+      "runtime_perc": "61.43",
+      "memory_mb": "28.90",
+      "memory_perc": "78.06",
+      "code": "class Solution:\r\n    def findMaxAverage(self, nums: List[int], k: int) -> float:\r\n        current_sum = float(sum(nums[:k]))\r\n        max_sum = current_sum\r\n\r\n        for i in range(k, len(nums)):\r\n            current_sum += nums[i]\r\n            current_sum -= nums[i - k]\r\n            max_sum = max(max_sum, current_sum)\r\n\r\n        return max_sum / float(k)",
+      "used_functions": [
+        2,
+        12,
+        14,
+        15,
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 84,
+    "fields": {
+      "problem_number": 645,
+      "problem_name": "Set Mismatch",
+      "problem_url": "https://leetcode.com/problems/set-mismatch/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "11.00",
+      "runtime_perc": "68.64",
+      "memory_mb": "21.16",
+      "memory_perc": "16.24",
+      "code": "class Solution:\r\n    def findErrorNums(self, nums: List[int]) -> List[int]:\r\n        seen = set()\r\n        duplicate = 0\r\n        \r\n        for n in nums:\r\n            if n in seen:\r\n                duplicate = n\r\n            seen.add(n)\r\n\r\n        missing = 0\r\n        for i in range(1, len(nums)+1):\r\n            if i not in seen:\r\n                missing = i\r\n\r\n        return [duplicate, missing]",
+      "used_functions": [
+        7,
+        15,
+        22
+      ],
+      "used_methods": [
+        19
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 85,
+    "fields": {
+      "problem_number": 704,
+      "problem_name": "Binary Search",
+      "problem_url": "https://leetcode.com/problems/binary-search/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "0.00",
+      "runtime_perc": "100.00",
+      "memory_mb": "20.64",
+      "memory_perc": "10.03",
+      "code": "class Solution:\r\n    def search(self, nums: List[int], target: int) -> int:\r\n        left, right = 0, len(nums) - 1\r\n\r\n        while left <= right:\r\n            mid = (left + right) // 2\r\n            if nums[mid] == target:\r\n                return mid\r\n            if nums[mid] > target:\r\n                right = mid - 1\r\n            else:\r\n                left = mid + 1\r\n\r\n        return -1",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 86,
+    "fields": {
+      "problem_number": 1108,
+      "problem_name": "Defanging an IP Address",
+      "problem_url": "https://leetcode.com/problems/defanging-an-ip-address/description/",
+      "rating": 1,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "36.00",
+      "runtime_perc": "92.66",
+      "memory_mb": "19.08",
+      "memory_perc": "96.17",
+      "code": "class Solution:\r\n    def defangIPaddr(self, address: str) -> str:\r\n        new_s = address.replace(\".\", \"[.]\")\r\n        \r\n        return new_s",
+      "used_functions": [],
+      "used_methods": [
+        3
+      ],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 87,
+    "fields": {
+      "problem_number": 1365,
+      "problem_name": "How Many Numbers Are Smaller Than the Current Number",
+      "problem_url": "https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "245.00",
+      "runtime_perc": "5.19",
+      "memory_mb": "19.15",
+      "memory_perc": "90.35",
+      "code": "class Solution:\r\n    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:\r\n        current_num = nums[0]\r\n        ans = []\r\n\r\n        for i in range(len(nums)):\r\n            counter = 0\r\n            for j in range(len(nums)):\r\n                if i == j:\r\n                    j += 1\r\n                    continue\r\n                if nums[i] > nums[j]:\r\n                    counter += 1\r\n                j += 1\r\n            ans.append(counter)\r\n\r\n        return ans",
+      "used_functions": [
+        15
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1,
+        3
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 88,
+    "fields": {
+      "problem_number": 1456,
+      "problem_name": "Maximum Number of Vowels in a Substring of Given Length",
+      "problem_url": "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/",
+      "rating": 2,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "41.00",
+      "runtime_perc": "94.74",
+      "memory_mb": "19.86",
+      "memory_perc": "32.19",
+      "code": "class Solution:\r\n    def maxVowels(self, s: str, k: int) -> int:\r\n        vowels = \"aeiou\"\r\n        v_count = 0\r\n        v_max = 0\r\n\r\n        for c in s[:k]:\r\n            if c in vowels:\r\n                v_count += 1\r\n        \r\n        v_max = max(v_max, v_count)\r\n\r\n        for i in range(k, len(s)):\r\n            if s[i] in vowels:\r\n                v_count += 1\r\n            if s[i - k] in vowels:\r\n                v_count -= 1\r\n            v_max = max(v_max, v_count)\r\n                \r\n        return v_max",
+      "used_functions": [
+        14,
+        15,
+        22
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 89,
+    "fields": {
+      "problem_number": 2161,
+      "problem_name": "Partition Array According to Given Pivot",
+      "problem_url": "https://leetcode.com/problems/partition-array-according-to-given-pivot/description/",
+      "rating": 2,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "38.00",
+      "runtime_perc": "36.76",
+      "memory_mb": "34.49",
+      "memory_perc": "6.00",
+      "code": "class Solution:\r\n    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:\r\n        nums1 = []\r\n        nums2 = []\r\n        same = []\r\n\r\n        for i in range(len(nums)):\r\n            if nums[i] < pivot:\r\n                nums1.append(nums[i])\r\n            elif nums[i] > pivot:\r\n                nums2.append(nums[i])\r\n            else:\r\n                same.append(nums[i])\r\n        \r\n        nums1.extend(same)\r\n        nums1.extend(nums2)\r\n        return nums1",
+      "used_functions": [
+        15,
+        22
+      ],
+      "used_methods": [
+        9,
+        10
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 90,
+    "fields": {
+      "problem_number": 2574,
+      "problem_name": "Left and Right Sum Differences",
+      "problem_url": "https://leetcode.com/problems/left-and-right-sum-differences/description/",
+      "rating": 2,
+      "difficulty": 1,
+      "language": "python",
+      "runtime_ms": "135.00",
+      "runtime_perc": "9.94",
+      "memory_mb": "19.64",
+      "memory_perc": "6.16",
+      "code": "class Solution:\r\n    def leftRightDifference(self, nums: List[int]) -> List[int]:\r\n        index = 0\r\n        ans = []\r\n        left_sum_a = []\r\n        right_sum_a = []\r\n\r\n        for i in range(len(nums)):\r\n            left_sum = 0 if i == 0 else sum(nums[:i])\r\n            right_sum = 0 if i == len(nums) - 1 else sum(nums[i+1:])\r\n            left_sum_a.append(left_sum)\r\n            right_sum_a.append(right_sum)\r\n\r\n        for i in range(len(left_sum_a)):\r\n            ans.append(abs(left_sum_a[i] - right_sum_a[i]))\r\n\r\n        return ans",
+      "used_functions": [
+        10,
+        12,
+        15,
+        22
+      ],
+      "used_methods": [
+        9
+      ],
+      "used_operators": [],
+      "used_data_structures": [
+        1
+      ],
+      "used_control_structures": [
+        1
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcode",
+    "pk": 91,
+    "fields": {
+      "problem_number": 2807,
+      "problem_name": "Insert Greatest Common Divisors in Linked List",
+      "problem_url": "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/description/",
+      "rating": 2,
+      "difficulty": 2,
+      "language": "python",
+      "runtime_ms": "40.00",
+      "runtime_perc": "10.26",
+      "memory_mb": "22.88",
+      "memory_perc": "73.26",
+      "code": "import math\r\n\r\nclass Solution:\r\n    def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:\r\n        current = head\r\n        \r\n        while current.next is not None:\r\n            new_node = ListNode(math.gcd(current.val, current.next.val))\r\n            new_node.next = current.next\r\n            current.next = new_node\r\n            current = new_node.next\r\n\r\n        return head",
+      "used_functions": [
+        28
+      ],
+      "used_methods": [],
+      "used_operators": [],
+      "used_data_structures": [
+        8
+      ],
+      "used_control_structures": [
+        2
+      ],
+      "used_algorithms": []
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 1,
+    "fields": {
+      "language": 1,
+      "name": "Two Pointers",
+      "description": "Gebruikt twee indexen of pointers die door een datastructuur bewegen om efficiënt elementen te vergelijken of een probleem op te lossen. Vaak bewegen ze vanuit tegenovergestelde uiteinden of in dezelfde richting."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 2,
+    "fields": {
+      "language": 1,
+      "name": "Slow and Fast Pointers",
+      "description": "Gebruikt twee pointers die met verschillende snelheden bewegen. Wordt onder andere gebruikt om cycli in linked lists te detecteren of het middelpunt van een linked list te vinden."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 3,
+    "fields": {
+      "language": 1,
+      "name": "Sliding Window",
+      "description": "Houdt een dynamisch of vast venster van opeenvolgende elementen bij. Het venster wordt verschoven om bijvoorbeeld de langste substring of de maximale som van een deelreeks te vinden."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 4,
+    "fields": {
+      "language": 1,
+      "name": "Fast Pointer / Runner Technique",
+      "description": "Een pointer beweegt sneller dan een andere om eigenschappen van een datastructuur te ontdekken. Dit is een veelgebruikte toepassing van slow and fast pointers."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 5,
+    "fields": {
+      "language": 1,
+      "name": "Binary Search",
+      "description": "Zoekt efficiënt in een gesorteerde zoekruimte door deze herhaaldelijk te halveren."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 6,
+    "fields": {
+      "language": 1,
+      "name": "Linear Search",
+      "description": "Doorzoekt elementen één voor één totdat een match is gevonden of de reeks eindigt."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 7,
+    "fields": {
+      "language": 1,
+      "name": "Modified Binary Search",
+      "description": "Past binary search aan om bijvoorbeeld de eerste of laatste overeenkomst of een omslagpunt te vinden."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 8,
+    "fields": {
+      "language": 1,
+      "name": "Merge Sort",
+      "description": "Sorteert door gegevens op te splitsen, de delen te sorteren en ze samen te voegen."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 9,
+    "fields": {
+      "language": 1,
+      "name": "Quick Sort",
+      "description": "Sorteert door elementen rond een pivot te verdelen en de delen recursief te sorteren."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 10,
+    "fields": {
+      "language": 1,
+      "name": "Counting Sort",
+      "description": "Sorteert door aantallen per waarde bij te houden, geschikt voor bepaalde begrensde waardebereiken."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 11,
+    "fields": {
+      "language": 1,
+      "name": "Running Sum",
+      "description": "Berekent voor ieder element de cumulatieve som van alle voorgaande elementen, inclusief het huidige element."
+    }
+  },
+  {
+    "model": "core.leetcodealgorithm",
+    "pk": 12,
+    "fields": {
+      "language": 1,
+      "name": "Running Maximum",
+      "description": "Houdt tijdens het doorlopen van een reeks de hoogste waarde bij die tot dan toe is gevonden."
+    }
+  },
+  {
+    "model": "core.leetcodecontrolstructure",
+    "pk": 1,
+    "fields": {
+      "language": 1,
+      "name": "for loop",
+      "description": "Itereert over elementen van een iterable, zoals een lijst, string of range()."
+    }
+  },
+  {
+    "model": "core.leetcodecontrolstructure",
+    "pk": 2,
+    "fields": {
+      "language": 1,
+      "name": "while loop",
+      "description": "Herhaalt code zolang een voorwaarde True is."
+    }
+  },
+  {
+    "model": "core.leetcodecontrolstructure",
+    "pk": 3,
+    "fields": {
+      "language": 1,
+      "name": "nested loop",
+      "description": "Een loop binnen een andere loop; handig voor bijvoorbeeld matrices en combinaties van elementen."
+    }
+  },
+  {
+    "model": "core.leetcodecontrolstructure",
+    "pk": 4,
+    "fields": {
+      "language": 1,
+      "name": "List Comprehension",
+      "description": "Maakt een nieuwe lijst door een expressie toe te passen op elementen van een iterable, eventueel gefilterd met een voorwaarde, in een compacte notatie."
+    }
+  },
+  {
+    "model": "core.leetcodedatastructure",
+    "pk": 1,
+    "fields": {
+      "language": 1,
+      "name": "list",
+      "description": "Een geordende, aanpasbare verzameling elementen waarin duplicaten zijn toegestaan."
+    }
+  },
+  {
+    "model": "core.leetcodedatastructure",
+    "pk": 2,
+    "fields": {
+      "language": 1,
+      "name": "tuple",
+      "description": "Een geordende verzameling elementen die na het aanmaken niet kan worden aangepast."
+    }
+  },
+  {
+    "model": "core.leetcodedatastructure",
+    "pk": 3,
+    "fields": {
+      "language": 1,
+      "name": "set",
+      "description": "Een verzameling unieke elementen zonder gegarandeerde volgorde."
+    }
+  },
+  {
+    "model": "core.leetcodedatastructure",
+    "pk": 4,
+    "fields": {
+      "language": 1,
+      "name": "dict",
+      "description": "Een verzameling key-value-paren waarbij elke sleutel uniek is."
+    }
+  },
+  {
+    "model": "core.leetcodedatastructure",
+    "pk": 5,
+    "fields": {
+      "language": 1,
+      "name": "str",
+      "description": "Een onveranderlijke reeks tekens."
+    }
+  },
+  {
+    "model": "core.leetcodedatastructure",
+    "pk": 6,
+    "fields": {
+      "language": 1,
+      "name": "stack",
+      "description": "Een datastructuur volgens het LIFO-principe: het laatst toegevoegde element wordt als eerste verwijderd."
+    }
+  },
+  {
+    "model": "core.leetcodedatastructure",
+    "pk": 7,
+    "fields": {
+      "language": 1,
+      "name": "queue",
+      "description": "Een datastructuur volgens het FIFO-principe: het eerst toegevoegde element wordt als eerste verwijderd."
+    }
+  },
+  {
+    "model": "core.leetcodedatastructure",
+    "pk": 8,
+    "fields": {
+      "language": 1,
+      "name": "linked list",
+      "description": "Een reeks knopen waarbij iedere knoop verwijst naar de volgende knoop, en eventueel ook naar de vorige."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 1,
+    "fields": {
+      "language": 1,
+      "name": "int()",
+      "description": "Zet een waarde om naar een integer."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 2,
+    "fields": {
+      "language": 1,
+      "name": "float()",
+      "description": "Zet een waarde om naar een float."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 3,
+    "fields": {
+      "language": 1,
+      "name": "str()",
+      "description": "Zet een waarde om naar een string."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 4,
+    "fields": {
+      "language": 1,
+      "name": "bool()",
+      "description": "Zet een waarde om naar een boolean."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 5,
+    "fields": {
+      "language": 1,
+      "name": "list()",
+      "description": "Maakt een lijst."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 6,
+    "fields": {
+      "language": 1,
+      "name": "tuple()",
+      "description": "Maakt een tuple."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 7,
+    "fields": {
+      "language": 1,
+      "name": "set()",
+      "description": "Maakt een set met unieke elementen."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 8,
+    "fields": {
+      "language": 1,
+      "name": "dict()",
+      "description": "Maakt een dictionary."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 9,
+    "fields": {
+      "language": 1,
+      "name": "format()",
+      "description": "Formatteert een waarde als string."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 10,
+    "fields": {
+      "language": 1,
+      "name": "abs()",
+      "description": "Geeft de absolute waarde terug."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 11,
+    "fields": {
+      "language": 1,
+      "name": "round()",
+      "description": "Rondt een getal af."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 12,
+    "fields": {
+      "language": 1,
+      "name": "sum()",
+      "description": "Telt de elementen van een iterable bij elkaar op."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 13,
+    "fields": {
+      "language": 1,
+      "name": "min()",
+      "description": "Geeft het kleinste element terug."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 14,
+    "fields": {
+      "language": 1,
+      "name": "max()",
+      "description": "Geeft het grootste element terug."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 15,
+    "fields": {
+      "language": 1,
+      "name": "len()",
+      "description": "Geeft het aantal elementen terug."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 16,
+    "fields": {
+      "language": 1,
+      "name": "sorted()",
+      "description": "Geeft een nieuwe, gesorteerde lijst terug."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 17,
+    "fields": {
+      "language": 1,
+      "name": "reversed()",
+      "description": "Geeft een iterator in omgekeerde volgorde terug."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 18,
+    "fields": {
+      "language": 1,
+      "name": "enumerate()",
+      "description": "Geeft tijdens iteratie zowel index als waarde."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 19,
+    "fields": {
+      "language": 1,
+      "name": "zip()",
+      "description": "Combineert elementen uit meerdere iterables."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 20,
+    "fields": {
+      "language": 1,
+      "name": "map()",
+      "description": "Past een functie toe op elk element."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 21,
+    "fields": {
+      "language": 1,
+      "name": "filter()",
+      "description": "Selecteert elementen op basis van een voorwaarde."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 22,
+    "fields": {
+      "language": 1,
+      "name": "range()",
+      "description": "Genereert een reeks integers."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 23,
+    "fields": {
+      "language": 1,
+      "name": "slice()",
+      "description": "Maakt een slice-object voor het selecteren van een bereik."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 24,
+    "fields": {
+      "language": 1,
+      "name": "floor()",
+      "description": "Rondt naar beneden af."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 25,
+    "fields": {
+      "language": 1,
+      "name": "math.ceil()",
+      "description": "Rondt naar boven af."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 26,
+    "fields": {
+      "language": 1,
+      "name": "Counter()",
+      "description": "Telt hoe vaak elk element voorkomt in een iterable, zoals een string, lijst of tuple. Retourneert een Counter-object dat zich gedraagt als een dictionary met elementen als keys en hun aantallen als values."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 27,
+    "fields": {
+      "language": 1,
+      "name": "ord()",
+      "description": "Geeft de Unicode-codepointwaarde (een geheel getal) van één teken terug."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 28,
+    "fields": {
+      "language": 1,
+      "name": "math.gcd()",
+      "description": "Berekent de grootste gemene deler (ggd) van twee gehele getallen."
+    }
+  },
+  {
+    "model": "core.leetcodefunction",
+    "pk": 30,
+    "fields": {
+      "language": 1,
+      "name": "lambda",
+      "description": "Maakt een anonieme functie zonder eigen naam. Wordt vaak gebruikt voor korte bewerkingen of voorwaarden, bijvoorbeeld als argument voor filter() of map()."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 1,
+    "fields": {
+      "language": 1,
+      "name": ".count()",
+      "description": "Telt hoe vaak een bepaalde waarde voorkomt in een string, lijst of tuple."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 2,
+    "fields": {
+      "language": 1,
+      "name": ".join()",
+      "description": "Voegt strings uit een iterable samen tot één string, met de opgegeven string als scheidingsteken."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 3,
+    "fields": {
+      "language": 1,
+      "name": ".replace()",
+      "description": "Vervangt een opgegeven deelstring door een andere string."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 4,
+    "fields": {
+      "language": 1,
+      "name": ".split()",
+      "description": "Splitst een string op in een lijst van strings op basis van een scheidingsteken."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 5,
+    "fields": {
+      "language": 1,
+      "name": ".index()",
+      "description": "Geeft de index van de eerste overeenkomst terug; geeft een fout als er geen overeenkomst is."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 6,
+    "fields": {
+      "language": 1,
+      "name": ".reverse()",
+      "description": "Keert de volgorde van de elementen in een lijst direct om."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 7,
+    "fields": {
+      "language": 1,
+      "name": ".sort()",
+      "description": "Sorteert een lijst direct, standaard in oplopende volgorde."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 8,
+    "fields": {
+      "language": 1,
+      "name": ".insert()",
+      "description": "Voegt een element op een opgegeven index toe aan een lijst."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 9,
+    "fields": {
+      "language": 1,
+      "name": ".append()",
+      "description": "Voegt één element aan het einde van een lijst toe."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 10,
+    "fields": {
+      "language": 1,
+      "name": ".extend()",
+      "description": "Voegt alle elementen van een iterable aan het einde van een lijst toe."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 11,
+    "fields": {
+      "language": 1,
+      "name": ".items()",
+      "description": "Geeft een view van de dictionary-items als (key, value)-paren."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 12,
+    "fields": {
+      "language": 1,
+      "name": ".values()",
+      "description": "Geeft een view van alle waarden in een dictionary."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 13,
+    "fields": {
+      "language": 1,
+      "name": ".keys()",
+      "description": "Geeft een view van alle sleutels in een dictionary."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 14,
+    "fields": {
+      "language": 1,
+      "name": ".get()",
+      "description": "Haalt een waarde op aan de hand van een sleutel, eventueel met een standaardwaarde als de sleutel ontbreekt."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 15,
+    "fields": {
+      "language": 1,
+      "name": ".pop()",
+      "description": "Verwijdert een element en geeft de bijbehorende waarde terug."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 16,
+    "fields": {
+      "language": 1,
+      "name": ".bit_count()",
+      "description": "Geeft het aantal bits met waarde 1 terug in de binaire representatie van een integer."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 17,
+    "fields": {
+      "language": 1,
+      "name": ".lower()",
+      "description": "Zet alle letters om naar kleine letters."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 18,
+    "fields": {
+      "language": 1,
+      "name": ".remove()",
+      "description": "Verwijdert een element uit een set."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 19,
+    "fields": {
+      "language": 1,
+      "name": ".add()",
+      "description": "Voegt een element toe aan een set."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 20,
+    "fields": {
+      "language": 1,
+      "name": ".islower()",
+      "description": "Controleert of alle letters in de string kleine letters zijn."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 21,
+    "fields": {
+      "language": 1,
+      "name": ".isupper()",
+      "description": "Controleert of alle letters in de string hoofdletters zijn."
+    }
+  },
+  {
+    "model": "core.leetcodemethod",
+    "pk": 22,
+    "fields": {
+      "language": 1,
+      "name": ".update()",
+      "description": "Voegt een key-value pair toe aan de dictionary of werkt een bestaande key bij."
+    }
+  },
+  {
+    "model": "core.leetcodeoperator",
+    "pk": 1,
+    "fields": {
+      "language": 1,
+      "name": "% (modulus)",
+      "description": "Geeft de rest van een deling terug. Bijvoorbeeld: 10 % 3 geeft 1 terug."
+    }
+  },
+  {
+    "model": "core.leetcodeoperator",
+    "pk": 2,
+    "fields": {
+      "language": 1,
+      "name": "bitwise XOR (^)",
+      "description": "Vergelijkt bits van twee getallen en geeft 1 terug als de bits verschillend zijn, en 0 als ze gelijk zijn."
+    }
+  },
+  {
+    "model": "core.programminglanguage",
+    "pk": 1,
+    "fields": {
+      "name": "Python",
+      "slug": "python"
+    }
+  }
+]

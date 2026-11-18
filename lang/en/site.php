@@ -5,7 +5,9 @@ return [
         'courses' => 'Education',
         'projects' => 'Projects',
         'about' => 'About Me',
+        'knowledge_base' => 'Knowledge base',
         'leetcode' => 'Leetcode',
+        'linux_scripts' => 'Linux Scripts',
         'label' => 'Main navigation',
     ],
 
