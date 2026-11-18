@@ -38,11 +38,22 @@ Rechts van het logo en de naam staan vier navigatielinks:
 1. Opleidingen
 2. Projecten
 3. Over Mij
-4. Leetcode
+4. Kennisbank (opent een praatwolkje met submenu, zie 2.1)
 
 Iedere link is bedoeld om naar een eigen pagina te navigeren.
 
-De betreffende pagina's worden later ontwikkeld. Voor nu hoeven deze links nog niet naar bestaande pagina's te verwijzen. Gebruik daarom tijdelijke, niet-werkende bestemmingen. Verzin geen pagina's of routes.
+### 2.1 Kennisbank-submenu
+
+De link **Kennisbank** is een knop met een driehoekje rechts van de naam, net als de filters op de projectenpagina. Het driehoekje draait wanneer het submenu open is.
+
+Klikken opent een praatwolkje (popover) met een pijltje naar de link, zoals de instellingenknoppen. Het praatwolkje bevat voorlopig twee links:
+
+1. Leetcode
+2. Linux Scripts
+
+De link **Leetcode** navigeert naar de route `leetcode` (`/leetcode`). De link **Linux Scripts** heeft nog geen werkende bestemming (`#`), omdat die pagina later wordt ontwikkeld. Het submenu sluit met Escape of met een klik buiten het praatwolkje.
+
+Verzin geen pagina's of routes voor links die nog niet bestaan.
 
 De navigatielinks staan horizontaal naast elkaar en zijn rechts uitgelijnd.
 

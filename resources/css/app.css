@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import './projects.css';
+@import './leetcode.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -301,6 +302,30 @@ input,
     color: var(--color-text);
 }
 
+/* Trigger that opens a submenu: a button styled as the link, with a dropdown triangle like the project filters. */
+.site-nav__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.site-nav__trigger-chevron {
+    width: 11px;
+    height: 11px;
+    transition: transform var(--motion-duration) ease;
+}
+
+.site-nav__trigger[aria-expanded='true'] .site-nav__trigger-chevron {
+    transform: rotate(180deg);
+}
+
 .site-nav__divider {
     width: 1px;
     height: 24px;
@@ -433,6 +458,57 @@ input,
 
 .popover__option[aria-checked='true'] {
     color: var(--color-text);
+}
+
+/* Submenu popover under a nav trigger: centred under the trigger, with its arrow pointing at the trigger's middle. */
+.popover--nav {
+    right: -20px;
+    left: auto;
+}
+
+/* The popover is 20px further right than the trigger; the arrow is offset by the same amount (minus the 1px border) so it stays under the triangle. */
+.popover--nav::before {
+    right: 19px !important;
+    left: auto !important;
+}
+
+.popover__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sublink: a thick, triangular arrow on the right, drawn as a mask so it is filled with the link colour. */
+.popover__link {
+    position: relative;
+    display: block;
+    padding: 0.25rem 1.25rem 0.25rem 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.popover__link::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 8px;
+    height: 14px;
+    transform: translateY(-50%);
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 14' fill='none'%3E%3Cpath d='M1.5 1.5L6.5 7L1.5 12.5' stroke='black' stroke-width='2' stroke-linejoin='miter'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 14' fill='none'%3E%3Cpath d='M1.5 1.5L6.5 7L1.5 12.5' stroke='black' stroke-width='2' stroke-linejoin='miter'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.popover__link:hover,
+.popover__link:focus-visible,
+.popover__link--active {
+    color: var(--accent);
 }
 
 .popover__dot {
@@ -1679,6 +1755,27 @@ input,
         font-size: 1.0625rem;
         line-height: 21px;
         color: var(--color-menu-link);
+    }
+
+    /* Kennisbank is desktop only for now: tablet and mobile menus do not show it. */
+    .site-nav__desktop-only {
+        display: none;
+    }
+
+    .site-nav__trigger {
+        display: flex;
+        width: 100%;
+    }
+
+    /* The row spans the panel, so the submenu hangs from the text start instead of the row's middle. */
+    .popover--nav {
+        left: 36px;
+        right: auto;
+    }
+
+    .popover--nav::before {
+        left: 22px;
+        right: auto !important;
     }
 
     /* Onderstreep en pijl: positioned in de link, zodat ze de klik van de hele rij doorgeven. */

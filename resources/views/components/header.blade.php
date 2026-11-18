@@ -37,11 +37,21 @@
                             <x-themed-image :light="'images/ui/header/light/navDivider01.svg'" :dark="'images/ui/header/dark/pop-navDivider01.svg'" />
                         </span>
                     </a></li>
-                    <li><a class="site-nav__link" href="#">{{ __('site.nav.leetcode') }}
-                        <span class="site-nav__rule site-nav__rule--4" aria-hidden="true">
-                            <x-themed-image :light="'images/ui/header/light/navDivider01.svg'" :dark="'images/ui/header/dark/pop-navDivider01.svg'" />
-                        </span>
-                    </a></li>
+                    <li class="popover-anchor site-nav__desktop-only">
+                        <button type="button" class="site-nav__link site-nav__trigger" data-popover-trigger aria-controls="knowledge-popover" aria-expanded="false">{{ __('site.nav.knowledge_base') }}
+                            <x-themed-image class="site-nav__trigger-chevron" :light="'images/projects/icons/imgDropdownChevron.svg'" :dark="'images/projects/icons/imgFilterChevronDark.svg'" />
+                            <span class="site-nav__rule site-nav__rule--4" aria-hidden="true">
+                                <x-themed-image :light="'images/ui/header/light/navDivider01.svg'" :dark="'images/ui/header/dark/pop-navDivider01.svg'" />
+                            </span>
+                        </button>
+
+                        <div id="knowledge-popover" class="popover popover--nav" role="group" aria-label="{{ __('site.nav.knowledge_base') }}" hidden>
+                            <ul class="popover__links">
+                                <li><a class="popover__link{{ request()->routeIs('leetcode') ? ' popover__link--active' : '' }}" href="{{ route('leetcode') }}" @if (request()->routeIs('leetcode')) aria-current="page" @endif>{{ __('site.nav.leetcode') }}</a></li>
+                                <li><a class="popover__link" href="#">{{ __('site.nav.linux_scripts') }}</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
 

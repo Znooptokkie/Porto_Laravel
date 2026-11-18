@@ -72,7 +72,8 @@ async function refreshResults(form) {
             return;
         }
 
-        const fresh = new DOMParser().parseFromString(await response.text(), 'text/html').querySelector('[data-project-results]');
+        const parsed = new DOMParser().parseFromString(await response.text(), 'text/html');
+        const fresh = parsed.querySelector('[data-project-results]');
 
         if (!fresh) {
             window.location.assign(url);
@@ -80,11 +81,28 @@ async function refreshResults(form) {
         }
 
         results.replaceWith(fresh);
+
+        swapSlot(parsed, '[data-project-count]');
+        swapSlot(parsed, '[data-leetcode-more]');
         history.replaceState(null, '', url);
     } catch (error) {
         if (error.name !== 'AbortError') {
             window.location.assign(url);
         }
+    }
+}
+
+/**
+ * Replaces an element outside the results with the version of the fresh page, or removes it when the fresh page has none.
+ */
+function swapSlot(parsed, selector) {
+    const current = document.querySelector(selector);
+    const fresh = parsed.querySelector(selector);
+
+    if (current && fresh) {
+        current.replaceWith(fresh);
+    } else if (current) {
+        current.remove();
     }
 }
 

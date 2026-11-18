@@ -1,0 +1,519 @@
+/* ---------- LeetCode overview ----------
+   The intro, the list label and the filter controls reuse the projects classes (projects.css); only the parts that are
+   specific to LeetCode are styled here. */
+
+:root {
+    /* Waarden uit het Figma-ontwerp (light). Het donkere thema heeft nog geen eigen waarden uit Figma. */
+    --leetcode-easy: #1c9600;
+    --leetcode-medium: #d97706;
+    --leetcode-hard: #a80003;
+
+    --leetcode-code-keyword: #128346;
+    --leetcode-code-function: #087d80;
+    --leetcode-code-builtin: #b00050;
+    --leetcode-code-punctuation: #8a7000;
+    --leetcode-code-operator: #a65c00;
+}
+
+.leetcode-list__problems {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+@media (min-width: 1280px) {
+    .leetcode-list__problems {
+        gap: 100px;
+    }
+}
+
+/* ---------- Problem group: one tab per programming language when a problem is solved in several languages ---------- */
+
+.leetcode-group {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+@media (min-width: 1280px) {
+    .leetcode-group {
+        gap: 100px;
+    }
+}
+
+.leetcode-group__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.leetcode-group__tab {
+    padding: 6px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 25px;
+    background: var(--color-surface);
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    cursor: pointer;
+}
+
+.leetcode-group__tab[aria-selected='true'] {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.leetcode-group__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.leetcode-group__panel[hidden] {
+    display: none;
+}
+
+@media (min-width: 1280px) {
+    .leetcode-group__panel {
+        gap: 100px;
+    }
+}
+
+/* ---------- Rating, runtime and memory popovers: the options are longer than the trigger, so the popover widens and keeps every option on one line ---------- */
+@media (min-width: 1280px) {
+    #filter-leetcode-rating .project-filter__panel,
+    #filter-leetcode-runtime .project-filter__panel,
+    #filter-leetcode-memory .project-filter__panel {
+        width: max-content;
+        min-width: 100%;
+        padding: 40px 20px 12px;
+    }
+}
+
+/* ---------- Result count above the filters: the number takes the accent colour ---------- */
+
+/* Below the filters: the list gap (32px) minus the trimmed filter padding leaves about 8px between the filters and the count. */
+.leetcode-list .project-filters {
+    padding-bottom: 0;
+}
+
+.leetcode-list__count {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: -8px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-muted);
+}
+
+.leetcode-list__count[hidden] {
+    display: none;
+}
+
+/* The same accent bar as the projects eyebrow, in front of the text. */
+.leetcode-list__count::before {
+    content: '';
+    flex: none;
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.leetcode-list__count-number {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* The sentinel below the list: scrolling it into view loads the next page, and while that happens it shows a spinner. */
+.leetcode-list__more {
+    display: flex;
+    justify-content: center;
+    height: 1px;
+}
+
+.leetcode-list__more.is-loading {
+    height: auto;
+    padding: 24px 0;
+}
+
+.leetcode-list__spinner {
+    display: none;
+    width: 28px;
+    height: 28px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: leetcode-spin 0.8s linear infinite;
+}
+
+.leetcode-list__more.is-loading .leetcode-list__spinner {
+    display: block;
+}
+
+[data-motion='off'] .leetcode-list__spinner {
+    animation: none;
+}
+
+@keyframes leetcode-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Desktop: the body adds no box, so the filter groups stay direct children of the form. */
+[data-leetcode-list] .leetcode-filters__sheet-body {
+    display: contents;
+}
+
+/* ---------- Mobile filter sheet: slides up from the bottom of the screen and back down when it closes ----------
+   The transition runs on the closing state too (display is animated with allow-discrete), so the sheet stays visible
+   until it has left the screen. --motion-duration is 0s when the visitor turns animations off. */
+@media (max-width: 1279px) {
+    [data-leetcode-list] .project-filters__sheet {
+        transform: translateY(100%);
+        transition:
+            transform var(--motion-duration) ease-out,
+            display var(--motion-duration) allow-discrete;
+    }
+
+    [data-leetcode-list] .project-filters__sheet[open] {
+        transform: translateY(0);
+        animation: none;
+    }
+
+    /* The page scrollbar would sit beside the sheet, so it is hidden while the sheet is open. */
+    html:has([data-leetcode-list] .project-filters__sheet[open]) {
+        overflow: hidden;
+    }
+
+    /* The sheet itself does not scroll: the header keeps the full width and only the filter options below it scroll. */
+    [data-leetcode-list] .project-filters__sheet[open] {
+        gap: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    /* The top padding sits inside the body, so the scrollbar starts right under the header. */
+    [data-leetcode-list] .leetcode-filters__sheet-body {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        gap: 14px;
+        min-height: 0;
+        overflow-y: auto;
+        padding: 14px 0 26px;
+    }
+
+    @starting-style {
+        [data-leetcode-list] .project-filters__sheet[open] {
+            transform: translateY(100%);
+        }
+    }
+}
+
+/* ---------- Search field: same pill as the filter triggers ---------- */
+
+.leetcode-search {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 1 392px;
+    gap: 10px;
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+    height: 33px;
+    padding: 0 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 25px;
+    background: var(--color-surface);
+    color: var(--color-muted);
+    backdrop-filter: blur(4px);
+}
+
+.leetcode-search:focus-within {
+    border-color: var(--accent);
+}
+
+.leetcode-search input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+.leetcode-search input::-webkit-search-cancel-button {
+    appearance: none;
+    display: none;
+}
+
+.leetcode-search input::placeholder {
+    color: var(--color-text);
+    opacity: 1;
+}
+
+.leetcode-search input:focus {
+    outline: none;
+}
+
+.leetcode-search svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--accent);
+}
+
+/* ---------- Problem card ---------- */
+
+.leetcode-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 22px;
+    padding: 36px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+}
+
+.leetcode-card > * {
+    width: 100%;
+}
+
+.leetcode-card__heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.leetcode-card__title {
+    flex: 1 0 0;
+    min-width: 0;
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--font-size-card-title);
+    letter-spacing: -0.6px;
+    color: var(--color-text);
+}
+
+.leetcode-card__number {
+    color: var(--accent);
+}
+
+.leetcode-card__difficulty {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4375rem;
+    letter-spacing: -0.6px;
+    color: var(--color-muted);
+    white-space: nowrap;
+}
+
+.leetcode-card__difficulty-icon {
+    display: block;
+}
+
+/* ---------- Metrics: three groups of label and value rows ---------- */
+
+.leetcode-card__metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 336px), 1fr));
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 1.25rem;
+    line-height: 1.7;
+}
+
+.leetcode-metric-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+}
+
+.leetcode-metric {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0;
+    color: var(--color-muted);
+}
+
+.leetcode-metric dt {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    font-weight: 400;
+}
+
+.leetcode-metric dd {
+    flex: 0 0 129px;
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+@media (max-width: 480px) {
+    .leetcode-card__difficulty {
+        order: -1;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .leetcode-card__title {
+        flex-basis: 100%;
+    }
+
+    .leetcode-metric {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .leetcode-metric dd {
+        flex: none;
+    }
+}
+
+/* Scoped under .leetcode-metric so these beat `.leetcode-metric dd { color }`, which has a higher specificity than a bare modifier class. */
+.leetcode-metric .leetcode-metric__value--positive {
+    color: var(--leetcode-easy);
+}
+
+.leetcode-metric .leetcode-metric__value--warning {
+    color: var(--leetcode-medium);
+}
+
+.leetcode-metric .leetcode-metric__value--hard,
+.leetcode-metric .leetcode-metric__value--negative {
+    color: var(--leetcode-hard);
+}
+
+/* ---------- Concepts: functions, methods, operators, data structures, control structures and algorithms ---------- */
+
+.leetcode-card__concepts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 188px), 1fr));
+    align-items: start;
+    gap: 10px;
+    padding: 10px;
+}
+
+.leetcode-concept {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.leetcode-concept__title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    text-decoration: underline;
+    text-underline-position: from-font;
+    color: var(--color-muted);
+}
+
+.leetcode-concept__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.leetcode-concept__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    overflow-wrap: anywhere;
+}
+
+.leetcode-concept__item::before {
+    content: '';
+    flex-shrink: 0;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+}
+
+/* ---------- Link and solution ---------- */
+
+.leetcode-card__link {
+    width: auto;
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.leetcode-card__link:hover,
+.leetcode-card__link:focus-visible {
+    text-decoration: underline;
+}
+
+.leetcode-solution {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.leetcode-solution code {
+    font: inherit;
+}
+
+.leetcode-solution .token.keyword {
+    color: var(--leetcode-code-keyword);
+}
+
+.leetcode-solution .token.function,
+.leetcode-solution .token.class-name {
+    color: var(--leetcode-code-function);
+}
+
+.leetcode-solution .token.builtin {
+    color: var(--leetcode-code-builtin);
+}
+
+.leetcode-solution .token.punctuation {
+    color: var(--leetcode-code-punctuation);
+}
+
+.leetcode-solution .token.operator {
+    color: var(--leetcode-code-operator);
+}

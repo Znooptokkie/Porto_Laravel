@@ -169,7 +169,7 @@ function openPopover(trigger, popover) {
 
     trigger.setAttribute('aria-expanded', 'true');
     popover.hidden = false;
-    popover.querySelector('button, input')?.focus();
+    popover.querySelector('button, input, a')?.focus();
 }
 
 /** @param {HTMLElement} header */
