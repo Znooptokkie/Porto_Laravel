@@ -59,7 +59,8 @@
 .projects-intro__eyebrow,
 .project-detail__eyebrow,
 .project-section__label,
-.project-media__label {
+.project-media__label,
+.code-entries__category-label {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -72,7 +73,8 @@
 
 .projects-intro__eyebrow::before,
 .project-detail__eyebrow::before,
-.project-section__label::before {
+.project-section__label::before,
+.code-entries__category-label::before {
     content: '';
     width: 28px;
     height: 2px;
@@ -162,6 +164,62 @@
     align-items: center;
     gap: 10px;
     padding: 30px 0;
+}
+
+/* ---------- Search field: same pill as the filter triggers ---------- */
+
+.search-field {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 1 392px;
+    gap: 10px;
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+    height: 33px;
+    padding: 0 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 25px;
+    background: var(--color-surface);
+    color: var(--color-muted);
+    backdrop-filter: blur(4px);
+}
+
+.search-field:focus-within {
+    border-color: var(--accent);
+}
+
+.search-field input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+.search-field input::-webkit-search-cancel-button {
+    appearance: none;
+    display: none;
+}
+
+.search-field input::placeholder {
+    color: var(--color-text);
+    opacity: 1;
+}
+
+.search-field input:focus {
+    outline: none;
+}
+
+.search-field svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--accent);
 }
 
 .project-filters__mobile-trigger,

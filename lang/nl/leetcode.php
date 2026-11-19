@@ -9,7 +9,7 @@ return [
         'count_value' => 'DSA',
         'count_label' => 'LEETCODE / ALLE PROBLEMEN EN OPLOSSINGEN',
         'list_label' => 'LEETCODE PROBLEMEN',
-        'list_aside' => '// voor elke probleem een oplossing',
+        'list_aside' => '// voor elk probleem een oplossing',
         'empty' => 'Er zijn geen problemen die aan deze filters voldoen.',
         'loading' => 'Laden…',
         'found' => '{0} Er zijn geen problemen gevonden.|{1} Er is :count probleem gevonden.|[2,*] Er zijn :count problemen gevonden.',

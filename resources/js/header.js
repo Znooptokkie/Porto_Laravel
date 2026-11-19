@@ -39,7 +39,20 @@ function bindPopovers(header) {
 
         trigger.addEventListener('click', () => {
             const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-            closeAllPopovers(header);
+
+            // The Kennisbank submenu stays open until its own trigger is pressed again, so other header controls leave it alone.
+            if (isNavTrigger(trigger)) {
+                if (isOpen) {
+                    closePopover(trigger);
+                    return;
+                }
+
+                closeAllPopovers(header);
+                openPopover(trigger, popover);
+                return;
+            }
+
+            closeAllPopovers(header, { keepNavOpen: true });
 
             if (!isOpen) {
                 openPopover(trigger, popover);
@@ -172,12 +185,32 @@ function openPopover(trigger, popover) {
     popover.querySelector('button, input, a')?.focus();
 }
 
-/** @param {HTMLElement} header */
-function closeAllPopovers(header) {
+/**
+ * @param {HTMLElement} header
+ * @param {{ keepNavOpen?: boolean }} [options] keepNavOpen leaves the navigation submenu (Kennisbank) open.
+ */
+function closeAllPopovers(header, { keepNavOpen = false } = {}) {
     header.querySelectorAll('[data-popover-trigger]').forEach((trigger) => {
-        trigger.setAttribute('aria-expanded', 'false');
-        document.getElementById(trigger.getAttribute('aria-controls'))?.setAttribute('hidden', '');
+        if (keepNavOpen && isNavTrigger(trigger)) {
+            return;
+        }
+
+        closePopover(trigger);
     });
+}
+
+/** @param {HTMLElement} trigger */
+function closePopover(trigger) {
+    trigger.setAttribute('aria-expanded', 'false');
+    document.getElementById(trigger.getAttribute('aria-controls'))?.setAttribute('hidden', '');
+}
+
+/**
+ * The triggers inside the navigation list open a submenu under the nav link (Kennisbank).
+ * @param {HTMLElement} trigger
+ */
+function isNavTrigger(trigger) {
+    return trigger.closest('.site-nav__links') !== null;
 }
 
 /** @param {HTMLElement} header */

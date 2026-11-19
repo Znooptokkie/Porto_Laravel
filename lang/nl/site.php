@@ -7,7 +7,8 @@ return [
         'about' => 'Over Mij',
         'knowledge_base' => 'Kennisbank',
         'leetcode' => 'Leetcode',
-        'linux_scripts' => 'Linux Scripts',
+        'shell_scripts' => 'Shell Scripts',
+        'linux_commands' => 'Linux Commands',
         'label' => 'Hoofdnavigatie',
     ],
 

@@ -37,7 +37,7 @@
                             <x-themed-image :light="'images/ui/header/light/navDivider01.svg'" :dark="'images/ui/header/dark/pop-navDivider01.svg'" />
                         </span>
                     </a></li>
-                    <li class="popover-anchor site-nav__desktop-only">
+                    <li class="popover-anchor{{ request()->routeIs('leetcode', 'shell-scripts', 'linux-commands') ? ' popover-anchor--current' : '' }}">
                         <button type="button" class="site-nav__link site-nav__trigger" data-popover-trigger aria-controls="knowledge-popover" aria-expanded="false">{{ __('site.nav.knowledge_base') }}
                             <x-themed-image class="site-nav__trigger-chevron" :light="'images/projects/icons/imgDropdownChevron.svg'" :dark="'images/projects/icons/imgFilterChevronDark.svg'" />
                             <span class="site-nav__rule site-nav__rule--4" aria-hidden="true">
@@ -48,7 +48,8 @@
                         <div id="knowledge-popover" class="popover popover--nav" role="group" aria-label="{{ __('site.nav.knowledge_base') }}" hidden>
                             <ul class="popover__links">
                                 <li><a class="popover__link{{ request()->routeIs('leetcode') ? ' popover__link--active' : '' }}" href="{{ route('leetcode') }}" @if (request()->routeIs('leetcode')) aria-current="page" @endif>{{ __('site.nav.leetcode') }}</a></li>
-                                <li><a class="popover__link" href="#">{{ __('site.nav.linux_scripts') }}</a></li>
+                                <li><a class="popover__link{{ request()->routeIs('shell-scripts') ? ' popover__link--active' : '' }}" href="{{ route('shell-scripts') }}" @if (request()->routeIs('shell-scripts')) aria-current="page" @endif>{{ __('site.nav.shell_scripts') }}</a></li>
+                                <li><a class="popover__link{{ request()->routeIs('linux-commands') ? ' popover__link--active' : '' }}" href="{{ route('linux-commands') }}" @if (request()->routeIs('linux-commands')) aria-current="page" @endif>{{ __('site.nav.linux_commands') }}</a></li>
                             </ul>
                         </div>
                     </li>

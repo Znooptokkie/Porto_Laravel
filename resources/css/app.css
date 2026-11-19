@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import './projects.css';
 @import './leetcode.css';
+@import './code-entries.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -1684,6 +1685,7 @@ input,
         left: 0;
         right: 0;
         height: 377px;
+        transition: height var(--motion-duration) ease;
         gap: 0;
         /* border: 1px solid var(--color-menu-border); */
         border-radius: 0 0 25px 25px;
@@ -1757,25 +1759,107 @@ input,
         color: var(--color-menu-link);
     }
 
-    /* Kennisbank is desktop only for now: tablet and mobile menus do not show it. */
-    .site-nav__desktop-only {
-        display: none;
-    }
-
     .site-nav__trigger {
         display: flex;
         width: 100%;
     }
 
-    /* The row spans the panel, so the submenu hangs from the text start instead of the row's middle. */
+    /* Tailwind's [hidden] reset is !important inside @layer base, which beats unlayered rules. The rule is placed in the same layer so the more specific selector wins. */
+@layer base {
+    @media (max-width: 899px) {
+        .popover--nav[hidden] {
+            display: grid !important;
+        }
+    }
+}
+
+/* Mobile and tablet: the submenu is not a popover but a list that is always visible under the Kennisbank row. */
+    /* The triangle points up while the submenu is closed and turns down while it is open (the SVG points up). */
+    .popover-anchor--current > .site-nav__trigger .site-nav__trigger-chevron,
+    .popover-anchor:has(> .site-nav__trigger[aria-expanded='true']) > .site-nav__trigger .site-nav__trigger-chevron {
+        transform: rotate(180deg);
+    }
+
+    /* Collapsed by default. The submenu opens when its row is pressed or when a page of the submenu is open. */
     .popover--nav {
-        left: 36px;
+        position: static;
+        left: auto;
         right: auto;
+        width: auto;
+        padding: 0;
+        border: 0;
+        background: none;
+        box-shadow: none;
+        display: grid;
+        grid-template-rows: 0fr;
+        visibility: hidden;
+        transition: grid-template-rows var(--motion-duration) ease, visibility var(--motion-duration) ease;
+    }
+
+    .popover--nav > .popover__links {
+        min-height: 0;
+        overflow: hidden;
+        padding-top: 0;
+        opacity: 0;
+        transition: opacity var(--motion-duration) ease, padding-top var(--motion-duration) ease;
+    }
+
+    .popover-anchor--current > .popover--nav,
+    .popover-anchor:has(> .site-nav__trigger[aria-expanded='true']) > .popover--nav {
+        grid-template-rows: 1fr;
+        visibility: visible;
+    }
+
+    .popover-anchor--current > .popover--nav > .popover__links,
+    .popover-anchor:has(> .site-nav__trigger[aria-expanded='true']) > .popover--nav > .popover__links {
+        opacity: 1;
+        padding-top: 12px;
+    }
+
+    /* The menu grows and the controls move down while a submenu is open. */
+    .site-nav:has(.popover-anchor--current),
+    .site-nav:has(.site-nav__trigger[aria-expanded='true']) {
+        height: 440px;
+    }
+
+    .site-nav:has(.popover-anchor--current) .site-nav__controls,
+    .site-nav:has(.site-nav__trigger[aria-expanded='true']) .site-nav__controls {
+        top: 376px;
     }
 
     .popover--nav::before {
-        left: 22px;
-        right: auto !important;
+        display: none;
+    }
+
+    .popover--nav .popover__links {
+        gap: 10px;
+    }
+
+    .popover--nav .popover__link {
+        padding: 0 1.25rem 0 52px;
+        font-size: 0.9375rem;
+        line-height: 1.5;
+        color: var(--color-muted);
+    }
+
+    /* The sublink arrows line up with the triangle of the Kennisbank row, 26px in from the right edge. */
+    .popover--nav .popover__link::after {
+        right: 26px;
+    }
+
+    /* The sublink of the current page takes the accent colour. */
+    .popover--nav .popover__link--active {
+        color: var(--accent);
+    }
+
+    /* The triangle next to the text moves to the right edge, where the arrow of the divider used to be. */
+    .site-nav__trigger .site-nav__trigger-chevron {
+        margin-left: auto;
+        margin-right: 26px;
+    }
+
+    .site-nav__trigger .site-nav__rule path[id$="Divider / 02"] {
+        display: none;
     }
 
     /* Onderstreep en pijl: positioned in de link, zodat ze de klik van de hele rij doorgeven. */
@@ -1816,6 +1900,7 @@ input,
     .site-nav__controls {
         position: absolute;
         top: 294px;
+        transition: top var(--motion-duration) ease;
         left: 0;
         right: 0;
         justify-content: center;
@@ -1852,16 +1937,17 @@ input,
         left: 0;
         right: 0;
         bottom: 0;
-        height: 23px;
+        height: 30px;
         background: var(--accent);
         border-radius: 0 0 25px 25px;
+        padding: .5rem 0;
     }
 
     .site-nav__chevron {
         position: absolute;
         left: 50%;
         margin-left: -8.5px;
-        top: 3px;
+        top: 7px;
         width: 17px;
         height: 17px;
         transform: rotate(180deg);
@@ -1870,6 +1956,12 @@ input,
     .site-nav__chevron .themed-image {
         width: 100%;
         height: 100%;
+    }
+
+    /* In light mode the triangle in the accent bar uses the accent ink, the text colour that contrasts with the chosen accent.
+       In dark mode it keeps the dark fill of the dark export. */
+    [data-theme='light'] .site-nav__chevron path {
+        fill: var(--accent-ink);
     }
 
     .site-nav__rule,
@@ -2974,6 +3066,13 @@ input,
     display: flex;
     flex-direction: column;
     gap: 50px;
+}
+
+@media (max-width: 480px)
+{
+    .about-accordions {
+        gap: 25px;
+    }
 }
 
 .about-accordion {
