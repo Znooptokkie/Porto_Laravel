@@ -5,8 +5,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LeetcodeController;
+use App\Http\Controllers\LinuxCommandsController;
 use App\Http\Controllers\ProjectDetailController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\ShellScriptsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -16,3 +18,5 @@ Route::post('/over-mij/contact', ContactController::class)->middleware('throttle
 Route::get('/projecten', ProjectsController::class)->name('projects');
 Route::get('/projecten/{project:slug}', ProjectDetailController::class)->name('projects.show');
 Route::get('/leetcode', LeetcodeController::class)->name('leetcode');
+Route::get('/linux-commands', LinuxCommandsController::class)->name('linux-commands');
+Route::get('/shell-scripts', ShellScriptsController::class)->name('shell-scripts');

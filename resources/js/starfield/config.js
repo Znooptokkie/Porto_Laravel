@@ -50,8 +50,8 @@ export const SHOOTING_STAR = {
  * taper is the fraction of the length over which each end narrows to a point (0 to 0.5).
  */
 export const STAR_STREAM = {
-    minDelay: 18000,
-    maxDelay: 48000,
+    minDelay: 180000,
+    maxDelay: 480000,
     // count: 280,
     count: 560,
     length: 1,

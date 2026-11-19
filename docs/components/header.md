@@ -46,12 +46,13 @@ Iedere link is bedoeld om naar een eigen pagina te navigeren.
 
 De link **Kennisbank** is een knop met een driehoekje rechts van de naam, net als de filters op de projectenpagina. Het driehoekje draait wanneer het submenu open is.
 
-Klikken opent een praatwolkje (popover) met een pijltje naar de link, zoals de instellingenknoppen. Het praatwolkje bevat voorlopig twee links:
+Klikken opent een praatwolkje (popover) met een pijltje naar de link, zoals de instellingenknoppen. Het praatwolkje bevat drie links:
 
-1. Leetcode
-2. Linux Scripts
+1. Leetcode (`/leetcode`)
+2. Shell Scripts (`/shell-scripts`)
+3. Linux Commands (`/linux-commands`)
 
-De link **Leetcode** navigeert naar de route `leetcode` (`/leetcode`). De link **Linux Scripts** heeft nog geen werkende bestemming (`#`), omdat die pagina later wordt ontwikkeld. Het submenu sluit met Escape of met een klik buiten het praatwolkje.
+Iedere link krijgt de actieve status wanneer de bezoeker op die pagina is. Het submenu sluit met Escape of met een klik buiten het praatwolkje.
 
 Verzin geen pagina's of routes voor links die nog niet bestaan.
 

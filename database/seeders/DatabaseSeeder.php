@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SkillSeeder::class);
         $this->call(ProjectSeeder::class);
         $this->call(LeetcodeSeeder::class);
+        $this->call(LinuxCommandSeeder::class);
+        $this->call(ShellScriptSeeder::class);
     }
 }

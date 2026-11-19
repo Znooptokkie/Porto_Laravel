@@ -1,0 +1,214 @@
+.code-entry-card__packages,
+.code-entry-card__items {
+    margin: 0 0 16px;
+    padding-left: 20px;
+}
+
+.code-entry-card__packages li,
+.code-entry-card__items li {
+    list-style: square;
+}
+
+.code-entry-card__packages li::marker,
+.code-entry-card__items li::marker {
+    color: var(--accent);
+}
+
+.code-entry-card__packages li + li,
+.code-entry-card__items li + li {
+    margin-top: 12px;
+}
+
+.code-entry-card__items p {
+    margin: 0 0 12px;
+    color: var(--color-muted);
+}
+
+.code-entries__category {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.code-entry-card__command-item {
+    display: list-item;
+}
+
+.code-entry-card__command-row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px 16px;
+}
+
+.code-entry-card__label {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    opacity: 0.7;
+}
+
+.code-entry-card__installs {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+
+.code-entry-card__install {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.code-entry-card__distribution {
+    flex: none;
+    padding: 2px 8px;
+    /* border: 1px solid var(--accent); */
+    border-radius: 25px;
+    color: var(--accent);
+    /* background: var(--accent); */
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+}
+
+.code-entry-card__install-command {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-family: var(--font-mono);
+}
+
+.code-entry-card__copy {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: 0;
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.code-entry-card__copy:hover,
+.code-entry-card__copy.is-copied {
+    color: var(--accent-strong);
+}
+
+.code-entry-card__copy:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.code-entry-card__title-accent {
+    color: var(--accent);
+}
+
+.code-entry-card__code {
+    position: relative;
+}
+
+.code-entry-card__copy--code {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+}
+
+/* Command cards on the Linux commands page: rounded code blocks with a tighter padding, and the copy button centred on the vertical axis. */
+.code-entry-group .leetcode-solution {
+    padding: 16px 48px 16px 16px;
+}
+
+.code-entry-group .code-entry-card__copy--code {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Shell scripts and Linux commands pages: the same trimmed bottom padding as the LeetCode list, so the results start closer to the search field. */
+.shell-scripts-list .project-filters,
+.linux-commands-list .project-filters {
+    padding-bottom: 0;
+}
+
+/* Keyword links on the Linux commands page: bold and underlined, filling the row next to the search field. */
+.keyword-filter {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.keyword-filter__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: 480px)
+{
+    .keyword-filter__list {
+        padding: 0 1rem;
+    }
+}
+
+.keyword-filter__link {
+    font-weight: 700;
+    color: var(--color-muted);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.keyword-filter__link[aria-current='true'] {
+    color: var(--accent);
+}
+
+.keyword-filter__link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Shell scripts description: a square accent bullet like the command lists, with the text in the muted accent. */
+.code-entry-card__description {
+    display: list-item;
+    margin: 0;
+    margin-left: 20px;
+    list-style: square outside;
+    color: var(--color-muted);
+}
+
+.code-entry-card__description::marker {
+    color: var(--accent);
+}
+
+/* Copy confirmation: a small popover that code-entries.js places next to the copy button. */
+.code-entry-popover {
+    inset: auto;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-tile);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition:
+        opacity var(--motion-duration, 0.2s) ease,
+        display var(--motion-duration, 0.2s) allow-discrete,
+        overlay var(--motion-duration, 0.2s) allow-discrete;
+}
+
+.code-entry-popover:popover-open {
+    opacity: 1;
+}
+
+@starting-style {
+    .code-entry-popover:popover-open {
+        opacity: 0;
+    }
+}

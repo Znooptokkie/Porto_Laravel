@@ -56,14 +56,7 @@
         </div>
     </dialog>
 
-    <label class="leetcode-search">
-        <span class="visually-hidden">{{ __('leetcode.filters.search') }}</span>
-        <input type="search" name="q" value="{{ $filters['q'] ?? '' }}" placeholder="{{ __('leetcode.filters.search') }}" maxlength="100">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <circle cx="11" cy="11" r="7"/>
-            <path d="m20 20-3.5-3.5"/>
-        </svg>
-    </label>
+    <x-search-field :label="__('leetcode.filters.search')" :value="$filters['q'] ?? ''" />
 
     <a class="project-filters__reset" href="{{ route('leetcode') }}" aria-label="{{ __('leetcode.filters.reset') }}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{!! $resetIcon !!}</svg>

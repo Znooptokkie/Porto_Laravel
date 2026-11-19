@@ -1,0 +1,38 @@
+[
+    {
+        "category": "Github",
+        "card_title": "Delete branch",
+        "card_title_en": "Delete branch",
+        "keyword": "git",
+        "command": "git branch -d <branch>",
+        "description": "Verwijder de branch lokaal.",
+        "description_en": "Delete the branch locally."
+    },
+    {
+        "category": "Github",
+        "card_title": "Delete branch",
+        "card_title_en": "Delete branch",
+        "keyword": "git",
+        "command": "git push origin --delete <branch>",
+        "description": "Verwijder de branch op de remote (origin).",
+        "description_en": "Delete the branch on the remote (origin)."
+    },
+    {
+        "category": "Github",
+        "card_title": "Account",
+        "card_title_en": "Account",
+        "keyword": "git",
+        "command": "gh auth switch --user <USER>",
+        "description": "Wissel naar een ander GitHub-account.",
+        "description_en": "Switch to another GitHub account."
+    },
+    {
+        "category": "Github",
+        "card_title": "Account",
+        "card_title_en": "Account",
+        "keyword": "git",
+        "command": "gh auth status",
+        "description": "Controleer welk GitHub-account actief is.",
+        "description_en": "Check which GitHub account is active."
+    }
+]
