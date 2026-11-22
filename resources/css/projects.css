@@ -675,6 +675,37 @@
     height: 144px;
 }
 
+/* Twee pijlen achter elkaar: de tweede staat op 11px van de eerste (de pijlen zijn ca. 10px breed).
+   De groep is 1.25px naar rechts verschoven, omdat de driehoek niet in het midden van zijn 32px box staat. */
+/* Boven de gestreepte ::after van het gezicht, zodat de pijlen altijd zichtbaar blijven. */
+.project-media__nav-arrows {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    transform: translateX(1.25px);
+}
+
+/* Elke x-themed-image rendert een light- en een dark-SVG: de tweede pijl staat op child 3 en 4. Met de + selector schoof in dark mode de eerste pijl buiten de knop. */
+.project-media__nav-arrows .project-media__nav-icon:nth-child(n + 3) {
+    margin-left: -23px;
+}
+
+.project-media__nav--next .project-media__nav-arrows {
+    transform: translateX(-1.25px);
+}
+
+/* Open pijl (chevron): geen ingevulde driehoek en geen basislijn. Het streepjespatroon van 8.66 (een zijde van de driehoek) tekent alleen de twee schuine zijden. */
+.project-media__nav-icon path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-dasharray: 8.66 8.66;
+    transform: scale(1.1, 1.4);
+    transform-origin: 14.75px 72px;
+}
+
 .project-card__action:focus-visible,
 .project-detail__back:focus-visible,
 .project-media__nav:focus-visible,
@@ -849,9 +880,12 @@
     flex-direction: column;
     width: 100%;
     border: 1px solid var(--color-border);
-    border-radius: 24px;
+    border-radius: var(--project-media-radius);
     background: var(--color-surface);
+    /* Knipt op de afronding, maar laat 1px buiten de binnenkant toe: daar dekt de inkeping de kaartrand weg. */
     overflow: hidden;
+    overflow: clip;
+    overflow-clip-margin: 1px;
 }
 
 .project-media__toolbar {
@@ -862,6 +896,7 @@
     gap: 8px;
     padding: 14px 20px;
     border-bottom: 1px solid var(--color-border);
+    border-radius: calc(var(--project-media-radius) - 1px) calc(var(--project-media-radius) - 1px) 0 0;
     backdrop-filter: blur(4px);
 }
 
@@ -904,11 +939,72 @@
 
 .project-media {
     --project-media-duration: calc(var(--motion-duration) * 2);
+    --project-media-radius: 24px;
+    /* Afmetingen van de inkeping. De knop zit er met --project-media-nav-inset ruimte in, aan de binnenkant en langs de schuine zijden. */
+    --project-media-nav-height: 144px;
+    --project-media-nav-depth: 32px;
+    --project-media-nav-inset: 4px;
 }
 
+/* De pijlknoppen zitten in een inkeping van de kaart: links en rechts naast de viewport, zonder tussenruimte.
+   De kaartrand wordt in de inkeping weggedekt met de paginakleur; de schuine zijden en binnenrand van de knop vormen de nieuwe rand. */
 .project-media__stage {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.project-media__stage::before,
+.project-media__stage::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - var(--project-media-nav-height) / 2);
+    width: 1px;
+    height: var(--project-media-nav-height);
+    background: var(--color-bg);
+    pointer-events: none;
+}
+
+.project-media__stage::before {
+    left: -1px;
+}
+
+.project-media__stage::after {
+    right: -1px;
+}
+
+/* De lijn van de inkeping. Het SVG-viewBox (34 x 144) is de inkeping inclusief de 1px kaartrand. */
+.project-media__notch {
+    position: absolute;
+    /* Boven de viewport, anders wordt de binnenlijn van de inkeping door de viewport afgedekt. */
+    z-index: 2;
+    top: calc(50% - var(--project-media-nav-height) / 2);
+    width: 34px;
+    height: var(--project-media-nav-height);
+    overflow: visible;
+    pointer-events: none;
+}
+
+.project-media__notch path {
+    fill: none;
+    stroke: var(--color-border);
+    stroke-width: 1;
+}
+
+.project-media__notch--previous {
+    left: -1px;
+}
+
+.project-media__notch--next {
+    right: -1px;
+}
+
+.project-media__viewport {
+    position: relative;
     isolation: isolate;
+    flex: 1 1 0;
+    min-width: 0;
     aspect-ratio: 1550 / 640;
     overflow: hidden;
     background: var(--color-surface-alt);
@@ -1015,7 +1111,7 @@
 }
 
 /* Fixed behind the slides: the stage keeps the arcs in place while only the photos slide. The arcs show where a photo does not fill its slide (object-fit: contain). */
-.project-media__stage::before {
+.project-media__viewport::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -1028,17 +1124,16 @@
 }
 
 .project-media__nav {
-    position: absolute;
-    top: 50%;
-    z-index: 1;
-    width: 32px;
-    height: 144px;
+    position: relative;
+    flex: 0 0 auto;
+    /* Reikt tot de buitenrand van de inkeping. Parallel aan de schuine zijden (zelfde hoek), met --project-media-nav-inset ruimte erop en aan de binnenkant. */
+    width: calc(var(--project-media-nav-depth) - var(--project-media-nav-inset));
+    height: 133.7px;
     padding: 0;
     border: 0;
     background: none;
-    /* Subtiele schaduw naar rechts-onder; de slideshow knipt wat erbuiten valt af. */
-    filter: drop-shadow(3px 3px 4px rgb(0 0 0 / 0.2));
-    transform: translateY(-50%);
+    /* Subtiele schaduw naar rechts-onder; de kaart knipt wat erbuiten valt af. */
+    /* filter: drop-shadow(3px 3px 4px rgb(0 0 0 / 0.2)); */
     cursor: pointer;
 }
 
@@ -1051,11 +1146,11 @@
 }
 
 .project-media__nav--previous::before {
-    clip-path: polygon(0 0, 100% 18%, 100% 82%, 0 100%);
+    clip-path: polygon(0 0, 100% 17.02%, 100% 82.98%, 0 100%);
 }
 
 .project-media__nav--next::before {
-    clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 82%);
+    clip-path: polygon(0 17.02%, 100% 0, 100% 100%, 0 82.98%);
 }
 
 .project-media__nav-face {
@@ -1067,47 +1162,53 @@
     background: var(--color-bg);
 }
 
+/* Decoratieve strepen in accentkleur: drie boven en drie onder de pijl, evenwijdig aan de schuine zijden, niet tot de rand.
+   Het masker (28 x 133.7px) is per knop gespiegeld. De kleur is de donkere accenttint (--accent-strong), dus die volgt het accent. */
+.project-media__nav-face::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-border);
+    -webkit-mask: var(--project-media-stripes) center / 100% 100% no-repeat;
+    mask: var(--project-media-stripes) center / 100% 100% no-repeat;
+    pointer-events: none;
+    transition: background-color var(--motion-duration) ease;
+}
+
+/* Bij hover of focus krijgen de strepen de donkere accenttint. */
+.project-media__nav:hover .project-media__nav-face::after,
+.project-media__nav:focus-visible .project-media__nav-face::after {
+    background: var(--accent-strong);
+}
+
+/* Gezicht van de knop: 1px binnen de rand (28 x 133.7px box, zie width/height hierboven). */
 .project-media__nav--previous {
-    left: 0;
+    margin-right: var(--project-media-nav-inset);
 }
 
 .project-media__nav--next {
-    right: 0;
+    margin-left: var(--project-media-nav-inset);
 }
 
 .project-media__nav--previous .project-media__nav-face {
-    clip-path: polygon(1px 2.1px, 31px 26.4px, 31px 117.6px, 1px 141.9px);
+    clip-path: polygon(1px 2.1px, 27px 23.23px, 27px 110.47px, 1px 131.59px);
+    --project-media-stripes: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 133.7'%3E%3Cpath d='M5 19.06L21 32.06L21 30.06L5 17.06ZM5 27.06L21 40.06L21 38.06L5 25.06ZM5 35.06L21 48.06L21 46.06L5 33.06ZM5 114.64L21 101.64L21 103.64L5 116.64ZM5 106.64L21 93.64L21 95.64L5 108.64ZM5 98.64L21 85.64L21 87.64L5 100.64Z' fill='black'/%3E%3C/svg%3E");
 }
 
 .project-media__nav--next .project-media__nav-face {
-    clip-path: polygon(31px 2.1px, 1px 26.4px, 1px 117.6px, 31px 141.9px);
+    clip-path: polygon(27px 2.1px, 1px 23.23px, 1px 110.47px, 27px 131.59px);
+    --project-media-stripes: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 133.7'%3E%3Cpath d='M23 19.06L7 32.06L7 30.06L23 17.06ZM23 27.06L7 40.06L7 38.06L23 25.06ZM23 35.06L7 48.06L7 46.06L23 33.06ZM23 114.64L7 101.64L7 103.64L23 116.64ZM23 106.64L7 93.64L7 95.64L23 108.64ZM23 98.64L7 85.64L7 87.64L23 100.64Z' fill='black'/%3E%3C/svg%3E");
 }
 
-/* Hover en focus: de 3D-rand krijgt de accentkleur, zoals de andere knoppen in het project. */
-.project-media__nav:hover::before,
-.project-media__nav:focus-visible::before {
-    background: var(--accent);
+/* De pijlen hebben de randkleur; bij hover of focus de accentkleur. De knoppen hebben verder geen hovereffect. */
+.project-media__nav .project-media__nav-icon {
+    color: var(--color-border);
+    transition: color var(--motion-duration) ease;
 }
 
-/* 3D-kanteling: de binnenzijde van de knop komt naar voren, de buitenzijde gaat weg. Zonder bewegingsvoorkeur blijft de knop staan. */
-@media (prefers-reduced-motion: no-preference) {
-    .project-media__nav {
-        transition: transform var(--motion-duration) ease;
-    }
-
-    .project-media__nav::before {
-        transition: background-color var(--motion-duration) ease;
-    }
-
-    .project-media__nav--previous:focus-visible,
-    .project-media__nav--previous:hover {
-        transform: translateY(-50%) perspective(480px) rotateY(-12deg) scale(1.04);
-    }
-
-    .project-media__nav--next:focus-visible,
-    .project-media__nav--next:hover {
-        transform: translateY(-50%) perspective(480px) rotateY(12deg) scale(1.04);
-    }
+.project-media__nav:hover .project-media__nav-icon,
+.project-media__nav:focus-visible .project-media__nav-icon {
+    color: var(--accent);
 }
 .project-media__caption {
     display: flex;
@@ -1116,6 +1217,7 @@
     gap: 16px;
     padding: 14px 20px;
     border-top: 1px solid var(--color-border);
+    border-radius: 0 0 calc(var(--project-media-radius) - 1px) calc(var(--project-media-radius) - 1px);
     backdrop-filter: blur(4px);
 }
 
@@ -1730,7 +1832,7 @@
     flex-direction: column;
     }
 
-    .project-media__stage {
+    .project-media__viewport {
         aspect-ratio: 4 / 5;
     }
 
