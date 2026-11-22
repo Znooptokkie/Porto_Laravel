@@ -34,5 +34,770 @@
         "command": "gh auth status",
         "description": "Controleer welk GitHub-account actief is.",
         "description_en": "Check which GitHub account is active."
+    },
+    {
+        "category": "Linux",
+        "card_title": "Neofetch",
+        "card_title_en": "Neofetch",
+        "keyword": "linux",
+        "command": "neofetch",
+        "description": "Toon systeeminformatie, zoals distributie, kernel, hardware en uptime.",
+        "description_en": "Display system information such as distribution, kernel, hardware and uptime."
+    },
+    {
+        "category": "Python",
+        "card_title": "Virtual Environment",
+        "card_title_en": "Virtual Environment",
+        "keyword": "python",
+        "command": "source venv/bin/activate",
+        "description": "Activeer de Python virtual environment in de huidige terminal.",
+        "description_en": "Activate the Python virtual environment in the current terminal."
+    },
+    {
+        "category": "Python",
+        "card_title": "Virtual Environment",
+        "card_title_en": "Virtual Environment",
+        "keyword": "python",
+        "command": "deactivate",
+        "description": "Deactiveer de huidige Python virtual environment.",
+        "description_en": "Deactivate the current Python virtual environment."
+    },
+    {
+        "category": "Network",
+        "card_title": "IP Address",
+        "card_title_en": "IP Address",
+        "keyword": "networking",
+        "command": "ip addr show eth0",
+        "description": "Toon de IP-configuratie van de ethernetinterface eth0.",
+        "description_en": "Display the IP configuration of the eth0 Ethernet interface."
+    },
+    {
+        "category": "Network",
+        "card_title": "IP Address",
+        "card_title_en": "IP Address",
+        "keyword": "networking",
+        "command": "ip addr show wlan0",
+        "description": "Toon de IP-configuratie van de wifi-interface wlan0.",
+        "description_en": "Display the IP configuration of the wlan0 Wi-Fi interface."
+    },
+    {
+        "category": "Network",
+        "card_title": "IP Address",
+        "card_title_en": "IP Address",
+        "keyword": "networking",
+        "command": "ip addr show",
+        "description": "Toon de IP-configuratie van alle netwerkinterfaces.",
+        "description_en": "Display the IP configuration of all network interfaces."
+    },
+    {
+        "category": "Python",
+        "card_title": "Requirements",
+        "card_title_en": "Requirements",
+        "keyword": "python",
+        "command": "pip install -r requirements.txt",
+        "description": "Installeer alle Python-packages die in requirements.txt staan.",
+        "description_en": "Install all Python packages listed in requirements.txt."
+    },
+    {
+        "category": "Python",
+        "card_title": "Requirements",
+        "card_title_en": "Requirements",
+        "keyword": "python",
+        "command": "pip freeze > requirements.txt",
+        "description": "Sla alle geïnstalleerde Python-packages en versies op in requirements.txt.",
+        "description_en": "Save all installed Python packages and versions to requirements.txt."
+    },
+    {
+        "category": "Laravel",
+        "card_title": "Database Seeder",
+        "card_title_en": "Database Seeder",
+        "keyword": "laravel",
+        "command": "php artisan db:seed --class=<SEEDER>",
+        "description": "Voer een specifieke database seeder uit.",
+        "description_en": "Run a specific database seeder."
+    },
+    {
+        "category": "Laravel",
+        "card_title": "Development Server",
+        "card_title_en": "Development Server",
+        "keyword": "laravel",
+        "command": "php artisan serve",
+        "description": "Start de lokale Laravel development server.",
+        "description_en": "Start the local Laravel development server."
+    },
+    {
+        "category": "Linux",
+        "card_title": "Find Files",
+        "card_title_en": "Find Files",
+        "keyword": "linux",
+        "command": "find <PATH> -name \"<PATTERN>\"",
+        "description": "Zoek bestanden en mappen op basis van een naam of patroon binnen een opgegeven pad.",
+        "description_en": "Search for files and directories by name or pattern within a specified path."
+    },
+    {
+        "category": "Linux",
+        "card_title": "File Permissions",
+        "card_title_en": "File Permissions",
+        "keyword": "linux",
+        "command": "chmod +x <EXECUTABLE FILE>",
+        "description": "Geef een bestand uitvoerrechten.",
+        "description_en": "Grant execute permissions to a file."
+    },
+    {
+        "category": "Git",
+        "card_title": "Status",
+        "card_title_en": "Status",
+        "keyword": "git",
+        "command": "git status",
+        "description": "Toon de huidige status van de Git-repository, inclusief gewijzigde en nieuwe bestanden.",
+        "description_en": "Display the current Git repository status, including modified and untracked files."
+    },
+    {
+        "category": "Linux",
+        "card_title": "History",
+        "card_title_en": "History",
+        "keyword": "bash",
+        "command": "history | grep <TERM>",
+        "description": "Zoek in de terminalgeschiedenis naar commando's die overeenkomen met een opgegeven zoekterm.",
+        "description_en": "Search the terminal history for commands matching a specified search term."
+    },
+    {
+        "category": "SSH",
+        "card_title": "Connect",
+        "card_title_en": "Connect",
+        "keyword": "ssh",
+        "command": "ssh <USER>@<HOST>",
+        "description": "Maak via SSH verbinding met een externe computer of server.",
+        "description_en": "Connect to a remote computer or server using SSH."
+    },
+    {
+        "category": "SSH",
+        "card_title": "Copy Files",
+        "card_title_en": "Copy Files",
+        "keyword": "ssh",
+        "command": "scp <SOURCE> <USER>@<HOST>:<DESTINATION>",
+        "description": "Kopieer bestanden vanaf de lokale computer naar een externe computer via SSH.",
+        "description_en": "Copy files from the local computer to a remote computer over SSH."
+    },
+    {
+        "category": "Bash",
+        "card_title": "Current Directory",
+        "card_title_en": "Current Directory",
+        "keyword": "linux",
+        "command": "pwd",
+        "description": "Toon het volledige pad van de huidige directory.",
+        "description_en": "Display the full path of the current directory."
+    },
+    {
+        "category": "Bash",
+        "card_title": "List Files",
+        "card_title_en": "List Files",
+        "keyword": "linux",
+        "command": "ls -lah",
+        "description": "Toon alle bestanden en mappen, inclusief verborgen bestanden, met bestandsgrootte en details.",
+        "description_en": "List all files and directories, including hidden files, with file sizes and details."
+    },
+    {
+        "category": "Bash",
+        "card_title": "Change Directory",
+        "card_title_en": "Change Directory",
+        "keyword": "linux",
+        "command": "cd ..",
+        "description": "Ga één directory omhoog.",
+        "description_en": "Move up one directory."
+    },
+    {
+        "category": "Bash",
+        "card_title": "Create Directory",
+        "card_title_en": "Create Directory",
+        "keyword": "linux",
+        "command": "mkdir -p <DIRECTORY>",
+        "description": "Maak een directory aan, inclusief eventuele ontbrekende bovenliggende directories.",
+        "description_en": "Create a directory, including any missing parent directories."
+    },
+    {
+        "category": "Bash",
+        "card_title": "Copy Files",
+        "card_title_en": "Copy Files",
+        "keyword": "linux",
+        "command": "cp -r <SOURCE> <DESTINATION>",
+        "description": "Kopieer een bestand of volledige directory.",
+        "description_en": "Copy a file or an entire directory."
+    },
+    {
+        "category": "Bash",
+        "card_title": "Move Files",
+        "card_title_en": "Move Files",
+        "keyword": "linux",
+        "command": "mv <SOURCE> <DESTINATION>",
+        "description": "Verplaats of hernoem een bestand of directory.",
+        "description_en": "Move or rename a file or directory."
+    },
+    {
+        "category": "Bash",
+        "card_title": "Read File",
+        "card_title_en": "Read File",
+        "keyword": "linux",
+        "command": "cat <FILE>",
+        "description": "Toon de volledige inhoud van een bestand.",
+        "description_en": "Display the entire contents of a file."
+    },
+    {
+        "category": "Bash",
+        "card_title": "Search Text",
+        "card_title_en": "Search Text",
+        "keyword": "linux",
+        "command": "grep -rn \"<TERM>\" <PATH>",
+        "description": "Zoek recursief naar een tekst binnen bestanden, inclusief regelnummers.",
+        "description_en": "Recursively search for text inside files, including line numbers."
+    },
+    {
+        "category": "Bash",
+        "card_title": "Monitor Logs",
+        "card_title_en": "Monitor Logs",
+        "keyword": "linux",
+        "command": "tail -f <FILE>",
+        "description": "Bekijk nieuwe regels die aan een bestand worden toegevoegd.",
+        "description_en": "Monitor new lines being added to a file."
+    },
+    {
+        "category": "Linux",
+        "card_title": "Disk Space",
+        "card_title_en": "Disk Space",
+        "keyword": "linux",
+        "command": "df -h",
+        "description": "Toon het schijfgebruik en de beschikbare opslagruimte van alle bestandssystemen.",
+        "description_en": "Display disk usage and available storage space for all filesystems."
+    },
+    {
+        "category": "Linux",
+        "card_title": "Directory Size",
+        "card_title_en": "Directory Size",
+        "keyword": "linux",
+        "command": "du -sh <DIRECTORY>",
+        "description": "Toon de totale grootte van een directory.",
+        "description_en": "Display the total size of a directory."
+    },
+    {
+        "category": "Linux",
+        "card_title": "Running Processes",
+        "card_title_en": "Running Processes",
+        "keyword": "linux",
+        "command": "ps aux",
+        "description": "Toon alle actieve processen op het systeem.",
+        "description_en": "Display all running processes on the system."
+    },
+    {
+        "category": "Linux",
+        "card_title": "Kill Process",
+        "card_title_en": "Kill Process",
+        "keyword": "linux",
+        "command": "kill <PID>",
+        "description": "Beëindig een proces op basis van het proces-ID.",
+        "description_en": "Terminate a process using its process ID."
+    },
+    {
+        "category": "Linux",
+        "card_title": "System Services",
+        "card_title_en": "System Services",
+        "keyword": "linux",
+        "command": "systemctl status <SERVICE>",
+        "description": "Bekijk de status van een systeemservice.",
+        "description_en": "Check the status of a system service."
+    },
+    {
+        "category": "Linux",
+        "card_title": "System Logs",
+        "card_title_en": "System Logs",
+        "keyword": "linux",
+        "command": "journalctl -u <SERVICE> -f",
+        "description": "Bekijk live logs van een specifieke systeemservice.",
+        "description_en": "Monitor live logs from a specific system service."
+    },
+    {
+        "category": "Git",
+        "card_title": "Clone Repository",
+        "card_title_en": "Clone Repository",
+        "keyword": "git",
+        "command": "git clone <URL>",
+        "description": "Kloon een remote Git-repository naar je lokale computer.",
+        "description_en": "Clone a remote Git repository to your local computer."
+    },
+    {
+        "category": "Git",
+        "card_title": "Stage Changes",
+        "card_title_en": "Stage Changes",
+        "keyword": "git",
+        "command": "git add .",
+        "description": "Voeg alle gewijzigde en nieuwe bestanden toe aan de staging area.",
+        "description_en": "Add all modified and new files to the staging area."
+    },
+    {
+        "category": "Git",
+        "card_title": "Commit Changes",
+        "card_title_en": "Commit Changes",
+        "keyword": "git",
+        "command": "git commit -m \"<MESSAGE>\"",
+        "description": "Sla de gestagede wijzigingen op in een nieuwe commit.",
+        "description_en": "Save staged changes in a new commit."
+    },
+    {
+        "category": "Git",
+        "card_title": "Push Changes",
+        "card_title_en": "Push Changes",
+        "keyword": "git",
+        "command": "git push",
+        "description": "Verstuur lokale commits naar de gekoppelde remote branch.",
+        "description_en": "Push local commits to the configured remote branch."
+    },
+    {
+        "category": "Git",
+        "card_title": "Pull Changes",
+        "card_title_en": "Pull Changes",
+        "keyword": "git",
+        "command": "git pull",
+        "description": "Haal remote wijzigingen op en integreer deze in de huidige branch.",
+        "description_en": "Fetch remote changes and integrate them into the current branch."
+    },
+    {
+        "category": "Git",
+        "card_title": "Commit History",
+        "card_title_en": "Commit History",
+        "keyword": "git",
+        "command": "git log --oneline",
+        "description": "Toon de commitgeschiedenis in een compact overzicht.",
+        "description_en": "Display the commit history in a compact format."
+    },
+    {
+        "category": "Git",
+        "card_title": "Show Differences",
+        "card_title_en": "Show Differences",
+        "keyword": "git",
+        "command": "git diff",
+        "description": "Toon de verschillen tussen gewijzigde bestanden en de laatste commit.",
+        "description_en": "Display differences between modified files and the last commit."
+    },
+    {
+        "category": "Git",
+        "card_title": "Switch Branch",
+        "card_title_en": "Switch Branch",
+        "keyword": "git",
+        "command": "git switch <BRANCH>",
+        "description": "Schakel over naar een bestaande branch.",
+        "description_en": "Switch to an existing branch."
+    },
+    {
+        "category": "Ssh",
+        "card_title": "Generate SSH Key",
+        "card_title_en": "Generate SSH Key",
+        "keyword": "ssh",
+        "command": "ssh-keygen -t ed25519 -C \"<EMAIL>\"",
+        "description": "Genereer een nieuwe SSH-sleutel met het Ed25519-algoritme.",
+        "description_en": "Generate a new SSH key using the Ed25519 algorithm."
+    },
+    {
+        "category": "Ssh",
+        "card_title": "Copy SSH Key",
+        "card_title_en": "Copy SSH Key",
+        "keyword": "ssh",
+        "command": "ssh-copy-id <USER>@<HOST>",
+        "description": "Installeer je publieke SSH-sleutel op een externe server.",
+        "description_en": "Install your public SSH key on a remote server."
+    },
+    {
+        "category": "Ssh",
+        "card_title": "Use SSH Key",
+        "card_title_en": "Use SSH Key",
+        "keyword": "ssh",
+        "command": "ssh -i <PRIVATE_KEY> <USER>@<HOST>",
+        "description": "Maak verbinding met een server via een specifieke privésleutel.",
+        "description_en": "Connect to a server using a specific private key."
+    },
+    {
+        "category": "Ssh",
+        "card_title": "Copy Directory",
+        "card_title_en": "Copy Directory",
+        "keyword": "ssh",
+        "command": "scp -r <SOURCE> <USER>@<HOST>:<DESTINATION>",
+        "description": "Kopieer een volledige directory naar een externe server via SSH.",
+        "description_en": "Copy an entire directory to a remote server over SSH."
+    },
+    {
+        "category": "Networking",
+        "card_title": "Ping Host",
+        "card_title_en": "Ping Host",
+        "keyword": "networking",
+        "command": "ping -c 4 <HOST>",
+        "description": "Controleer de netwerkverbinding met een host door vier pingverzoeken te versturen.",
+        "description_en": "Test network connectivity to a host by sending four ping requests."
+    },
+    {
+        "category": "Networking",
+        "card_title": "Routing Table",
+        "card_title_en": "Routing Table",
+        "keyword": "networking",
+        "command": "ip route",
+        "description": "Toon de routingtabel, inclusief de standaardgateway.",
+        "description_en": "Display the routing table, including the default gateway."
+    },
+    {
+        "category": "Networking",
+        "card_title": "Listening Ports",
+        "card_title_en": "Listening Ports",
+        "keyword": "networking",
+        "command": "ss -tulpn",
+        "description": "Toon luisterende TCP- en UDP-poorten en bijbehorende processen.",
+        "description_en": "Display listening TCP and UDP ports and their associated processes."
+    },
+    {
+        "category": "Networking",
+        "card_title": "HTTP Headers",
+        "card_title_en": "HTTP Headers",
+        "keyword": "networking",
+        "command": "curl -I <URL>",
+        "description": "Verstuur een HTTP HEAD-verzoek en toon de responseheaders.",
+        "description_en": "Send an HTTP HEAD request and display the response headers."
+    },
+    {
+        "category": "Networking",
+        "card_title": "DNS Lookup",
+        "card_title_en": "DNS Lookup",
+        "keyword": "networking",
+        "command": "getent hosts <HOSTNAME>",
+        "description": "Zoek het IP-adres op dat bij een hostnaam hoort via de systeemnaamresolutie.",
+        "description_en": "Look up the IP address associated with a hostname using system name resolution."
+    },
+    {
+        "category": "Php",
+        "card_title": "PHP Version",
+        "card_title_en": "PHP Version",
+        "keyword": "php",
+        "command": "php -v",
+        "description": "Toon de geïnstalleerde PHP-versie.",
+        "description_en": "Display the installed PHP version."
+    },
+    {
+        "category": "Php",
+        "card_title": "PHP Extensions",
+        "card_title_en": "PHP Extensions",
+        "keyword": "php",
+        "command": "php -m",
+        "description": "Toon alle geïnstalleerde en ingeschakelde PHP-extensies.",
+        "description_en": "Display all installed and enabled PHP extensions."
+    },
+    {
+        "category": "Php",
+        "card_title": "Composer Install",
+        "card_title_en": "Composer Install",
+        "keyword": "php",
+        "command": "composer install",
+        "description": "Installeer de PHP-afhankelijkheden uit composer.lock.",
+        "description_en": "Install the PHP dependencies listed in composer.lock."
+    },
+    {
+        "category": "Php",
+        "card_title": "Composer Update",
+        "card_title_en": "Composer Update",
+        "keyword": "php",
+        "command": "composer update",
+        "description": "Werk de PHP-afhankelijkheden bij volgens composer.json en actualiseer composer.lock.",
+        "description_en": "Update PHP dependencies according to composer.json and update composer.lock."
+    },
+    {
+        "category": "Python",
+        "card_title": "Python Version",
+        "card_title_en": "Python Version",
+        "keyword": "python",
+        "command": "python --version",
+        "description": "Toon de geïnstalleerde Python-versie.",
+        "description_en": "Display the installed Python version."
+    },
+    {
+        "category": "Python",
+        "card_title": "Create Virtual Environment",
+        "card_title_en": "Create Virtual Environment",
+        "keyword": "python",
+        "command": "python -m venv venv",
+        "description": "Maak een nieuwe Python virtual environment aan in de map venv.",
+        "description_en": "Create a new Python virtual environment in the venv directory."
+    },
+    {
+        "category": "Python",
+        "card_title": "Run Script",
+        "card_title_en": "Run Script",
+        "keyword": "python",
+        "command": "python <SCRIPT>.py",
+        "description": "Voer een Python-script uit.",
+        "description_en": "Execute a Python script."
+    },
+    {
+        "category": "Python",
+        "card_title": "Install Package",
+        "card_title_en": "Install Package",
+        "keyword": "python",
+        "command": "python -m pip install <PACKAGE>",
+        "description": "Installeer een Python-package met pip.",
+        "description_en": "Install a Python package using pip."
+    },
+    {
+        "category": "Npm",
+        "card_title": "Install Dependencies",
+        "card_title_en": "Install Dependencies",
+        "keyword": "npm",
+        "command": "npm install",
+        "description": "Installeer alle projectafhankelijkheden uit package.json.",
+        "description_en": "Install all project dependencies listed in package.json."
+    },
+    {
+        "category": "Npm",
+        "card_title": "Run Development",
+        "card_title_en": "Run Development",
+        "keyword": "npm",
+        "command": "npm run dev",
+        "description": "Start het development-script van het project.",
+        "description_en": "Run the project's development script."
+    },
+    {
+        "category": "Npm",
+        "card_title": "Build Project",
+        "card_title_en": "Build Project",
+        "keyword": "npm",
+        "command": "npm run build",
+        "description": "Bouw het project voor productie.",
+        "description_en": "Build the project for production."
+    },
+    {
+        "category": "Npm",
+        "card_title": "Update Dependencies",
+        "card_title_en": "Update Dependencies",
+        "keyword": "npm",
+        "command": "npm outdated",
+        "description": "Toon welke geïnstalleerde packages een nieuwere versie beschikbaar hebben.",
+        "description_en": "Display installed packages that have newer versions available."
+    },
+    {
+        "category": "Npm",
+        "card_title": "List Dependencies",
+        "card_title_en": "List Dependencies",
+        "keyword": "npm",
+        "command": "npm list --depth=0",
+        "description": "Toon de direct geïnstalleerde projectafhankelijkheden.",
+        "description_en": "Display the directly installed project dependencies."
+    },
+    {
+        "category": "Laravel",
+        "card_title": "Run Migrations",
+        "card_title_en": "Run Migrations",
+        "keyword": "laravel",
+        "command": "php artisan migrate",
+        "description": "Voer alle openstaande database-migraties uit.",
+        "description_en": "Run all pending database migrations."
+    },
+    {
+        "category": "Laravel",
+        "card_title": "List Routes",
+        "card_title_en": "List Routes",
+        "keyword": "laravel",
+        "command": "php artisan route:list",
+        "description": "Toon alle geregistreerde Laravel-routes.",
+        "description_en": "Display all registered Laravel routes."
+    },
+    {
+        "category": "Laravel",
+        "card_title": "Clear Cache",
+        "card_title_en": "Clear Cache",
+        "keyword": "laravel",
+        "command": "php artisan optimize:clear",
+        "description": "Wis de geoptimaliseerde caches van Laravel, waaronder de configuratie-, route- en view-cache.",
+        "description_en": "Clear Laravel's optimization caches, including configuration, route and view caches."
+    },
+    {
+        "category": "Laravel",
+        "card_title": "Create Controller",
+        "card_title_en": "Create Controller",
+        "keyword": "laravel",
+        "command": "php artisan make:controller <NAME>",
+        "description": "Genereer een nieuwe Laravel-controller.",
+        "description_en": "Generate a new Laravel controller."
+    },
+    {
+        "category": "Laravel",
+        "card_title": "Enter Tinker",
+        "card_title_en": "Enter Tinker",
+        "keyword": "laravel",
+        "command": "php artisan tinker",
+        "description": "Open een interactieve PHP-shell met toegang tot de Laravel-applicatie.",
+        "description_en": "Open an interactive PHP shell with access to the Laravel application."
+    },
+    {
+        "category": "Django",
+        "card_title": "Run Development Server",
+        "card_title_en": "Run Development Server",
+        "keyword": "django",
+        "command": "python manage.py runserver",
+        "description": "Start de lokale Django development server.",
+        "description_en": "Start the local Django development server."
+    },
+    {
+        "category": "Django",
+        "card_title": "Create Migrations",
+        "card_title_en": "Create Migrations",
+        "keyword": "django",
+        "command": "python manage.py makemigrations",
+        "description": "Genereer database-migraties op basis van gewijzigde modellen.",
+        "description_en": "Generate database migrations based on changed models."
+    },
+    {
+        "category": "Django",
+        "card_title": "Run Migrations",
+        "card_title_en": "Run Migrations",
+        "keyword": "django",
+        "command": "python manage.py migrate",
+        "description": "Pas openstaande database-migraties toe.",
+        "description_en": "Apply pending database migrations."
+    },
+    {
+        "category": "Django",
+        "card_title": "Create Superuser",
+        "card_title_en": "Create Superuser",
+        "keyword": "django",
+        "command": "python manage.py createsuperuser",
+        "description": "Maak een beheeraccount aan voor het Django-adminpaneel.",
+        "description_en": "Create an administrator account for the Django admin panel."
+    },
+    {
+        "category": "Docker",
+        "card_title": "Running Containers",
+        "card_title_en": "Running Containers",
+        "keyword": "docker",
+        "command": "docker ps",
+        "description": "Toon alle actieve Docker-containers.",
+        "description_en": "Display all running Docker containers."
+    },
+    {
+        "category": "Docker",
+        "card_title": "All Containers",
+        "card_title_en": "All Containers",
+        "keyword": "docker",
+        "command": "docker ps -a",
+        "description": "Toon alle Docker-containers, inclusief gestopte containers.",
+        "description_en": "Display all Docker containers, including stopped containers."
+    },
+    {
+        "category": "Docker",
+        "card_title": "Start Containers",
+        "card_title_en": "Start Containers",
+        "keyword": "docker",
+        "command": "docker compose up -d",
+        "description": "Start de services uit compose.yaml op de achtergrond.",
+        "description_en": "Start the services defined in compose.yaml in the background."
+    },
+    {
+        "category": "Docker",
+        "card_title": "Stop Containers",
+        "card_title_en": "Stop Containers",
+        "keyword": "docker",
+        "command": "docker compose down",
+        "description": "Stop en verwijder de containers en netwerken van het huidige Compose-project.",
+        "description_en": "Stop and remove the containers and networks of the current Compose project."
+    },
+    {
+        "category": "Docker",
+        "card_title": "Container Logs",
+        "card_title_en": "Container Logs",
+        "keyword": "docker",
+        "command": "docker logs -f <CONTAINER>",
+        "description": "Bekijk live de logs van een Docker-container.",
+        "description_en": "Monitor the live logs of a Docker container."
+    },
+    {
+        "category": "Docker",
+        "card_title": "Enter Container",
+        "card_title_en": "Enter Container",
+        "keyword": "docker",
+        "command": "docker exec -it <CONTAINER> bash",
+        "description": "Open een interactieve Bash-shell binnen een actieve container.",
+        "description_en": "Open an interactive Bash shell inside a running container."
+    },
+    {
+        "category": "Docker",
+        "card_title": "Docker Images",
+        "card_title_en": "Docker Images",
+        "keyword": "docker",
+        "command": "docker images",
+        "description": "Toon alle lokaal beschikbare Docker-images.",
+        "description_en": "Display all locally available Docker images."
+    },
+    {
+        "category": "Sql",
+        "card_title": "Show Databases",
+        "card_title_en": "Show Databases",
+        "keyword": "sql",
+        "command": "SHOW DATABASES;",
+        "description": "Toon alle databases op de huidige MySQL-server.",
+        "description_en": "Display all databases on the current MySQL server."
+    },
+    {
+        "category": "Sql",
+        "card_title": "Select Database",
+        "card_title_en": "Select Database",
+        "keyword": "sql",
+        "command": "USE <DATABASE>;",
+        "description": "Selecteer een database voor de volgende SQL-query's.",
+        "description_en": "Select a database for subsequent SQL queries."
+    },
+    {
+        "category": "Sql",
+        "card_title": "Show Tables",
+        "card_title_en": "Show Tables",
+        "keyword": "sql",
+        "command": "SHOW TABLES;",
+        "description": "Toon alle tabellen in de geselecteerde database.",
+        "description_en": "Display all tables in the selected database."
+    },
+    {
+        "category": "Sql",
+        "card_title": "Describe Table",
+        "card_title_en": "Describe Table",
+        "keyword": "sql",
+        "command": "DESCRIBE <TABLE>;",
+        "description": "Toon de kolommen, datatypes en overige structuurinformatie van een tabel.",
+        "description_en": "Display the columns, data types and other structural information of a table."
+    },
+    {
+        "category": "Nginx",
+        "card_title": "Test Configuration",
+        "card_title_en": "Test Configuration",
+        "keyword": "nginx",
+        "command": "sudo nginx -t",
+        "description": "Controleer de Nginx-configuratie op syntaxfouten.",
+        "description_en": "Check the Nginx configuration for syntax errors."
+    },
+    {
+        "category": "Nginx",
+        "card_title": "Reload Configuration",
+        "card_title_en": "Reload Configuration",
+        "keyword": "nginx",
+        "command": "sudo systemctl reload nginx",
+        "description": "Herlaad de Nginx-configuratie zonder de service volledig te stoppen.",
+        "description_en": "Reload the Nginx configuration without fully stopping the service."
+    },
+    {
+        "category": "Nginx",
+        "card_title": "Service Status",
+        "card_title_en": "Service Status",
+        "keyword": "nginx",
+        "command": "sudo systemctl status nginx",
+        "description": "Bekijk de status van de Nginx-service.",
+        "description_en": "Check the status of the Nginx service."
+    },
+    {
+        "category": "Nginx",
+        "card_title": "Error Logs",
+        "card_title_en": "Error Logs",
+        "keyword": "nginx",
+        "command": "sudo tail -f /var/log/nginx/error.log",
+        "description": "Bekijk live de foutmeldingen van Nginx.",
+        "description_en": "Monitor Nginx error messages in real time."
     }
 ]

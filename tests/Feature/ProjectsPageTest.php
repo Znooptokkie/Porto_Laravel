@@ -246,7 +246,7 @@ it('seeds the chapters, specifications and contributors from the legacy portfoli
     $zinra = Project::query()->where('slug', 'zinra')->firstOrFail();
 
     expect($smartGarden->chapters)->toHaveCount(8)
-        ->and($smartGarden->components)->toHaveCount(10)
+        ->and($smartGarden->components)->toHaveCount(12)
         ->and($smartGarden->contributors)->toHaveCount(6)
         ->and($smartGarden->repository_url)->toBe('https://github.com/Znooptokkie/GG')
         ->and($zinra->repository_url)->toBe('https://github.com/Znooptokkie/Project_P3')
@@ -263,7 +263,7 @@ it('seeds the stair lighting chapters and components with Dutch and English text
         ->and($project->chapters->first()->title)->toBe('Introductie')
         ->and($project->chapters->pluck('translations.en.title')->filter()->count())->toBe(11)
         ->and($project->chapters->pluck('translations.en.paragraphs')->filter()->count())->toBe(11)
-        ->and($project->components)->toHaveCount(13);
+        ->and($project->components)->toHaveCount(12);
 
     $this->withUnencryptedCookie('locale', 'nl')->get(route('projects.show', $project))
         ->assertOk()
