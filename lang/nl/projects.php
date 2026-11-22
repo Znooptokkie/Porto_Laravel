@@ -75,5 +75,6 @@ return [
         'software' => 'Software',
         'protocol' => 'Protocol',
         'sensor' => 'Sensor',
+        'communication' => 'Communicatie',
     ],
 ];

@@ -8,6 +8,7 @@ enum ProjectComponentGroup: string
     case Software = 'software';
     case Protocol = 'protocol';
     case Sensor = 'sensor';
+    case Communication = 'communication';
 
     /**
      * Returns the translated heading for this group in the specifications list.
@@ -40,6 +41,10 @@ enum ProjectComponentGroup: string
             self::Sensor => [
                 'light' => 'images/icons/categories/light/sensor.svg',
                 'dark' => 'images/icons/categories/light/sensor.svg',
+            ],
+            self::Communication => [
+                'light' => 'images/icons/categories/light/communication.svg',
+                'dark' => 'images/icons/categories/light/communication.svg',
             ],
         };
     }
