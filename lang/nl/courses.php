@@ -72,7 +72,7 @@ return [
                     'Na de basisschool koos ik ervoor om naar <strong>Wellant College</strong> in Madestein te gaan. Mij werd geadviseerd om <strong>HAVO-TL</strong> te volgen, maar ik besloot de makkelijkere route te nemen.',
                     'Ik volgde TL gedurende vier jaar, maar in mijn laatste jaar liet ik het vak <strong>Spaans</strong> vallen, wat ertoe leidde dat ik een <strong>GL-diploma</strong> behaalde.',
                     'Over het algemeen heb ik mijn eindexamens redelijk goed afgerond: ik ben voor alle vakken geslaagd met een voldoende.',
-                    'Behalve voor <strong>Lichamelijke Opvoeding</strong>, waarvoor ik bijna altijd een <strong>10/10</strong> scoorde, had ik voor de andere vakken meestal een "zesjes” mentaliteit.',
+                    'Voor <strong>Lichamelijke Opvoeding</strong> haalde ik bijna altijd een <strong>10/10</strong> en had ik zelfs het <strong>schoolrecord hoogspringen</strong> verbroken. Voor de overige vakken had ik daarentegen meestal een echte \'zesjesmentaliteit\'.',
                 ],
                 'details' => [
                     'school' => 'Wellant College Madestein',

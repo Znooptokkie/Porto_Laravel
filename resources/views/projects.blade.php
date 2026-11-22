@@ -13,11 +13,13 @@
         </div>
     </section>
 
-    <section class="container-max projects-list" aria-labelledby="projects-list-label">
-        <div class="projects-list__label">
-            <p id="projects-list-label">{{ __('projects.overview.list_label') }}</p>
-            <p>{{ __('projects.overview.list_aside') }}</p>
-        </div>
+    <section class="container-max projects-list" aria-labelledby="projects-list-title">
+        <x-education-heading
+            heading-id="projects-list-title"
+            :eyebrow="__('projects.overview.list_label')"
+            :title="__('projects.overview.list_title')"
+            :accent="__('projects.overview.list_title_accent')"
+            :aside="__('projects.overview.list_aside')" />
 
         <x-project-filters :options="$filterOptions" :filters="$filters" />
 

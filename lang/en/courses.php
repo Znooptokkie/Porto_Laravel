@@ -72,7 +72,7 @@ return [
                     'After primary school I chose to go to <strong>Wellant College</strong> in Madestein. I was advised to follow <strong>HAVO-TL</strong>, but I decided to take the easier route.',
                     'I followed TL for four years, but in my final year I dropped the subject <strong>Spanish</strong>, which resulted in a <strong>GL diploma</strong>.',
                     'Overall I passed my final exams fairly well: I passed all subjects with a sufficient grade.',
-                    'Except for <strong>Physical Education</strong>, where I almost always scored a <strong>10/10</strong>, I mostly had a "just-enough" attitude toward the other subjects.',
+                    'For <strong>Physical Education</strong>, I almost always scored a <strong>10/10</strong> and even broke the <strong>school high jump record</strong>. For all other subjects, however, I generally had a \'just enough to pass\' mentality.',
                 ],
                 'details' => [
                     'school' => 'Wellant College Madestein',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\LeetcodeProblem;
 use App\Models\Skill;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -80,4 +81,21 @@ it('renders one timeline step with a milestone dot (light and dark image) for ea
     expect(substr_count($html, 'class="timeline-chapter"'))->toBe(5)
         ->and(substr_count($html, 'class="timeline-chapter__marker"'))->toBe(5);
     expect(substr_count($html, 'timeline-chapter__dot'))->toBe(10);
+});
+
+it('links the hero buttons to the projects and about pages', function () {
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('href="'.route('projects').'"', false)
+        ->assertSee('href="'.route('about').'"', false);
+});
+
+it('shows the number of leetcode problems, counting a problem number once across languages', function () {
+    LeetcodeProblem::factory()->create(['problem_number' => 1, 'language' => 'python']);
+    LeetcodeProblem::factory()->create(['problem_number' => 1, 'language' => 'typescript']);
+    LeetcodeProblem::factory()->create(['problem_number' => 2, 'language' => 'python']);
+
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertSee('<p class="hero-stat__value">2</p>', false);
 });

@@ -160,6 +160,11 @@
     color: var(--color-muted);
     text-decoration: underline;
     text-underline-offset: 4px;
+    transition: color var(--motion-duration) ease;
+}
+
+.keyword-filter__link:hover {
+    color: var(--accent);
 }
 
 .keyword-filter__link[aria-current='true'] {
@@ -189,9 +194,9 @@
     inset: auto;
     margin: 0;
     padding: 8px 12px;
-    border: 1px solid var(--accent);
+    border: 0.5px solid var(--color-border);
     border-radius: var(--radius-tile);
-    background: var(--color-surface);
+    background: var(--color-panel);
     color: var(--color-text);
     font-family: var(--font-mono);
     font-size: 0.8125rem;

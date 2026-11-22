@@ -31,11 +31,11 @@
                 </div>
                 <p class="intro-text">{!! __('home.hero.intro') !!}</p>
                 <div class="hero__actions">
-                    <a class="button button--primary" href="#">
+                    <a class="button button--primary" href="{{ route('projects') }}">
                         {{ __('home.hero.projects') }}
                         <x-themed-image :light="'images/home/light/externalLinkIcon.svg'" :dark="'images/home/dark/ExternalLinkIcon.svg'" />
                     </a>
-                    <a class="button" href="#">
+                    <a class="button button--sweep" href="{{ route('about') }}">
                         {{ __('home.hero.about') }}
                         <x-themed-image :light="'images/home/light/downArrowIcon.svg'" :dark="'images/home/dark/DownArrowIcon.svg'" />
                     </a>
@@ -59,7 +59,7 @@
                     <span class="portrait__tick-ring" style="--angle: 330deg"><span class="portrait__tick"></span></span>
                 </div>
                 <div class="portrait__frame">
-                    <img src="{{ asset('images/profile/me_HH.webp') }}" alt="{{ __('home.hero.portrait_alt') }}" width="224" height="224">
+                    <img src="{{ asset('images/profile/me_HH-448.webp') }}" alt="{{ __('home.hero.portrait_alt') }}" width="448" height="448" fetchpriority="high">
                 </div>
             </div>
         </section>
@@ -67,7 +67,7 @@
             <div class="hero__stats">
                 @foreach (__('home.hero.stats') as $statKey => $stat)
                     <div class="hero-stat">
-                        <p class="hero-stat__value">{{ $stat['value'] }}</p>
+                        <p class="hero-stat__value">{{ $statKey === 'leetcode' ? $leetcodeProblemCount : $stat['value'] }}</p>
                         <p class="hero-stat__label {{ in_array($statKey, ['projects', 'leetcode'], true) ? 'hero-stat__label--compact' : '' }}">{!! $stat['label'] !!}</p>
                     </div>
                 @endforeach
