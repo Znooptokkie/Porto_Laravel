@@ -13,6 +13,8 @@ return [
         'title_accent' => 'Projecten',
         'lead' => 'Van slimme robots tot mobiele apps. Een verzameling projecten waarin ik mijn kennis in de praktijk breng.',
         'count_label' => 'PROJECTEN / ÉÉN OVERZICHT',
+        'list_title' => 'Alle',
+        'list_title_accent' => 'Projecten',
         'list_label' => 'ALLE PROJECTEN',
         'list_aside' => '// van idee naar realiteit',
         'empty' => 'Er zijn geen projecten die aan deze filters voldoen.',

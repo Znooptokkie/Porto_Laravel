@@ -248,8 +248,8 @@ it('seeds the chapters, specifications and contributors from the legacy portfoli
     expect($smartGarden->chapters)->toHaveCount(8)
         ->and($smartGarden->components)->toHaveCount(10)
         ->and($smartGarden->contributors)->toHaveCount(6)
-        ->and($smartGarden->repository_url)->toBe('https://github.com/Znooptokkie/GoodGarden')
-        ->and($zinra->repository_url)->toBe('https://github.com/placeholder')
+        ->and($smartGarden->repository_url)->toBe('https://github.com/Znooptokkie/GG')
+        ->and($zinra->repository_url)->toBe('https://github.com/Znooptokkie/Project_P3')
         ->and($zinra->contributors)->toHaveCount(4)
         ->and(Project::query()->whereNull('subtitle')->orWhereNull('intro_label')->count())->toBe(0);
 });

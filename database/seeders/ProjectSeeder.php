@@ -323,8 +323,8 @@ class ProjectSeeder extends Seeder
                 'organization' => 'Moeder haar huis',
                 'department' => 'Trap',
                 'types' => ['Embedded Systems'],
-                'cardTechnologies' => ['MicroPython', 'HC-SR505', 'Pico 2', 'KiCad', 'N-Mosfet'],
-                'detailTechnologies' => ['Raspberry Pi Pico 2', 'N-Mosfet', 'MicroPython', 'KiCad', 'HC-SR505'],
+                'cardTechnologies' => ['MicroPython', 'Python', 'HC-SR505', 'Pico 2', 'KiCad', 'N-Mosfet'],
+                'detailTechnologies' => ['Raspberry Pi Pico 2', 'N-Mosfet', 'MicroPython', 'Python', 'KiCad', 'HC-SR505'],
                 'links' => [
                     [
                         'description' => ['nl' => 'Op Reddit vond ik een post die hetzelfde probleem met de spanning beschrijft.', 'en' => 'On Reddit I found a post describing the same voltage-related problem.'], 'url' => 'https://www.reddit.com/r/esp32/comments/w77tgm/esp32cam_connexion_to_a_pir_motion_sensor_loop/',
@@ -374,9 +374,9 @@ class ProjectSeeder extends Seeder
                 'status' => ProjectStatus::Klaar,
                 'organization' => 'mboRijnland',
                 'department' => 'Afdeling Techniek',
-                'types' => ['Robotica'],
+                'types' => ['Robotica', 'Embedded Systems'],
                 'cardTechnologies' => ['Python', 'MicroPython', 'CAN-bus', 'AI'],
-                'detailTechnologies' => ['Raspberry Pi 5', 'Pico 2', 'MicroPython', 'CAN-bus', 'Hailo-8'],
+                'detailTechnologies' => ['Raspberry Pi 5', 'Pico 2', 'MicroPython', 'Python', 'CAN-bus', 'Hailo-8'],
                 'links' => [
                     [
                         'description' => [
@@ -581,8 +581,8 @@ class ProjectSeeder extends Seeder
                 'organization' => 'mboRijnland',
                 'department' => 'Mobilde Development Examen',
                 'types' => ['Mobile Development'],
-                'cardTechnologies' => ['TypeScript', 'React Native', 'Flask API', 'Termux'],
-                'detailTechnologies' => ['TypeScript', 'React Native', 'Flask API', 'Termux', 'SCP', 'Raspberry Pi 4'],
+                'cardTechnologies' => ['JavaScript', 'React Native', 'Flask API', 'Termux'],
+                'detailTechnologies' => ['JavaScript', 'React Native', 'Flask API', 'Termux', 'SCP', 'Raspberry Pi 4'],
                 'links' => [], // invullen, zie syncLinks() voor het formaat
                 'chapters' => $this->smartGardenMobileChapters(),
                 'chapterTranslations' => $this->smartGardenMobileChapterTranslations(),
@@ -673,9 +673,9 @@ class ProjectSeeder extends Seeder
                 'status' => ProjectStatus::Klaar,
                 'organization' => 'Overheid',
                 'department' => 'Ministerie van Binnenlandse Zaken en Koninkrijksrelaties (BZK)',
-                'types' => ['Automatisering'],
-                'cardTechnologies' => ['PHP', 'AI', 'Decission Tree', 'Bag of Words', 'SMTP'],
-                'detailTechnologies' => ['PHP', 'AI', 'Decission Tree', 'Bag of Words', 'SMTP'],
+                'types' => ['Automatisering', 'Webdevelopment'],
+                'cardTechnologies' => ['PHP', 'JavaScript', 'AI', 'Decission Tree', 'Bag of Words', 'SMTP'],
+                'detailTechnologies' => ['PHP', 'JavaScript', 'AI', 'Decission Tree', 'Bag of Words', 'SMTP'],
                 'links' => [
                     [
                         'description' => [
@@ -744,7 +744,7 @@ class ProjectSeeder extends Seeder
                 'organization' => '',
                 'department' => '',
                 'types' => ['Webdevelopment'],
-                'cardTechnologies' => ['Python', 'Django', 'TypeScript', 'SVG', 'CI/CD'],
+                'cardTechnologies' => ['Python', 'Django', 'JavaScript', 'SVG', 'CI/CD'],
                 'detailTechnologies' => [],
                 'links' => [
                     [
@@ -797,8 +797,8 @@ class ProjectSeeder extends Seeder
                 'organization' => 'Dutch Laravel Foundation',
                 'department' => 'Hackaton',
                 'types' => ['Webdevelopment'],
-                'cardTechnologies' => ['PHP', 'Laravel', 'Vue.js', 'SVG'],
-                'detailTechnologies' => ['PHP', 'Laravel', 'Vue.js', 'SVG'],
+                'cardTechnologies' => ['PHP', 'Laravel', 'JavaScript', 'Vue.js', 'SVG'],
+                'detailTechnologies' => ['PHP', 'Laravel', 'JavaScript', 'Vue.js', 'SVG'],
                 'links' => [
                     [
                         'description' => [
@@ -847,7 +847,7 @@ class ProjectSeeder extends Seeder
                 'status' => ProjectStatus::Klaar,
                 'organization' => 'mboRijnland',
                 'department' => 'Software Development',
-                'types' => [],
+                'types' => ['Robotica'],
                 'cardTechnologies' => ['Micro Bits', 'MicroPython'],
                 'detailTechnologies' => ['Micro Bits', 'MicroPython'],
                 'links' => [],

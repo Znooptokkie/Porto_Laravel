@@ -18,6 +18,8 @@
 
     --accent: #2ecc71;
     --accent-strong: color-mix(in srgb, var(--accent) 64%, #000);
+    /* Subtiele hover voor gekleurde knoppen (lichter dan --accent-strong). */
+    --accent-hover: color-mix(in srgb, var(--accent) 88%, #000);
     --accent-ink: #102334;
     --accent-soft: color-mix(in srgb, var(--accent) 15%, var(--color-surface));
     --accent-ink-soft: #102334;
@@ -750,7 +752,7 @@ input,
     letter-spacing: 0;
     color: var(--color-text);
     /* 3D-extrusie: acht lagen die naar de achterkant van de letter donkerder worden. Schaalt mee met de letterhoogte. */
-    text-shadow:
+    /* text-shadow:
         0.012em 0.012em 0 color-mix(in srgb, var(--hero-depth-near) 100%, var(--hero-depth-far)),
         0.024em 0.024em 0 color-mix(in srgb, var(--hero-depth-near) 86%, var(--hero-depth-far)),
         0.036em 0.036em 0 color-mix(in srgb, var(--hero-depth-near) 71%, var(--hero-depth-far)),
@@ -758,7 +760,7 @@ input,
         0.060em 0.060em 0 color-mix(in srgb, var(--hero-depth-near) 43%, var(--hero-depth-far)),
         0.072em 0.072em 0 color-mix(in srgb, var(--hero-depth-near) 29%, var(--hero-depth-far)),
         0.084em 0.084em 0 color-mix(in srgb, var(--hero-depth-near) 14%, var(--hero-depth-far)),
-        0.096em 0.096em 0 color-mix(in srgb, var(--hero-depth-near) 0%, var(--hero-depth-far));
+        0.096em 0.096em 0 color-mix(in srgb, var(--hero-depth-near) 0%, var(--hero-depth-far)); */
 }
 
 [data-theme='dark'] .hero__name {
@@ -906,6 +908,48 @@ input,
 /* Uitzondering: de pijl van de secundaire hero-knop "Over Mij" houdt de accentkleur. */
 .hero__actions .button:not(.button--primary) .themed-image {
     color: var(--accent);
+}
+
+/* Gekleurde hero-knop: subtielere, lichtere hover dan --accent-strong (die ook door andere knoppen gedeeld wordt). */
+.hero__actions .button--primary {
+    transition: background-color var(--motion-duration) ease, border-color var(--motion-duration) ease;
+}
+
+.hero__actions .button--primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+/*
+ * Modifier .button--sweep: bij hover trekt de accentkleur vanuit de linkerbovenhoek rond de rand (--sweep loopt van 0deg naar 360deg).
+ * --sweep is geregistreerd als <angle> zodat de overgang vloeiend animeert.
+ */
+@property --sweep {
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 0deg;
+}
+
+.button--sweep {
+    position: relative;
+    transition: --sweep var(--motion-duration) ease;
+}
+
+.button--sweep::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    background: conic-gradient(from -45deg, var(--accent) var(--sweep), transparent var(--sweep));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+.button--sweep:hover {
+    --sweep: 360deg;
 }
 
 /*
@@ -2504,8 +2548,13 @@ input,
     display: flex;
     flex-direction: column;
     gap: 100px;
+    /* margin-top: 150px; */
+    /* padding-block: 10px; */
+}
+
+.education-section--certificates
+{
     margin-top: 150px;
-    padding-block: 10px;
 }
 
 .education-heading {
@@ -3013,7 +3062,7 @@ input,
     display: flex;
     flex-direction: column;
     gap: 100px;
-    padding-block: 10px;
+    /* padding-block: 10px; */
 }
 
 @media (max-width: 600px) {
@@ -3222,8 +3271,8 @@ input,
 }
 
 .about-contact__submit:hover {
-    background: var(--accent-strong);
-    border-color: var(--accent-strong);
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
 }
 
 .about-contact__input[aria-invalid='true'] {
