@@ -948,11 +948,16 @@
 
 /* De pijlknoppen zitten in een inkeping van de kaart: links en rechts naast de viewport, zonder tussenruimte.
    De kaartrand wordt in de inkeping weggedekt met de paginakleur; de schuine zijden en binnenrand van de knop vormen de nieuwe rand. */
+/* De stage bepaalt de hoogte. De viewport vult de volledige breedte, dus het beeld loopt ook door in de inkeping;
+   de knoppen staan er bovenop (zie .project-media__nav). */
 .project-media__stage {
     position: relative;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    aspect-ratio: 1550 / 640;
+    background: var(--color-surface-alt);
 }
 
 .project-media__stage::before,
@@ -1000,14 +1005,28 @@
     right: -1px;
 }
 
+/* Het beeld stopt op de contour van de inkeping (32 x 144px, schuine zijden van 26px), zodat de opening naast de knop de achtergrond toont. */
 .project-media__viewport {
-    position: relative;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     isolation: isolate;
-    flex: 1 1 0;
-    min-width: 0;
-    aspect-ratio: 1550 / 640;
     overflow: hidden;
     background: var(--color-surface-alt);
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(50% - var(--project-media-nav-height) / 2),
+        calc(100% - var(--project-media-nav-depth)) calc(50% - var(--project-media-nav-height) / 2 + 26px),
+        calc(100% - var(--project-media-nav-depth)) calc(50% + var(--project-media-nav-height) / 2 - 26px),
+        100% calc(50% + var(--project-media-nav-height) / 2),
+        100% 100%,
+        0 100%,
+        0 calc(50% + var(--project-media-nav-height) / 2),
+        var(--project-media-nav-depth) calc(50% + var(--project-media-nav-height) / 2 - 26px),
+        var(--project-media-nav-depth) calc(50% - var(--project-media-nav-height) / 2 + 26px),
+        0 calc(50% - var(--project-media-nav-height) / 2)
+    );
 }
 
 /* Slides travel sideways: the outgoing slide leaves on the opposite side of the incoming one. */
@@ -1125,6 +1144,7 @@
 
 .project-media__nav {
     position: relative;
+    z-index: 1;
     flex: 0 0 auto;
     /* Reikt tot de buitenrand van de inkeping. Parallel aan de schuine zijden (zelfde hoek), met --project-media-nav-inset ruimte erop en aan de binnenkant. */
     width: calc(var(--project-media-nav-depth) - var(--project-media-nav-inset));
@@ -1143,6 +1163,13 @@
     position: absolute;
     inset: 0;
     background: var(--color-border);
+    transition: background-color var(--motion-duration) ease;
+}
+
+/* Bij hover of focus krijgt alleen de rand de accentkleur; de dikte blijft gelijk. */
+.project-media__nav:hover::before,
+.project-media__nav:focus-visible::before {
+    background: var(--accent);
 }
 
 .project-media__nav--previous::before {
@@ -1832,7 +1859,7 @@
     flex-direction: column;
     }
 
-    .project-media__viewport {
+    .project-media__stage {
         aspect-ratio: 4 / 5;
     }
 
