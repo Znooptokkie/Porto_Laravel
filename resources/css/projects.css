@@ -957,7 +957,8 @@
     justify-content: space-between;
     align-items: center;
     aspect-ratio: 1550 / 640;
-    background: var(--color-surface-alt);
+    /* Zichtbaar alleen in de opening naast de knop: die neemt de paginakleur aan. */
+    background: var(--color-bg);
 }
 
 .project-media__stage::before,
@@ -1861,6 +1862,12 @@
 
     .project-media__stage {
         aspect-ratio: 4 / 5;
+    }
+
+    /* Op mobiel vult de foto de staande 4:5-stage (bijsnijden); de focus staat standaard in het midden. */
+    .project-media__slide img {
+        object-fit: cover;
+        object-position: center;
     }
 
     .project-media__caption {
