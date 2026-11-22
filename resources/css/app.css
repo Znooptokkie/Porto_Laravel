@@ -661,6 +661,12 @@ input,
     font-size: 0.875rem;
 }
 
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 1rem 0;
+    }
+}
+
 .site-footer__inner {
     display: flex;
     align-items: center;
@@ -1608,7 +1614,7 @@ input,
 
     .section--timeline {
         padding-top: 48px;
-        padding-bottom: 96px;
+        /* padding-bottom: 96px; */
     }
 
     .section--timeline .section-heading {
