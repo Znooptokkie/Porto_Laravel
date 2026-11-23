@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\SendContactMessage;
+use App\Http\Middleware\SetPageLocale;
 use App\Http\Requests\ContactRequest;
 use Illuminate\Http\RedirectResponse;
 
@@ -18,6 +19,6 @@ class ContactController extends Controller
             $sendContactMessage->handle($request->validated());
         }
 
-        return redirect(route('about').'#about-contact')->with('contactStatus', 'sent');
+        return redirect(SetPageLocale::url('about').'#about-contact')->with('contactStatus', 'sent');
     }
 }

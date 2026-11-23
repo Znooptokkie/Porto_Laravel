@@ -22,17 +22,17 @@
 
             <nav aria-label="{{ __('site.nav.label') }}">
                 <ul class="site-nav__links">
-                    <li><a class="site-nav__link{{ request()->routeIs('courses') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('courses') }}" @if (request()->routeIs('courses')) aria-current="page" @endif>{{ __('site.nav.courses') }}
+                    <li><a class="site-nav__link{{ request()->routeIs('courses', 'en.courses') ? ' site-nav__link--menu-active' : '' }}" href="{{ \App\Http\Middleware\SetPageLocale::url('courses') }}" @if (request()->routeIs('courses', 'en.courses')) aria-current="page" @endif>{{ __('site.nav.courses') }}
                         <span class="site-nav__rule site-nav__rule--1" aria-hidden="true">
-                            <x-themed-image :light="'images/ui/header/light/navDivider'.(request()->routeIs('courses') ? '02' : '01').'.svg'" :dark="'images/ui/header/dark/pop-navDivider'.(request()->routeIs('courses') ? '02' : '01').'.svg'" />
+                            <x-themed-image :light="'images/ui/header/light/navDivider'.(request()->routeIs('courses', 'en.courses') ? '02' : '01').'.svg'" :dark="'images/ui/header/dark/pop-navDivider'.(request()->routeIs('courses', 'en.courses') ? '02' : '01').'.svg'" />
                         </span>
                     </a></li>
-                    <li><a class="site-nav__link{{ request()->routeIs('projects*') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('projects') }}" @if (request()->routeIs('projects*')) aria-current="page" @endif>{{ __('site.nav.projects') }}
+                    <li><a class="site-nav__link{{ request()->routeIs('projects*', 'en.projects*') ? ' site-nav__link--menu-active' : '' }}" href="{{ \App\Http\Middleware\SetPageLocale::url('projects') }}" @if (request()->routeIs('projects*', 'en.projects*')) aria-current="page" @endif>{{ __('site.nav.projects') }}
                         <span class="site-nav__rule site-nav__rule--2" aria-hidden="true">
                             <x-themed-image :light="'images/ui/header/light/navDivider01.svg'" :dark="'images/ui/header/dark/pop-navDivider01.svg'" />
                         </span>
                     </a></li>
-                    <li><a class="site-nav__link{{ request()->routeIs('about') ? ' site-nav__link--menu-active' : '' }}" href="{{ route('about') }}" @if (request()->routeIs('about')) aria-current="page" @endif>{{ __('site.nav.about') }}
+                    <li><a class="site-nav__link{{ request()->routeIs('about', 'en.about') ? ' site-nav__link--menu-active' : '' }}" href="{{ \App\Http\Middleware\SetPageLocale::url('about') }}" @if (request()->routeIs('about', 'en.about')) aria-current="page" @endif>{{ __('site.nav.about') }}
                         <span class="site-nav__rule site-nav__rule--3" aria-hidden="true">
                             <x-themed-image :light="'images/ui/header/light/navDivider01.svg'" :dark="'images/ui/header/dark/pop-navDivider01.svg'" />
                         </span>
@@ -72,12 +72,12 @@
                         <p class="popover__title" id="language-popover-title">{{ __('site.language.title') }}</p>
                         <ul class="popover__options" role="radiogroup" aria-labelledby="language-popover-title">
                             <li>
-                                <button type="button" class="popover__option" role="radio" data-locale-option="nl" aria-checked="{{ app()->getLocale() === 'nl' ? 'true' : 'false' }}">
+                                <button type="button" class="popover__option" role="radio" data-locale-option="nl" data-locale-url="{{ \App\Http\Middleware\SetPageLocale::alternateUrl('nl') }}" aria-checked="{{ app()->getLocale() === 'nl' ? 'true' : 'false' }}">
                                     <span class="popover__dot" aria-hidden="true"></span>{{ __('site.language.nl') }}
                                 </button>
                             </li>
                             <li>
-                                <button type="button" class="popover__option" role="radio" data-locale-option="en" aria-checked="{{ app()->getLocale() === 'en' ? 'true' : 'false' }}">
+                                <button type="button" class="popover__option" role="radio" data-locale-option="en" data-locale-url="{{ \App\Http\Middleware\SetPageLocale::alternateUrl('en') }}" aria-checked="{{ app()->getLocale() === 'en' ? 'true' : 'false' }}">
                                     <span class="popover__dot" aria-hidden="true"></span>{{ __('site.language.en') }}
                                 </button>
                             </li>

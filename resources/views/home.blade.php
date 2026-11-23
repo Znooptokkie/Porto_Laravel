@@ -31,11 +31,11 @@
                 </div>
                 <p class="intro-text">{!! __('home.hero.intro') !!}</p>
                 <div class="hero__actions">
-                    <a class="button button--primary" href="{{ route('projects') }}">
+                    <a class="button button--primary" href="{{ \App\Http\Middleware\SetPageLocale::url('projects') }}">
                         {{ __('home.hero.projects') }}
                         <x-themed-image :light="'images/home/light/externalLinkIcon.svg'" :dark="'images/home/dark/ExternalLinkIcon.svg'" />
                     </a>
-                    <a class="button button--sweep" href="{{ route('about') }}">
+                    <a class="button button--sweep" href="{{ \App\Http\Middleware\SetPageLocale::url('about') }}">
                         {{ __('home.hero.about') }}
                         <x-themed-image :light="'images/home/light/downArrowIcon.svg'" :dark="'images/home/dark/DownArrowIcon.svg'" />
                     </a>

@@ -15,7 +15,7 @@ it('renders the education page in dutch by default', function () {
 
 it('renders the education page in english when the locale cookie is set', function () {
     $this->withUnencryptedCookie('locale', 'en')
-        ->get(route('courses'))
+        ->get(route('en.courses'))
         ->assertOk()
         ->assertSee('lang="en"', false)
         ->assertSee('Certificates</span>', false)

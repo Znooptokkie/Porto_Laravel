@@ -38,7 +38,7 @@
                 @endforeach
             </ul>
 
-            <a class="project-card__action button--sweep{{ $project->isFavorite() ? ' project-card__action--featured' : '' }}" href="{{ route('projects.show', $project) }}">
+            <a class="project-card__action button--sweep{{ $project->isFavorite() ? ' project-card__action--featured' : '' }}" href="{{ \App\Http\Middleware\SetPageLocale::url('projects.show', [$project]) }}">
                 {{ __('projects.card.view') }}
                 <x-themed-image class="project-icon project-card__icon" :light="$project->isFavorite() ? 'images/projects/icons/imgOpenProjectButton.svg' : 'images/projects/icons/imgOpenProjectButton1.svg'" :dark="$project->isFavorite() ? 'images/projects/icons/imgOpenProjectButton.svg' : 'images/projects/icons/imgOpenProjectButton1.svg'" />
             </a>

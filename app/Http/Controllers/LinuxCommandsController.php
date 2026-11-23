@@ -10,12 +10,10 @@ use Illuminate\Contracts\View\View;
 class LinuxCommandsController extends Controller
 {
     /**
-     * Shows the Linux commands overview, optionally filtered by the search term and the keyword. The language preference is mirrored in a cookie by the frontend.
+     * Shows the Linux commands overview, optionally filtered by the search term and the keyword. The locale is set by the SetPageLocale middleware.
      */
     public function __invoke(LinuxCommandsIndexRequest $request, GetLinuxCommands $getCommands): View
     {
-        app()->setLocale($request->cookie('locale') === 'en' ? 'en' : 'nl');
-
         $search = $request->validated('q');
         $keyword = LinuxCommandKeyword::tryFrom((string) $request->validated('keyword'));
 

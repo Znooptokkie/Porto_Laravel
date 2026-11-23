@@ -13,8 +13,6 @@ class LeetcodeController extends Controller
      */
     public function __invoke(LeetcodeIndexRequest $request, GetLeetcodeOverview $getOverview): View
     {
-        app()->setLocale($request->cookie('locale') === 'en' ? 'en' : 'nl');
-
         $filters = $request->validated();
 
         return view('leetcode', [

@@ -26,7 +26,7 @@ export function initHeader() {
     bindPopovers(header);
     bindMobileMenu(header);
     bindThemeToggle(header);
-    bindLanguage(header, preferences);
+    bindLanguage(header);
     bindPreferences(header, preferences);
 }
 
@@ -226,11 +226,12 @@ function bindThemeToggle(header) {
 }
 
 /**
+ * Each option links to the same page in its language, so switching changes the URL as well.
+ *
  * @param {HTMLElement} header
- * @param {Record<string, unknown>} preferences
  */
-function bindLanguage(header, preferences) {
-    const current = preferences.locale === 'en' ? 'en' : 'nl';
+function bindLanguage(header) {
+    const current = document.documentElement.lang.startsWith('en') ? 'en' : 'nl';
 
     header.querySelectorAll('[data-locale-option]').forEach((option) => {
         option.setAttribute('aria-checked', String(option.dataset.localeOption === current));
@@ -243,7 +244,7 @@ function bindLanguage(header, preferences) {
             }
 
             setLocale(locale);
-            window.location.reload();
+            window.location.href = option.dataset.localeUrl;
         });
     });
 }

@@ -12,7 +12,7 @@
         <p class="not-found__lead">{{ __('site.not_found.lead') }}</p>
         <div class="not-found__actions">
             <a class="button button--primary" href="{{ route('home') }}">{{ __('site.not_found.home') }}</a>
-            <a class="button" href="{{ route('projects') }}">{{ __('site.not_found.projects') }}</a>
+            <a class="button" href="{{ \App\Http\Middleware\SetPageLocale::url('projects') }}">{{ __('site.not_found.projects') }}</a>
         </div>
     </section>
 @endsection

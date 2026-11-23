@@ -174,7 +174,7 @@ it('uses the english alt text in english and falls back to the dutch alt text wh
     ]);
 
     $this->withUnencryptedCookie('locale', 'en')
-        ->get(route('projects.show', $project))
+        ->get(route('en.projects.show', $project))
         ->assertOk()
         ->assertSee('<p class="project-media__caption-text" data-project-media-caption-text>Battlebot: The robot in the arena</p>', false)
         ->assertSee('data-project-media-caption="Battlebot: De sensoren op de voorkant"', false);
@@ -204,7 +204,7 @@ it('renders english labels when the locale cookie is set to english', function (
     Project::factory()->create(['slug' => 'engels', 'title' => 'English project', 'sort_order' => 1]);
 
     $this->withUnencryptedCookie('locale', 'en')
-        ->get(route('projects'))
+        ->get(route('en.projects'))
         ->assertOk()
         ->assertSee('lang="en"', false)
         ->assertSee('View project');
@@ -271,7 +271,7 @@ it('seeds the stair lighting chapters and components with Dutch and English text
         ->assertSee('Debugging van Software en GPIO')
         ->assertSee('HC-SR505 PIR Sensor');
 
-    $this->withUnencryptedCookie('locale', 'en')->get(route('projects.show', $project))
+    $this->withUnencryptedCookie('locale', 'en')->get(route('en.projects.show', $project))
         ->assertOk()
         ->assertSee('Introduction')
         ->assertSee('Software and GPIO Debugging')
@@ -292,7 +292,7 @@ it('shows the links with their description above the url, in the active locale, 
         ->assertOk()
         ->assertSeeInOrder(['De broncode staat op GitHub.', 'https://example.com/code', 'Raspberry Pi 5']);
 
-    $this->withUnencryptedCookie('locale', 'en')->get(route('projects.show', $project))
+    $this->withUnencryptedCookie('locale', 'en')->get(route('en.projects.show', $project))
         ->assertOk()
         ->assertSee('The source code is on GitHub.')
         ->assertDontSee('De broncode staat op GitHub.');
@@ -312,7 +312,7 @@ it('numbers the visible sections in order, skipping sections without content', f
     $project->components()->create(['group' => ProjectComponentGroup::Hardware, 'name' => 'Raspberry Pi 5', 'sort_order' => 1]);
     $project->contributors()->attach(Contributor::factory()->create(['name' => 'A. Oomen']), ['role' => 'Development', 'sort_order' => 1]);
 
-    $this->withUnencryptedCookie('locale', 'en')->get(route('projects.show', $project))
+    $this->withUnencryptedCookie('locale', 'en')->get(route('en.projects.show', $project))
         ->assertOk()
         ->assertSee('01 / THE STORY')
         ->assertSee('02 / UNDER THE HOOD')
@@ -326,7 +326,7 @@ it('numbers the visible sections in order, skipping sections without content', f
         'sort_order' => 1,
     ]);
 
-    $this->withUnencryptedCookie('locale', 'en')->get(route('projects.show', $project))
+    $this->withUnencryptedCookie('locale', 'en')->get(route('en.projects.show', $project))
         ->assertOk()
         ->assertSee('02 / MORE INFO')
         ->assertSee('03 / UNDER THE HOOD')

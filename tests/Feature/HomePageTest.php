@@ -62,7 +62,7 @@ it('links the certificate of excellence in the timeline to the certificates sect
     $this->withUnencryptedCookie('locale', 'en')
         ->get(route('home'))
         ->assertOk()
-        ->assertSee($link, false)
+        ->assertSee('href="'.route('en.courses').'#certificates-heading"', false)
         ->assertSee('a certificate of excellence.</a>', false);
 });
 

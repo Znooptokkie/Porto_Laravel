@@ -15,14 +15,6 @@ class ContactRequest extends FormRequest
     }
 
     /**
-     * Sets the locale before validation so the error messages match the page language.
-     */
-    protected function prepareForValidation(): void
-    {
-        app()->setLocale($this->cookie('locale') === 'en' ? 'en' : 'nl');
-    }
-
-    /**
      * @return array<string, array<int, string>>
      */
     public function rules(): array

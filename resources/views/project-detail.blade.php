@@ -16,7 +16,7 @@
         <header class="project-detail__intro">
             <nav aria-label="{{ __('projects.detail.breadcrumb') }}">
                 <p class="project-detail__breadcrumb">
-                    <a href="{{ route('projects') }}">
+                    <a href="{{ \App\Http\Middleware\SetPageLocale::url('projects') }}">
                         <x-themed-image class="project-icon project-detail__breadcrumb-icon" :light="'images/projects/icons/imgIcon.svg'" :dark="'images/projects/icons/imgIcon.svg'" />
                         {{ __('projects.detail.breadcrumb') }}
                     </a>
@@ -173,7 +173,7 @@
 
         <div class="project-detail__cta">
             <p class="project-detail__cta-title">{{ __('projects.detail.cta') }}</p>
-            <a class="project-detail__back" href="{{ route('projects') }}">
+            <a class="project-detail__back" href="{{ \App\Http\Middleware\SetPageLocale::url('projects') }}">
                 {{ __('projects.detail.all_projects') }}
                 <x-themed-image class="project-icon project-detail__back-icon" :light="'images/projects/icons/imgOpenProjectButton1.svg'" :dark="'images/projects/icons/imgOpenProjectButton1.svg'" />
             </a>
