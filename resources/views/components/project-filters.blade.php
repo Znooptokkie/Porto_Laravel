@@ -19,6 +19,7 @@
             </button>
         </div>
 
+        <div class="project-filters__sheet-body">
         <x-project-filter-group id="filter-year" :label="__('projects.filters.year')" :options="[
             ['type' => 'radio', 'name' => 'year_sort', 'value' => 'asc', 'label' => __('projects.filters.asc'), 'checked' => $selectedSort('year_sort', 'asc')],
             ['type' => 'radio', 'name' => 'year_sort', 'value' => 'desc', 'label' => __('projects.filters.desc'), 'checked' => $selectedSort('year_sort', 'desc')],
@@ -51,6 +52,7 @@
                 </svg>
                 {{ __('projects.filters.reset') }}
             </a>
+        </div>
         </div>
     </dialog>
 

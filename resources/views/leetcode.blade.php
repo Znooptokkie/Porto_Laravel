@@ -20,13 +20,11 @@
         </div>
 
         @php
-            $problemCount = $overview['count'];
-            $foundText = trans_choice('leetcode.overview.found', $problemCount, ['count' => '<span class="leetcode-list__count-number">'.$problemCount.'</span>']);
             $hasActiveFilter = collect($filters)->except('page')->contains(fn (mixed $value): bool => filled($value));
         @endphp
         <x-leetcode-filters :filters="$filters" />
 
-        <p class="leetcode-list__count" data-project-count{{ $hasActiveFilter ? '' : ' hidden' }}>{!! $foundText !!}</p>
+        <x-results-count :count="$overview['count']" translation-key="leetcode.overview.found" :hidden="! $hasActiveFilter" />
 
         <div class="leetcode-list__problems" data-project-results>
             @forelse ($overview['groups'] as $group)

@@ -211,10 +211,10 @@ it('shows how many problems the filters found, with the number in the accent spa
     leetcodeProblemUsing([], ['problem_number' => 2, 'name' => 'Valid Parentheses']);
 
     $this->get(route('leetcode'))
-        ->assertSeeHtml('<p class="leetcode-list__count" data-project-count hidden>');
+        ->assertSeeHtml('<p class="results-count" data-project-count hidden>');
 
     $this->get(route('leetcode', ['q' => 'parenth']))
-        ->assertSeeHtml('<p class="leetcode-list__count" data-project-count>Er is <span class="leetcode-list__count-number">1</span> probleem gevonden.</p>');
+        ->assertSeeHtml('<p class="results-count" data-project-count>Er is <span class="results-count__number">1</span> probleem gevonden.</p>');
 
     $this->get(route('leetcode', ['q' => 'geen-match']))
         ->assertSeeHtml('Er zijn geen problemen gevonden.');
@@ -260,7 +260,7 @@ it('does not count the page as an active filter', function () {
     leetcodeProblemUsing([], ['problem_number' => 1]);
 
     $this->get(route('leetcode', ['page' => 1]))
-        ->assertSeeHtml('<p class="leetcode-list__count" data-project-count hidden>');
+        ->assertSeeHtml('<p class="results-count" data-project-count hidden>');
 });
 
 it('rejects a filter value that is not one of the options', function () {

@@ -106,6 +106,10 @@ function swapSlot(parsed, selector) {
     }
 }
 
+/**
+ * The sheet slides down before it closes. The dialog stays open until that slide has finished, the same way the header
+ * menu keeps its panel until the slide-up has played. Escape goes through the same slide.
+ */
 function bindSheet(form) {
     const sheet = form.querySelector('[data-project-sheet]');
 
@@ -113,8 +117,39 @@ function bindSheet(form) {
         return;
     }
 
+    const close = () => {
+        if (sheet.dataset.closing === 'true') {
+            return;
+        }
+
+        if (document.documentElement.dataset.motion === 'off') {
+            sheet.close();
+            return;
+        }
+
+        sheet.dataset.closing = 'true';
+
+        const finish = (event) => {
+            if (event && event.target !== sheet) {
+                return;
+            }
+
+            sheet.removeEventListener('animationend', finish);
+            window.clearTimeout(timer);
+            sheet.close();
+            delete sheet.dataset.closing;
+        };
+
+        sheet.addEventListener('animationend', finish);
+        const timer = window.setTimeout(finish, 400);
+    };
+
     form.querySelector('[data-project-sheet-open]')?.addEventListener('click', () => sheet.showModal());
-    form.querySelector('[data-project-sheet-close]')?.addEventListener('click', () => sheet.close());
+    form.querySelector('[data-project-sheet-close]')?.addEventListener('click', close);
+    sheet.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        close();
+    });
 }
 
 function setOpen(group, open) {

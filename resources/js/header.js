@@ -274,6 +274,9 @@ function bindAccent(header, preferences) {
         swatches.forEach((swatch) => {
             swatch.setAttribute('aria-checked', String(swatch.dataset.accentSwatch.toUpperCase() === hex));
         });
+        if (hexInput) {
+            hexInput.placeholder = hex;
+        }
     };
 
     const applyAccent = (hex) => {

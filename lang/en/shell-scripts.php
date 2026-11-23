@@ -10,6 +10,7 @@ return [
         'list_label' => 'SHELL SCRIPTS',
         'list_aside' => '// useful scripts',
         'no_results' => 'No scripts match this search.',
+        'found' => '{0} No scripts found.|{1} :count script found|[2,*] :count scripts found',
         'empty' => 'No scripts have been added yet.',
     ],
 

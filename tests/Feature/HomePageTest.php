@@ -51,6 +51,21 @@ it('renders dutch by default and english when the locale cookie is set', functio
         ->assertSee('Timeline');
 });
 
+it('links the certificate of excellence in the timeline to the certificates section of the courses page', function () {
+    $link = 'href="'.route('courses').'#certificates-heading"';
+
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertSee($link, false)
+        ->assertSee('certificaat van excellentie</a>', false);
+
+    $this->withUnencryptedCookie('locale', 'en')
+        ->get(route('home'))
+        ->assertOk()
+        ->assertSee($link, false)
+        ->assertSee('a certificate of excellence.</a>', false);
+});
+
 it('does not show the figma stats row while its figures are unconfirmed', function () {
     $this->get(route('home'))
         ->assertOk()

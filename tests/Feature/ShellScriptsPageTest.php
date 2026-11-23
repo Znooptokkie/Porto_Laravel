@@ -172,3 +172,17 @@ it('shows the english title and description when the locale is english', functio
         ->assertDontSee('Maakt een backup.')
         ->assertDontSee('Backuppen', false);
 });
+
+it('shows how many shell scripts the search found, and only once a search is active', function () {
+    ShellScript::factory()->create(['name' => 'backup.sh']);
+    ShellScript::factory()->create(['name' => 'restore.sh']);
+
+    $this->get('/shell-scripts')
+        ->assertSeeHtml('<p class="results-count" data-project-count hidden>');
+
+    $this->get('/shell-scripts?q=backup')
+        ->assertSeeHtml('<p class="results-count" data-project-count>Er is <span class="results-count__number">1</span> script gevonden.</p>');
+
+    $this->get('/shell-scripts?q=geen-match')
+        ->assertSeeHtml('Er zijn geen scripts gevonden.');
+});

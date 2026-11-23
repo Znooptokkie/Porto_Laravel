@@ -9,7 +9,7 @@ uses(RefreshDatabase::class);
 
 it('defines the five accent presets with the green default first', function () {
     expect(collect(config('portfolio.accent_presets'))->pluck('hex')->all())
-        ->toBe(['#2ECC71', '#9F2ECC', '#0009FF', '#CC2E2E', '#FFA200']);
+        ->toBe(['#2ECC71', '#9F2ECC', '#1c25cd', '#CC2E2E', '#FFA200']);
 });
 
 it('renders no hardcoded green fill or stroke on the homepage', function () {
@@ -120,7 +120,7 @@ it('chooses a text ink that reaches WCAG AA on every preset and custom accent an
 })->with([
     'preset green' => ['#2ECC71'],
     'preset purple' => ['#9F2ECC'],
-    'preset blue' => ['#0009FF'],
+    'preset blue' => ['#1c25cd'],
     'preset red' => ['#CC2E2E'],
     'preset orange' => ['#FFA200'],
     'custom light blue' => ['#00AAFF'],

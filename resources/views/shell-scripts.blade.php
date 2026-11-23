@@ -32,6 +32,8 @@
             </a>
         </form>
 
+        <x-results-count :count="$scripts->count()" translation-key="shell-scripts.overview.found" :hidden="$search === ''" />
+
         <div class="projects-list__cards" data-code-entries>
             <x-code-copy-popover />
             @forelse ($scripts as $script)

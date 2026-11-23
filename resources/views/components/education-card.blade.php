@@ -1,6 +1,6 @@
 {{-- One card on the education page. The default slot holds the story, the "details" slot the facts and lists. --}}
 @props(['icon', 'marker', 'markerWidth' => 49.5, 'title', 'period', 'modifier' => null])
-<article class="education-card{{ $modifier ? ' education-card--'.$modifier : '' }}">
+<article class="education-card{{ $modifier ? ' education-card--'.$modifier : '' }}" style="--external-link-icon: url('{{ asset('images/ui/timeline/light/externalLinkBoxIcon.svg') }}')">
     <header class="education-card__heading">
         <span class="education-card__badge">
             @if (str_ends_with($icon, '.svg'))

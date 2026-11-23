@@ -1,5 +1,8 @@
 <?php
 
+$rocLeidenYearsAgo = (new NumberFormatter('en', NumberFormatter::SPELLOUT))
+    ->format(now()->year - config('portfolio.roc_leiden_merge_year'));
+
 return [
     'hero' => [
         'greeting' => 'HEY, MY NAME IS',
@@ -37,7 +40,7 @@ return [
                 'title' => 'Leaving Secondary School',
                 'paragraphs' => [
                     'From primary school onwards, I was advised to follow <strong class="fw-bold">TL-HAVO</strong>, but I chose the easier route. I never had the motivation to do my best at school. Although I met all the requirements, my performance at secondary school was not outstanding.',
-                    'After secondary school, I initially enrolled in <strong class="fw-bold">ICT at ROC Mondriaan Tinwerf</strong>. My grades were generally quite good, but my attendance and motivation in that programme left a lot to be desired.',
+                    'After secondary school, I initially enrolled in <strong class="fw-bold"><a href="https://www.rocmondriaan.nl/locatie/tinwerf-10" class="timeline-link" target="_blank">ICT at ROC Mondriaan Tinwerf</a></strong>. My grades were generally quite good, but my attendance and motivation in that programme left a lot to be desired.',
                     'In reality, I wanted to skip further education and become a <strong class="fw-bold">painter</strong>. My father insisted, however, that I complete at least a minimum qualification before leaving school.',
                     'Because I became a painter, I enrolled in an <strong>MBO Level 2 programme</strong>. I completed that programme successfully.',
                 ],
@@ -48,16 +51,16 @@ return [
                 'paragraphs' => [
                     'I then started working as a <strong class="fw-bold">house painter</strong>, a trade I practised with great enjoyment for about ten years and still occasionally do.',
                     'Still, <strong class="fw-bold">software development</strong> kept intriguing me. I tried to teach myself the programming language <strong class="fw-bold">Python</strong>, but I quickly became overwhelmed by the sheer amount of information needed to write even a simple program.',
-                    'That left only one option: enrolling in another programme. This time I decided to sign up for the <strong>Software Developer programme at mboRijnland in Leiden</strong>.',
+                    'That left only one option: enrolling in another programme. This time I decided to sign up for the <strong><a href="https://mborijnland.nl/mbo-opleidingen/ict/" class=timeline-link target="_blank">Software Developer programme at mboRijnland in Leiden</a></strong>.',
                 ],
             ],
             [
                 'label' => 'Programme',
                 'title' => 'Moving on to Software Developer',
                 'paragraphs' => [
-                    'Back at school, I started this programme with a huge amount of motivation, which paid off repeatedly. I was often asked to take on <strong>extra projects</strong>, such as supervising an exchange programme, and I even had the chance to coach <strong><a href="https://www.linkedin.com/posts/vireen-jagram-833985224_smartgarden-ai-iot-share-7335244310193344514-BSF7/" target="_blank" class="timeline-link">HBO students</a></strong> as challengers for their project.',
-                    'My motivation is also reflected in my grades. I <strong>graduated cum laude</strong> as the best student of the <strong class="fw-bold">Software Development programme at mboRijnland</strong>. I should mention that ROC Leiden merged into mboRijnland seven years earlier, but it is an achievement I am incredibly proud of!',
-                    'I also took part in an <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI research project</a></strong> for which I received <strong><a href="#" class="timeline-link">a certificate of excellence.</a></strong> The research focused on how schools can use AI responsibly. I carried out <strong class="fw-bold">various studies</strong> for this project and gave several presentations together with a team of students and a teacher.',
+                    'Back at school, I started this programme with a huge amount of motivation, which paid off repeatedly. I was often asked to take on <strong>extra projects</strong>, such as supervising an <strong><a href="/projecten/plymouth" class="timeline-link">exchange programme</a></strong>, and I even had the chance to coach <strong><a href="https://www.linkedin.com/posts/vireen-jagram-833985224_smartgarden-ai-iot-share-7335244310193344514-BSF7/" target="_blank" class="timeline-link">HBO students</a></strong> as challengers for their project.',
+                    'My motivation is also reflected in my grades. I <strong>graduated cum laude</strong> as the best student of the <strong class="fw-bold"><a href="https://mborijnland.nl/mbo-opleidingen/ict/" class=timeline-link target="_blank">Software Development programme at mboRijnland</a></strong>. I should mention that ROC Leiden merged into mboRijnland '.$rocLeidenYearsAgo.' years earlier, but it is an achievement I am incredibly proud of!',
+                    'I also took part in an <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI research project</a></strong> for which I received <strong><a href="'.route('courses').'#certificates-heading" class="timeline-link">a certificate of excellence.</a></strong> The research focused on how schools can use AI responsibly. I carried out <strong class="fw-bold">various studies</strong> for this project and gave several presentations together with a team of students and a teacher.',
                     'School gave me a solid foundation to build on. By paying close attention and carefully completing my assignments, I can now write code independently and solve problems reasonably well.',
                 ],
             ],
@@ -81,7 +84,7 @@ return [
                 'label' => 'Outlook',
                 'title' => 'Future Plans',
                 'paragraphs' => [
-                    'After taking some time to reflect on what I want to pursue within <strong class="fw-bold">software development</strong>, and after discussing my options with a former teacher from my previous programme, I decided to enrol in the dual-study programme at <strong class="fw-bold">Utrecht University of Applied Sciences</strong>, through <strong><a href="https://cita.academy/" target="_blank" class="timeline-link">Stichting CITA</a></strong>. Over the course of four years, I will combine working and studying.',
+                    'After taking some time to reflect on what I want to pursue within <strong class="fw-bold">software development</strong>, and after discussing my options with a former teacher from my previous programme, I decided to enrol in the dual-study programme at <strong class="fw-bold"><a href="https://www.hu.nl/" target="_blank" class=timeline-link>Utrecht University of Applied Sciences</a></strong>, through <strong><a href="https://cita.academy/" target="_blank" class="timeline-link">Stichting CITA</a></strong>. Over the course of four years, I will combine working and studying.',
                     'I am, of course, looking forward to this programme with great enthusiasm. I want to further develop my <strong class="fw-bold">soft and hard skills</strong>, learn how to set up and manage projects, and strengthen my analytical and research skills. Above all, I want to keep learning and enjoy what I do!',
                     'The programme is scheduled to start in the <strong class="fw-bold">2027–2028 academic year</strong>. In preparation, I am doing everything I can to build a strong foundation and ensure I am well prepared when the programme begins.',
                 ],

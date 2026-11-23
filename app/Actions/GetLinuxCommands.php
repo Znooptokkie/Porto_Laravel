@@ -11,11 +11,11 @@ class GetLinuxCommands
 {
     /**
      * Returns the Linux commands grouped by category and then by card, in the order of their position, together with the
-     * total number of stored commands. When a search term is given, every word of it must appear in the category, the
-     * card title or the code of a command. When a keyword is given, only the commands with that keyword are returned. A
+     * total number of stored commands and the number of commands that match the search and keyword. When a search term
+     * is given, every word of it must appear in the category, the card title or the code of a command. When a keyword is given, only the commands with that keyword are returned. A
      * category without a name and a card without a title are grouped under the empty string.
      *
-     * @return array{categories: Collection<int|string, Collection<int|string, Collection<int, LinuxCommand>>>, commandCount: int}
+     * @return array{categories: Collection<int|string, Collection<int|string, Collection<int, LinuxCommand>>>, commandCount: int, matchCount: int}
      */
     public function handle(?string $search = null, ?LinuxCommandKeyword $keyword = null): array
     {
@@ -43,6 +43,7 @@ class GetLinuxCommands
         return [
             'categories' => $categories,
             'commandCount' => LinuxCommand::query()->count(),
+            'matchCount' => $commands->count(),
         ];
     }
 }

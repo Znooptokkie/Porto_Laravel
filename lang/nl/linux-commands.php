@@ -10,6 +10,7 @@ return [
         'list_label' => 'LINUX COMMANDO\'S',
         'list_aside' => '// handige commando\'s',
         'no_results' => 'Er zijn geen commando\'s die aan deze zoekopdracht voldoen.',
+        'found' => '{0} Er zijn geen commando\'s gevonden.|{1} Er is :count commando gevonden.|[2,*] Er zijn :count commando\'s gevonden.',
         'empty' => 'Er zijn nog geen commando\'s toegevoegd.',
     ],
 

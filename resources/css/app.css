@@ -92,6 +92,8 @@
     --color-menu-link: #f3f6fa;
     --color-portrait-frame: #101a2a;
     --color-error: #ff7070;
+    /* Donkerder eindkleur voor de voortgangsbalk (accent blijft de startkleur). */
+    --education-progress-end: color-mix(in srgb, var(--accent) 80%, #000);
 }
 
 /* Visitor preference: higher contrast */
@@ -678,10 +680,20 @@ input,
 }
 
 .site-footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-mono);
     font-weight: 600;
     font-size: 0.9375rem;
     color: inherit;
+}
+
+/* GitHub-icoon in de tekstkleur van de link, in beide thema's (de SVG gebruikt currentColor). */
+.site-footer .site-footer__icon {
+    color: inherit;
+    width: 16px;
+    height: 16px;
 }
 
 .site-footer__name {
@@ -1389,6 +1401,7 @@ input,
 /* .story-card__text a[target='_blank']::after, */
 .internship-card__text a[class="timeline-link"]::after,
 .story-card__text a[class="timeline-link"]::after,
+.education-card__story a[class="timeline-link"]::after,
 .about-card p a[class="about-link"]::after
  {
     content: '';
@@ -1987,19 +2000,20 @@ input,
         left: 0;
         right: 0;
         bottom: 0;
-        height: 30px;
+        height: 23px;
         background: var(--accent);
         border-radius: 0 0 25px 25px;
         padding: .5rem 0;
     }
 
+    /* Same size as the triangle in the filter sheet handle (the export's native size), centred in the 23px bar. */
     .site-nav__chevron {
         position: absolute;
         left: 50%;
-        margin-left: -8.5px;
-        top: 7px;
-        width: 17px;
-        height: 17px;
+        margin-left: -7.36px;
+        top: 5.125px;
+        width: 14.72px;
+        height: 12.75px;
         transform: rotate(180deg);
     }
 
@@ -3162,7 +3176,7 @@ input,
 
 @media (max-width: 480px) {
     /* .about-accordion {
-        padding: 18px 6px;
+        padding-block: 0px;
     } */
 
     .about-accordion__title {
@@ -3314,6 +3328,10 @@ input,
     }
 
     .about-accordion {
-        padding: 4px 20px;
+        padding: 0px 12px;
+    }
+
+    .about-contact__label {
+        font-size: var(--font-size-body);
     }
 }

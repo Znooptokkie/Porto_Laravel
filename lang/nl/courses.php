@@ -69,7 +69,7 @@ return [
                 'title' => 'VMBO GL - Landbouwbreed',
                 'period' => '2008 - 2012',
                 'story' => [
-                    'Na de basisschool koos ik ervoor om naar <strong>Wellant College</strong> in Madestein te gaan. Mij werd geadviseerd om <strong>HAVO-TL</strong> te volgen, maar ik besloot de makkelijkere route te nemen.',
+                    'Na de basisschool koos ik ervoor om naar <strong><a href="https://www.yuverta.nl/vmbo/scholen/vmbo-den-haag-madestein/" target="_blank" class="timeline-link">Wellant College</a></strong> in Madestein te gaan. Mij werd geadviseerd om <strong>HAVO-TL</strong> te volgen, maar ik besloot de makkelijkere route te nemen.',
                     'Ik volgde TL gedurende vier jaar, maar in mijn laatste jaar liet ik het vak <strong>Spaans</strong> vallen, wat ertoe leidde dat ik een <strong>GL-diploma</strong> behaalde.',
                     'Over het algemeen heb ik mijn eindexamens redelijk goed afgerond: ik ben voor alle vakken geslaagd met een voldoende.',
                     'Voor <strong>Lichamelijke Opvoeding</strong> haalde ik bijna altijd een <strong>10/10</strong> en had ik zelfs het <strong>schoolrecord hoogspringen</strong> verbroken. Voor de overige vakken had ik daarentegen meestal een echte \'zesjesmentaliteit\'.',
@@ -97,8 +97,8 @@ return [
                 'title' => 'Onderzoek Kunstmatige Intelligentie (AI)',
                 'period' => 'Certificaat van Excellentie',
                 'story' => [
-                    'AI is onvermijdelijk. Net als veel andere scholen ondervond <strong>mboRijnland</strong> aanzienlijke uitdagingen door de negatieve aspecten van AI.',
-                    'Een docent van mijn voormalige opleiding besloot een <strong>onderzoeksproject</strong> te starten over het gebruik van AI en hoe dit verantwoord in lessen kan worden toegepast.',
+                    'AI is onvermijdelijk. Net als veel andere scholen ondervond <strong><a href="https://mborijnland.nl/" class=timeline-link target="_blank">mboRijnland</a></strong> aanzienlijke uitdagingen door de negatieve aspecten van AI.',
+                    'Een docent van mijn voormalige opleiding besloot een <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/" target="_blank" class="timeline-link">onderzoeksproject</a></strong> te starten over het gebruik van AI en hoe dit verantwoord in lessen kan worden toegepast.',
                     'Dit onderzoek was een <strong>samenwerking</strong> tussen studenten en de docent. Samen met enkele andere studenten heb ik dit onderzoeksproject succesvol afgerond.',
                 ],
                 'topics' => [
@@ -112,7 +112,7 @@ return [
                 'title' => '“In Verbinding”',
                 'period' => 'Certificaat',
                 'story' => [
-                    'Gedurende enkele jaren heb ik <strong>vrijwilligerswerk</strong> gedaan bij <strong>Jeugd & Welzijn Leiden</strong>, een non-profitorganisatie die kinderen ondersteunt die opgroeien in armoede of bij verslaafde ouders, en helpt om een leuke dag te beleven.',
+                    'Gedurende enkele jaren heb ik <strong>vrijwilligerswerk</strong> gedaan bij <strong><a href="https://stichting-jw-leiden.nl/" target="_blank" class="timeline-link">Jeugd & Welzijn Leiden</a></strong>, een non-profitorganisatie die kinderen ondersteunt die opgroeien in armoede of bij verslaafde ouders, en helpt om een leuke dag te beleven.',
                     'De organisatie bood <strong>trainingen</strong> aan over hoe je met anderen kunt omgaan, hoe je gedrag bij anderen en bij jezelf kunt herkennen, en hoe je hiermee omgaat.',
                 ],
                 'topics' => [

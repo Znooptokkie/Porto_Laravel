@@ -186,6 +186,36 @@
     padding: 30px 0;
 }
 
+/* ---------- Result count above the filtered lists: the number takes the accent colour ---------- */
+
+.results-count {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: -8px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-muted);
+}
+
+.results-count[hidden] {
+    display: none;
+}
+
+/* The same accent bar as the projects eyebrow, in front of the text. */
+.results-count::before {
+    content: '';
+    flex: none;
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.results-count__number {
+    font-weight: 700;
+    color: var(--accent);
+}
+
 /* ---------- Search field: same pill as the filter triggers ---------- */
 
 .search-field {
@@ -242,6 +272,23 @@
     color: var(--accent);
 }
 
+/* The magnifier submits the filter form. The padding enlarges the click area without changing the icon's size. */
+.search-field__submit {
+    display: inline-flex;
+    flex-shrink: 0;
+    margin: -4px;
+    padding: 4px;
+    border: 0;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+}
+
+.search-field__submit:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 .project-filters__mobile-trigger,
 .project-filters__sheet-header,
 .project-filters__sheet-footer,
@@ -256,6 +303,11 @@
     border: 0;
     background: transparent;
     color: inherit;
+}
+
+/* On desktop and tablet the body adds no box, so the filter groups stay direct children of the form. */
+.project-filters__sheet-body {
+    display: contents;
 }
 
 /* One filter group: a pill trigger with its popover panel underneath. */
@@ -1622,12 +1674,31 @@
         display: inline-flex;
     }
 
-    .project-filter__trigger,
-    .project-filters__reset {
+    .project-filter__trigger {
         display: none;
     }
 
-    /* The desktop trigger buttons are replaced by a single sheet that lists every group. */
+    /* The icon reset stays on mobile only beside a search field (LeetCode, shell scripts, Linux commands). The projects
+       overview has no search field and keeps its reset in the sheet footer. */
+    .project-filters:not(:has(.search-field)) .project-filters__reset {
+        display: none;
+    }
+
+    /* Search field and reset share one row below the trigger; the search field takes the width the reset leaves. */
+    .project-filters:has(.search-field) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+    }
+
+    .project-filters:has(.search-field) .project-filters__mobile-trigger {
+        grid-column: 1 / -1;
+        justify-self: start;
+    }
+
+    /* The desktop trigger buttons are replaced by a single sheet that lists every group. The sheet slides up when it
+       opens and down when it closes, with the same keyframe approach as the header menu: projects.js keeps the dialog
+       open until the slide-down has finished. --motion-duration is 0s when animations are off. */
     .project-filters__sheet {
         position: fixed;
         inset: auto 0 0;
@@ -1636,18 +1707,60 @@
         max-width: none;
         max-height: 85dvh;
         margin: 0;
-        padding: 0 0 26px;
-        overflow-y: auto;
+        padding: 0;
         border-radius: 25px 25px 0 0;
         background: var(--color-bg);
         color: var(--color-text);
+        opacity: 1;
     }
 
     .project-filters__sheet[open] {
         display: flex;
         flex-direction: column;
+        gap: 0;
+        overflow: hidden;
+        padding: 0;
+        animation: project-sheet-slide-up var(--motion-duration) ease-out both;
+    }
+
+    .project-filters__sheet[data-closing='true'] {
+        animation: project-sheet-slide-down var(--motion-duration) ease-in both;
+    }
+
+    @keyframes project-sheet-slide-up {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes project-sheet-slide-down {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(100%);
+        }
+    }
+
+    /* The page scrollbar would sit beside the sheet, so it is hidden while the sheet is open. */
+    html:has(.project-filters__sheet[open]) {
+        overflow: hidden;
+    }
+
+    /* The sheet itself does not scroll: the header keeps the full width and only the body below it scrolls. */
+    .project-filters__sheet-body {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
         gap: 14px;
-        animation: project-filter-drop var(--motion-duration) ease-out both;
+        min-height: 0;
+        overflow-y: auto;
+        padding: 14px 0 26px;
     }
 
     .project-filters__sheet::backdrop {
@@ -1682,6 +1795,12 @@
         width: 100%;
         height: 23px;
         transform: rotate(180deg);
+    }
+
+    /* The handle's bar takes the accent colour. In light mode its triangle uses the accent ink, the same as the triangle
+       in the header's accent bar. The triangle is the last path of the export; dark mode keeps its dark fill. */
+    [data-theme='light'] .project-filters__sheet .project-filters__sheet-handle path:last-child {
+        fill: var(--accent-ink);
     }
 
     .project-filters__sheet-close {

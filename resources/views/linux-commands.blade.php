@@ -38,6 +38,8 @@
             </a>
         </form>
 
+        <x-results-count :count="$matchCount" translation-key="linux-commands.overview.found" :hidden="$search === '' && $selectedKeyword === null" />
+
         <div class="projects-list__cards" data-code-entries>
             <x-code-copy-popover />
             @forelse ($categories as $category => $cards)

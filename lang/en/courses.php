@@ -69,7 +69,7 @@ return [
                 'title' => 'VMBO GL - Agriculture',
                 'period' => '2008 - 2012',
                 'story' => [
-                    'After primary school I chose to go to <strong>Wellant College</strong> in Madestein. I was advised to follow <strong>HAVO-TL</strong>, but I decided to take the easier route.',
+                    'After primary school I chose to go to <strong><a href="https://www.yuverta.nl/vmbo/scholen/vmbo-den-haag-madestein/" target="_blank" class="timeline-link">Wellant College</a></strong> in Madestein. I was advised to follow <strong>HAVO-TL</strong>, but I decided to take the easier route.',
                     'I followed TL for four years, but in my final year I dropped the subject <strong>Spanish</strong>, which resulted in a <strong>GL diploma</strong>.',
                     'Overall I passed my final exams fairly well: I passed all subjects with a sufficient grade.',
                     'For <strong>Physical Education</strong>, I almost always scored a <strong>10/10</strong> and even broke the <strong>school high jump record</strong>. For all other subjects, however, I generally had a \'just enough to pass\' mentality.',
@@ -97,8 +97,8 @@ return [
                 'title' => 'Research on Artificial Intelligence (AI)',
                 'period' => 'Certificate of Excellence',
                 'story' => [
-                    'AI is unavoidable. Like many other schools, <strong>mboRijnland</strong> faced considerable challenges due to the negative aspects of AI.',
-                    'A teacher from my former programme decided to start a <strong>research project</strong> on the use of AI and how it can be applied responsibly in lessons.',
+                    'AI is unavoidable. Like many other schools, <strong><a href="https://mborijnland.nl/" class=timeline-link target="_blank">mboRijnland</a></strong> faced considerable challenges due to the negative aspects of AI.',
+                    'A teacher from my former programme decided to start a <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/" target="_blank" class="timeline-link">research project</a></strong> on the use of AI and how it can be applied responsibly in lessons.',
                     'This research was a <strong>collaboration</strong> between students and the teacher. Together with a few other students, I successfully completed this research project.',
                 ],
                 'topics' => [
@@ -112,7 +112,7 @@ return [
                 'title' => '“In Connection”',
                 'period' => 'Certificate',
                 'story' => [
-                    'For several years I did <strong>volunteer work</strong> at <strong>Jeugd & Welzijn Leiden</strong>, a non-profit organisation that supports children growing up in poverty or with addicted parents, and helps them enjoy a fun day.',
+                    'For several years I did <strong>volunteer work</strong> at <strong><a href="https://stichting-jw-leiden.nl/" target="_blank" class="timeline-link">Jeugd & Welzijn Leiden</a></strong>, a non-profit organisation that supports children growing up in poverty or with addicted parents, and helps them enjoy a fun day.',
                     'The organisation offered <strong>training</strong> on how to deal with others, how to recognise behaviour in others and in yourself, and how to handle it.',
                 ],
                 'topics' => [

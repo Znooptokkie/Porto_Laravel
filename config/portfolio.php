@@ -3,6 +3,11 @@
 return [
     'name' => 'Atilla Oomen',
 
+    /*
+     * Year in which ROC Leiden merged into mboRijnland. The timeline text counts the years since then.
+     */
+    'roc_leiden_merge_year' => 2019,
+
     'links' => [
         'github' => 'https://github.com/znooptokkie/',
         'linkedin' => 'https://www.linkedin.com/in/atilla-oomen-3a4b78335',
@@ -33,7 +38,7 @@ return [
     'accent_presets' => [
         ['key' => 'green', 'hex' => '#2ECC71'],
         ['key' => 'purple', 'hex' => '#9F2ECC'],
-        ['key' => 'blue', 'hex' => '#0009FF'],
+        ['key' => 'blue', 'hex' => '#1c25cd'],
         ['key' => 'red', 'hex' => '#CC2E2E'],
         ['key' => 'orange', 'hex' => '#FFA200'],
     ],

@@ -186,3 +186,17 @@ it('shows the English description and card title when the locale is English', fu
         ->assertSee('usage', false)
         ->assertDontSee('Toon het vrije schijfgebruik.');
 });
+
+it('shows how many linux commands the search and keyword found, and only once a filter is active', function () {
+    LinuxCommand::factory()->create(['category' => 'Github', 'card_title' => 'Account', 'keyword' => 'git', 'command' => 'gh auth status', 'position' => 0]);
+    LinuxCommand::factory()->create(['category' => 'Linux', 'card_title' => 'Schijfgebruik', 'keyword' => 'linux', 'command' => 'df -h', 'position' => 1]);
+
+    $this->get('/linux-commands')
+        ->assertSeeHtml('<p class="results-count" data-project-count hidden>');
+
+    $this->get('/linux-commands?q=github')
+        ->assertSeeHtml('<p class="results-count" data-project-count>Er is <span class="results-count__number">1</span> commando gevonden.</p>');
+
+    $this->get('/linux-commands?keyword=linux')
+        ->assertSeeHtml('<p class="results-count" data-project-count>Er is <span class="results-count__number">1</span> commando gevonden.</p>');
+});

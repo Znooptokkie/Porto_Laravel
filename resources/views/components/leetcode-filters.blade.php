@@ -36,7 +36,7 @@
             </button>
         </div>
 
-        <div class="leetcode-filters__sheet-body">
+        <div class="project-filters__sheet-body">
         <x-project-filter-group id="filter-leetcode-language" :label="__('leetcode.filters.language')" :options="$languageOptions" />
 
         <x-project-filter-group id="filter-leetcode-rating" :label="__('leetcode.filters.rating')" :options="$radioOptions('rating', LeetcodeRatingFilter::cases())" />

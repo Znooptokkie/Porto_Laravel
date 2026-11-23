@@ -10,6 +10,7 @@ return [
         'list_label' => 'LINUX COMMANDS',
         'list_aside' => '// useful commands',
         'no_results' => 'No commands match this search.',
+        'found' => '{0} No commands found.|{1} :count command found|[2,*] :count commands found',
         'empty' => 'No commands have been added yet.',
     ],
 

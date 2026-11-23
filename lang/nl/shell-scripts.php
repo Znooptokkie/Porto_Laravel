@@ -10,6 +10,7 @@ return [
         'list_label' => 'SHELL SCRIPTS',
         'list_aside' => '// gebruiken op eigen risico',
         'no_results' => 'Er zijn geen scripts die aan deze zoekopdracht voldoen.',
+        'found' => '{0} Er zijn geen scripts gevonden.|{1} Er is :count script gevonden.|[2,*] Er zijn :count scripts gevonden.',
         'empty' => 'Er zijn nog geen scripts toegevoegd.',
     ],
 
