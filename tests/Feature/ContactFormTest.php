@@ -63,7 +63,7 @@ it('rejects an invalid email address', function () {
 
 it('shows the english validation messages when the locale cookie is set', function () {
     $this->withUnencryptedCookie('locale', 'en')
-        ->post(route('about.contact'), [])
+        ->post(route('en.about.contact'), [])
         ->assertSessionHasErrors(['name' => 'Please enter your name.']);
 });
 

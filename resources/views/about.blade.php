@@ -84,7 +84,7 @@
             <p class="about-contact__status" role="status">{{ __('about.contact.sent') }}</p>
         @endif
 
-        <form class="about-contact" method="POST" action="{{ route('about.contact') }}">
+        <form class="about-contact" method="POST" action="{{ \App\Http\Middleware\SetPageLocale::url('about.contact') }}">
             @csrf
             {{-- Honeypot: hidden from people, filled in only by bots. --}}
             <div class="visually-hidden" aria-hidden="true">

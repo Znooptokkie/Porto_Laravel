@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\SetPageLocale;
+
 $rocLeidenYearsAgo = (new NumberFormatter('nl', NumberFormatter::SPELLOUT))
     ->format(now()->year - config('portfolio.roc_leiden_merge_year'));
 
@@ -60,7 +62,7 @@ return [
                 'paragraphs' => [
                     'Weer terug naar school, nu begon ik deze opleiding wel met een enorme hoeveelheid motivatie, wat zich meerdere keren uitbetaalde. Ik werd herhaaldelijk gevraagd om <strong>extra projecten</strong> op te pakken, zoals het begeleiden van een <strong><a href="/projecten/plymouth" class="timeline-link">uitwisselingsprogramma</a></strong>, en kreeg zelfs de kans om <strong><a href="https://www.linkedin.com/posts/vireen-jagram-833985224_smartgarden-ai-iot-share-7335244310193344514-BSF7/" target="_blank" class="timeline-link">HBO-studenten te begeleiden</a></strong> als challengegever voor hun project.',
                     'De resultaten van mijn motivatie zijn ook terug te zien in mijn cijfers. Ik ben <strong>cum laude afgestudeerd</strong> als de beste student van de opleiding <strong class="fw-bold"><a href="https://mborijnland.nl/mbo-opleidingen/ict/" class=timeline-link target="_blank">Software Development aan mboRijnland</a></strong>. Ik moet wel vermelden dat ROC Leiden '.$rocLeidenYearsAgo.' jaar geleden overging in mboRijnland, maar het blijft een prestatie waar ik ontzettend trots op ben!',
-                    'Bovendien nam ik deel aan een <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI-onderzoek</a></strong> waarvoor ik een <strong><a href="'.route('courses').'#certificates-heading" class="timeline-link">certificaat van excellentie</a></strong> ontving. Dit onderzoek richtte zich op hoe scholen verantwoord met het gebruik van AI kunnen omgaan. Ik voerde <strong class="fw-bold">diverse onderzoeken</strong> uit voor dit project en verzorgde meerdere presentaties samen met een team van studenten en een docent.',
+                    'Bovendien nam ik deel aan een <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI-onderzoek</a></strong> waarvoor ik een <strong><a href="'.SetPageLocale::url('courses').'#certificates-heading" class="timeline-link">certificaat van excellentie</a></strong> ontving. Dit onderzoek richtte zich op hoe scholen verantwoord met het gebruik van AI kunnen omgaan. Ik voerde <strong class="fw-bold">diverse onderzoeken</strong> uit voor dit project en verzorgde meerdere presentaties samen met een team van studenten en een docent.',
                     'School heeft mij een solide basis gegeven om op voort te bouwen. Door er goed op te letten en mijn opdrachten zorgvuldig uit te voeren, kan ik nu zelfstandig code schrijven en problemen redelijk goed oplossen.',
                 ],
             ],

@@ -5,7 +5,7 @@
     $checked = fn (string $key, mixed $value): bool => in_array((int) $value, array_map('intval', $filters[$key] ?? []), true);
     $selectedSort = fn (string $key, string $value): bool => ($filters[$key] ?? null) === $value;
 @endphp
-<form method="GET" action="{{ route('projects') }}" class="project-filters" data-project-filters>
+<form method="GET" action="{{ \App\Http\Middleware\SetPageLocale::url('projects') }}" class="project-filters" data-project-filters>
     <button type="button" class="project-filters__mobile-trigger" data-project-sheet-open aria-haspopup="dialog">
         <span>{{ __('projects.filters.open') }}</span>
         <x-themed-image class="project-filter__chevron" :light="'images/projects/icons/imgDropdownChevron.svg'" :dark="'images/projects/icons/imgFilterChevronDark.svg'" />
@@ -43,7 +43,7 @@
         <x-project-filter-group id="filter-type" :label="__('projects.filters.type')" :options="$options['types']->map(fn ($type): array => ['type' => 'checkbox', 'name' => 'types[]', 'value' => $type->id, 'label' => $type->translatedName(), 'checked' => $checked('types', $type->id)])->all()" />
 
         <div class="project-filters__sheet-footer">
-            <a class="project-filters__sheet-reset" href="{{ route('projects') }}">
+            <a class="project-filters__sheet-reset" href="{{ \App\Http\Middleware\SetPageLocale::url('projects') }}">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                     <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
                     <path d="M21 3v5h-5"/>
@@ -56,7 +56,7 @@
         </div>
     </dialog>
 
-    <a class="project-filters__reset" href="{{ route('projects') }}" aria-label="{{ __('projects.filters.reset') }}">
+    <a class="project-filters__reset" href="{{ \App\Http\Middleware\SetPageLocale::url('projects') }}" aria-label="{{ __('projects.filters.reset') }}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
             <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
             <path d="M21 3v5h-5"/>

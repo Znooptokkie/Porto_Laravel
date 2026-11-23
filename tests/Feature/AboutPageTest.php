@@ -16,7 +16,7 @@ it('renders the about page in dutch by default', function () {
 
 it('renders the about page in english when the locale cookie is set', function () {
     $this->withUnencryptedCookie('locale', 'en')
-        ->get(route('about'))
+        ->get(route('en.about'))
         ->assertOk()
         ->assertSee('lang="en"', false)
         ->assertSee('Who I')

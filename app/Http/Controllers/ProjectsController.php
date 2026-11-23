@@ -14,8 +14,6 @@ class ProjectsController extends Controller
      */
     public function __invoke(ProjectIndexRequest $request, GetProjectsOverview $getProjects, GetProjectFilterOptions $getFilterOptions): View
     {
-        app()->setLocale($request->cookie('locale') === 'en' ? 'en' : 'nl');
-
         $filters = $request->validated();
 
         return view('projects', [

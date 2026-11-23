@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
     /**
-     * Shows the about-me page. The language preference is mirrored in a cookie by the frontend.
+     * Shows the about-me page. The locale is set by the SetPageLocale middleware.
      */
-    public function __invoke(Request $request): View
+    public function __invoke(): View
     {
-        app()->setLocale($request->cookie('locale') === 'en' ? 'en' : 'nl');
-
         return view('about');
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\SetPageLocale;
+
 $rocLeidenYearsAgo = (new NumberFormatter('en', NumberFormatter::SPELLOUT))
     ->format(now()->year - config('portfolio.roc_leiden_merge_year'));
 
@@ -58,9 +60,9 @@ return [
                 'label' => 'Programme',
                 'title' => 'Moving on to Software Developer',
                 'paragraphs' => [
-                    'Back at school, I started this programme with a huge amount of motivation, which paid off repeatedly. I was often asked to take on <strong>extra projects</strong>, such as supervising an <strong><a href="/projecten/plymouth" class="timeline-link">exchange programme</a></strong>, and I even had the chance to coach <strong><a href="https://www.linkedin.com/posts/vireen-jagram-833985224_smartgarden-ai-iot-share-7335244310193344514-BSF7/" target="_blank" class="timeline-link">HBO students</a></strong> as challengers for their project.',
+                    'Back at school, I started this programme with a huge amount of motivation, which paid off repeatedly. I was often asked to take on <strong>extra projects</strong>, such as supervising an <strong><a href="/projects/plymouth" class="timeline-link">exchange programme</a></strong>, and I even had the chance to coach <strong><a href="https://www.linkedin.com/posts/vireen-jagram-833985224_smartgarden-ai-iot-share-7335244310193344514-BSF7/" target="_blank" class="timeline-link">HBO students</a></strong> as challengers for their project.',
                     'My motivation is also reflected in my grades. I <strong>graduated cum laude</strong> as the best student of the <strong class="fw-bold"><a href="https://mborijnland.nl/mbo-opleidingen/ict/" class=timeline-link target="_blank">Software Development programme at mboRijnland</a></strong>. I should mention that ROC Leiden merged into mboRijnland '.$rocLeidenYearsAgo.' years earlier, but it is an achievement I am incredibly proud of!',
-                    'I also took part in an <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI research project</a></strong> for which I received <strong><a href="'.route('courses').'#certificates-heading" class="timeline-link">a certificate of excellence.</a></strong> The research focused on how schools can use AI responsibly. I carried out <strong class="fw-bold">various studies</strong> for this project and gave several presentations together with a team of students and a teacher.',
+                    'I also took part in an <strong><a href="https://civ-smarttechnology.nl/update-onderzoek-ai-software-development/ " target="_blank" class="timeline-link">AI research project</a></strong> for which I received <strong><a href="'.SetPageLocale::url('courses').'#certificates-heading" class="timeline-link">a certificate of excellence.</a></strong> The research focused on how schools can use AI responsibly. I carried out <strong class="fw-bold">various studies</strong> for this project and gave several presentations together with a team of students and a teacher.',
                     'School gave me a solid foundation to build on. By paying close attention and carefully completing my assignments, I can now write code independently and solve problems reasonably well.',
                 ],
             ],
