@@ -165,7 +165,7 @@ class Project extends Model
     public function contributors(): BelongsToMany
     {
         return $this->belongsToMany(Contributor::class, 'project_contributor')
-            ->withPivot(['role', 'sort_order'])
+            ->withPivot(['role', 'role_en', 'sort_order'])
             ->orderByPivot('sort_order');
     }
 

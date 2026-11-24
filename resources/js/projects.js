@@ -163,11 +163,26 @@ function closeGroups(groups) {
 
 const MEDIA_MOTION_CLASSES = ['is-leaving-to-left', 'is-leaving-to-right', 'is-entering-from-left', 'is-entering-from-right'];
 
+/* Same breakpoint as the mobile layout in projects.css (max-width: 600px). */
+const MOBILE_MEDIA_QUERY = '(max-width: 600px)';
+
+/**
+ * Shows the slides that belong to the current screen size. A slide has scope "both", "desktop" or "mobile"; the counter
+ * shows the position among the slides of this screen size. Changing the screen size starts again at the first slide.
+ */
 function bindMedia(viewer) {
-    const slides = [...viewer.querySelectorAll('[data-project-media-slide]')];
+    const allSlides = [...viewer.querySelectorAll('[data-project-media-scope]')];
     const counter = viewer.querySelector('[data-project-media-counter]');
     const caption = viewer.querySelector('[data-project-media-caption-text]');
+    const mobileQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
+    let slides = [];
     let current = 0;
+
+    const visibleSlides = () => {
+        const breakpoint = mobileQuery.matches ? 'mobile' : 'desktop';
+
+        return allSlides.filter((slide) => ['both', breakpoint].includes(slide.dataset.projectMediaScope));
+    };
 
     /**
      * Moves to another slide. Going to the previous slide: the current one leaves to the right and the previous one enters from the left. Going forward is the mirror image.
@@ -177,30 +192,47 @@ function bindMedia(viewer) {
 
         current = (index + slides.length) % slides.length;
 
+        allSlides.forEach((slide) => {
+            slide.classList.remove(...MEDIA_MOTION_CLASSES, 'is-active');
+            slide.inert = true;
+            slide.setAttribute('aria-hidden', 'true');
+        });
+
         slides.forEach((slide, position) => {
             const active = position === current;
 
-            slide.classList.remove(...MEDIA_MOTION_CLASSES);
             slide.classList.toggle('is-active', active);
             slide.inert = !active;
             slide.setAttribute('aria-hidden', String(!active));
         });
 
-        if (previous !== current) {
+        if (direction && previous !== current && slides[previous]) {
             const movingBack = direction === 'previous';
 
             slides[previous].classList.add(movingBack ? 'is-leaving-to-right' : 'is-leaving-to-left');
             slides[current].classList.add(movingBack ? 'is-entering-from-left' : 'is-entering-from-right');
         }
 
+        const counterKey = mobileQuery.matches ? 'projectMediaCounterMobile' : 'projectMediaCounterDesktop';
+
         if (counter) {
-            counter.textContent = slides[current].dataset.projectMediaSlide ?? '';
+            counter.textContent = slides[current].dataset[counterKey] ?? '';
         }
 
         if (caption) {
             caption.textContent = slides[current].dataset.projectMediaCaption ?? '';
         }
     };
+
+    const reset = () => {
+        slides = visibleSlides();
+        viewer.toggleAttribute('data-single', slides.length < 2);
+        show(0);
+    };
+
+    viewer.dataset.enhanced = '';
+    reset();
+    mobileQuery.addEventListener('change', reset);
 
     viewer.querySelector('[data-project-media-prev]')?.addEventListener('click', () => show(current - 1, 'previous'));
     viewer.querySelector('[data-project-media-next]')?.addEventListener('click', () => show(current + 1, 'next'));

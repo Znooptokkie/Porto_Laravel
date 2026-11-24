@@ -94,7 +94,7 @@ class ProjectSeeder extends Seeder
                 ['slug' => $data['slug']],
                 collect($data)->except([
                     'slug', 'types', 'cardTechnologies', 'detailTechnologies', 'chapters', 'chapterTranslations',
-                    'links', 'components', 'contributors', 'imageAlts', 'firstPhoto',
+                    'links', 'components', 'contributors', 'imageAlts', 'imageMobileFiles', 'firstPhoto',
                 ])
                     ->put('sort_order', $index + 1)
                     ->all(),
@@ -103,7 +103,7 @@ class ProjectSeeder extends Seeder
             $this->syncTypes($project, $data['types']);
             $this->syncTechnologies($project, $data['cardTechnologies'], 'card');
             $this->syncTechnologies($project, $data['detailTechnologies'] ?? $data['cardTechnologies'], 'detail');
-            $this->syncImages($project, $data['imageAlts'] ?? [], $data['firstPhoto'] ?? null);
+            $this->syncImages($project, $data['imageAlts'] ?? [], $data['imageMobileFiles'] ?? [], $data['firstPhoto'] ?? null);
             $this->syncChapters($project, $data['chapters'] ?? [], $data['chapterTranslations'] ?? []);
             $this->syncLinks($project, $data['links'] ?? []);
             $this->syncComponents($project, $data['components'] ?? []);
@@ -165,8 +165,9 @@ class ProjectSeeder extends Seeder
 
     /**
      * @param  array<string, array{nl: string, en: string}>  $imageAlts  Alt texts keyed by file name.
+     * @param  array<string, list<string>>  $imageMobileFiles  Mobile file names in public/images/projects/<slug>/mobile/ keyed by the main photo's file name. A photo not listed uses the mobile file with the same name, if there is one.
      */
-    private function syncImages(Project $project, array $imageAlts, ?string $firstPhoto): void
+    private function syncImages(Project $project, array $imageAlts, array $imageMobileFiles, ?string $firstPhoto): void
     {
         $project->images()->delete();
 
@@ -176,11 +177,46 @@ class ProjectSeeder extends Seeder
             $project->images()->create([
                 'path' => $path,
                 'alt' => $alts['nl'] !== '' ? $alts['nl'] : null,
+                'mobile_photos' => $this->mobilePhotosFor($project, basename($path), $imageMobileFiles, $imageAlts),
                 'translations' => ['en' => ['alt' => $alts['en']]],
                 'caption' => $index === 0 ? $project->story_lead : null,
                 'sort_order' => $index + 1,
             ]);
         }
+    }
+
+    /**
+     * The mobile photos for one main photo, in order. The alt text of a mobile photo is looked up by its own file name in $imageAlts; without one the main photo's alt text is used. Files that do not exist are reported and left out.
+     *
+     * @param  array<string, list<string>>  $imageMobileFiles
+     * @param  array<string, array{nl: string, en: string}>  $imageAlts
+     * @return list<array{path: string, alt: string|null, translations: array<string, array<string, string>>|null}>
+     */
+    private function mobilePhotosFor(Project $project, string $fileName, array $imageMobileFiles, array $imageAlts): array
+    {
+        $photos = [];
+
+        foreach ($imageMobileFiles[$fileName] ?? [$fileName] as $mobileFile) {
+            $path = "images/projects/{$project->slug}/mobile/{$mobileFile}";
+
+            if (! File::exists(public_path($path))) {
+                if (isset($imageMobileFiles[$fileName])) {
+                    $this->command?->warn("Mobiele foto ontbreekt: {$path}");
+                }
+
+                continue;
+            }
+
+            $alts = $imageAlts[$mobileFile] ?? ['nl' => '', 'en' => ''];
+
+            $photos[] = [
+                'path' => $path,
+                'alt' => $alts['nl'] !== '' ? $alts['nl'] : null,
+                'translations' => $alts['en'] !== '' ? ['en' => ['alt' => $alts['en']]] : null,
+            ];
+        }
+
+        return $photos;
     }
 
     /**
@@ -268,7 +304,7 @@ class ProjectSeeder extends Seeder
     }
 
     /**
-     * @param  list<array{name: string, role: string}>  $contributors
+     * @param  list<array{name: string, role: string, role_en?: string|null, url?: string|null}>  $contributors
      */
     private function syncContributors(Project $project, array $contributors): void
     {
@@ -276,7 +312,7 @@ class ProjectSeeder extends Seeder
 
         foreach ($contributors as $index => $contributor) {
             $model = Contributor::query()->updateOrCreate(['name' => $contributor['name']], ['url' => $contributor['url'] ?? null]);
-            $sync[$model->id] = ['role' => $contributor['role'], 'sort_order' => $index + 1];
+            $sync[$model->id] = ['role' => $contributor['role'], 'role_en' => $contributor['role_en'] ?? null, 'sort_order' => $index + 1];
         }
 
         $project->contributors()->sync($sync);

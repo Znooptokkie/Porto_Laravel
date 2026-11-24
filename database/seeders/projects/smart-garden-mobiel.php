@@ -171,5 +171,11 @@ return [
         'gg_mob_pump.webp' => ['nl' => 'Een overzicht van alle pompen - met de mogelijkheid om ze afzonderlijk in of uit te schakelen', 'en' => 'An overview of all pumps - with the ability to switch each one on or off'],
         'gg_mob_sensors.webp' => ['nl' => 'Een overzicht van alle sensoren die in de kas de omstandigheden in de gaten houden', 'en' => 'An overview of all sensors monitoring conditions inside the greenhouse'],
         'gg_mob_settings.webp' => ['nl' => 'De instellingenpagina waar gebruikers hun persoonlijke voorkeuren en gegevens kunnen aanpassen', 'en' => 'The settings page where users can adjust their personal preferences and information'],
+        'gg_mob_homepage_top.webp' => ['nl' => 'Het startscherm van de Smart Garden-app - alle belangrijke onderdelen binnen handbereik. Dit is het bovenste deel van de afbeelding.', 'en' => 'The Smart Garden app home screen - all the essential features right at your fingertips. This is the top part of the image.'],
+        'gg_mob_homepage_bottom.webp' => ['nl' => 'Het startscherm van de Smart Garden-app - alle belangrijke onderdelen binnen handbereik. Dit is het onderste deel van de afbeelding.', 'en' => 'The Smart Garden app home screen - all the essential features right at your fingertips. This is the bottom part of the image.'],
     ],
+    'imageMobileFiles' => [
+        'gg_mob_homepage.webp' => ['gg_mob_homepage_top.webp', 'gg_mob_homepage_bottom.webp'],
+    ],
+    'firstPhoto' => 'gg_mob_login.webp',
 ];

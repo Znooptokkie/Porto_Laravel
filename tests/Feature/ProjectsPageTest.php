@@ -5,6 +5,7 @@ use App\Enums\ProjectStatus;
 use App\Enums\TechnologyKind;
 use App\Models\Contributor;
 use App\Models\Project;
+use App\Models\ProjectImage;
 use App\Models\ProjectType;
 use App\Models\Technology;
 use Database\Seeders\ProjectSeeder;
@@ -196,6 +197,28 @@ it('shares one contributor between several projects', function () {
         ->assertSee('Design');
 });
 
+it('shows the contributor role in the active locale and falls back to the dutch role', function () {
+    $project = Project::factory()->create(['slug' => 'rol-test', 'sort_order' => 1]);
+    $contributor = Contributor::factory()->create(['name' => 'A. Oomen']);
+    $project->contributors()->attach($contributor, ['role' => 'Projectleider', 'role_en' => 'Project Leader', 'sort_order' => 1]);
+    $otherProject = Project::factory()->create(['slug' => 'rol-zonder-en', 'sort_order' => 2]);
+    $otherProject->contributors()->attach($contributor, ['role' => 'Developer', 'role_en' => null, 'sort_order' => 1]);
+
+    $this->withUnencryptedCookie('locale', 'nl')->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('Projectleider')
+        ->assertDontSee('Project Leader');
+
+    $this->withUnencryptedCookie('locale', 'en')->get(route('en.projects.show', $project))
+        ->assertOk()
+        ->assertSee('Project Leader')
+        ->assertDontSee('Projectleider');
+
+    $this->withUnencryptedCookie('locale', 'en')->get(route('en.projects.show', $otherProject))
+        ->assertOk()
+        ->assertSee('Developer');
+});
+
 it('returns not found for an unknown project', function () {
     $this->get('/projecten/bestaat-niet')->assertNotFound();
 });
@@ -342,4 +365,90 @@ it('numbers the cards and fills the progress bars by the order they are shown in
     $response->assertSeeInOrder(['01 / 02', 'Favoriet', '02 / 02', 'Eerste ontwerp']);
     expect(substr_count($response->getContent(), 'project-progress__segment--filled'))->toBe(3)
         ->and(substr_count($response->getContent(), 'project-progress__segment"'))->toBe(1);
+});
+
+it('shows a photo with mobile photos as the mobile photos on small screens and as the main photo on larger ones', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'slug' => 'battlebot', 'sort_order' => 1]);
+    $project->images()->create(['path' => 'images/projects/placeholders/photo-1.webp', 'mobile_photos' => [
+        ['path' => 'images/projects/placeholders/photo-2.webp', 'alt' => null, 'translations' => null],
+        ['path' => 'images/projects/placeholders/photo-3.webp', 'alt' => null, 'translations' => null],
+    ], 'sort_order' => 1]);
+    $project->images()->create(['path' => 'images/projects/placeholders/photo-4.webp', 'mobile_photos' => null, 'sort_order' => 2]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('data-project-media-scope="desktop"', false)
+        ->assertSee('data-project-media-scope="mobile"', false)
+        ->assertSee('data-project-media-scope="both"', false)
+        ->assertSee('data-project-media-counter-desktop="01 / 02 - BATTLEBOT"', false)
+        ->assertSee('data-project-media-counter-mobile="01 / 03 - BATTLEBOT"', false)
+        ->assertSee('data-project-media-counter-mobile="03 / 03 - BATTLEBOT"', false)
+        ->assertSee('photo-2.webp"', false)
+        ->assertSee('photo-3.webp"', false);
+});
+
+it('shows only the main photo when an image has no mobile photos', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'slug' => 'battlebot', 'sort_order' => 1]);
+    $project->images()->create(['path' => 'images/projects/placeholders/photo-1.webp', 'mobile_photos' => null, 'sort_order' => 1]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('data-project-media-scope="both"', false)
+        ->assertDontSee('data-project-media-scope="mobile"', false)
+        ->assertDontSee('data-project-media-scope="desktop"', false);
+});
+
+it('gives each mobile photo its own alt text and caption in the active locale, and falls back to the main photo alt text', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'slug' => 'battlebot', 'sort_order' => 1]);
+    $project->images()->create([
+        'path' => 'images/projects/placeholders/photo-1.webp',
+        'alt' => 'De volledige pagina',
+        'translations' => ['en' => ['alt' => 'The full page']],
+        'mobile_photos' => [
+            ['path' => 'images/projects/placeholders/photo-2.webp', 'alt' => 'De linkerhelft', 'translations' => ['en' => ['alt' => 'The left half']]],
+            ['path' => 'images/projects/placeholders/photo-3.webp', 'alt' => null, 'translations' => null],
+        ],
+        'sort_order' => 1,
+    ]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('alt="De linkerhelft"', false)
+        ->assertSee('data-project-media-caption="Battlebot: De linkerhelft"', false)
+        ->assertSee('data-project-media-caption="Battlebot: De volledige pagina"', false);
+
+    $this->withUnencryptedCookie('locale', 'en')->get(route('en.projects.show', $project))
+        ->assertOk()
+        ->assertSee('alt="The left half"', false)
+        ->assertSee('data-project-media-caption="Battlebot: The left half"', false)
+        ->assertSee('data-project-media-caption="Battlebot: The full page"', false);
+});
+
+it('uses the mobile photos with the same file name from the mobile folder, and none otherwise', function () {
+    $this->seed(ProjectSeeder::class);
+
+    $images = Project::query()->where('slug', 'battlebot')->firstOrFail()->images->keyBy(fn (ProjectImage $image): string => basename($image->path));
+
+    expect(array_column($images['battlebot_controller.webp']->mobile_photos, 'path'))->toBe(['images/projects/battlebot/mobile/battlebot_controller.webp'])
+        ->and($images['battlebot_frontview.webp']->mobile_photos)->toBeEmpty();
+});
+
+it('replaces a photo by the two mobile photos that are listed for it', function () {
+    $this->seed(ProjectSeeder::class);
+
+    $images = Project::query()->where('slug', 'smart-garden-desktop')->firstOrFail()->images->keyBy(fn (ProjectImage $image): string => basename($image->path));
+
+    expect(array_column($images['gg_homepage.webp']->mobile_photos, 'path'))->toBe([
+        'images/projects/smart-garden-desktop/mobile/gg_homepage_left.webp',
+        'images/projects/smart-garden-desktop/mobile/gg_homepage_right.webp',
+    ]);
+});
+
+it('encodes spaces in the mobile photo path so the image URL stays valid', function () {
+    $project = Project::factory()->create(['title' => 'Battlebot', 'slug' => 'battlebot', 'sort_order' => 1]);
+    $project->images()->create(['path' => 'images/projects/placeholders/photo-1.webp', 'mobile_photos' => [['path' => 'images/projects/placeholders/foto mobiel.webp', 'alt' => null, 'translations' => null]], 'sort_order' => 1]);
+
+    $this->get(route('projects.show', $project))
+        ->assertOk()
+        ->assertSee('foto%20mobiel.webp', false);
 });

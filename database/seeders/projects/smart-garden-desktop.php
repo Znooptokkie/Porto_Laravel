@@ -200,7 +200,7 @@ return [
         ProjectComponentGroup::Communication->value => ['JSON', 'API', 'Perenual API', 'Weerlive API'],
     ],
     'contributors' => [
-        ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Project Leader / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
+        ['name' => 'A. Oomen', 'role' => 'Full-stack Developer / Projectleider / Scrum Master', 'role_en' => 'Full-stack Developer / Project Leader / Scrum Master', 'url' => 'https://github.com/Znooptokkie'],
         ['name' => 'R. van Putten', 'role' => 'Front-end Developer / Product Owner', 'url' => 'https://github.com/SanzoVP'],
         ['name' => 'B. Diker', 'role' => 'Back-end Developer', 'url' => 'https://github.com/bdiker61'],
         ['name' => 'M. Cifci', 'role' => 'Back-end Developer', 'url' => 'https://github.com/mohammedcifci'],
@@ -220,6 +220,14 @@ return [
         'gg_relais.webp' => ['nl' => 'De relaismodule die de schakelingen van de pompen en kleppen voor zijn rekening neemt', 'en' => 'The relay module responsible for switching the pumps and valves'],
         'gg_single_breadboard.webp' => ['nl' => 'Een close-up van een van de breadboards - waar de elektronische verbindingen tot leven komen', 'en' => 'A close-up of one of the breadboards - where the electronic connections come to life'],
         'gg_the_field.webp' => ['nl' => 'Een blik op The Field - de kas waarvoor het Smart Garden-project is ontwikkeld', 'en' => 'A look at The Field - the greenhouse for which the Smart Garden project was developed'],
+        'gg_homepage_left.webp' => ['nl' => 'De lijst met aanwezige planten in de kas, met een lege plek om er een toe te voegen', 'en' => 'The list of plants currently in the greenhouse, with an empty slot to add one'],
+        'gg_homepage_right.webp' => ['nl' => 'Het dashboard met de knoppen voor planten, instellingen, sensoren en de pompen, met daaronder de temperatuurverwachting en de grafieken per categorie', 'en' => 'The dashboard with the buttons for plants, settings, sensors and the pumps, with the temperature forecast and the charts per category below'],
+        'gg_settings_left.webp' => ['nl' => 'Het accountgedeelte van de instellingen, waar je de gebruikersnaam, het e-mailadres en het wachtwoord kunt aanpassen', 'en' => 'The account section of the settings, where you can change the username, email address and password'],
+        'gg_settings_right.webp' => ['nl' => 'De API-sleutels voor het weer en de planten, met daaronder de overige instellingen zoals meldingen en het verwijderen van het account', 'en' => 'The API keys for the weather and the plants, with the other settings below them such as notifications and deleting the account'],
+    ],
+    'imageMobileFiles' => [
+        'gg_homepage.webp' => ['gg_homepage_left.webp', 'gg_homepage_right.webp'],
+        'gg_settings.webp' => ['gg_settings_left.webp', 'gg_settings_right.webp'],
     ],
     'firstPhoto' => 'gg_ik_bij_hh.webp',
 ];

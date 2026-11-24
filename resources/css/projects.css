@@ -1099,6 +1099,25 @@
     transition: none;
 }
 
+/* A desktop photo with cropped mobile photos is replaced on small screens by those photos. The script marks the viewer (data-enhanced); without it the first slide is shown. */
+@media (min-width: 601px) {
+    .project-media[data-enhanced] .project-media__slide[data-project-media-scope='mobile'] {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-media[data-enhanced] .project-media__slide[data-project-media-scope='desktop'] {
+        display: none;
+    }
+}
+
+/* One slide left on this screen size: the arrows and notches have nothing to go to. */
+.project-media[data-single] .project-media__nav,
+.project-media[data-single] .project-media__notch {
+    display: none;
+}
+
 .project-media__slide.is-leaving-to-left,
 .project-media__slide.is-leaving-to-right {
     z-index: 0;

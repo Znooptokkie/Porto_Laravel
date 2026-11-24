@@ -161,7 +161,7 @@
                                     {{ $contributor->name }}
                                 @endif
                             </p>
-                            <p class="project-contributor__role">{{ $contributor->pivot->role }}</p>
+                            <p class="project-contributor__role">{{ app()->getLocale() === 'en' ? ($contributor->pivot->role_en ?? $contributor->pivot->role) : $contributor->pivot->role }}</p>
                             <a class="project-contributor__github" href="{{ $contributor->url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('projects.detail.github_profile', ['name' => $contributor->name]) }}">
                                 <span class="project-contributor__url">{{ $contributor->url }}</span>
                             </a>
