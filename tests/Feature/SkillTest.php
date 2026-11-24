@@ -34,3 +34,15 @@ it('updates existing skills instead of duplicating them when seeded twice', func
         ->and(Skill::query()->where('name', 'Microcontrollers')->count())->toBe(1)
         ->and(Skill::query()->where('name', 'Python')->value('proficiency'))->toBe(85);
 });
+
+it('renames the legacy Raspberry skill and removes the duplicate the seeder created', function () {
+    $legacySkill = Skill::factory()->create(['name' => 'Raspberry', 'icon' => 'raspberry']);
+    Skill::factory()->create(['name' => 'Microcontrollers', 'icon' => 'raspberry']);
+
+    $migration = require database_path('migrations/2026_11_24_225755_rename_raspberry_skill_to_microcontrollers_on_skills_table.php');
+    $migration->up();
+
+    expect(Skill::query()->count())->toBe(1)
+        ->and(Skill::query()->first()->id)->toBe($legacySkill->id)
+        ->and(Skill::query()->value('name'))->toBe('Microcontrollers');
+});
