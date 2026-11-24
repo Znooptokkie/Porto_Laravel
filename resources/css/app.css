@@ -1398,6 +1398,16 @@ input,
 }
 
 /* Externe links in verhalen en stages: het linkicoon als inline mask, in de kleur van de link en gelijk aan de tekstgrootte. */
+/* Link en icoon vormen één geheel: de link is een inline-block, zodat hij als blok naar de volgende regel verspringt in plaats van het icoon alleen. */
+.internship-card__text a[class="timeline-link"],
+.story-card__text a[class="timeline-link"],
+.education-card__story a[class="timeline-link"],
+.about-card p a[class="about-link"] {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
 /* .story-card__text a[target='_blank']::after, */
 .internship-card__text a[class="timeline-link"]::after,
 .story-card__text a[class="timeline-link"]::after,
@@ -2134,7 +2144,7 @@ input,
     }
 
     .hero__stats {
-        padding: 20px 0 24px;
+        padding: 64px 0 24px;
         justify-content: space-around;
         gap: 6px;
         align-items: center;

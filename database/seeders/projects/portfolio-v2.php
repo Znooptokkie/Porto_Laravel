@@ -211,6 +211,53 @@ return [
             'nl' => 'De projectenpagina met een overzicht van alle projecten en de filters om ze te sorteren.',
             'en' => 'The projects page with an overview of all projects and the filters to sort them.',
         ],
+        'porto_2_education_left.webp' => [
+            'nl' => 'De pagina De Opleidingen, met mijn MBO 4-opleiding Software Development en de bijbehorende gegevens. Dit is de linkerkant van de afbeelding.',
+            'en' => 'The Education page, showing my MBO 4 Software Development programme and its details. This is the left side of the image.',
+        ],
+        'porto_2_education_right.webp' => [
+            'nl' => 'De pagina De Opleidingen, met mijn MBO 4-opleiding Software Development en de bijbehorende gegevens. Dit is de rechterkant van de afbeelding.',
+            'en' => 'The Education page, showing my MBO 4 Software Development programme and its details. This is the right side of the image.',
+        ],
+        'porto_2_homepage_head_left.webp' => [
+            'nl' => 'De introductiesectie van de homepage, met mijn naam, functie en een korte introductietekst. Dit is de linkerkant van de afbeelding.',
+            'en' => 'The introduction section of the homepage, with my name, role and a short introduction. This is the left side of the image.',
+        ],
+        'porto_2_homepage_head_right.webp' => [
+            'nl' => 'De introductiesectie van de homepage, met mijn naam, functie en een korte introductietekst. Dit is de rechterkant van de afbeelding.',
+            'en' => 'The introduction section of the homepage, with my name, role and a short introduction. This is the right side of the image.',
+        ],
+        'porto_2_homepage_light_mode_left.webp' => [
+            'nl' => 'De homepage in de lichte modus, met oranje accenten op een lichte achtergrond. Dit is de linkerkant van de afbeelding.',
+            'en' => 'The homepage in light mode, with orange accents on a light background. This is the left side of the image.',
+        ],
+        'porto_2_homepage_light_mode_right.webp' => [
+            'nl' => 'De homepage in de lichte modus, met oranje accenten op een lichte achtergrond. Dit is de rechterkant van de afbeelding.',
+            'en' => 'The homepage in light mode, with orange accents on a light background. This is the right side of the image.',
+        ],
+        'porto_2_homepage_skills_left.webp' => [
+            'nl' => 'De sectie Mijn Programmeer Kennis, met mijn programmeertalen, frameworks en AI-tools. Dit is de linkerkant van de afbeelding.',
+            'en' => 'The Programming Skills section, showing my programming languages, frameworks and AI tools. This is the left side of the image.',
+        ],
+        'porto_2_homepage_skills_right.webp' => [
+            'nl' => 'De sectie Mijn Programmeer Kennis, met mijn programmeertalen, frameworks en AI-tools. Dit is de rechterkant van de afbeelding.',
+            'en' => 'The Programming Skills section, showing my programming languages, frameworks and AI tools. This is the right side of the image.',
+        ],
+        'porto_2_projects_left.webp' => [
+            'nl' => 'De projectenpagina met een overzicht van alle projecten en de filters om ze te sorteren. Dit is de linkerkant van de afbeelding.',
+            'en' => 'The projects page with an overview of all projects and the filters to sort them. This is the left side of the image.',
+        ],
+        'porto_2_projects_right.webp' => [
+            'nl' => 'De projectenpagina met een overzicht van alle projecten en de filters om ze te sorteren. Dit is de rechterkant van de afbeelding.',
+            'en' => 'The projects page with an overview of all projects and the filters to sort them. This is the right side of the image.',
+        ],
+    ],
+    'imageMobileFiles' => [
+        'porto_2_education.webp' => ['porto_2_education_left.webp', 'porto_2_education_right.webp'],
+        'porto_2_homepage_head.webp' => ['porto_2_homepage_head_left.webp', 'porto_2_homepage_head_right.webp'],
+        'porto_2_homepage_light_mode.webp' => ['porto_2_homepage_light_mode_left.webp', 'porto_2_homepage_light_mode_right.webp'],
+        'porto_2_homepage_skills.webp' => ['porto_2_homepage_skills_left.webp', 'porto_2_homepage_skills_right.webp'],
+        'porto_2_projects.webp' => ['porto_2_projects_left.webp', 'porto_2_projects_right.webp'],
     ],
     'firstPhoto' => 'porto_2_homepage_head.webp',
 ];
